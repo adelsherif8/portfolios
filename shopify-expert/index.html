@@ -341,7 +341,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
       <div class="social">
         <a href="https://github.com/adelsherif8" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
         <a href="mailto:adelsherif8@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://adelemad.netlify.app" target="_blank" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
+        <a href="https://portfolios-adelsherif8s-projects.vercel.app" target="_blank" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
         <a href="tel:+201009955923" title="Phone"><i class="fa-solid fa-phone"></i></a>
       </div>
     </div>
@@ -363,6 +363,23 @@ burger.addEventListener('click',()=>nav.classList.toggle('open'));
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+(function(){
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
+  if(!lb||!lbimg) return;
+  document.querySelectorAll('.shot').forEach(function(s){
+    s.style.cursor='zoom-in';
+    var ic=document.createElement('span');
+    ic.innerHTML='<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
+    ic.style.cssText='position:absolute;top:44px;left:12px;z-index:6;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.78rem;opacity:0;transition:.2s;pointer-events:none';
+    s.appendChild(ic);
+    s.addEventListener('mouseenter',function(){ic.style.opacity='1'});
+    s.addEventListener('mouseleave',function(){ic.style.opacity='0'});
+    s.addEventListener('click',function(e){ if(e.target.closest('a'))return; var img=s.querySelector('img'); if(img){ lbimg.src=img.src; lb.classList.add('open'); } });
+  });
+  var x=document.getElementById('lbx'); if(x) x.addEventListener('click',function(){lb.classList.remove('open')});
+  lb.addEventListener('click',function(e){ if(e.target===lb) lb.classList.remove('open'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('open'); });
+})();
 </script>
 </body>
 </html>

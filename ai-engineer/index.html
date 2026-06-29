@@ -379,12 +379,12 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
       </article>
 
       <article class="card reveal">
-        <div class="shot"><span class="badge repo"><i class="fa-solid fa-cube"></i> SaaS</span><img src="assets/projects/stem-saas.jpg" alt="Stem SaaS backend"/></div>
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/stem-saas.jpg" alt="Stem SaaS backend"/></div>
         <div class="card-body">
           <h3>Stem Separation SaaS</h3>
           <p class="desc">A production-style backend: upload a song → async <strong>AI stem separation</strong> job. JWT auth, quota checks, a job queue with progress, and a Pro tier — built on FastAPI + Celery + Redis with documented APIs.</p>
           <div class="tech"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>JWT</span><span>Async jobs</span></div>
-          <div class="links"><a class="live" href="https://github.com/adelsherif8" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Overview</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+          <div class="links"><a class="live" href="https://stem-test.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
         </div>
       </article>
 
@@ -515,7 +515,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
       <div class="social">
         <a href="https://github.com/adelsherif8" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
         <a href="mailto:adelsherif8@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://adelemad.netlify.app" target="_blank" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
+        <a href="https://portfolios-adelsherif8s-projects.vercel.app" target="_blank" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
         <a href="tel:+201009955923" title="Phone"><i class="fa-solid fa-phone"></i></a>
       </div>
     </div>
@@ -546,6 +546,25 @@ const close=()=>lb.classList.remove('open');
 document.getElementById('lbx').addEventListener('click',close);
 lb.addEventListener('click',e=>{if(e.target===lb)close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
+  if(!lb||!lbimg) return;
+  document.querySelectorAll('.shot').forEach(function(s){
+    s.style.cursor='zoom-in';
+    var ic=document.createElement('span');
+    ic.innerHTML='<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
+    ic.style.cssText='position:absolute;top:44px;left:12px;z-index:6;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.78rem;opacity:0;transition:.2s;pointer-events:none';
+    s.appendChild(ic);
+    s.addEventListener('mouseenter',function(){ic.style.opacity='1'});
+    s.addEventListener('mouseleave',function(){ic.style.opacity='0'});
+    s.addEventListener('click',function(e){ if(e.target.closest('a'))return; var img=s.querySelector('img'); if(img){ lbimg.src=img.src; lb.classList.add('open'); } });
+  });
+  var x=document.getElementById('lbx'); if(x) x.addEventListener('click',function(){lb.classList.remove('open')});
+  lb.addEventListener('click',function(e){ if(e.target===lb) lb.classList.remove('open'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('open'); });
+})();
 </script>
 </body>
 </html>
