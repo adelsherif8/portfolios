@@ -121,9 +121,12 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
 @media(max-width:880px){
   .nav-links{position:fixed;inset:66px 0 auto 0;flex-direction:column;background:rgba(7,18,13,.97);padding:24px;gap:18px;border-bottom:1px solid var(--line);display:none}
   .nav-links.open{display:flex}.burger{display:block}
-  .about-grid,.skills,.proj-grid{grid-template-columns:1fr}
+  .about-grid,.skills,.proj-grid,.two{grid-template-columns:1fr}
   .stats,.process{grid-template-columns:repeat(2,1fr)}
 }
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.manifesto{border:1px solid var(--line);border-radius:22px;padding:40px;background:radial-gradient(circle at 0% 0%,rgba(16,185,129,.12),transparent 60%);font-family:'Space Grotesk';font-size:clamp(1.25rem,2.6vw,1.75rem);line-height:1.4;font-weight:500}
+.manifesto b{color:var(--accent-2);font-weight:700}
 </style>
 </head>
 <body>
@@ -134,7 +137,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
     <a href="#top" class="brand"><span class="mark"><i class="fa-brands fa-shopify"></i></span> Adel Atya</a>
     <nav class="nav-links" id="navlinks">
       <a href="#about">About</a>
-      <a href="#services">Services</a>
+      <a href="#difference">Why "Expert"</a>
       <a href="#work">Live Stores</a>
       <a href="#process">Process</a>
       <a href="#contact" class="nav-cta">Start a project</a>
@@ -186,6 +189,57 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
           <span class="chip"><i class="fa-solid fa-language"></i> Arabic (RTL) + English</span>
           <span class="chip"><i class="fa-solid fa-gauge-high"></i> Performance-minded</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="difference">
+    <div class="sec-head reveal"><div class="k">Why "Expert"</div><h2>Most build a homepage. I write the code.</h2><p>There's a big misunderstanding about the words "Shopify expert." Here's the difference that makes brands pay more.</p></div>
+
+    <div class="manifesto reveal" style="margin-bottom:30px">
+      Most people think a "Shopify expert" just drags a <b>homepage and a product page</b> into a template — and stops there. I'm the other kind: I work in <b>real code</b>, so if it can be built, I build it — and replicate any design <b>exactly</b> as asked.
+    </div>
+
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="lead">I lean far more into <strong>coding</strong> than drag-and-drop.</p>
+        <p>Hand me any design — any shape, any layout, any interaction — and I'll <strong>replicate and implement it pixel-exact</strong>, precisely how it's asked. Beyond looks, I build the things most "experts" say can't be done on Shopify: <strong>custom payment methods, automations, integrations, and bespoke functionality</strong> — anything that comes down to writing code.</p>
+        <p>That's exactly why I work with e-commerce brands well <strong>beyond Egypt</strong> — including an international <strong>specialty-coffee brand</strong> — and why those clients pay me above a typical Shopify developer's rate. The custom engineering is the part that earns the word <strong>"expert."</strong></p>
+      </div>
+      <div class="reveal">
+        <div class="skcard">
+          <div class="ic"><i class="fa-solid fa-earth-americas"></i></div>
+          <h3>Trusted internationally</h3>
+          <ul>
+            <li><i class="fa-solid fa-circle"></i> E-commerce brands across multiple countries</li>
+            <li><i class="fa-solid fa-circle"></i> Incl. an international coffee brand</li>
+            <li><i class="fa-solid fa-circle"></i> Paid above typical Shopify-dev rates</li>
+            <li><i class="fa-solid fa-circle"></i> Hired for the work others call "impossible"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top:26px">
+      <div class="skcard reveal">
+        <div class="ic" style="background:rgba(244,114,182,.14);color:#f9a8d4"><i class="fa-solid fa-arrow-pointer"></i></div>
+        <h3>The "homepage &amp; product page" guy</h3>
+        <ul>
+          <li><i class="fa-solid fa-xmark" style="color:#fb7185;margin-top:6px"></i> Drags a homepage + product page into a template</li>
+          <li><i class="fa-solid fa-xmark" style="color:#fb7185;margin-top:6px"></i> Boxed in by what the theme / builder allows</li>
+          <li><i class="fa-solid fa-xmark" style="color:#fb7185;margin-top:6px"></i> "That can't be done on Shopify"</li>
+          <li><i class="fa-solid fa-xmark" style="color:#fb7185;margin-top:6px"></i> Design lands "close enough"</li>
+        </ul>
+      </div>
+      <div class="skcard reveal" style="border-color:rgba(16,185,129,.45)">
+        <div class="ic"><i class="fa-solid fa-code"></i></div>
+        <h3>How I actually work</h3>
+        <ul>
+          <li><i class="fa-solid fa-check" style="color:var(--accent-2);margin-top:6px"></i> Custom Liquid, JavaScript &amp; CSS — real code</li>
+          <li><i class="fa-solid fa-check" style="color:var(--accent-2);margin-top:6px"></i> Replicates ANY design pixel-exact, as asked</li>
+          <li><i class="fa-solid fa-check" style="color:var(--accent-2);margin-top:6px"></i> Custom payment methods, automations &amp; integrations</li>
+          <li><i class="fa-solid fa-check" style="color:var(--accent-2);margin-top:6px"></i> If it can be coded, I build it</li>
+        </ul>
       </div>
     </div>
   </section>
