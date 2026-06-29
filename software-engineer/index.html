@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adel Atya — Software Engineer</title>
+<meta name="description" content="Adel Atya — Full-Stack Software Engineer. React, Next.js, Node, FastAPI. Meta Front-End Engineer certified. Live, deployed projects." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+:root{
+  --bg:#070b14; --card-solid:#0f1626;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.15);
+  --txt:#e8eefb; --muted:#9aa7c2; --muted-2:#6b7896;
+  --accent:#3b82f6; --accent-2:#38bdf8; --accent-3:#818cf8;
+  --glow:rgba(56,189,248,.4);
+  --radius:18px; --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.font-d{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.grad-txt{background:linear-gradient(110deg,var(--accent) 0%,var(--accent-2) 55%,var(--accent-3) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.bgfx{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(60% 50% at 12% 0%,rgba(59,130,246,.18),transparent 60%),
+  radial-gradient(50% 50% at 92% 8%,rgba(56,189,248,.14),transparent 60%),
+  radial-gradient(60% 60% at 85% 100%,rgba(129,140,248,.10),transparent 60%),var(--bg)}
+.grid-overlay{position:fixed;inset:0;z-index:-1;opacity:.4;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:60px 60px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,11,20,.7);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.05rem}
+.brand .mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101f;font-weight:700;box-shadow:0 0 22px var(--glow)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;transition:.2s}
+.nav-links a:hover{color:var(--txt)}
+.nav-cta{padding:9px 18px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101f!important;font-weight:600;font-size:.9rem}
+.burger{display:none;font-size:1.4rem;color:var(--txt);background:none;border:0;cursor:pointer}
+.switch{display:inline-flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);margin-bottom:30px}
+.switch a{padding:7px 16px;border-radius:999px;font-size:.84rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:7px}
+.switch a.on{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101f}
+.hero{padding:64px 0 40px;text-align:center}
+.tag{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border:1px solid var(--line-2);border-radius:999px;font-size:.82rem;color:var(--muted);background:rgba(255,255,255,.03)}
+.tag .dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399}
+.hero h1{font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.04;margin:26px 0 18px;font-weight:700}
+.hero .sub{font-size:clamp(1.05rem,2.2vw,1.32rem);color:var(--muted);max-width:680px;margin:0 auto 14px}
+.hero .role{font-family:'Space Grotesk';font-size:clamp(1rem,2vw,1.15rem);color:var(--accent-2);font-weight:600;letter-spacing:.04em;margin-bottom:6px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font-weight:600;font-size:.96rem;transition:.22s;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101f;box-shadow:0 10px 34px -8px var(--glow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px -8px var(--glow)}
+.btn-ghost{border-color:var(--line-2);color:var(--txt);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-3px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:56px 0 10px}
+.stat{text-align:center;padding:24px 14px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02)}
+.stat .n{font-family:'Space Grotesk';font-size:2rem;font-weight:700}
+.stat .l{color:var(--muted-2);font-size:.82rem;margin-top:4px}
+section{padding:74px 0}
+.sec-head{margin-bottom:46px}
+.sec-head .k{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-top:12px;font-weight:700}
+.sec-head p{color:var(--muted);max-width:620px;margin-top:14px}
+.about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:start}
+.about-grid p{color:var(--muted);margin-bottom:16px}
+.about-grid .lead{font-size:1.12rem;color:var(--txt)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+.chip{padding:8px 14px;border:1px solid var(--line);border-radius:10px;font-size:.84rem;color:var(--muted);background:rgba(255,255,255,.02);display:flex;align-items:center;gap:8px}
+.chip i{color:var(--accent-2)}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skcard{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.005))}
+.skcard .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;background:rgba(59,130,246,.16);color:var(--accent-2);margin-bottom:16px}
+.skcard h3{font-size:1.08rem;margin-bottom:12px}
+.skcard ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.skcard li{color:var(--muted);font-size:.9rem;display:flex;gap:9px;align-items:flex-start}
+.skcard li i{color:var(--accent-2);font-size:.7rem;margin-top:7px}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card-solid);overflow:hidden;display:flex;flex-direction:column;transition:.28s}
+.card:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 26px 50px -22px rgba(0,0,0,.8)}
+.shot{position:relative;height:230px;overflow:hidden;background:#0a1120;border-bottom:1px solid var(--line)}
+.shot::before{content:"";position:absolute;top:0;left:0;right:0;height:34px;background:#16203400;z-index:2}
+.shot .bar{position:absolute;top:0;left:0;right:0;height:34px;background:#16213a;z-index:2;border-bottom:1px solid var(--line)}
+.shot .bar::after{content:"";position:absolute;top:12px;left:14px;width:9px;height:9px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 #febc2e,32px 0 #28c840}
+.shot img{position:absolute;top:34px;left:0;width:100%;height:auto;object-fit:cover;object-position:top;transition:transform 6s ease}
+.card:hover .shot img{transform:translateY(calc(-100% + 196px))}
+.badge{position:absolute;top:44px;right:12px;z-index:4;padding:5px 11px;border-radius:8px;font-size:.72rem;font-weight:700;background:rgba(7,11,20,.82);border:1px solid var(--line-2);backdrop-filter:blur(6px);display:flex;align-items:center;gap:6px}
+.badge.live{color:#34d399}.badge.live .dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.badge.repo{color:var(--muted)}
+.card-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.card-body h3{font-size:1.22rem;margin-bottom:6px}
+.card-body .desc{color:var(--muted);font-size:.92rem;flex:1}
+.tech{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.tech span{font-size:.74rem;padding:4px 10px;border-radius:7px;background:rgba(59,130,246,.12);color:#93c5fd;border:1px solid rgba(59,130,246,.22)}
+.links{display:flex;gap:12px;margin-top:auto}
+.links a{flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.86rem;font-weight:600;transition:.2s}
+.links a.live{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06101f}
+.links a.live:hover{filter:brightness(1.08)}
+.links a.code{border:1px solid var(--line-2);color:var(--txt)}
+.links a.code:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.mcard{padding:22px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02);transition:.2s}
+.mcard:hover{border-color:var(--accent-2);transform:translateY(-4px)}
+.mcard .ic{font-size:1.3rem;color:var(--accent-2);margin-bottom:10px}
+.mcard h4{font-size:1rem;margin-bottom:5px;font-family:'Space Grotesk'}
+.mcard p{color:var(--muted);font-size:.85rem}
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cert-grid.feat{grid-template-columns:1fr;margin-bottom:18px}
+.cert{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card-solid);transition:.25s;cursor:zoom-in}
+.cert:hover{transform:translateY(-5px);border-color:var(--accent-2)}
+.cert img{width:100%;height:auto;border-bottom:1px solid var(--line)}
+.cert .cb{padding:14px 16px}
+.cert .cb h3{font-size:.98rem;margin-bottom:3px}
+.cert .cb p{color:var(--muted);font-size:.8rem}
+.cert .cb .iss{color:var(--accent-2);font-size:.78rem;font-weight:600;margin-top:7px;display:flex;align-items:center;gap:7px}
+.feat .cb{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:20px 24px}
+.feat .cb h3{font-size:1.3rem}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(4,7,14,.93);display:none;align-items:center;justify-content:center;padding:30px;backdrop-filter:blur(6px)}
+.lb.open{display:flex}
+.lb img{max-width:96%;max-height:92vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.lb .x{position:absolute;top:22px;right:28px;font-size:1.8rem;color:#fff;cursor:pointer;opacity:.8}
+.contact{text-align:center;border:1px solid var(--line);border-radius:26px;padding:60px 30px;background:radial-gradient(circle at 50% 0%,rgba(59,130,246,.14),transparent 70%)}
+.contact h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:14px}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+.social{display:flex;gap:14px;justify-content:center;margin-top:30px}
+.social a{width:48px;height:48px;border-radius:12px;border:1px solid var(--line-2);display:grid;place-items:center;font-size:1.15rem;color:var(--muted);transition:.22s}
+.social a:hover{color:var(--accent-2);border-color:var(--accent-2);transform:translateY(-4px)}
+footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted-2);font-size:.86rem}
+.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:880px){
+  .nav-links{position:fixed;inset:66px 0 auto 0;flex-direction:column;background:rgba(7,11,20,.97);padding:24px;gap:18px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}.burger{display:block}
+  .about-grid,.skills,.proj-grid{grid-template-columns:1fr}
+  .stats,.cert-grid,.more{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="bgfx"></div><div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="mark">A</span> Adel Atya</a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Projects</a>
+      <a href="#certs">Certificates</a>
+      <a href="#contact" class="nav-cta">Hire me</a>
+    </nav>
+    <button class="burger" id="burger"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<a id="top"></a>
+<div class="wrap">
+  <section class="hero">
+    <div class="switch reveal">
+      <a href="../ai-engineer/"><i class="fa-solid fa-robot"></i> AI Engineer</a>
+      <a href="#" class="on"><i class="fa-solid fa-code"></i> Software</a>
+      <a href="../shopify-expert/"><i class="fa-brands fa-shopify"></i> Shopify</a>
+    </div>
+    <div class="reveal"><span class="tag"><span class="dot"></span> Open to full-stack roles &amp; freelance</span></div>
+    <h1 class="reveal">Full-stack engineer<br/>shipping <span class="grad-txt">real products</span>.</h1>
+    <div class="role reveal">Software Engineer · React · Next.js · Node · FastAPI</div>
+    <p class="sub reveal">I build and deploy complete web applications — clean React/Next.js frontends, typed APIs, real databases and auth. <strong>Meta Front-End Engineer</strong> certified, with live projects you can open right now.</p>
+    <div class="cta-row reveal">
+      <a href="#work" class="btn btn-primary"><i class="fa-solid fa-window-maximize"></i> View projects</a>
+      <a href="https://github.com/adelsherif8" target="_blank" class="btn btn-ghost"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+  </section>
+
+  <div class="stats reveal">
+    <div class="stat"><div class="n grad-txt">10+</div><div class="l">Apps built &amp; deployed</div></div>
+    <div class="stat"><div class="n grad-txt">9</div><div class="l">Meta certificates earned</div></div>
+    <div class="stat"><div class="n grad-txt">Full</div><div class="l">Stack · front &amp; back</div></div>
+    <div class="stat"><div class="n grad-txt">36</div><div class="l">API endpoints in one platform</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="about">
+    <div class="sec-head reveal"><div class="k">About</div><h2>I turn ideas into shipped software.</h2></div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="lead">I'm Adel — a CS graduate and full-stack software engineer in Cairo who builds end-to-end: UI, API, database, deploy.</p>
+        <p>My comfort zone is the modern JS/TS stack — React &amp; Next.js on the front, Node/Express and Python/FastAPI on the back, with SQL/Postgres, Supabase, Redis, and queues behind them. I've shipped financial dashboards, a clinic-management SaaS, a multi-role hiring platform, and an async job-processing backend with auth and quotas.</p>
+        <p>I completed the <strong>Meta Front-End Engineer</strong> Professional Certificate (9 courses) and an Software Engineering internship at Maxim Investment Group working in Python, Java, and SQL.</p>
+      </div>
+      <div class="reveal">
+        <div class="chips">
+          <span class="chip"><i class="fa-solid fa-location-dot"></i> Cairo, Egypt</span>
+          <span class="chip"><i class="fa-solid fa-graduation-cap"></i> CS Graduate</span>
+          <span class="chip"><i class="fa-brands fa-meta"></i> Meta Front-End Certified</span>
+          <span class="chip"><i class="fa-solid fa-building"></i> Intern @ Maxim Investment Group</span>
+          <span class="chip"><i class="fa-solid fa-rocket"></i> Ships to production</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head reveal"><div class="k">Tech Stack</div><h2>What I build with.</h2></div>
+    <div class="skills">
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-brands fa-react"></i></div>
+        <h3>Frontend</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> React · Next.js · TypeScript</li>
+          <li><i class="fa-solid fa-circle"></i> Vite · modern tooling</li>
+          <li><i class="fa-solid fa-circle"></i> Responsive HTML &amp; CSS</li>
+          <li><i class="fa-solid fa-circle"></i> Accessible, component-driven UI</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-server"></i></div>
+        <h3>Backend &amp; APIs</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> Node.js · Express</li>
+          <li><i class="fa-solid fa-circle"></i> Python · FastAPI</li>
+          <li><i class="fa-solid fa-circle"></i> REST APIs · serverless functions</li>
+          <li><i class="fa-solid fa-circle"></i> JWT auth · rate limiting / quotas</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-database"></i></div>
+        <h3>Data &amp; Infra</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> SQL · Postgres · Supabase</li>
+          <li><i class="fa-solid fa-circle"></i> SQLAlchemy / Alembic migrations</li>
+          <li><i class="fa-solid fa-circle"></i> Redis · Celery job queues</li>
+          <li><i class="fa-solid fa-circle"></i> Vercel deployment</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-brands fa-git-alt"></i></div>
+        <h3>Engineering Practice</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> Git &amp; version control</li>
+          <li><i class="fa-solid fa-circle"></i> Code reviews &amp; documentation</li>
+          <li><i class="fa-solid fa-circle"></i> Clean architecture &amp; modular code</li>
+          <li><i class="fa-solid fa-circle"></i> API design &amp; integration</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-pen-ruler"></i></div>
+        <h3>UX / UI</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> UX/UI design principles</li>
+          <li><i class="fa-solid fa-circle"></i> Wireframing &amp; prototyping</li>
+          <li><i class="fa-solid fa-circle"></i> Heuristic evaluation</li>
+          <li><i class="fa-solid fa-circle"></i> Design-to-code fidelity</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Languages</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> JavaScript / TypeScript</li>
+          <li><i class="fa-solid fa-circle"></i> Python</li>
+          <li><i class="fa-solid fa-circle"></i> Java</li>
+          <li><i class="fa-solid fa-circle"></i> SQL</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head reveal"><div class="k">Selected Work</div><h2>Live, deployed applications.</h2><p>Full-stack builds running in production. Hover a card to scroll the page.</p></div>
+    <div class="proj-grid">
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/ai-squared.jpg" alt="AI Squared clinic SaaS"/></div>
+        <div class="card-body">
+          <h3>AI Squared — Hospitality AI Platform</h3>
+          <p class="desc">A polished SaaS product: three AI agents (EVA, DINE, SERENE) handle every guest conversation — from booking to checkout — across WhatsApp &amp; Instagram for hotels, restaurants, and spas, backed by a connected operations dashboard.</p>
+          <div class="tech"><span>React</span><span>Node / Express</span><span>Multi-agent</span><span>WhatsApp &amp; IG</span></div>
+          <div class="links"><a class="live" href="https://ai2-web.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/tickforge2.jpg" alt="TickForge 2"/></div>
+        <div class="card-body">
+          <h3>TickForge 2</h3>
+          <p class="desc">A markets / stock platform with a clean Next.js interface and serverless data APIs — symbol pages, charts, and live financial data wired through Vercel functions.</p>
+          <div class="tech"><span>Next.js</span><span>Serverless API</span><span>Charts</span><span>Vercel</span></div>
+          <div class="links"><a class="live" href="https://tickforge2.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/stocksawy.jpg" alt="Stocksawy"/></div>
+        <div class="card-body">
+          <h3>Stocksawy</h3>
+          <p class="desc">A full-stack market-intelligence dashboard for the Egyptian Exchange: a React (Vite) frontend with a Node serverless backend pulling live data and news, rendering a sortable board and sector heatmap.</p>
+          <div class="tech"><span>React (Vite)</span><span>Vercel serverless</span><span>Yahoo Finance</span><span>RSS</span></div>
+          <div class="links"><a class="live" href="https://stocksawy.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/stocksawy-egx" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge repo"><i class="fa-solid fa-cube"></i> SaaS</span><img src="assets/projects/stem-saas.jpg" alt="Stem SaaS"/></div>
+        <div class="card-body">
+          <h3>Stem Separation SaaS</h3>
+          <p class="desc">A production-style backend: upload a song → async processing job. JWT auth, quota enforcement, a Redis + Celery job queue with live progress, a Pro tier, and documented REST APIs.</p>
+          <div class="tech"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>JWT</span><span>Async jobs</span></div>
+          <div class="links"><a class="live" href="https://github.com/adelsherif8" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Overview</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/cv-screener.jpg" alt="CV Screener platform"/></div>
+        <div class="card-body">
+          <h3>CV Screener Platform</h3>
+          <p class="desc">A full recruitment platform: an assisted job-posting builder plus candidate screening &amp; matching, with user accounts. Next.js frontend over a FastAPI backend exposing <strong>36 API endpoints</strong>.</p>
+          <div class="tech"><span>Next.js</span><span>FastAPI</span><span>SQLAlchemy / Alembic</span><span>Accounts</span></div>
+          <div class="links"><a class="live" href="https://cv-screener-langgraph.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/cv-screener-agents" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="more">
+      <div class="mcard reveal"><div class="ic"><i class="fa-solid fa-handshake-angle"></i></div><h4>Supplio — B2B Hiring</h4><p>Multi-role hiring &amp; B2B marketplace with three role portals (candidate, employer, admin) — Flutter + Supabase.</p></div>
+      <div class="mcard reveal"><div class="ic"><i class="fa-brands fa-instagram"></i></div><h4>Social App</h4><p>An Instagram-style social platform — feed, posts, connections &amp; notifications, built with Next.js + API routes.</p></div>
+      <div class="mcard reveal"><div class="ic"><i class="fa-solid fa-dumbbell"></i></div><h4>GymApp</h4><p>Full-stack gym/fitness app — React client with a Node server: members, plans, and tracking.</p></div>
+      <div class="mcard reveal"><div class="ic"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h4>AI Visual Page Builder</h4><p>Drag-and-drop builder (IBM Hackathon) that assembles sections and exports clean JSX — React 18 + TypeScript + dnd-kit.</p></div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="sec-head reveal"><div class="k">Credentials</div><h2>Meta Front-End Engineer — certified.</h2><p>A 9-course professional certificate. Click any to view full-size.</p></div>
+    <div class="cert-grid feat">
+      <div class="cert reveal" data-full="assets/certs/meta-frontend-engineer.png">
+        <img src="assets/certs/meta-frontend-engineer.png" alt="Meta Front-End Engineer Professional Certificate"/>
+        <div class="cb"><h3>Meta Front-End Developer — Professional Certificate</h3><div class="iss"><i class="fa-brands fa-meta"></i> Meta · Coursera</div></div>
+      </div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert reveal" data-full="assets/certs/advanced-react.png"><img src="assets/certs/advanced-react.png" alt="Advanced React"/><div class="cb"><h3>Advanced React</h3><div class="iss"><i class="fa-brands fa-meta"></i> Meta</div></div></div>
+      <div class="cert reveal" data-full="assets/certs/react-basics.png"><img src="assets/certs/react-basics.png" alt="React Basics"/><div class="cb"><h3>React Basics</h3><div class="iss"><i class="fa-brands fa-meta"></i> Meta</div></div></div>
+      <div class="cert reveal" data-full="assets/certs/javascript.png"><img src="assets/certs/javascript.png" alt="Programming with JavaScript"/><div class="cb"><h3>JavaScript</h3><div class="iss"><i class="fa-brands fa-meta"></i> Meta</div></div></div>
+      <div class="cert reveal" data-full="assets/certs/html-css.png"><img src="assets/certs/html-css.png" alt="HTML and CSS"/><div class="cb"><h3>HTML &amp; CSS</h3><div class="iss"><i class="fa-brands fa-meta"></i> Meta</div></div></div>
+      <div class="cert reveal" data-full="assets/certs/version-control.png"><img src="assets/certs/version-control.png" alt="Version Control"/><div class="cb"><h3>Version Control</h3><div class="iss"><i class="fa-brands fa-meta"></i> Meta</div></div></div>
+      <div class="cert reveal" data-full="assets/certs/ux-ui.png"><img src="assets/certs/ux-ui.png" alt="UX and UI Design"/><div class="cb"><h3>UX / UI Design</h3><div class="iss"><i class="fa-brands fa-meta"></i> Meta</div></div></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact reveal">
+      <h2>Let's build your <span class="grad-txt">next product</span>.</h2>
+      <p>Open to full-stack software roles and freelance projects. Email is the fastest way to reach me.</p>
+      <a href="mailto:adelsherif8@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> adelsherif8@gmail.com</a>
+      <div class="social">
+        <a href="https://github.com/adelsherif8" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:adelsherif8@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://adelemad.netlify.app" target="_blank" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
+        <a href="tel:+201009955923" title="Phone"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Adel Atya · Software Engineer · Cairo, Egypt &nbsp;·&nbsp;
+  <a href="../ai-engineer/" style="color:var(--accent-2)">AI profile</a> ·
+  <a href="../shopify-expert/" style="color:var(--accent-2)">Shopify profile</a></div>
+</footer>
+
+<div class="lb" id="lb"><span class="x" id="lbx"><i class="fa-solid fa-xmark"></i></span><img id="lbimg" src="" alt=""/></div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const burger=document.getElementById('burger'),nav=document.getElementById('navlinks');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+document.querySelectorAll('.cert').forEach(c=>c.addEventListener('click',()=>{lbimg.src=c.dataset.full;lb.classList.add('open')}));
+const close=()=>lb.classList.remove('open');
+document.getElementById('lbx').addEventListener('click',close);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+</script>
+</body>
+</html>

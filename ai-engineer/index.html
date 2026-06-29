@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adel Atya — AI &amp; LLM Engineer</title>
+<meta name="description" content="Adel Atya — AI & Automation Engineer building production LLM systems: agents, RAG, tool-calling, and observability. Live demos, deployed on Vercel." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+:root{
+  --bg:#080711; --bg-2:#0e0c1d; --card:#13112400; --card-solid:#15132a;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.14);
+  --txt:#ece9ff; --muted:#a39fc4; --muted-2:#76729a;
+  --accent:#8b5cf6; --accent-2:#22d3ee; --accent-3:#f472b6;
+  --glow:rgba(139,92,246,.45);
+  --radius:18px; --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.font-d{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.accent{color:var(--accent-2)}
+.grad-txt{background:linear-gradient(110deg,var(--accent) 0%,var(--accent-2) 55%,var(--accent-3) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ambient background */
+.bgfx{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(60% 50% at 15% 0%,rgba(139,92,246,.20),transparent 60%),
+  radial-gradient(50% 50% at 90% 10%,rgba(34,211,238,.14),transparent 60%),
+  radial-gradient(60% 60% at 80% 100%,rgba(244,114,182,.10),transparent 60%),
+  var(--bg)}
+.grid-overlay{position:fixed;inset:0;z-index:-1;opacity:.4;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:60px 60px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(8,7,17,.7);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.05rem}
+.brand .mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14;font-weight:700;box-shadow:0 0 22px var(--glow)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;transition:.2s}
+.nav-links a:hover{color:var(--txt)}
+.nav-cta{padding:9px 18px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14!important;font-weight:600;font-size:.9rem}
+.burger{display:none;font-size:1.4rem;color:var(--txt);background:none;border:0;cursor:pointer}
+
+/* switcher pill */
+.switch{display:inline-flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);margin-bottom:30px}
+.switch a{padding:7px 16px;border-radius:999px;font-size:.84rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:7px}
+.switch a.on{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14}
+
+/* hero */
+.hero{padding:64px 0 40px;text-align:center}
+.tag{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border:1px solid var(--line-2);border-radius:999px;font-size:.82rem;color:var(--muted);background:rgba(255,255,255,.03)}
+.tag .dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399}
+.hero h1{font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.04;margin:26px 0 18px;font-weight:700}
+.hero .sub{font-size:clamp(1.05rem,2.2vw,1.32rem);color:var(--muted);max-width:680px;margin:0 auto 14px}
+.hero .role{font-family:'Space Grotesk';font-size:clamp(1rem,2vw,1.15rem);color:var(--accent-2);font-weight:600;letter-spacing:.04em;margin-bottom:6px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font-weight:600;font-size:.96rem;transition:.22s;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14;box-shadow:0 10px 34px -8px var(--glow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px -8px var(--glow)}
+.btn-ghost{border-color:var(--line-2);color:var(--txt);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-3px)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:56px 0 10px}
+.stat{text-align:center;padding:24px 14px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02)}
+.stat .n{font-family:'Space Grotesk';font-size:2rem;font-weight:700}
+.stat .l{color:var(--muted-2);font-size:.82rem;margin-top:4px}
+
+/* sections */
+section{padding:74px 0}
+.sec-head{margin-bottom:46px}
+.sec-head .k{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-top:12px;font-weight:700}
+.sec-head p{color:var(--muted);max-width:620px;margin-top:14px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:start}
+.about-grid p{color:var(--muted);margin-bottom:16px}
+.about-grid .lead{font-size:1.12rem;color:var(--txt)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+.chip{padding:8px 14px;border:1px solid var(--line);border-radius:10px;font-size:.84rem;color:var(--muted);background:rgba(255,255,255,.02);display:flex;align-items:center;gap:8px}
+.chip i{color:var(--accent-2)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skcard{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.005))}
+.skcard .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;background:rgba(139,92,246,.14);color:var(--accent);margin-bottom:16px}
+.skcard h3{font-size:1.08rem;margin-bottom:12px}
+.skcard ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.skcard li{color:var(--muted);font-size:.9rem;display:flex;gap:9px;align-items:flex-start}
+.skcard li i{color:var(--accent-2);font-size:.7rem;margin-top:7px}
+
+/* projects */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card-solid);overflow:hidden;display:flex;flex-direction:column;transition:.28s}
+.card:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 26px 50px -22px rgba(0,0,0,.8)}
+.shot{position:relative;height:230px;overflow:hidden;background:#0a0918;border-bottom:1px solid var(--line)}
+.shot::before{content:"";position:absolute;top:0;left:0;right:0;height:34px;background:#1a1830;z-index:2;border-bottom:1px solid var(--line)}
+.shot::after{content:"";position:absolute;top:12px;left:14px;width:9px;height:9px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 #febc2e,32px 0 #28c840;z-index:3}
+.shot img{position:absolute;top:34px;left:0;width:100%;height:auto;object-fit:cover;object-position:top;transition:transform 6s ease}
+.card:hover .shot img{transform:translateY(calc(-100% + 196px))}
+.badge{position:absolute;top:44px;right:12px;z-index:4;padding:5px 11px;border-radius:8px;font-size:.72rem;font-weight:700;background:rgba(8,7,17,.82);border:1px solid var(--line-2);backdrop-filter:blur(6px);display:flex;align-items:center;gap:6px}
+.badge.live{color:#34d399}.badge.live .dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.badge.repo{color:var(--muted)}
+.card-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.card-body h3{font-size:1.22rem;margin-bottom:6px}
+.card-body .desc{color:var(--muted);font-size:.92rem;flex:1}
+.tech{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.tech span{font-size:.74rem;padding:4px 10px;border-radius:7px;background:rgba(139,92,246,.10);color:#c4b5fd;border:1px solid rgba(139,92,246,.2)}
+.links{display:flex;gap:12px;margin-top:auto}
+.links a{flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.86rem;font-weight:600;transition:.2s}
+.links a.live{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14}
+.links a.live:hover{filter:brightness(1.08)}
+.links a.code{border:1px solid var(--line-2);color:var(--txt)}
+.links a.code:hover{border-color:var(--accent-2);color:var(--accent-2)}
+
+/* experience */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent-2),transparent)}
+.tl-item{position:relative;padding:0 0 34px 8px}
+.tl-item::before{content:"";position:absolute;left:-28px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(139,92,246,.18)}
+.tl-item .when{font-size:.8rem;color:var(--accent-2);font-weight:600}
+.tl-item h3{font-size:1.18rem;margin:6px 0 4px}
+.tl-item .org{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+.tl-item ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.tl-item li{color:var(--muted);font-size:.9rem;display:flex;gap:10px}
+.tl-item li i{color:var(--accent-2);font-size:.7rem;margin-top:7px}
+
+/* certs */
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.cert{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card-solid);transition:.25s;cursor:zoom-in}
+.cert:hover{transform:translateY(-5px);border-color:var(--accent-2)}
+.cert img{width:100%;height:auto;border-bottom:1px solid var(--line)}
+.cert .cb{padding:18px 20px}
+.cert .cb h3{font-size:1.05rem;margin-bottom:4px}
+.cert .cb p{color:var(--muted);font-size:.85rem}
+.cert .cb .iss{color:var(--accent-2);font-size:.8rem;font-weight:600;margin-top:8px;display:flex;align-items:center;gap:7px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(4,3,10,.92);display:none;align-items:center;justify-content:center;padding:30px;backdrop-filter:blur(6px)}
+.lb.open{display:flex}
+.lb img{max-width:96%;max-height:92vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.lb .x{position:absolute;top:22px;right:28px;font-size:1.8rem;color:#fff;cursor:pointer;opacity:.8}
+
+/* contact */
+.contact{text-align:center;border:1px solid var(--line);border-radius:26px;padding:60px 30px;background:radial-gradient(circle at 50% 0%,rgba(139,92,246,.14),transparent 70%)}
+.contact h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:14px}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+.social{display:flex;gap:14px;justify-content:center;margin-top:30px}
+.social a{width:48px;height:48px;border-radius:12px;border:1px solid var(--line-2);display:grid;place-items:center;font-size:1.15rem;color:var(--muted);transition:.22s}
+.social a:hover{color:var(--accent-2);border-color:var(--accent-2);transform:translateY(-4px)}
+
+footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted-2);font-size:.86rem}
+
+.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:880px){
+  .nav-links{position:fixed;inset:66px 0 auto 0;flex-direction:column;background:rgba(8,7,17,.97);padding:24px;gap:18px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .about-grid,.skills,.proj-grid,.cert-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="bgfx"></div><div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="mark">A</span> Adel Atya</a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certificates</a>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+    </nav>
+    <button class="burger" id="burger"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<a id="top"></a>
+<div class="wrap">
+  <section class="hero">
+    <div class="switch reveal">
+      <a href="#" class="on"><i class="fa-solid fa-robot"></i> AI Engineer</a>
+      <a href="../software-engineer/"><i class="fa-solid fa-code"></i> Software</a>
+      <a href="../shopify-expert/"><i class="fa-brands fa-shopify"></i> Shopify</a>
+    </div>
+    <div class="reveal"><span class="tag"><span class="dot"></span> Available for AI / LLM freelance &amp; roles</span></div>
+    <h1 class="reveal">Building <span class="grad-txt">production LLM systems</span><br/>that take real action.</h1>
+    <div class="role reveal">AI &amp; Automation Engineer · LLM Agents · RAG · Tool-Calling</div>
+    <p class="sub reveal">I design and ship agentic AI — tool-calling assistants, RAG pipelines with cited answers, and observable multi-agent workflows. Every project below is a <strong>live, clickable demo</strong> deployed on Vercel.</p>
+    <div class="cta-row reveal">
+      <a href="#work" class="btn btn-primary"><i class="fa-solid fa-play"></i> See live demos</a>
+      <a href="https://github.com/adelsherif8" target="_blank" class="btn btn-ghost"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+  </section>
+
+  <div class="stats reveal">
+    <div class="stat"><div class="n grad-txt">10+</div><div class="l">Live AI demos shipped</div></div>
+    <div class="stat"><div class="n grad-txt">2022</div><div class="l">Building AI since</div></div>
+    <div class="stat"><div class="n grad-txt">−95%</div><div class="l">Cost cut via trace-driven tuning</div></div>
+    <div class="stat"><div class="n grad-txt">Multi</div><div class="l">Agent · RAG · automation</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="about">
+    <div class="sec-head reveal"><div class="k">About</div><h2>From prompt to production.</h2></div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="lead">I'm Adel — an AI &amp; Automation Engineer based in Cairo, focused on LLM systems that do more than chat: they retrieve, decide, and call tools to get work done.</p>
+        <p>I've built and deployed WhatsApp AI concierge bots, OpenAI-powered RAG pipelines, multi-agent screening systems, and n8n + GoHighLevel automation across hospitality, healthcare, e-commerce, and SaaS clients. My work pairs solid agent architecture with <strong>observability</strong> — Langfuse tracing and eval harnesses — so I can measure a pipeline and tune it: parse-failures to zero, accuracy up, cost and latency down.</p>
+        <p>I care about demos a recruiter can click. Each project ships as a real app on Vercel with a public URL.</p>
+      </div>
+      <div class="reveal">
+        <div class="chips">
+          <span class="chip"><i class="fa-solid fa-location-dot"></i> Cairo, Egypt</span>
+          <span class="chip"><i class="fa-solid fa-language"></i> Arabic &amp; English</span>
+          <span class="chip"><i class="fa-solid fa-graduation-cap"></i> CS Graduate</span>
+          <span class="chip"><i class="fa-solid fa-bolt"></i> Freelance · 2022–Present</span>
+          <span class="chip"><i class="fa-solid fa-building"></i> Ex-Intern @ Maxim Investment Group</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head reveal"><div class="k">Capabilities</div><h2>The AI engineering stack.</h2></div>
+    <div class="skills">
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-diagram-project"></i></div>
+        <h3>Agents &amp; Tool-Calling</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> OpenAI function / tool calling</li>
+          <li><i class="fa-solid fa-circle"></i> LangGraph multi-agent pipelines</li>
+          <li><i class="fa-solid fa-circle"></i> smolagents · LlamaIndex</li>
+          <li><i class="fa-solid fa-circle"></i> Thought → action → observation loops</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h3>RAG &amp; Retrieval</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> Embeddings &amp; vector search</li>
+          <li><i class="fa-solid fa-circle"></i> pgvector / Supabase</li>
+          <li><i class="fa-solid fa-circle"></i> Inline citations &amp; grounding</li>
+          <li><i class="fa-solid fa-circle"></i> Structured output parsing</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Observability &amp; Eval</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> Langfuse tracing</li>
+          <li><i class="fa-solid fa-circle"></i> Labeled eval harnesses</li>
+          <li><i class="fa-solid fa-circle"></i> Failure-mode analysis</li>
+          <li><i class="fa-solid fa-circle"></i> Accuracy / latency / cost tuning</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-eye"></i></div>
+        <h3>Vision &amp; Documents</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> Vision-language models</li>
+          <li><i class="fa-solid fa-circle"></i> Invoice / receipt / ID extraction</li>
+          <li><i class="fa-solid fa-circle"></i> Bounding-box grounding + OCR</li>
+          <li><i class="fa-solid fa-circle"></i> Confidence scoring</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-gears"></i></div>
+        <h3>Automation</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> n8n end-to-end pipelines</li>
+          <li><i class="fa-solid fa-circle"></i> GoHighLevel CRM workflows</li>
+          <li><i class="fa-solid fa-circle"></i> WhatsApp Cloud API bots</li>
+          <li><i class="fa-solid fa-circle"></i> Paymob / payment flows</li>
+        </ul>
+      </div>
+      <div class="skcard reveal">
+        <div class="ic"><i class="fa-solid fa-server"></i></div>
+        <h3>Build &amp; Deploy</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i> Python · TypeScript / JS</li>
+          <li><i class="fa-solid fa-circle"></i> Next.js · FastAPI · Gradio</li>
+          <li><i class="fa-solid fa-circle"></i> Vercel serverless functions</li>
+          <li><i class="fa-solid fa-circle"></i> Supabase · Redis · Celery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head reveal"><div class="k">Live Projects</div><h2>Click any demo — they're all real.</h2><p>Deployed apps with public URLs. Hover a card to scroll through the full page.</p></div>
+    <div class="proj-grid">
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/booking-agent.jpg" alt="AI Hotel Concierge"/></div>
+        <div class="card-body">
+          <h3>AI Hotel Concierge</h3>
+          <p class="desc">An autonomous tool-calling agent that reads a guest message and <strong>takes action</strong> — answers from the knowledge base with citations, checks availability, reserves rooms, and saves contacts to a CRM, deciding which tools to call.</p>
+          <div class="tech"><span>Next.js</span><span>OpenAI function calling</span><span>Agent loop</span><span>Langfuse</span></div>
+          <div class="links"><a class="live" href="https://ai-booking-agent-web.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/ai-booking-agent-web" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/chat-with-docs.jpg" alt="Chat with Documents"/></div>
+        <div class="card-body">
+          <h3>Chat With Your Documents</h3>
+          <p class="desc">A real RAG app: upload PDFs → ask questions → get answers with <strong>inline page citations</strong>, grounded in your files. Per-page parsing, chunking, embedding, vector search, and token-streaming chat.</p>
+          <div class="tech"><span>Next.js</span><span>OpenAI embeddings</span><span>pgvector</span><span>Supabase</span><span>RAG</span></div>
+          <div class="links"><a class="live" href="https://chat-with-docs-henna.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/chat-with-docs" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/cv-screener.jpg" alt="Multi-agent CV Screener"/></div>
+        <div class="card-body">
+          <h3>Multi-Agent CV Screener</h3>
+          <p class="desc">A <strong>LangGraph</strong> pipeline (router → retriever → scorer) fully instrumented with <strong>Langfuse</strong>. The case study uses traces to fix real failure modes: parse-failures 100%→0%, accuracy 83%→89%, latency −37%, cost −95%.</p>
+          <div class="tech"><span>LangGraph</span><span>Langfuse</span><span>OpenAI</span><span>Eval harness</span><span>Python</span></div>
+          <div class="links"><a class="live" href="https://cv-screener-langgraph.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Project page</a><a class="code" href="https://github.com/adelsherif8/cv-screener-langgraph" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/visual-doc.jpg" alt="Visual Document AI"/></div>
+        <div class="card-body">
+          <h3>Visual Document AI</h3>
+          <p class="desc">Upload an invoice, receipt, or ID → structured JSON with <strong>bounding boxes</strong> drawn over every detected field, confidence scores, and a baseline (OCR+regex) vs vision-language-model comparison. Works on real photographed and handwritten docs.</p>
+          <div class="tech"><span>Next.js</span><span>Vision LLM</span><span>OCR grounding</span><span>Structured output</span></div>
+          <div class="links"><a class="live" href="https://visual-doc-ai-web.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/visual-doc-ai-web" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/nutrition.jpg" alt="NutriPlan AI"/></div>
+        <div class="card-body">
+          <h3>NutriPlan AI</h3>
+          <p class="desc">Upload an InBody scan (read automatically with <strong>vision</strong>) or enter your stats → science-based calorie &amp; macro targets (Mifflin-St Jeor) and a full AI-generated daily meal plan. Swap or remove any food and regenerate.</p>
+          <div class="tech"><span>Next.js</span><span>OpenAI + Vision</span><span>Targets engine</span><span>Vercel</span></div>
+          <div class="links"><a class="live" href="https://nutrition-ai-web.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/nutrition-ai-web" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/cv-analyzer.jpg" alt="CV Analyzer"/></div>
+        <div class="card-body">
+          <h3>CV Analyzer</h3>
+          <p class="desc">Upload résumés + a job profile → ranked shortlist with per-candidate fit scores, AI summaries, skill-gap analysis, and red flags — all <strong>RAG-grounded</strong> in the actual CV text.</p>
+          <div class="tech"><span>Next.js</span><span>OpenAI + embeddings</span><span>RAG</span><span>PDF parsing</span></div>
+          <div class="links"><a class="live" href="https://cv-analyzer-rust.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/cv-analyzer" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/stocksawy.jpg" alt="Stocksawy"/></div>
+        <div class="card-body">
+          <h3>Stocksawy — EGX Intelligence</h3>
+          <p class="desc">Pulls live Egyptian-market news → an LLM extracts sentiment, urgency, and per-stock <strong>BUY / SELL / WATCH signals</strong> with reasoning, plus a sector heatmap. React frontend + serverless backend.</p>
+          <div class="tech"><span>React (Vite)</span><span>OpenAI</span><span>Vercel serverless</span><span>Google News</span></div>
+          <div class="links"><a class="live" href="https://stocksawy.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/stocksawy-egx" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge repo"><i class="fa-solid fa-cube"></i> SaaS</span><img src="assets/projects/stem-saas.jpg" alt="Stem SaaS backend"/></div>
+        <div class="card-body">
+          <h3>Stem Separation SaaS</h3>
+          <p class="desc">A production-style backend: upload a song → async <strong>AI stem separation</strong> job. JWT auth, quota checks, a job queue with progress, and a Pro tier — built on FastAPI + Celery + Redis with documented APIs.</p>
+          <div class="tech"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>JWT</span><span>Async jobs</span></div>
+          <div class="links"><a class="live" href="https://github.com/adelsherif8" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Overview</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head reveal"><div class="k">Experience</div><h2>Shipping AI for real clients.</h2></div>
+    <div class="about-grid">
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="when">2022 – Present</div>
+          <h3>AI Systems Developer — Freelance</h3>
+          <div class="org">Self-employed · Egypt &amp; global clients</div>
+          <ul>
+            <li><i class="fa-solid fa-circle"></i> Designed &amp; deployed AI automation systems across hospitality, healthcare, and e-commerce.</li>
+            <li><i class="fa-solid fa-circle"></i> Built 4 WordPress plugins that auto-provision GoHighLevel forms, pages, CRM fields, and AI workflows on install.</li>
+            <li><i class="fa-solid fa-circle"></i> Created 20+ lead-capture forms per client with UTM tracking, linked workflows, and AI scoring via ChatGPT.</li>
+            <li><i class="fa-solid fa-circle"></i> Built a clinic review-gating system: sentiment-routed patients to Google Reviews or private feedback with automated SMS.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="when">Jul – Sep 2025</div>
+          <h3>IT Software Engineering Intern</h3>
+          <div class="org">Maxim Investment Group — Cairo</div>
+          <ul>
+            <li><i class="fa-solid fa-circle"></i> Contributed to the Mega Plug EV-charging platform in Python, Java, and SQL.</li>
+            <li><i class="fa-solid fa-circle"></i> Took part in code reviews and technical documentation.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="skcard">
+          <div class="ic"><i class="fa-brands fa-whatsapp"></i></div>
+          <h3>Eva Concierge — WhatsApp AI Hotel Bot</h3>
+          <p style="color:var(--muted);font-size:.9rem;margin:8px 0 14px">End-to-end AI concierge for a 3-property Egyptian boutique hotel collection — booking, pricing, check-in, events, and payments in Arabic &amp; English.</p>
+          <ul>
+            <li><i class="fa-solid fa-circle"></i> 6 sub-workflows behind a Master Router</li>
+            <li><i class="fa-solid fa-circle"></i> Room availability + EGP tax/service fee logic</li>
+            <li><i class="fa-solid fa-circle"></i> Deposits via Paymob, ID capture at check-in</li>
+            <li><i class="fa-solid fa-circle"></i> Full audit: resolved P0 credential &amp; error-branch bugs</li>
+          </ul>
+          <div class="tech" style="margin-top:16px"><span>n8n</span><span>Supabase</span><span>OpenAI</span><span>WhatsApp Cloud API</span><span>Paymob</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="sec-head reveal"><div class="k">Credentials</div><h2>Certified in agentic AI.</h2><p>Click a certificate to view it full-size.</p></div>
+    <div class="cert-grid">
+      <div class="cert reveal" data-full="assets/certs/huggingface-ai-agents.png">
+        <img src="assets/certs/huggingface-ai-agents.png" alt="Hugging Face AI Agents Certificate"/>
+        <div class="cb"><h3>AI Agents Course</h3><p>Building autonomous LLM agents: tool use, agentic RAG, multi-step workflows, evaluation &amp; observability across smolagents, LangGraph &amp; LlamaIndex.</p><div class="iss"><i class="fa-solid fa-certificate"></i> Hugging Face</div></div>
+      </div>
+      <div class="cert reveal" data-full="assets/certs/datacamp-openai.png">
+        <img src="assets/certs/datacamp-openai.png" alt="DataCamp OpenAI API Certificate"/>
+        <div class="cb"><h3>Working with the OpenAI API</h3><p>Chat completions, multi-turn conversations, output control (tokens/temperature), and the moderation API — hands-on in code.</p><div class="iss"><i class="fa-solid fa-certificate"></i> DataCamp</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact reveal">
+      <h2>Let's build something <span class="grad-txt">intelligent</span>.</h2>
+      <p>Open to AI / LLM engineering roles and freelance work. The fastest way to reach me is email.</p>
+      <a href="mailto:adelsherif8@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> adelsherif8@gmail.com</a>
+      <div class="social">
+        <a href="https://github.com/adelsherif8" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:adelsherif8@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://adelemad.netlify.app" target="_blank" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
+        <a href="tel:+201009955923" title="Phone"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Adel Atya · AI &amp; Automation Engineer · Cairo, Egypt &nbsp;·&nbsp;
+  <a href="../software-engineer/" style="color:var(--accent-2)">Software profile</a> ·
+  <a href="../shopify-expert/" style="color:var(--accent-2)">Shopify profile</a></div>
+</footer>
+
+<div class="lb" id="lb"><span class="x" id="lbx"><i class="fa-solid fa-xmark"></i></span><img id="lbimg" src="" alt=""/></div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+// mobile nav
+const burger=document.getElementById('burger'),nav=document.getElementById('navlinks');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// lightbox
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+document.querySelectorAll('.cert').forEach(c=>c.addEventListener('click',()=>{lbimg.src=c.dataset.full;lb.classList.add('open')}));
+const close=()=>lb.classList.remove('open');
+document.getElementById('lbx').addEventListener('click',close);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+</script>
+</body>
+</html>
