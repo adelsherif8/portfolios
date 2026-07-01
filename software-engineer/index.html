@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="Adel Atya — Software Engineer" />
+<meta property="og:description" content="Full-stack + backend engineer: React, Next.js, Node, FastAPI, and Celery/Redis/Postgres services. Live, deployed projects." />
+<meta property="og:image" content="https://adelatya.vercel.app/og.png" />
+<meta property="og:url" content="https://adelatya.vercel.app/software-engineer/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Adel Atya — Software Engineer" />
+<meta name="twitter:description" content="Full-stack + backend engineer: React, Next.js, Node, FastAPI, Celery/Redis/Postgres. Live projects." />
+<meta name="twitter:image" content="https://adelatya.vercel.app/og.png" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <meta name="theme-color" content="#3b82f6" />
 <title>Adel Atya — Software Engineer</title>
@@ -277,6 +287,46 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
     <div class="proj-grid">
 
       <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/stem-saas.jpg" alt="Stem SaaS"/></div>
+        <div class="card-body">
+          <h3>Stem Separation SaaS</h3>
+          <p class="desc">A production-style backend: upload a song → async processing job. JWT auth, quota enforcement, a Redis + Celery job queue with live progress, a Pro tier, and documented REST APIs.</p>
+          <div class="tech"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>JWT</span><span>Async jobs</span></div>
+          <div class="links"><a class="live" href="https://stem-test.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/stem-saas" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/leadforge.jpg" alt="LeadForge"/></div>
+        <div class="card-body">
+          <h3>LeadForge — Lead Enrichment Pipeline</h3>
+          <p class="desc">A <strong>FastAPI</strong> pipeline that cleans a messy Data Axle export, enriches each company from live web search (with source URLs), qualifies it (Pass / Needs Review / Reject + scores), and upserts to Airtable — <strong>deduped</strong>. Live file upload with <strong>server-sent-events streaming</strong> so results appear per company.</p>
+          <div class="tech"><span>Python</span><span>FastAPI</span><span>SSE streaming</span><span>Airtable API</span><span>Pydantic</span></div>
+          <div class="links"><a class="live" href="https://lead-enrichment-hazel.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/lead-enrichment" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/card-id-pricing.jpg" alt="Card ID &amp; Pricing"/></div>
+        <div class="card-body">
+          <h3>Card ID &amp; Pricing</h3>
+          <p class="desc">A <strong>FastAPI</strong> service that resolves a messy scan or title to a canonical record via <strong>entity resolution</strong> (blocking → weighted scoring → confidence threshold), then prices it from comps. Clean pluggable data interfaces for the catalog and pricing source.</p>
+          <div class="tech"><span>Python</span><span>FastAPI</span><span>Entity resolution</span><span>rapidfuzz</span><span>REST API</span></div>
+          <div class="links"><a class="live" href="https://card-id-pricing.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/card-id-pricing" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/rag-doc.jpg" alt="RAG Document Intelligence"/></div>
+        <div class="card-body">
+          <h3>RAG Document Intelligence</h3>
+          <p class="desc">A Python document-intelligence service: OCR-fallback ingestion, structure-preserving chunking with page metadata, <strong>hybrid retrieval (Chroma + BM25) with reranking</strong>, page-level citations, and an anti-hallucination guard that flags low confidence instead of guessing.</p>
+          <div class="tech"><span>Python</span><span>LangChain</span><span>Chroma</span><span>Hybrid + rerank</span><span>FastAPI</span></div>
+          <div class="links"><a class="live" href="https://rag-doc-intelligence-web.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/rag-doc-intelligence-web" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
         <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/ai-squared.jpg" alt="AI Squared clinic SaaS"/></div>
         <div class="card-body">
           <h3>AI Squared — Hospitality AI Platform</h3>
@@ -303,16 +353,6 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
           <p class="desc">A full-stack market-intelligence dashboard for the Egyptian Exchange: a React (Vite) frontend with a Node serverless backend pulling live data and news, rendering a sortable board and sector heatmap.</p>
           <div class="tech"><span>React (Vite)</span><span>Vercel serverless</span><span>Yahoo Finance</span><span>RSS</span></div>
           <div class="links"><a class="live" href="https://stocksawy.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/stocksawy-egx" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><div class="bar"></div><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/stem-saas.jpg" alt="Stem SaaS"/></div>
-        <div class="card-body">
-          <h3>Stem Separation SaaS</h3>
-          <p class="desc">A production-style backend: upload a song → async processing job. JWT auth, quota enforcement, a Redis + Celery job queue with live progress, a Pro tier, and documented REST APIs.</p>
-          <div class="tech"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>JWT</span><span>Async jobs</span></div>
-          <div class="links"><a class="live" href="https://stem-test.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
         </div>
       </article>
 

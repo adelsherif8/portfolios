@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="Adel Atya — AI &amp; LLM Engineer" />
+<meta property="og:description" content="Production LLM systems: RAG with cited answers, multi-agent orchestration (LangGraph), tool-calling agents, and document AI. Live demos." />
+<meta property="og:image" content="https://adelatya.vercel.app/og.png" />
+<meta property="og:url" content="https://adelatya.vercel.app/ai-engineer/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Adel Atya — AI &amp; LLM Engineer" />
+<meta name="twitter:description" content="Production LLM systems: RAG, multi-agent (LangGraph), tool-calling, document AI. Live demos." />
+<meta name="twitter:image" content="https://adelatya.vercel.app/og.png" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <meta name="theme-color" content="#8b5cf6" />
 <title>Adel Atya — AI &amp; LLM Engineer</title>
@@ -311,6 +321,46 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
     <div class="proj-grid">
 
       <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/cv-screener.jpg" alt="Multi-agent CV Screener"/></div>
+        <div class="card-body">
+          <h3>Multi-Agent CV Screener</h3>
+          <p class="desc">A <strong>LangGraph</strong> pipeline (router → retriever → scorer) fully instrumented with <strong>Langfuse</strong>. The case study uses traces to fix real failure modes: parse-failures 100%→0%, accuracy 83%→89%, latency −37%, cost −95%.</p>
+          <div class="tech"><span>LangGraph</span><span>Langfuse</span><span>OpenAI</span><span>Eval harness</span><span>Python</span></div>
+          <div class="links"><a class="live" href="https://cv-screener-langgraph.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Project page</a><a class="code" href="https://github.com/adelsherif8/cv-screener-langgraph" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/rag-doc.jpg" alt="RAG Document Intelligence"/></div>
+        <div class="card-body">
+          <h3>RAG Document Intelligence</h3>
+          <p class="desc">Source-cited Q&amp;A over contracts, reports, and PDFs: OCR-fallback ingestion, structure-preserving chunking with page metadata, <strong>hybrid retrieval (Chroma + BM25) with reranking</strong>, page-level citations, and an <strong>anti-hallucination guard</strong> that flags low confidence instead of guessing.</p>
+          <div class="tech"><span>Python</span><span>LangChain</span><span>Chroma</span><span>Hybrid + rerank</span><span>OpenAI</span></div>
+          <div class="links"><a class="live" href="https://rag-doc-intelligence-web.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/rag-doc-intelligence-web" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/leadforge.jpg" alt="LeadForge — Lead Enrichment &amp; Qualification"/></div>
+        <div class="card-body">
+          <h3>LeadForge — Lead Enrichment &amp; Qualification</h3>
+          <p class="desc">Turns a messy Data Axle / ReferenceUSA export into <strong>enriched, evidence-backed leads</strong>: cleans the file, web-enriches each company (owner, email, LinkedIn, PE/franchise red flags with source URLs), classifies <strong>Pass / Needs Review / Reject</strong> with fit + confidence scores, and upserts into Airtable, deduped. Live upload → streaming enrichment.</p>
+          <div class="tech"><span>Python</span><span>FastAPI</span><span>OpenAI web search</span><span>Airtable</span><span>Data enrichment</span></div>
+          <div class="links"><a class="live" href="https://lead-enrichment-hazel.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/lead-enrichment" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/card-id-pricing.jpg" alt="Card ID &amp; Pricing"/></div>
+        <div class="card-body">
+          <h3>Card ID &amp; Pricing</h3>
+          <p class="desc">Turns a messy trading-card scan or listing title into <strong>clean canonical card data</strong> (year, brand, set, parallel, grade) via <strong>entity resolution</strong> (blocking → scoring → threshold), then prices it from sold comps. Variant-aware: the same #280 prices as Base $41 / Silver $1,775 / Red $5,200.</p>
+          <div class="tech"><span>Python</span><span>FastAPI</span><span>OpenAI</span><span>Entity resolution</span><span>Fuzzy matching</span></div>
+          <div class="links"><a class="live" href="https://card-id-pricing.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/card-id-pricing" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
         <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/booking-agent.jpg" alt="AI Hotel Concierge"/></div>
         <div class="card-body">
           <h3>AI Hotel Concierge</h3>
@@ -327,16 +377,6 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
           <p class="desc">A real RAG app: upload PDFs → ask questions → get answers with <strong>inline page citations</strong>, grounded in your files. Per-page parsing, chunking, embedding, vector search, and token-streaming chat.</p>
           <div class="tech"><span>Next.js</span><span>OpenAI embeddings</span><span>pgvector</span><span>Supabase</span><span>RAG</span></div>
           <div class="links"><a class="live" href="https://chat-with-docs-henna.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/chat-with-docs" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/cv-screener.jpg" alt="Multi-agent CV Screener"/></div>
-        <div class="card-body">
-          <h3>Multi-Agent CV Screener</h3>
-          <p class="desc">A <strong>LangGraph</strong> pipeline (router → retriever → scorer) fully instrumented with <strong>Langfuse</strong>. The case study uses traces to fix real failure modes: parse-failures 100%→0%, accuracy 83%→89%, latency −37%, cost −95%.</p>
-          <div class="tech"><span>LangGraph</span><span>Langfuse</span><span>OpenAI</span><span>Eval harness</span><span>Python</span></div>
-          <div class="links"><a class="live" href="https://cv-screener-langgraph.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Project page</a><a class="code" href="https://github.com/adelsherif8/cv-screener-langgraph" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
         </div>
       </article>
 
@@ -386,7 +426,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:v
           <h3>Stem Separation SaaS</h3>
           <p class="desc">A production-style backend: upload a song → async <strong>AI stem separation</strong> job. JWT auth, quota checks, a job queue with progress, and a Pro tier — built on FastAPI + Celery + Redis with documented APIs.</p>
           <div class="tech"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>JWT</span><span>Async jobs</span></div>
-          <div class="links"><a class="live" href="https://stem-test.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+          <div class="links"><a class="live" href="https://stem-test.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/stem-saas" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
         </div>
       </article>
 
