@@ -3,575 +3,545 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Adel Atya" />
+<title>Ahlan — AI Voice Agents</title>
+<meta name="description" content="Ahlan builds production AI voice agents that answer every call, qualify, book, and take payments — then write it all into your CRM. Seven live demos you can open right now." />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Adel Atya" />
-<meta property="og:title" content="Adel Atya — AI &amp; LLM Engineer" />
-<meta property="og:description" content="Production LLM systems: RAG with cited answers, multi-agent orchestration (LangGraph), tool-calling agents, and document AI. Live demos." />
-<meta property="og:image" content="https://adelatya.vercel.app/og.png" />
-<meta property="og:url" content="https://adelatya.vercel.app/ai-engineer/" />
+<meta property="og:site_name" content="Ahlan — AI Voice Agents" />
+<meta property="og:title" content="Ahlan — AI Voice Agents" />
+<meta property="og:description" content="AI voice agents that answer every call 24/7 — qualify, book, take payments, and write every call into your CRM. Seven live demos." />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta property="og:url" content="https://adelatya.com/voice-agent-engineer/" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Adel Atya — AI &amp; LLM Engineer" />
-<meta name="twitter:description" content="Production LLM systems: RAG, multi-agent (LangGraph), tool-calling, document AI. Live demos." />
-<meta name="twitter:image" content="https://adelatya.vercel.app/og.png" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<meta name="theme-color" content="#8b5cf6" />
-<title>Ahlan — AI Voice Agents | Vapi &amp; Retell AI studio</title>
-<meta name="description" content="Adel Atya — AI & Automation Engineer building production LLM systems: agents, RAG, tool-calling, and observability. Live demos, deployed on Vercel." />
+<meta name="twitter:title" content="Ahlan — AI Voice Agents" />
+<meta name="twitter:description" content="AI voice agents that answer every call 24/7. Seven live demos you can open right now." />
+<meta name="twitter:image" content="https://adelatya.com/og.png" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<meta name="theme-color" content="#F7F4EE" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <style>
 :root{
-  --bg:#080711; --bg-2:#0e0c1d; --card:#13112400; --card-solid:#15132a;
-  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.14);
-  --txt:#ece9ff; --muted:#a39fc4; --muted-2:#76729a;
-  --accent:#8b5cf6; --accent-2:#22d3ee; --accent-3:#f472b6;
-  --glow:rgba(139,92,246,.45);
-  --radius:18px; --maxw:1180px;
+  --paper:#F7F4EE; --paper-2:#EFEAE0; --paper-3:#E6E0D3;
+  --ink:#16130F; --ink-2:#3A342C; --grey:#6B655B;
+  --red:#C63C22; --red-lift:#F2643F;
+  --rule:rgba(22,19,15,.16); --rule-2:rgba(22,19,15,.08);
+  --maxw:1240px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
-h1,h2,h3,.font-d{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+body{font-family:'Archivo',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-.accent{color:var(--accent-2)}
-.grad-txt{background:linear-gradient(110deg,var(--accent) 0%,var(--accent-2) 55%,var(--accent-3) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.015em}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.lbl{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
 
-/* ambient background */
-.bgfx{position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(60% 50% at 15% 0%,rgba(139,92,246,.20),transparent 60%),
-  radial-gradient(50% 50% at 90% 10%,rgba(34,211,238,.14),transparent 60%),
-  radial-gradient(60% 60% at 80% 100%,rgba(244,114,182,.10),transparent 60%),
-  var(--bg)}
-.grid-overlay{position:fixed;inset:0;z-index:-1;opacity:.4;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:60px 60px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
+/* ── nav ── */
+header.nav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--ink)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.5rem;letter-spacing:-.01em}
+.brand span{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);padding:4px 0;border-bottom:1px solid transparent;transition:border-color .15s}
+.nav-links a:hover{border-bottom-color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--paper)!important;padding:10px 16px!important;border:1px solid var(--ink);transition:background .15s,color .15s}
+.nav-cta:hover{background:var(--red);border-color:var(--red)}
+.burger{display:none;background:none;border:1px solid var(--ink);width:40px;height:40px;cursor:pointer;font-size:1rem;color:var(--ink)}
 
-/* nav */
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(8,7,17,.7);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
-.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.05rem}
-.brand .mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14;font-weight:700;box-shadow:0 0 22px var(--glow)}
-.nav-links{display:flex;gap:30px;align-items:center}
-.nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;transition:.2s}
-.nav-links a:hover{color:var(--txt)}
-.nav-cta{padding:9px 18px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14!important;font-weight:600;font-size:.9rem}
-.burger{display:none;font-size:1.4rem;color:var(--txt);background:none;border:0;cursor:pointer}
+/* ── hero ── */
+.hero{padding:76px 0 0;border-bottom:1px solid var(--ink)}
+.eyebrow{display:flex;align-items:flex-start;gap:12px;margin-bottom:34px}
+.eyebrow .dot{width:7px;height:7px;background:var(--red);border-radius:50%;flex:none;margin-top:.42em}
+.hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(3rem,8.4vw,7.4rem);line-height:.94;letter-spacing:-.03em;max-width:15ch}
+.hero h1 em{font-style:italic;color:var(--red)}
+.hero-grid{display:grid;grid-template-columns:1.55fr .95fr;gap:60px;align-items:end;padding-bottom:52px}
+.hero-side{border-left:1px solid var(--rule);padding-left:32px}
+.hero-side p{font-size:1.06rem;color:var(--ink-2);margin-bottom:26px}
+.hero-side p strong{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border:1px solid var(--ink);transition:background .15s,color .15s;cursor:pointer}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--red);border-color:var(--red)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
 
-/* switcher pill */
-.switch{display:inline-flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);margin-bottom:30px}
-.switch a{padding:7px 16px;border-radius:999px;font-size:.84rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:7px}
-.switch a.on{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14}
+/* stat rail */
+.rail{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.rail div{padding:26px 24px 28px;border-right:1px solid var(--rule)}
+.rail div:last-child{border-right:0}
+.rail b{display:block;font-family:'Instrument Serif',serif;font-size:2.9rem;line-height:1;letter-spacing:-.02em}
+.rail b i{font-style:italic;color:var(--red)}
+.rail span{display:block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);line-height:1.5}
 
-/* hero */
-.hero{padding:64px 0 40px;text-align:center}
-.tag{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border:1px solid var(--line-2);border-radius:999px;font-size:.82rem;color:var(--muted);background:rgba(255,255,255,.03)}
-.tag .dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399}
-.hero h1{font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.04;margin:26px 0 18px;font-weight:700}
-.hero .sub{font-size:clamp(1.05rem,2.2vw,1.32rem);color:var(--muted);max-width:680px;margin:0 auto 14px}
-.hero .role{font-family:'Space Grotesk';font-size:clamp(1rem,2vw,1.15rem);color:var(--accent-2);font-weight:600;letter-spacing:.04em;margin-bottom:6px}
-.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font-weight:600;font-size:.96rem;transition:.22s;border:1px solid transparent}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14;box-shadow:0 10px 34px -8px var(--glow)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px -8px var(--glow)}
-.btn-ghost{border-color:var(--line-2);color:var(--txt);background:rgba(255,255,255,.02)}
-.btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-3px)}
+/* ── sections ── */
+section{padding:88px 0;border-bottom:1px solid var(--ink)}
+.sec-head{display:grid;grid-template-columns:.9fr 1.4fr;gap:56px;margin-bottom:56px;align-items:start}
+.sec-head h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.04;letter-spacing:-.025em}
+.sec-head h2 em{font-style:italic;color:var(--red)}
+.sec-head .note{font-size:1rem;color:var(--ink-2);max-width:46ch;padding-top:8px}
+.num{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--red);display:block;margin-bottom:14px}
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:56px 0 10px}
-.stat{text-align:center;padding:24px 14px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02)}
-.stat .n{font-family:'Space Grotesk';font-size:2rem;font-weight:700}
-.stat .l{color:var(--muted-2);font-size:.82rem;margin-top:4px}
+/* capability grid */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
+.cap{padding:32px 28px 34px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:background .15s,color .15s}
+.cap:hover{background:var(--ink);color:var(--paper)}
+.cap:hover .cap-n,.cap:hover li i{color:var(--red-lift)}
+.cap:hover li{color:var(--paper-3)}
+.cap-n{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.18em;color:var(--red);margin-bottom:16px;display:block}
+.cap h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.55rem;line-height:1.15;letter-spacing:-.015em;margin-bottom:16px}
+.cap ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.cap li{font-size:.9rem;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.cap li i{color:var(--red);font-size:.34rem;margin-top:.62em;flex:none}
 
-/* sections */
-section{padding:74px 0}
-.sec-head{margin-bottom:46px}
-.sec-head .k{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
-.sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-top:12px;font-weight:700}
-.sec-head p{color:var(--muted);max-width:620px;margin-top:14px}
+/* ── demo index ── */
+.index{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:64px 236px 1fr 46px;gap:28px;align-items:center;padding:22px 16px 22px 8px;border-bottom:1px solid var(--rule);transition:background .15s,color .15s;position:relative}
+.row:hover{background:var(--ink);color:var(--paper)}
+.row:hover .r-n,.row:hover .r-go{color:var(--red-lift)}
+.row:hover .r-desc{color:var(--paper-3)}
+.row:hover .r-tags span{border-color:rgba(247,244,238,.32);color:var(--paper-3)}
+.row:hover .r-shot{border-color:rgba(247,244,238,.4)}
+.r-n{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--red);letter-spacing:-.02em;padding-left:8px}
+.r-shot{border:1px solid var(--rule);overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
+.r-shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.r-body h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.62rem;line-height:1.14;letter-spacing:-.015em;margin-bottom:9px}
+.r-client{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:9px;display:block}
+.r-desc{font-size:.92rem;color:var(--ink-2);max-width:72ch;line-height:1.55}
+.r-desc strong{color:inherit;font-weight:600}
+.r-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.r-tags span{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--rule);color:var(--grey);white-space:nowrap}
+.r-go{font-size:1.1rem;color:var(--ink);justify-self:center;transition:transform .18s}
+.row:hover .r-go{transform:translate(4px,-4px)}
 
-/* about */
-.about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:start}
-.about-grid p{color:var(--muted);margin-bottom:16px}
-.about-grid .lead{font-size:1.12rem;color:var(--txt)}
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
-.chip{padding:8px 14px;border:1px solid var(--line);border-radius:10px;font-size:.84rem;color:var(--muted);background:rgba(255,255,255,.02);display:flex;align-items:center;gap:8px}
-.chip i{color:var(--accent-2)}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.04em;padding:8px 13px;border:1px solid var(--rule);color:var(--ink-2);display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s,border-color .15s}
+.chips span:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips span i{color:var(--red);font-size:.78rem}
+.chips span:hover i{color:var(--red-lift)}
+.split{display:grid;grid-template-columns:.9fr 1.4fr;gap:56px;align-items:start;margin-top:64px}
+.split:first-of-type{margin-top:0}
+.split h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.08;letter-spacing:-.02em}
 
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.skcard{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.005))}
-.skcard .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;background:rgba(139,92,246,.14);color:var(--accent);margin-bottom:16px}
-.skcard h3{font-size:1.08rem;margin-bottom:12px}
-.skcard ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.skcard li{color:var(--muted);font-size:.9rem;display:flex;gap:9px;align-items:flex-start}
-.skcard li i{color:var(--accent-2);font-size:.7rem;margin-top:7px}
-
-/* projects */
-.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
-.card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card-solid);overflow:hidden;display:flex;flex-direction:column;transition:.28s}
-.card:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 26px 50px -22px rgba(0,0,0,.8)}
-.shot{position:relative;height:230px;overflow:hidden;background:#0a0918;border-bottom:1px solid var(--line)}
-.shot::before{content:"";position:absolute;top:0;left:0;right:0;height:34px;background:#1a1830;z-index:2;border-bottom:1px solid var(--line)}
-.shot::after{content:"";position:absolute;top:12px;left:14px;width:9px;height:9px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 #febc2e,32px 0 #28c840;z-index:3}
-.shot img{position:absolute;top:34px;left:0;width:100%;height:auto;object-fit:cover;object-position:top;transition:transform 6s ease}
-.card:hover .shot img{transform:translateY(calc(-100% + 196px))}
-.badge{position:absolute;top:44px;right:12px;z-index:4;padding:5px 11px;border-radius:8px;font-size:.72rem;font-weight:700;background:rgba(8,7,17,.82);border:1px solid var(--line-2);backdrop-filter:blur(6px);display:flex;align-items:center;gap:6px}
-.badge.live{color:#34d399}.badge.live .dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
-.badge.repo{color:var(--muted)}
-.card-body{padding:22px;display:flex;flex-direction:column;flex:1}
-.card-body h3{font-size:1.22rem;margin-bottom:6px}
-.card-body .desc{color:var(--muted);font-size:.92rem;flex:1}
-.tech{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
-.tech span{font-size:.74rem;padding:4px 10px;border-radius:7px;background:rgba(139,92,246,.10);color:#c4b5fd;border:1px solid rgba(139,92,246,.2)}
-.links{display:flex;gap:12px;margin-top:auto}
-.links a{flex:1;text-align:center;padding:11px;border-radius:10px;font-size:.86rem;font-weight:600;transition:.2s}
-.links a.live{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a14}
-.links a.live:hover{filter:brightness(1.08)}
-.links a.code{border:1px solid var(--line-2);color:var(--txt)}
-.links a.code:hover{border-color:var(--accent-2);color:var(--accent-2)}
-
-/* experience */
-.timeline{position:relative;padding-left:28px}
-.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent-2),transparent)}
-.tl-item{position:relative;padding:0 0 34px 8px}
-.tl-item::before{content:"";position:absolute;left:-28px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(139,92,246,.18)}
-.tl-item .when{font-size:.8rem;color:var(--accent-2);font-weight:600}
-.tl-item h3{font-size:1.18rem;margin:6px 0 4px}
-.tl-item .org{color:var(--muted);font-size:.9rem;margin-bottom:10px}
-.tl-item ul{list-style:none;display:flex;flex-direction:column;gap:7px}
-.tl-item li{color:var(--muted);font-size:.9rem;display:flex;gap:10px}
-.tl-item li i{color:var(--accent-2);font-size:.7rem;margin-top:7px}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
+.step{padding:30px 26px 34px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.step .s-n{font-family:'Instrument Serif',serif;font-size:3.2rem;line-height:1;color:var(--red);font-style:italic;display:block;margin-bottom:14px}
+.step h3{font-family:'Archivo',sans-serif;font-weight:600;font-size:1rem;margin-bottom:14px;letter-spacing:-.005em}
+.step ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.step li{font-size:.86rem;color:var(--ink-2);display:flex;gap:9px;align-items:flex-start;line-height:1.5}
+.step li i{color:var(--red);font-size:.32rem;margin-top:.66em;flex:none}
 
 /* certs */
-.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.cert{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card-solid);transition:.25s;cursor:zoom-in}
-.cert:hover{transform:translateY(-5px);border-color:var(--accent-2)}
-.cert img{width:100%;height:auto;border-bottom:1px solid var(--line)}
-.cert .cb{padding:18px 20px}
-.cert .cb h3{font-size:1.05rem;margin-bottom:4px}
-.cert .cb p{color:var(--muted);font-size:.85rem}
-.cert .cb .iss{color:var(--accent-2);font-size:.8rem;font-weight:600;margin-top:8px;display:flex;align-items:center;gap:7px}
-
-/* lightbox */
-.lb{position:fixed;inset:0;z-index:100;background:rgba(4,3,10,.92);display:none;align-items:center;justify-content:center;padding:30px;backdrop-filter:blur(6px)}
-.lb.open{display:flex}
-.lb img{max-width:96%;max-height:92vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
-.lb .x{position:absolute;top:22px;right:28px;font-size:1.8rem;color:#fff;cursor:pointer;opacity:.8}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cert{border:1px solid var(--rule);cursor:zoom-in;transition:border-color .15s}
+.cert:hover{border-color:var(--ink)}
+.cert img{border-bottom:1px solid var(--rule);aspect-ratio:4/3;object-fit:cover;object-position:top;background:var(--paper-2)}
+.cert div{padding:18px 20px 22px}
+.cert h3{font-family:'Archivo',sans-serif;font-weight:600;font-size:.96rem;margin-bottom:8px}
+.cert p{font-size:.84rem;color:var(--ink-2);line-height:1.5}
+.cert .iss{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
 
 /* contact */
-.contact{text-align:center;border:1px solid var(--line);border-radius:26px;padding:60px 30px;background:radial-gradient(circle at 50% 0%,rgba(139,92,246,.14),transparent 70%)}
-.contact h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:14px}
-.contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
-.social{display:flex;gap:14px;justify-content:center;margin-top:30px}
-.social a{width:48px;height:48px;border-radius:12px;border:1px solid var(--line-2);display:grid;place-items:center;font-size:1.15rem;color:var(--muted);transition:.22s}
-.social a:hover{color:var(--accent-2);border-color:var(--accent-2);transform:translateY(-4px)}
+.contact{background:var(--ink);color:var(--paper);border-bottom:1px solid var(--ink)}
+.contact .wrap{padding-top:96px;padding-bottom:96px}
+.contact h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(2.4rem,6vw,4.6rem);line-height:1;letter-spacing:-.03em;max-width:17ch}
+.contact h2 em{font-style:italic;color:var(--red-lift)}
+.contact .lead{color:var(--paper-3);font-size:1.08rem;max-width:56ch;margin:28px 0 36px}
+.contact .btn{border-color:var(--paper)}
+.contact .btn-fill{background:var(--paper);color:var(--ink)}
+.contact .btn-fill:hover{background:var(--red-lift);border-color:var(--red-lift);color:var(--ink)}
+.contact .btn-line{color:var(--paper)}
+.contact .btn-line:hover{background:var(--paper);color:var(--ink)}
+.cmeta{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(247,244,238,.2);font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;color:var(--paper-3)}
+.cmeta a{color:var(--red-lift);border-bottom:1px solid transparent}
+.cmeta a:hover{border-bottom-color:var(--red-lift)}
 
-footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted-2);font-size:.86rem}
+footer{padding:30px 0}
+.f-in{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;color:var(--grey)}
+.f-in a{border-bottom:1px solid var(--rule)}
+.f-in a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.f-links{display:flex;gap:20px}
 
-.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(22,19,15,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:40px}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:88vh;border:1px solid rgba(247,244,238,.3)}
+.lb .x{position:absolute;top:24px;right:28px;color:var(--paper);font-size:1.5rem;cursor:pointer;background:none;border:0}
 
-@media(max-width:880px){
-  .nav-links{position:fixed;inset:66px 0 auto 0;flex-direction:column;background:rgba(8,7,17,.97);padding:24px;gap:18px;border-bottom:1px solid var(--line);display:none}
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{scroll-behavior:auto!important}}
+
+@media(max-width:1040px){
+  .caps,.steps{grid-template-columns:repeat(2,1fr)}
+  .hero-grid,.sec-head,.split{grid-template-columns:1fr;gap:34px}
+  .hero-side{border-left:0;padding-left:0}
+  .row{grid-template-columns:44px 180px 1fr 34px;gap:20px}
+  .certs{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .wrap{padding:0 20px}
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--ink);flex-direction:column;gap:0;padding:8px 20px 20px}
   .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:13px 0;border-bottom:1px solid var(--rule-2)}
+  .nav-cta{text-align:center;justify-content:center;display:flex}
   .burger{display:block}
-  .about-grid,.skills,.proj-grid,.cert-grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr)}
+  .rail{grid-template-columns:1fr 1fr}
+  .rail div{border-bottom:1px solid var(--rule)}
+  .caps,.steps{grid-template-columns:1fr}
+  .row{grid-template-columns:38px 1fr;gap:16px;padding:20px 8px;align-items:start}
+  .r-n{padding-left:0;line-height:1.1}
+  .r-shot{grid-column:1/-1;order:3}
+  .r-body{order:2}
+  .r-go{display:none}
+  .certs{grid-template-columns:1fr}
+  section{padding:60px 0}
 }
 </style>
 </head>
 <body>
-<div class="bgfx"></div><div class="grid-overlay"></div>
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a href="#top" class="brand"><span class="mark">A</span> Ahlan <span style="color:var(--muted);font-weight:500;font-size:.86rem">· AI Voice Agents</span></a>
+    <a class="brand" href="./"><b>Ahlan</b><span>AI Voice Agents</span></a>
     <nav class="nav-links" id="navlinks">
-      <a href="#about">Services</a>
-      <a href="#work">Live demos</a>
-      <a href="#experience">Experience</a>
-      <a href="#certs">Certificates</a>
-      <a href="https://cal.com/adelatya/30min" target="_blank" class="nav-cta">Book a call</a>
+      <a href="#build">What we build</a>
+      <a href="#demos">Live demos</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="nav-cta">Book a call</a>
     </nav>
-    <button class="burger" id="burger"><i class="fa-solid fa-bars"></i></button>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
 </header>
 
-<a id="top"></a>
-<div class="wrap">
-  <section class="hero">
-    <div class="switch reveal">
-      <a href="../ai-engineer/"><i class="fa-solid fa-robot"></i> AI Engineer</a>
-      <a href="#" class="on"><i class="fa-solid fa-phone-volume"></i> Voice Agents</a>
-      <a href="../software-engineer/"><i class="fa-solid fa-code"></i> Software</a>
-      <a href="../shopify-expert/"><i class="fa-brands fa-shopify"></i> Shopify</a>
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="lbl">Cairo, Egypt — building for US, UK &amp; Gulf</span>
     </div>
-    <div class="reveal"><span class="tag"><span class="dot"></span> Taking new builds — first agent live in days</span></div>
-    <h1 class="reveal">AI voice agents that <span class="grad-txt">answer every call</span><br/>and book the business.</h1>
-    <div class="role reveal">Ahlan — an AI voice-agent studio · Vapi &amp; Retell AI · Twilio · GoHighLevel</div>
-    <p class="sub reveal">We build the phone agent, wire it to your calendar, CRM and SMS, test it against scripted calls, and hand you a number your customers can ring. Inbound reception, outbound follow-up, appointment setting, support deflection, payments. <strong>Seven live demos below — open any of them.</strong></p>
-    <div class="cta-row reveal">
-      <a href="https://cal.com/adelatya/30min" target="_blank" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a free 30-min fit call</a>
-      <a href="#work" class="btn btn-ghost"><i class="fa-solid fa-play"></i> See live demos</a>
+    <div class="hero-grid">
+      <div>
+        <h1>Your phone,<br/>answered.<br/><em>Every time.</em></h1>
+      </div>
+      <div class="hero-side">
+        <p>We build <strong>production AI voice agents</strong> for businesses that lose money to unanswered phones. Every build ships with the number, the conversation design, the integrations — and a <strong>live dashboard</strong> so you watch each call land.</p>
+        <div class="btn-row">
+          <a class="btn btn-fill" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book a fit call</a>
+          <a class="btn btn-line" href="#demos"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> See the demos</a>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <div class="stats reveal">
-    <div class="stat"><div class="n grad-txt">7</div><div class="l">Live agents you can open now</div></div>
-    <div class="stat"><div class="n grad-txt">100%</div><div class="l">Calls answered, 24/7</div></div>
-    <div class="stat"><div class="n grad-txt">30+</div><div class="l">Businesses on our CRM pipelines</div></div>
-    <div class="stat"><div class="n grad-txt">Days</div><div class="l">Not months, to go live</div></div>
+  </div>
+  <div class="wrap" style="padding:0">
+    <div class="rail">
+      <div><b>1<i>s</i></b><span>Answered, 24/7 — no hold, no voicemail</span></div>
+      <div><b>7</b><span>Live demos you can open right now</span></div>
+      <div><b>48<i>h</i></b><span>To a demo number you can call yourself</span></div>
+      <div><b>$350<i>+</i></b><span>Fixed-price build · care plan optional</span></div>
+    </div>
   </div>
 </div>
 
-<div class="wrap">
-  <section id="about">
-    <div class="sec-head reveal"><div class="k">What we build</div><h2>Six call types, one phone number.</h2>
-      <p>Every build ships with the conversation design, the tool-calling integrations, a live dashboard, and a demo number you call before it ever touches a customer.</p></div>
-    <div class="skills">
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-phone-volume"></i></div>
-        <h3>Inbound receptionist</h3>
-        <ul><li><i class="fa-solid fa-circle"></i> Answers on the first ring, 24/7</li>
-        <li><i class="fa-solid fa-circle"></i> FAQs and quotes in your brand voice</li>
-        <li><i class="fa-solid fa-circle"></i> Books into your calendar, texts confirmation</li>
-        <li><i class="fa-solid fa-circle"></i> Every call logged with transcript + outcome</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-bolt"></i></div>
-        <h3>Outbound speed-to-lead</h3>
-        <ul><li><i class="fa-solid fa-circle"></i> Calls new web leads within 60 seconds</li>
-        <li><i class="fa-solid fa-circle"></i> Qualifies, books, texts the confirmation</li>
-        <li><i class="fa-solid fa-circle"></i> 6-attempt call + SMS retry cadence</li>
-        <li><i class="fa-solid fa-circle"></i> Hot leads handed to a closer, warm</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-calendar-check"></i></div>
-        <h3>Appointments &amp; reminders</h3>
+<!-- ── WHAT WE BUILD ── -->
+<section id="build">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="num">01 / Capabilities</span>
+        <h2>Six kinds of call,<br/><em>handled end to end.</em></h2></div>
+      <p class="note">Not a chatbot with a phone number. Each agent calls real tools mid-conversation — checking inventory, verifying insurance, taking a payment, writing the booking — then hands off cleanly when a human is the right answer.</p>
+    </div>
+    <div class="caps rv">
+      <div class="cap"><span class="cap-n">A</span><h3>Inbound reception</h3>
+        <ul><li><i class="fa-solid fa-circle"></i> Answers in one second, day or night</li>
+        <li><i class="fa-solid fa-circle"></i> Quotes from live pricing and inventory</li>
+        <li><i class="fa-solid fa-circle"></i> Captures the lead into your CRM</li>
+        <li><i class="fa-solid fa-circle"></i> Texts the confirmation before hanging up</li></ul></div>
+      <div class="cap"><span class="cap-n">B</span><h3>Outbound &amp; follow-up</h3>
+        <ul><li><i class="fa-solid fa-circle"></i> Missed-call text-back in seconds</li>
+        <li><i class="fa-solid fa-circle"></i> Speed-to-lead callback under a minute</li>
+        <li><i class="fa-solid fa-circle"></i> Unsold estimates chased on day 3</li>
+        <li><i class="fa-solid fa-circle"></i> Dormant customers reactivated</li></ul></div>
+      <div class="cap"><span class="cap-n">C</span><h3>Booking &amp; scheduling</h3>
         <ul><li><i class="fa-solid fa-circle"></i> Books, reschedules, confirms by voice</li>
         <li><i class="fa-solid fa-circle"></i> Day-before reminder calls</li>
         <li><i class="fa-solid fa-circle"></i> Cancellations refilled from a waitlist</li>
         <li><i class="fa-solid fa-circle"></i> Recall and reactivation campaigns</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-headset"></i></div>
-        <h3>Support &amp; deflection</h3>
+      <div class="cap"><span class="cap-n">D</span><h3>Support &amp; deflection</h3>
         <ul><li><i class="fa-solid fa-circle"></i> Account, order and warranty lookups</li>
         <li><i class="fa-solid fa-circle"></i> Troubleshooting from your knowledge base</li>
         <li><i class="fa-solid fa-circle"></i> Technician dispatch and parts orders</li>
         <li><i class="fa-solid fa-circle"></i> Tier-1 resolved without a human</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-shield-halved"></i></div>
-        <h3>Payments &amp; verification</h3>
+      <div class="cap"><span class="cap-n">E</span><h3>Payments &amp; verification</h3>
         <ul><li><i class="fa-solid fa-circle"></i> Card payments by secure keypad</li>
-        <li><i class="fa-solid fa-circle"></i> Identity verification before account actions</li>
+        <li><i class="fa-solid fa-circle"></i> Identity checks before account actions</li>
         <li><i class="fa-solid fa-circle"></i> Autopay enrolment, balance collection</li>
-        <li><i class="fa-solid fa-circle"></i> Insurance / eligibility checks on the call</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-people-arrows"></i></div>
-        <h3>Escalation to humans</h3>
+        <li><i class="fa-solid fa-circle"></i> Insurance eligibility on the call</li></ul></div>
+      <div class="cap"><span class="cap-n">F</span><h3>Escalation to humans</h3>
         <ul><li><i class="fa-solid fa-circle"></i> Sentiment-triggered warm transfer</li>
         <li><i class="fa-solid fa-circle"></i> Full call history handed to the agent</li>
         <li><i class="fa-solid fa-circle"></i> Guardrails for out-of-scope questions</li>
         <li><i class="fa-solid fa-circle"></i> Interruption and barge-in handling</li></ul></div>
     </div>
+  </div>
+</section>
 
-    <div class="sec-head reveal" style="margin-top:56px"><div class="k">Industries</div><h2>Who we build for.</h2></div>
-    <div class="chips reveal">
-      <span class="chip"><i class="fa-solid fa-warehouse"></i> Self-storage</span>
-      <span class="chip"><i class="fa-solid fa-wrench"></i> Home services &amp; trades</span>
-      <span class="chip"><i class="fa-solid fa-tooth"></i> Dental &amp; medical clinics</span>
-      <span class="chip"><i class="fa-solid fa-house"></i> Real estate</span>
-      <span class="chip"><i class="fa-solid fa-utensils"></i> Restaurants &amp; hospitality</span>
-      <span class="chip"><i class="fa-solid fa-scale-balanced"></i> Legal &amp; professional services</span>
-      <span class="chip"><i class="fa-solid fa-headset"></i> Consumer brands &amp; support</span>
-      <span class="chip"><i class="fa-solid fa-bullhorn"></i> Marketing agencies (white-label)</span>
+<!-- ── DEMOS ── -->
+<section id="demos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="num">02 / Selected work</span>
+        <h2>Open one. <em>Listen.</em><br/>Watch the dashboard fill in.</h2></div>
+      <p class="note">Seven verticals, seven agents — each with a real operator dashboard built for that trade, not a generic template. No signup, no sales call. Click through and use them.</p>
     </div>
+    <div class="index rv">
 
-    <div class="sec-head reveal" style="margin-top:56px"><div class="k">Integrations</div><h2>It writes into the tools you already use.</h2></div>
-    <div class="chips reveal">
-      <span class="chip">Vapi</span><span class="chip">Retell AI</span><span class="chip">Twilio</span>
-      <span class="chip">GoHighLevel</span><span class="chip">HubSpot</span><span class="chip">Follow Up Boss</span>
-      <span class="chip">kvCORE</span><span class="chip">Google Calendar</span><span class="chip">Calendly</span>
-      <span class="chip">Cal.com</span><span class="chip">n8n</span><span class="chip">Make.com</span>
-      <span class="chip">Zapier</span><span class="chip">Open Dental</span><span class="chip">Dentrix</span>
-      <span class="chip">ServiceTitan</span><span class="chip">Housecall Pro</span><span class="chip">Toast</span>
-      <span class="chip">Square</span><span class="chip">OpenTable</span><span class="chip">Resy</span>
-      <span class="chip">Zendesk</span><span class="chip">Cisco / Yealink IP phones</span><span class="chip">Custom webhooks</span>
+      <a class="row" href="https://voicedesk-h31g.onrender.com/agent/receptionist" target="_blank" rel="noopener">
+        <span class="r-n">01</span>
+        <div class="r-shot"><img src="assets/projects/storeright.jpg" alt="StoreRight AI voice receptionist dashboard" loading="lazy"/></div>
+        <div class="r-body">
+          <span class="r-client">StoreRight · Self-storage</span>
+          <h3>The receptionist that never misses a Saturday</h3>
+          <p class="r-desc">Storage facilities miss around <strong>40% of calls</strong> — roughly $58,000 a year walking to the next facility on the list. This agent quotes from <strong>live unit inventory</strong>, reserves the unit, books the tour, takes <strong>tenant payments</strong>, enrols autopay, and verifies identity to <strong>reset a gate code</strong> for someone locked out at 11pm.</p>
+          <div class="r-tags"><span>Vapi</span><span>GPT-4o tool-calling</span><span>OpenAI TTS</span><span>FastAPI</span><span>Twilio-ready</span></div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square r-go" aria-hidden="true"></i>
+      </a>
+
+      <a class="row" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">
+        <span class="r-n">02</span>
+        <div class="r-shot"><img src="assets/projects/blueridge.jpg" alt="Blue Ridge Plumbing revenue recovery dispatch desk" loading="lazy"/></div>
+        <div class="r-body">
+          <span class="r-client">Blue Ridge Plumbing · Home services</span>
+          <h3>Revenue recovery on GoHighLevel</h3>
+          <p class="r-desc">Plumbers miss up to <strong>40% of calls</strong>, and 85% of those callers never ring back — about $13.5K a month. Missed call → <strong>text-back in 8 seconds</strong>, <strong>AI callback in 52</strong>, job booked. Then it chases the unsold estimates nobody had time to chase, handles the objection, offers financing. Dispatch desk shows trucks, the recovery line and the text-back log.</p>
+          <div class="r-tags"><span>GoHighLevel</span><span>Outbound</span><span>SMS text-back</span><span>Twilio</span><span>FastAPI</span></div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square r-go" aria-hidden="true"></i>
+      </a>
+
+      <a class="row" href="https://voicedesk-h31g.onrender.com/agent/dental" target="_blank" rel="noopener">
+        <span class="r-n">03</span>
+        <div class="r-shot"><img src="assets/projects/brightside.jpg" alt="Brightside Dental AI front desk week schedule" loading="lazy"/></div>
+        <div class="r-body">
+          <span class="r-client">Brightside Dental · Healthcare</span>
+          <h3>Book, remind, refill the chair</h3>
+          <p class="r-desc">One in five dental appointments is a no-show — $200–375 of empty chair each time. Mia <strong>books new patients with insurance verified on the call</strong>, makes the day-before reminder calls and reschedules on the spot, and when someone cancels she <strong>offers the slot to the waitlist within minutes</strong>. Week-schedule dashboard with booked-by-AI slots; Open Dental / Dentrix sync.</p>
+          <div class="r-tags"><span>Open Dental</span><span>Insurance eligibility</span><span>GPT-4o</span><span>Twilio SMS</span><span>FastAPI</span></div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square r-go" aria-hidden="true"></i>
+      </a>
+
+      <a class="row" href="https://voicedesk-h31g.onrender.com/agent/realty" target="_blank" rel="noopener">
+        <span class="r-n">04</span>
+        <div class="r-shot"><img src="assets/projects/harbor.jpg" alt="Harbor and Vine Realty AI listing line board" loading="lazy"/></div>
+        <div class="r-body">
+          <span class="r-client">Harbor &amp; Vine Realty · Real estate</span>
+          <h3>The listing line that answers in four seconds</h3>
+          <p class="r-desc">The median agent returns a listing inquiry <strong>15 hours</strong> later; 78% of buyers go with whoever answers first. This concierge <strong>qualifies budget, pre-approval, timeline and must-haves into a lead score</strong>, books the showing with the listing agent, routes the hot ones, nurtures the rest, and turns "what's my home worth" into a CMA appointment.</p>
+          <div class="r-tags"><span>Follow Up Boss</span><span>kvCORE</span><span>Lead scoring</span><span>Twilio</span><span>FastAPI</span></div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square r-go" aria-hidden="true"></i>
+      </a>
+
+      <a class="row" href="https://voicedesk-h31g.onrender.com/agent/restaurant" target="_blank" rel="noopener">
+        <span class="r-n">05</span>
+        <div class="r-shot"><img src="assets/projects/luca.jpg" alt="Luca's Trattoria AI phone host floor plan and kitchen printer" loading="lazy"/></div>
+        <div class="r-body">
+          <span class="r-client">Luca's Trattoria · Hospitality</span>
+          <h3>Orders to the kitchen, tables to the floor plan</h3>
+          <p class="r-desc">Restaurants miss up to <strong>43% of calls</strong> in the dinner rush; six in ten of those wanted to order or book. Gia takes the order to the <strong>POS and kitchen printer</strong> and texts the customer when the ticket is bumped, never offers something that's been <strong>86'd</strong>, flags the allergy every time, upsells the dessert, and seats reservations <strong>onto the floor plan</strong>.</p>
+          <div class="r-tags"><span>Toast · Square</span><span>OpenTable · Resy</span><span>KDS timers</span><span>Twilio SMS</span><span>FastAPI</span></div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square r-go" aria-hidden="true"></i>
+      </a>
+
+      <a class="row" href="https://voicedesk-h31g.onrender.com/agent/support" target="_blank" rel="noopener">
+        <span class="r-n">06</span>
+        <div class="r-shot"><img src="assets/projects/nordfrost.jpg" alt="NordFrost Appliances AI customer support dashboard" loading="lazy"/></div>
+        <div class="r-body">
+          <span class="r-client">NordFrost Appliances · Consumer brand</span>
+          <h3>Tier-one support at $1.18 a call</h3>
+          <p class="r-desc">A human-handled support call costs about <strong>$7.16</strong> — after four minutes on hold. This agent looks up the serial and <strong>verifies warranty</strong>, troubleshoots error codes from the product knowledge base, <strong>dispatches a technician with the part pre-ordered</strong>, sells parts by phone — and when it detects frustration, <strong>warm-transfers to a human with the full history</strong>.</p>
+          <div class="r-tags"><span>Warranty API</span><span>Warm transfer</span><span>Sentiment</span><span>Zendesk-ready</span><span>FastAPI</span></div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square r-go" aria-hidden="true"></i>
+      </a>
+
+      <a class="row" href="https://voicedesk-h31g.onrender.com/agent/voicemail" target="_blank" rel="noopener">
+        <span class="r-n">07</span>
+        <div class="r-shot"><img src="assets/projects/lakeside.jpg" alt="Lakeside Family Law AI visual voicemail on Cisco desk phones" loading="lazy"/></div>
+        <div class="r-body">
+          <span class="r-client">Lakeside Family Law · Legal</span>
+          <h3>We replaced the beep</h3>
+          <p class="r-desc">Eighty percent of callers sent to voicemail hang up without leaving a message; the ones who stay wait around eight hours to be heard. An AI attendant takes a <strong>structured message</strong>, transcribes and summarizes it, <strong>flags urgency</strong> and routes it — pushed onto Cisco / Yealink / Poly desk phones through <strong>real CiscoIPPhone XML</strong> with one softkey to call back.</p>
+          <div class="r-tags"><span>IP Phone XML</span><span>Whisper</span><span>GPT-4o</span><span>Twilio</span><span>FastAPI</span></div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square r-go" aria-hidden="true"></i>
+      </a>
+
     </div>
+  </div>
+</section>
 
-    <div class="sec-head reveal" style="margin-top:56px"><div class="k">How it works</div><h2>Demo number in 48 hours.</h2></div>
-    <div class="skills">
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-1"></i></div>
-        <h3>Tell us the three calls</h3>
-        <ul><li><i class="fa-solid fa-circle"></i> Your business, hours, services and prices</li>
+<!-- ── INDUSTRIES + INTEGRATIONS ── -->
+<section id="stack">
+  <div class="wrap">
+    <div class="split rv">
+      <div><span class="num">03 / Industries</span><h2>Who we build for.</h2></div>
+      <div class="chips">
+        <span><i class="fa-solid fa-warehouse"></i> Self-storage</span>
+        <span><i class="fa-solid fa-wrench"></i> Home services &amp; trades</span>
+        <span><i class="fa-solid fa-tooth"></i> Dental &amp; medical clinics</span>
+        <span><i class="fa-solid fa-house"></i> Real estate</span>
+        <span><i class="fa-solid fa-utensils"></i> Restaurants &amp; hospitality</span>
+        <span><i class="fa-solid fa-scale-balanced"></i> Legal &amp; professional services</span>
+        <span><i class="fa-solid fa-headset"></i> Consumer brands &amp; support</span>
+        <span><i class="fa-solid fa-bullhorn"></i> Agencies (white-label)</span>
+      </div>
+    </div>
+    <div class="split rv">
+      <div><span class="num">04 / Integrations</span><h2>It writes into the tools you already use.</h2></div>
+      <div class="chips">
+        <span>Vapi</span><span>Retell AI</span><span>Twilio</span><span>GoHighLevel</span><span>HubSpot</span>
+        <span>Follow Up Boss</span><span>kvCORE</span><span>Google Calendar</span><span>Calendly</span>
+        <span>Cal.com</span><span>n8n</span><span>Make.com</span><span>Zapier</span><span>Open Dental</span>
+        <span>Dentrix</span><span>ServiceTitan</span><span>Housecall Pro</span><span>Toast</span><span>Square</span>
+        <span>OpenTable</span><span>Resy</span><span>Zendesk</span><span>Cisco / Yealink</span><span>Custom webhooks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="num">05 / Process</span><h2>A number you can call<br/><em>in 48 hours.</em></h2></div>
+      <p class="note">Nothing reaches a real customer untested. You hear the agent, you change the script, and only then does it pick up a live line.</p>
+    </div>
+    <div class="steps rv">
+      <div class="step"><span class="s-n">1</span><h3>Tell us the three calls</h3>
+        <ul><li><i class="fa-solid fa-circle"></i> Your hours, services and prices</li>
         <li><i class="fa-solid fa-circle"></i> The three calls you get most</li>
         <li><i class="fa-solid fa-circle"></i> Where bookings should land</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-2"></i></div>
-        <h3>We build and test it</h3>
+      <div class="step"><span class="s-n">2</span><h3>We build and test it</h3>
         <ul><li><i class="fa-solid fa-circle"></i> Conversation design + tool schema</li>
-        <li><i class="fa-solid fa-circle"></i> Calendar / CRM / SMS wired up</li>
+        <li><i class="fa-solid fa-circle"></i> Calendar, CRM and SMS wired up</li>
         <li><i class="fa-solid fa-circle"></i> Run against 20 scripted calls first</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-3"></i></div>
-        <h3>You call it yourself</h3>
-        <ul><li><i class="fa-solid fa-circle"></i> A demo number you ring before go-live</li>
+      <div class="step"><span class="s-n">3</span><h3>You call it yourself</h3>
+        <ul><li><i class="fa-solid fa-circle"></i> A demo number before go-live</li>
         <li><i class="fa-solid fa-circle"></i> Script changes until it sounds right</li>
-        <li><i class="fa-solid fa-circle"></i> Nothing reaches a customer untested</li></ul></div>
-      <div class="skcard reveal"><div class="ic"><i class="fa-solid fa-4"></i></div>
-        <h3>Go live &amp; hand over</h3>
+        <li><i class="fa-solid fa-circle"></i> Nothing untested reaches a customer</li></ul></div>
+      <div class="step"><span class="s-n">4</span><h3>Go live &amp; hand over</h3>
         <ul><li><i class="fa-solid fa-circle"></i> Your number, your hours, your voice</li>
         <li><i class="fa-solid fa-circle"></i> Live dashboard for every call</li>
         <li><i class="fa-solid fa-circle"></i> Hand-off doc + optional care plan</li></ul></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="work">
-    <div class="sec-head reveal"><div class="k">Voice Agent Demos</div><h2>Hear it, then watch the dashboard fill in.</h2><p>Each demo is a real agent + a live operator dashboard. More call types shipping weekly: outbound follow-up, appointment setter, lead reactivation, restaurant orders, missed-call text-back.</p></div>
-    <div class="proj-grid">
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/luca.jpg" alt="Luca's Trattoria — AI restaurant phone host"/></div>
-        <div class="card-body">
-          <h3>Luca's Trattoria — AI Phone Host (orders → kitchen, tables → floor plan)</h3>
-          <p class="desc">Restaurants miss up to <strong>43% of calls in the dinner rush</strong>; 6 in 10 were orders or tables. Gia answers every call: <strong>takeout orders → POS / kitchen printer with KDS timers</strong> and a <strong>ready-text to the customer</strong> when the kitchen bumps the ticket; an <strong>86 board</strong> so sold-out items are never offered (swaps suggested live); <strong>allergies flagged</strong> every time; upsells; totals read back and paid; <strong>reservations onto the floor plan</strong> with covers-by-the-hour and deposits for big parties. Toast / Square · OpenTable / Resy.</p>
-          <div class="tech"><span>Vapi / Retell</span><span>GPT-4o tool-calling</span><span>Toast · Square</span><span>OpenTable · Resy</span><span>Twilio SMS</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://voicedesk-h31g.onrender.com/agent/restaurant" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live floor + printer</a><a class="code" href="https://github.com/adelsherif8/voicedesk" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/brightside.jpg" alt="Brightside Dental — AI front desk"/></div>
-        <div class="card-body">
-          <h3>Brightside Dental — AI Front Desk (book · remind · refill)</h3>
-          <p class="desc">1 in 5 dental appointments is a no-show ($200–375 of empty chair) and 1 in 3 new-patient calls goes unanswered. Mia <strong>books new patients with insurance verified on the call</strong> (right provider, right slot, forms texted), makes the <strong>day-before reminder calls</strong> and reschedules on the spot, <strong>offers cancellations to the waitlist within minutes</strong>, runs hygiene recall and same-day emergency triage. Week-schedule dashboard with booked-by-AI slots, confirmation ring and waitlist; Open Dental / Dentrix sync.</p>
-          <div class="tech"><span>Vapi / Retell</span><span>GPT-4o tool-calling</span><span>Open Dental</span><span>Insurance eligibility</span><span>Twilio SMS</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://voicedesk-h31g.onrender.com/agent/dental" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live schedule</a><a class="code" href="https://github.com/adelsherif8/voicedesk" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/harbor.jpg" alt="Harbor &amp; Vine Realty — AI listing line"/></div>
-        <div class="card-body">
-          <h3>Harbor &amp; Vine Realty — AI Listing Line (qualify + book showings)</h3>
-          <p class="desc">The median agent answers a listing inquiry <strong>15 hours</strong> later; 78% of buyers go with whoever answers first. This AI concierge answers in 4 s, <strong>qualifies budget · pre-approval · timeline · must-haves into a lead score</strong>, <strong>books the showing</strong> with the listing agent and texts the details, routes hot leads, nurtures the not-ready, and turns seller "what's my home worth" calls into <strong>CMA appointments</strong>. Listings board where inquiries pin onto each property; syncs to Follow Up Boss / kvCORE.</p>
-          <div class="tech"><span>Vapi / Retell</span><span>GPT-4o tool-calling</span><span>Follow Up Boss</span><span>Lead scoring</span><span>Twilio</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://voicedesk-h31g.onrender.com/agent/realty" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live listings board</a><a class="code" href="https://github.com/adelsherif8/voicedesk" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/lakeside.jpg" alt="Lakeside Family Law — AI visual voicemail for IP desk phones"/></div>
-        <div class="card-body">
-          <h3>Lakeside Family Law — AI Visual Voicemail for IP Desk Phones</h3>
-          <p class="desc">80% of callers sent to voicemail hang up; the rest wait ~8 h to be heard. An AI attendant takes a <strong>structured message</strong> instead of a beep, then <strong>transcribes, summarizes, flags urgency and routes it</strong> — pushed to Cisco / Yealink / Poly desk phones through <strong>real CiscoIPPhoneMenu / CiscoIPPhoneText XML</strong> (one softkey to call back) and a web inbox with transcript, matter and assignee. Routine calls get routed, not stacked; hang-ups get an auto text-back.</p>
-          <div class="tech"><span>IP Phone XML</span><span>Whisper</span><span>GPT-4o</span><span>Vapi / Retell</span><span>Twilio</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://voicedesk-h31g.onrender.com/agent/voicemail" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live inbox + XML</a><a class="code" href="https://github.com/adelsherif8/voicedesk" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/blueridge.jpg" alt="Blue Ridge Plumbing — AI revenue recovery agent"/></div>
-        <div class="card-body">
-          <h3>Blue Ridge Plumbing — AI Revenue Recovery (GoHighLevel + Retell)</h3>
-          <p class="desc">Plumbers miss up to <strong>40% of calls</strong> and 85% of those callers never call back (~$13.5K/mo). This agent recovers it: <strong>missed call → text-back in 8 s, AI callback in 52 s, job booked</strong>; <strong>unsold estimates</strong> followed up on day 3, objection handled, 0% financing offered, install booked; <strong>past customers reactivated</strong> for maintenance. A plumber's dispatch desk shows trucks, a pipe-gauge recovery line, ticket-paper jobs with BOOKED stamps and the text-back log.</p>
-          <div class="tech"><span>Retell AI</span><span>GoHighLevel</span><span>Outbound</span><span>SMS text-back</span><span>Twilio</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live dashboard</a><a class="code" href="https://github.com/adelsherif8/voicedesk" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/nordfrost.jpg" alt="NordFrost Appliances — AI customer-support voice agent"/></div>
-        <div class="card-body">
-          <h3>NordFrost Appliances — AI Customer Support Line</h3>
-          <p class="desc">A human-handled support call costs <strong>~$7.16</strong> after a 4-minute hold. This AI support agent answers instantly and closes tier-1 calls end to end: <strong>looks up the serial and verifies warranty</strong>, troubleshoots from the product KB (error codes, resets), <strong>dispatches an authorized technician with the part pre-ordered</strong>, sells parts by phone, and <strong>detects frustration → warm-transfers to a human with the full history</strong>. Live support dashboard: containment vs 41% industry avg, $1.18/call, dispatch, parts, escalations, CSAT.</p>
-          <div class="tech"><span>Vapi</span><span>GPT-4o tool-calling</span><span>Warranty API</span><span>Warm transfer</span><span>Zendesk-ready</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://voicedesk-h31g.onrender.com/agent/support" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live dashboard</a><a class="code" href="https://github.com/adelsherif8/voicedesk" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/storeright.jpg" alt="StoreRight — AI voice receptionist for self-storage"/></div>
-        <div class="card-body">
-          <h3>StoreRight — AI Voice Receptionist for Self-Storage</h3>
-          <p class="desc">A phone agent that answers <strong>100% of calls in 1s, 24/7</strong>: quotes from <strong>live unit inventory</strong>, reserves the unit, books the tour and texts confirmation; takes <strong>tenant payments</strong> and enrols autopay; <strong>verifies identity and resets gate codes</strong> for locked-out tenants; auto-texts quotes to not-ready callers. Every call lands in a branded operator dashboard (leads · tenants · payments · inventory) via a <strong>Vapi tool-calling webhook</strong>. Storage facilities miss ~40% of calls (≈$58K/yr) — this misses none.</p>
-          <div class="tech"><span>Vapi</span><span>GPT-4o tool-calling</span><span>OpenAI TTS</span><span>FastAPI</span><span>Twilio-ready</span><span>Render</span></div>
-          <div class="links"><a class="live" href="https://voicedesk-h31g.onrender.com/agent/receptionist" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live dashboard</a><a class="code" href="https://github.com/adelsherif8/voicedesk" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/voxdocs.jpg" alt="VoxDocs — voice + RAG document assistant"/></div>
-        <div class="card-body">
-          <h3>VoxDocs — Talk to Your Documents (Voice + RAG)</h3>
-          <p class="desc">Ask a question <strong>out loud</strong> — VoxDocs transcribes it (<strong>Whisper</strong>), retrieves the relevant passages, answers <strong>grounded only in your documents with citations</strong> (<strong>GPT-4o</strong>), and speaks it back (<strong>OpenAI TTS</strong>). An anti-hallucination guard refuses when it's not in the docs. Bring-your-own-docs; traced in <strong>Langfuse</strong>.</p>
-          <div class="tech"><span>Whisper</span><span>GPT-4o</span><span>OpenAI TTS</span><span>RAG + citations</span><span>Langfuse</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://voxdocs-ten.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/voxdocs" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="shot"><span class="badge live"><span class="dot"></span> Live</span><img src="assets/projects/intakeiq.jpg" alt="IntakeIQ — AI voice intake &amp; booking agent"/></div>
-        <div class="card-body">
-          <h3>IntakeIQ — AI Voice Intake &amp; Booking Agent</h3>
-          <p class="desc">Talk to it in your browser: a voice agent (<strong>Whisper → GPT-4o → OpenAI TTS</strong>) driven by a <strong>LangGraph state machine</strong> (greet → qualify → schedule → confirm) that qualifies the caller, captures intake, and <strong>books a real calendar invite</strong> (.ics). Every turn traced in <strong>Langfuse</strong>. Measured <strong>100% booking completion</strong> across 10 test calls (~23s each).</p>
-          <div class="tech"><span>Whisper</span><span>GPT-4o</span><span>OpenAI TTS</span><span>LangGraph</span><span>Langfuse</span><span>FastAPI</span></div>
-          <div class="links"><a class="live" href="https://intakeiq-two.vercel.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live app</a><a class="code" href="https://github.com/adelsherif8/intakeiq" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-        </div>
-      </article>
-
+<!-- ── CREDENTIALS ── -->
+<section id="credentials">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="num">06 / Who builds it</span><h2>One engineer,<br/><em>end to end.</em></h2></div>
+      <p class="note">Adel Atya — BSc Artificial Intelligence. Two years building GoHighLevel lead-capture and follow-up pipelines across 30+ businesses, plus production LLM engineering: LangGraph agents, RAG with citations, Langfuse tracing. Top Rated on Upwork with 100% Job Success. You talk to the person who writes the code.</p>
     </div>
-      </article>
-
-    </div>
-
-    <div class="skills" style="margin-top:26px">
-      <div class="skcard reveal">
-        <div class="ic"><i class="fa-solid fa-plug-circle-bolt"></i></div>
-        <h3>GoHighLevel Lead-Capture Plugin</h3>
-        <ul>
-          <li><i class="fa-solid fa-circle"></i> "Contact Form + GoHighLevel" WP plugin (v2.6+)</li>
-          <li><i class="fa-solid fa-circle"></i> Shortcode-driven, fully customisable forms</li>
-          <li><i class="fa-solid fa-circle"></i> Auto-syncs leads to the CRM with UTM tracking</li>
-          <li><i class="fa-solid fa-circle"></i> AI lead-scoring via ChatGPT</li>
-        </ul>
+    <div class="certs rv">
+      <div class="cert" data-full="assets/certs/datacamp-ai-engineer.jpg">
+        <img src="assets/certs/datacamp-ai-engineer.jpg" alt="DataCamp AI Engineer for Developers Associate certificate" loading="lazy"/>
+        <div><h3>AI Engineer for Developers — Associate</h3>
+        <p>Building AI-powered apps with LLMs: the OpenAI API, prompt engineering, function calling, RAG and chatbots.</p>
+        <div class="iss">DataCamp · Associate</div></div>
       </div>
-      <div class="skcard reveal">
-        <div class="ic"><i class="fa-solid fa-star-half-stroke"></i></div>
-        <h3>Clinic Review-Gating System</h3>
-        <ul>
-          <li><i class="fa-solid fa-circle"></i> Sentiment-routes patients after a visit</li>
-          <li><i class="fa-solid fa-circle"></i> Happy → Google Reviews; unhappy → private feedback</li>
-          <li><i class="fa-solid fa-circle"></i> Automated SMS follow-up</li>
-          <li><i class="fa-solid fa-circle"></i> Protects &amp; grows public rating</li>
-        </ul>
+      <div class="cert" data-full="assets/certs/huggingface-ai-agents.png">
+        <img src="assets/certs/huggingface-ai-agents.png" alt="Hugging Face AI Agents course certificate" loading="lazy"/>
+        <div><h3>AI Agents Course</h3>
+        <p>Autonomous LLM agents: tool use, agentic RAG, multi-step workflows, evaluation and observability.</p>
+        <div class="iss">Hugging Face</div></div>
       </div>
-      <div class="skcard reveal">
-        <div class="ic"><i class="fa-solid fa-diagram-project"></i></div>
-        <h3>n8n &amp; Provisioning</h3>
-        <ul>
-          <li><i class="fa-solid fa-circle"></i> 4 WP plugins that auto-provision GHL on install</li>
-          <li><i class="fa-solid fa-circle"></i> Forms, pages, CRM fields &amp; workflows</li>
-          <li><i class="fa-solid fa-circle"></i> End-to-end n8n automation pipelines</li>
-          <li><i class="fa-solid fa-circle"></i> CFT scrap-metal cost estimator plugin</li>
-        </ul>
+      <div class="cert" data-full="assets/certs/datacamp-openai.png">
+        <img src="assets/certs/datacamp-openai.png" alt="DataCamp Working with the OpenAI API certificate" loading="lazy"/>
+        <div><h3>Working with the OpenAI API</h3>
+        <p>Chat completions, multi-turn conversations, output control and the moderation API — hands-on in code.</p>
+        <div class="iss">DataCamp</div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="experience">
-    <div class="sec-head reveal"><div class="k">Experience</div><h2>Shipping AI for real clients.</h2></div>
-    <div class="about-grid">
-      <div class="timeline reveal">
-        <div class="tl-item">
-          <div class="when">2022 – Present</div>
-          <h3>AI Systems Developer — Freelance</h3>
-          <div class="org">Self-employed · Egypt &amp; global clients</div>
-          <ul>
-            <li><i class="fa-solid fa-circle"></i> Designed &amp; deployed AI automation systems across hospitality, healthcare, and e-commerce.</li>
-            <li><i class="fa-solid fa-circle"></i> Built 4 WordPress plugins that auto-provision GoHighLevel forms, pages, CRM fields, and AI workflows on install.</li>
-            <li><i class="fa-solid fa-circle"></i> Created 20+ lead-capture forms per client with UTM tracking, linked workflows, and AI scoring via ChatGPT.</li>
-            <li><i class="fa-solid fa-circle"></i> Built a clinic review-gating system: sentiment-routed patients to Google Reviews or private feedback with automated SMS.</li>
-          </ul>
-        </div>
-        <div class="tl-item">
-          <div class="when">Jul – Sep 2025</div>
-          <h3>IT Software Engineering Intern</h3>
-          <div class="org">Maxim Investment Group — Cairo</div>
-          <ul>
-            <li><i class="fa-solid fa-circle"></i> Contributed to the Mega Plug EV-charging platform in Python, Java, and SQL.</li>
-            <li><i class="fa-solid fa-circle"></i> Took part in code reviews and technical documentation.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="skcard">
-          <div class="ic"><i class="fa-brands fa-whatsapp"></i></div>
-          <h3>Eva Concierge — WhatsApp AI Hotel Bot</h3>
-          <p style="color:var(--muted);font-size:.9rem;margin:8px 0 14px">End-to-end AI concierge for a 3-property Egyptian boutique hotel collection — booking, pricing, check-in, events, and payments in Arabic &amp; English.</p>
-          <ul>
-            <li><i class="fa-solid fa-circle"></i> 6 sub-workflows behind a Master Router</li>
-            <li><i class="fa-solid fa-circle"></i> Room availability + EGP tax/service fee logic</li>
-            <li><i class="fa-solid fa-circle"></i> Deposits via Paymob, ID capture at check-in</li>
-            <li><i class="fa-solid fa-circle"></i> Full audit: resolved P0 credential &amp; error-branch bugs</li>
-          </ul>
-          <div class="tech" style="margin-top:16px"><span>n8n</span><span>Supabase</span><span>OpenAI</span><span>WhatsApp Cloud API</span><span>Paymob</span></div>
-        </div>
-      </div>
+<!-- ── CONTACT ── -->
+<div class="contact" id="contact">
+  <div class="wrap">
+    <span class="num" style="color:var(--red-lift)">07 / Start here</span>
+    <h2>Tell us the three calls you get <em>most.</em></h2>
+    <p class="lead">We'll come back with what an agent can handle, what it should hand to a human, what it costs to run — and a demo number you can call within 48 hours. Fixed-price builds from $350; monthly care plan optional.</p>
+    <div class="btn-row">
+      <a class="btn btn-fill" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book a free 30-min fit call</a>
+      <a class="btn btn-line" href="mailto:adel@adelatya.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> adel@adelatya.com</a>
     </div>
-  </section>
-
-  <section id="certs">
-    <div class="sec-head reveal"><div class="k">Credentials</div><h2>Certified in agentic AI.</h2><p>Click a certificate to view it full-size.</p></div>
-    <div class="cert-grid">
-      <div class="cert reveal" data-full="assets/certs/datacamp-ai-engineer.jpg">
-        <img src="assets/certs/datacamp-ai-engineer.jpg" alt="DataCamp AI Engineer for Developers Associate Certificate"/>
-        <div class="cb"><h3>AI Engineer for Developers — Associate</h3><p>Professional certification in building AI-powered apps with LLMs: the OpenAI API, prompt engineering, function calling, RAG, and chatbots. Credential ID AIEDA0011247893456.</p><div class="iss"><i class="fa-solid fa-certificate"></i> DataCamp · Associate</div></div>
-      </div>
-      <div class="cert reveal" data-full="assets/certs/huggingface-ai-agents.png">
-        <img src="assets/certs/huggingface-ai-agents.png" alt="Hugging Face AI Agents Certificate"/>
-        <div class="cb"><h3>AI Agents Course</h3><p>Building autonomous LLM agents: tool use, agentic RAG, multi-step workflows, evaluation &amp; observability across smolagents, LangGraph &amp; LlamaIndex.</p><div class="iss"><i class="fa-solid fa-certificate"></i> Hugging Face</div></div>
-      </div>
-      <div class="cert reveal" data-full="assets/certs/datacamp-openai.png">
-        <img src="assets/certs/datacamp-openai.png" alt="DataCamp OpenAI API Certificate"/>
-        <div class="cb"><h3>Working with the OpenAI API</h3><p>Chat completions, multi-turn conversations, output control (tokens/temperature), and the moderation API — hands-on in code.</p><div class="iss"><i class="fa-solid fa-certificate"></i> DataCamp</div></div>
-      </div>
+    <div class="cmeta">
+      <span>Cairo, Egypt — US, UK &amp; Gulf time zones</span>
+      <span>English &amp; Arabic</span>
+      <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/adelsherif8" target="_blank" rel="noopener">GitHub</a>
     </div>
-  </section>
-
-  <section id="contact">
-    <div class="contact reveal">
-      <h2>Tell us the three calls you get <span class="grad-txt">most</span>.</h2>
-      <p>We'll come back with what an agent can handle, what it should hand to a human, what it costs to run — and a demo number you can call within 48 hours. Fixed-price builds from $350; monthly care plan optional.</p>
-      <a href="https://cal.com/adelatya/30min" target="_blank" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a free 30-min fit call</a>
-      <p style="margin-top:18px"><a href="mailto:adel@adelatya.com" style="color:var(--accent-2)">adel@adelatya.com</a> &nbsp;·&nbsp; Cairo, Egypt — working across US, UK &amp; Gulf time zones &nbsp;·&nbsp; English &amp; Arabic</p>
-      <div class="social">
-        <a href="https://cal.com/adelatya/30min" target="_blank" title="Book a call"><i class="fa-solid fa-calendar-check"></i></a>
-        <a href="mailto:adel@adelatya.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://github.com/adelsherif8" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      </div>
-    </div>
-  </section>
+  </div>
 </div>
 
 <footer>
-  <div class="wrap">© <span id="yr"></span> Adel Atya · AI &amp; Automation Engineer · Cairo, Egypt &nbsp;·&nbsp;
-  <a href="../software-engineer/" style="color:var(--accent-2)">Software profile</a> ·
-  <a href="../shopify-expert/" style="color:var(--accent-2)">Shopify profile</a></div>
+  <div class="wrap f-in">
+    <span>© <span id="yr"></span> Ahlan — AI Voice Agents · Adel Atya</span>
+    <span class="f-links">
+      <a href="../ai-engineer/">AI engineering</a>
+      <a href="../software-engineer/">Software</a>
+      <a href="../shopify-expert/">Shopify</a>
+    </span>
+  </div>
 </footer>
 
-<div class="lb" id="lb"><span class="x" id="lbx"><i class="fa-solid fa-xmark"></i></span><img id="lbimg" src="" alt=""/></div>
+<div class="lb" id="lb"><button class="x" id="lbx" aria-label="Close"><i class="fa-solid fa-xmark"></i></button><img id="lbimg" src="" alt="Certificate, full size"/></div>
 
 <script>
-document.getElementById('yr').textContent=new Date().getFullYear();
-// mobile nav
-const burger=document.getElementById('burger'),nav=document.getElementById('navlinks');
-burger.addEventListener('click',()=>nav.classList.toggle('open'));
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-// reveal on scroll
-const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// lightbox
-const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
-document.querySelectorAll('.cert').forEach(c=>c.addEventListener('click',()=>{lbimg.src=c.dataset.full;lb.classList.add('open')}));
-const close=()=>lb.classList.remove('open');
-document.getElementById('lbx').addEventListener('click',close);
-lb.addEventListener('click',e=>{if(e.target===lb)close()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-</script>
-<script>
-(function(){
-  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
-  if(!lb||!lbimg) return;
-  document.querySelectorAll('.shot').forEach(function(s){
-    s.style.cursor='zoom-in';
-    var ic=document.createElement('span');
-    ic.innerHTML='<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
-    ic.style.cssText='position:absolute;top:44px;left:12px;z-index:6;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.78rem;opacity:0;transition:.2s;pointer-events:none';
-    s.appendChild(ic);
-    s.addEventListener('mouseenter',function(){ic.style.opacity='1'});
-    s.addEventListener('mouseleave',function(){ic.style.opacity='0'});
-    s.addEventListener('click',function(e){ if(e.target.closest('a'))return; var img=s.querySelector('img'); if(img){ lbimg.src=img.src; lb.classList.add('open'); } });
-  });
-  var x=document.getElementById('lbx'); if(x) x.addEventListener('click',function(){lb.classList.remove('open')});
-  lb.addEventListener('click',function(e){ if(e.target===lb) lb.classList.remove('open'); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('open'); });
-})();
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var burger = document.getElementById('burger'), nav = document.getElementById('navlinks');
+burger.addEventListener('click', function(){
+  var open = nav.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+nav.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); });
+});
+
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce) {
+  document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+} else {
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.08});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+}
+
+var lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg');
+document.querySelectorAll('.cert').forEach(function(c){
+  c.addEventListener('click', function(){ lbimg.src = c.dataset.full; lb.classList.add('open'); });
+});
+function closeLb(){ lb.classList.remove('open'); }
+document.getElementById('lbx').addEventListener('click', closeLb);
+lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
 </script>
 </body>
 </html>
