@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-<defs><linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-<stop offset="0" stop-color="#8b5cf6"/><stop offset="0.5" stop-color="#22d3ee"/><stop offset="1" stop-color="#f472b6"/>
-</linearGradient>
-<filter id="s" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0.6" stdDeviation="0.7" flood-color="#000" flood-opacity="0.3"/></filter></defs>
-<rect x="1.5" y="1.5" width="29" height="29" rx="8" fill="url(#g)"/>
-<g filter="url(#s)" fill="none" stroke="#0b0b14" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
-<path d="M9.2 24 L16 8.4 L22.8 24"/><path d="M11.9 18.4 H20.1"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" fill="#16130F"/>
+  <g fill="none" stroke="#F7F4EE" stroke-width="3.1" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M5.6 25.4 L12.4 6.6 L19.2 25.4"/>
+    <path d="M8.3 19.2 H16.5"/>
+  </g>
+  <rect x="22.2" y="21.6" width="4.2" height="4.2" fill="#C63C22"/>
 </svg>
