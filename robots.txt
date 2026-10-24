@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /_archive/
+Disallow: /_og/
+Disallow: /_s/
 
-Sitemap: https://adelatya.vercel.app/sitemap.xml
+# AI search crawlers — explicitly welcome
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://adelatya.com/sitemap.xml

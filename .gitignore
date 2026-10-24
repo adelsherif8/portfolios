@@ -1,3 +1,7 @@
 .vercel
 .DS_Store
 node_modules/
+
+# Archived design iterations — not deployed
+_archive/
+_og/

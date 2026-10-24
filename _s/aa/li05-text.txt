@@ -1,0 +1,5 @@
+The rule that sits above everything else in our voice agents' scripts: it is not allowed to guess a price.
+
+It may quote the dispatch fee and the flat-rate items the business gave it. For anything that needs eyes on the job, it says a tech will price it on site. If a caller pushes, it repeats that, politely, and offers to book the visit.
+
+We lose a little smoothness on some calls. We never lose a customer to a number the owner didn't approve.
