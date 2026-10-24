@@ -4,143 +4,932 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Adel Atya" />
-<title>Adel Atya — Engineer</title>
-<meta name="description" content="Adel Atya — AI voice agents, production LLM systems, full-stack apps and Shopify themes. Every project a live, deployed demo. Pick a profile." />
+<title>Adel Atya — AI Voice Agents That Answer, Qualify and Book</title>
+<meta name="description" content="White-label AI voice agents for GoHighLevel agencies: missed-call recovery and after-hours booking on Vapi and Retell. Talk to seven live agents now." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Adel Atya" />
-<meta property="og:title" content="Adel Atya — Engineer" />
-<meta property="og:description" content="AI voice agents, production LLM systems, full-stack apps and Shopify themes — every project a live, deployed demo." />
+<meta property="og:title" content="Never miss another customer call — AI voice agents by Adel Atya" />
+<meta property="og:description" content="AI voice agents that answer, qualify and book 24/7, in your business's voice. For plumbing, dental, restaurants, real estate — and agencies that white-label it." />
 <meta property="og:image" content="https://adelatya.com/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://adelatya.com/" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Adel Atya — Engineer" />
-<meta name="twitter:description" content="AI voice agents, LLM systems, full-stack apps, Shopify themes — live, deployed demos." />
+<meta name="twitter:title" content="Never miss another customer call — AI voice agents by Adel Atya" />
+<meta name="twitter:description" content="AI voice agents that answer, qualify and book 24/7, in your business's voice. For plumbing, dental, restaurants, real estate — and agencies that white-label it." />
 <meta name="twitter:image" content="https://adelatya.com/og.png" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<meta name="theme-color" content="#F7F4EE" />
+<meta name="theme-color" content="#FFFFFF" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-<style>
-:root{
-  --paper:#F7F4EE; --paper-3:#E6E0D3;
-  --ink:#16130F; --ink-2:#3A342C; --grey:#6B655B;
-  --red:#C63C22; --red-lift:#F2643F;
-  --rule:rgba(22,19,15,.16);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Archivo',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--ink);color:var(--paper)}
-:focus-visible{outline:2px solid var(--red);outline-offset:3px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 32px;width:100%}
-
-.top{border-bottom:1px solid var(--ink)}
-.top-in{display:flex;align-items:baseline;justify-content:space-between;gap:20px;height:64px}
-.top b{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5rem;letter-spacing:-.01em}
-.top .lbl{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
-
-.hero{padding:84px 0 64px;border-bottom:1px solid var(--ink)}
-.eyebrow{display:flex;align-items:flex-start;gap:12px;margin-bottom:32px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
-.eyebrow .dot{width:7px;height:7px;background:var(--red);border-radius:50%;flex:none;margin-top:.42em}
-.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:end}
-h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(3.2rem,9vw,7.6rem);line-height:.94;letter-spacing:-.03em}
-h1 em{font-style:italic;color:var(--red)}
-.hero p{font-size:1.06rem;color:var(--ink-2);border-left:1px solid var(--rule);padding-left:32px}
-.hero p strong{color:var(--ink);font-weight:600}
-
-.cards{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--rule)}
-.card{padding:38px 34px 40px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;min-height:280px;transition:background .15s,color .15s}
-.card:hover{background:var(--ink);color:var(--paper)}
-.card:hover .c-n,.card:hover .go{color:var(--red-lift)}
-.card:hover p{color:var(--paper-3)}
-.card:hover .meta span{border-color:rgba(247,244,238,.32);color:var(--paper-3)}
-.c-n{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.2em;color:var(--red);margin-bottom:18px}
-.card h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:2rem;line-height:1.06;letter-spacing:-.02em;margin-bottom:14px}
-.card p{font-size:.94rem;color:var(--ink-2);flex:1;line-height:1.55;max-width:44ch}
-.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
-.meta span{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--rule);color:var(--grey);white-space:nowrap}
-.go{margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);display:inline-flex;align-items:center;gap:10px}
-.card:hover .go i{transform:translateX(5px)}
-.go i{transition:transform .18s}
-
-footer{padding:28px 0;margin-top:auto}
-.f-in{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;color:var(--grey)}
-.f-in a{border-bottom:1px solid var(--rule)}
-.f-in a:hover{color:var(--ink);border-bottom-color:var(--ink)}
-.f-in .r{display:flex;gap:22px}
-
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:32px}
-  .hero p{border-left:0;padding-left:0}
-  .cards{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-  .wrap{padding:0 20px}
-  .hero{padding:56px 0 44px}
-  .card{padding:30px 24px 34px;min-height:0}
-}
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="canonical" href="https://adelatya.com/" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://adelatya.com/#org","name":"Adel Atya","alternateName":"adelatya.com","url":"https://adelatya.com/","logo":"https://adelatya.com/favicon.svg","image":"https://adelatya.com/og.png","description":"AI phone agents that answer, qualify callers and book jobs straight into your CRM \u2014 for service businesses, or white-labelled for GoHighLevel agencies.","email":"adel@adelatya.com","address":{"@type":"PostalAddress","addressLocality":"Cairo","addressCountry":"EG"},"areaServed":[{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Kingdom"},{"@type":"Country","name":"Canada"},{"@type":"Country","name":"Australia"}],"knowsAbout":["AI voice agents","AI receptionist","Missed call recovery","GoHighLevel","Vapi","Retell AI","Conversational AI","Appointment booking automation"],"sameAs":["https://www.linkedin.com/in/adel-atya-551467309", "https://github.com/adelsherif8", "https://cal.com/adelatya"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"AI voice agent build","description":"An AI phone agent that answers in one second, qualifies the caller, books the job and writes it into your CRM.","serviceType":"AI voice agent / AI receptionist","url":"https://adelatya.com/","provider":{"@id":"https://adelatya.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Home services, dental, legal and real estate businesses"},"offers":{"@type":"Offer","url":"https://adelatya.com/pricing/","priceCurrency":"USD","price":"900","availability":"https://schema.org/InStock","priceSpecification":[{"@type":"UnitPriceSpecification","price":"900","priceCurrency":"USD","name":"One-time build"},{"@type":"UnitPriceSpecification","price":"450","priceCurrency":"USD","billingIncrement":1,"unitCode":"MON","name":"Monthly, 500 call minutes included"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will it sound like a robot?","acceptedAnswer":{"@type":"Answer","text":"Open any agent above and judge for yourself \u2014 that's why they're the first thing on this page. The models are good enough now that most callers don't ask. What matters more is that it doesn't pretend: it says it's an assistant, and it hands over the moment the conversation needs a person."}},{"@type":"Question","name":"What happens when it can't answer something?","acceptedAnswer":{"@type":"Answer","text":"It escalates. Every agent has explicit transfer rules \u2014 anything outside the service area, anything about a price it wasn't given, anything where the caller is upset. It takes the details, tells the caller a human will follow up, and notifies the owner immediately. It is never allowed to invent a price or promise a time."}},{"@type":"Question","name":"Does it work with our existing number and CRM?","acceptedAnswer":{"@type":"Answer","text":"Yes. It sits on the number you already have, through LC Phone or your own Twilio account. GoHighLevel is the CRM we know deepest, but anything with an API works \u2014 the webhook layer is code, not a fixed integration."}},{"@type":"Question","name":"What does it cost to run each month?","acceptedAnswer":{"@type":"Answer","text":"Usage runs roughly 8 to 16 cents per minute of conversation, billed to you at cost. A business taking 200 calls a month averaging two minutes lands around $30 to $65 in platform and telephony spend on top of the retainer. You'll have the real number for your call volume before you commit, not after."}},{"@type":"Question","name":"Can we put our own brand on it?","acceptedAnswer":{"@type":"Answer","text":"That's the point of the agency tier. It deploys inside your GoHighLevel agency account, under your name, and We don't appear anywhere your client can see. We never contact your clients. The relationship is yours and so is the margin."}},{"@type":"Question","name":"How long before it's live?","acceptedAnswer":{"@type":"Answer","text":"Five to seven days for the first agent, from the call where you tell us what it needs to handle. Every account after that is under an hour, because the snapshot carries the pipeline, calendars, fields and the agent with it."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "@id": "https://adelatya.com/#person", "name": "Adel Atya", "url": "https://adelatya.com/", "image": "https://adelatya.com/og.png", "jobTitle": "AI Engineer", "worksFor": {"@id": "https://adelatya.com/#org"}, "address": {"@type": "PostalAddress", "addressLocality": "Cairo", "addressCountry": "EG"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "The British University in Egypt"}, "knowsAbout": ["AI voice agents", "LLM agents", "Retrieval-augmented generation", "LangGraph", "GoHighLevel", "n8n", "Next.js", "FastAPI"], "sameAs": ["https://www.linkedin.com/in/adel-atya-551467309", "https://github.com/adelsherif8", "https://cal.com/adelatya"]}</script>
 </head>
 <body>
 
-<div class="top"><div class="wrap top-in"><b>Adel Atya</b><span class="lbl">Cairo, Egypt</span></div></div>
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="#top"><img src="favicon.svg" alt="" width="22" height="22" />Adel Atya</a>
+  <nav class="menu">
+    <a href="#agents">Agents</a>
+    <a href="#how">How it works</a>
+    <a href="automation/">Automation</a>
+    <a href="#build">What we build</a>
+    <a href="pricing/">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="go" href="#agents">Talk to an agent</a>
+</div></div>
 
-<div class="hero">
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="aud" role="tablist" aria-label="Who you are">
+        <button class="aud-b is-on" data-a="0" role="tab" aria-selected="true">For my business</button>
+        <button class="aud-b" data-a="1" role="tab" aria-selected="false">For my agency</button>
+      </div>
+      <h1 style="margin-top:24px">Never miss<br/>another<br/><em>customer call.</em></h1>
+      <p class="sub" id="audSub">An AI phone agent that answers in one second, qualifies the caller, books the job and writes it into your CRM. Nights, weekends, and while your crew is under a house.</p>
+      <div class="acts">
+        <a class="btn btn-solid" href="#agents">Talk to a live agent</a>
+        <a class="btn btn-line" href="#pricing">See pricing</a>
+      </div>
+      <p class="fine">No form, no calendar. Open one and start talking.</p>
+
+      <dl class="facts" id="audFacts">
+        <div><dt>For</dt><dd id="f1">Home services, dental, legal, real estate</dd></div>
+        <div><dt>From</dt><dd id="f2"><s>$900</s> $600 + $450/mo</dd></div>
+        <div><dt>Live in</dt><dd id="f3">5&ndash;7 days</dd></div>
+      </dl>
+    </div>
+
+    <div class="callpanel" aria-label="Animated example of a live call handled by the agent">
+      <div class="cp-tabs" role="tablist" aria-label="Choose a vertical">
+        <button class="cp-tab is-on" data-v="0" role="tab" aria-selected="true">Plumbing</button>
+        <button class="cp-tab" data-v="1" role="tab" aria-selected="false">Dental</button>
+        <button class="cp-tab" data-v="2" role="tab" aria-selected="false">Real estate</button>
+        <button class="cp-tab" data-v="3" role="tab" aria-selected="false">Restaurant</button>
+        <button class="cp-tab" data-v="4" role="tab" aria-selected="false">Storage</button>
+      </div>
+      <div class="cp-head">
+        <span class="cp-live"><span class="cp-dot"></span> Live call</span>
+        <span class="cp-who" id="cpWho">Blue Ridge Plumbing</span>
+        <span class="cp-timer" id="cpTimer">00:00</span>
+      </div>
+      <div class="cp-wave" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <ul class="cp-log" id="cpLog"></ul>
+      <div class="cp-stamp" id="cpStamp">
+        <span class="cp-stamp-k" id="cpStampK">Job booked by the agent</span>
+        <span class="cp-stamp-v" id="cpStampV">$320 &middot; today 2–4pm &middot; written to GoHighLevel</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="built">
   <div class="wrap">
-    <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Taking on new client work</span></div>
-    <div class="hero-grid">
-      <h1>Four ways<br/>to hire<br/><em>one engineer.</em></h1>
-      <p>I build things that go live — <strong>AI voice agents on the phone</strong>, production LLM systems, full-stack apps, and Shopify storefronts. Every project below is deployed and open. Pick the profile that fits the work you need done.</p>
+    <span class="label">Built on</span>
+    <div class="stack"><button class="chip is-on" data-t="0">Vapi</button><button class="chip" data-t="1">Retell AI</button><button class="chip" data-t="2">GoHighLevel</button><button class="chip" data-t="3">Twilio</button><button class="chip" data-t="4">FastAPI</button><button class="chip" data-t="5">n8n</button><button class="chip" data-t="6">LangGraph</button><button class="chip" data-t="7">Supabase</button></div>
+    <p class="stack-note" id="stackNote">Voice platform for the agents that need the lowest latency and custom voices.</p>
+  </div>
+</div>
+
+<!-- ── PROBLEM ── -->
+<section id="problem">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[01] The leak</span>
+      <h2>That call was already paid for.<br/><em>Then nobody answered it.</em></h2>
+      <p>The ads run, the profile ranks, the phone rings — and the crew is under a house, the desk is chairside. The caller doesn't wait.</p>
+    </div>
+    <div class="calc">
+      <div class="calc-in">
+        <label class="calc-f">
+          <span class="calc-l">Calls a month <b id="cvA">200</b></span>
+          <input type="range" id="cA" min="40" max="800" step="10" value="200" />
+        </label>
+        <label class="calc-f">
+          <span class="calc-l">Missed <b id="cvB">40%</b></span>
+          <input type="range" id="cB" min="5" max="70" step="1" value="40" />
+        </label>
+        <label class="calc-f">
+          <span class="calc-l">Average job <b id="cvC">$450</b></span>
+          <input type="range" id="cC" min="80" max="4000" step="10" value="450" />
+        </label>
+        <p class="calc-note">Drag them to your real numbers — your business, or a client's. The maths assumes 85% of missed callers never ring back, and that the agent recovers a conservative quarter of them.</p>
+      </div>
+      <div class="calc-out">
+        <div class="calc-box">
+          <span class="calc-k">Walking out the door</span>
+          <span class="calc-v" id="cLost">$30,600</span>
+          <span class="calc-s">every month, before new ad spend</span>
+        </div>
+        <div class="calc-box hot">
+          <span class="calc-k">Recovered by the agent</span>
+          <span class="calc-v" id="cWon">$7,650</span>
+          <span class="calc-s"><b id="cYr">$91,800</b> a year, for $450 a month</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="statement">
+  <div class="wrap st-in">
+    <p class="st-line" id="stLine">No amount of marketing fixes a phone that <em>rings out.</em></p>
+    <div class="rings" aria-hidden="true">
+      <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+      <span class="rcore"><i class="fa-solid fa-phone"></i></span>
+      <span class="rlabel" id="rLabel">Ringing&hellip;</span>
     </div>
   </div>
 </div>
 
-<div class="wrap" style="padding:0">
-  <div class="cards">
-    <a class="card" href="voice-agent-engineer/">
-      <span class="c-n">01 / Voice</span>
-      <h2>AI Voice Agent Engineer</h2>
-      <p>Phone agents that answer in one second, 24/7 — qualify the caller, book the job, take the payment, and write every call into the CRM. Seven live demos across seven trades.</p>
-      <div class="meta"><span>Vapi · Retell</span><span>Twilio</span><span>GoHighLevel</span><span>CRM sync</span></div>
-      <span class="go">View profile <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></span>
-    </a>
-    <a class="card" href="ai-engineer/">
-      <span class="c-n">02 / LLM</span>
-      <h2>AI Engineer</h2>
-      <p>Production LLM systems — tool-calling agents, RAG that cites its sources and refuses when it can't, and multi-agent pipelines you can actually trace. Ten-plus live demos.</p>
-      <div class="meta"><span>LLM agents</span><span>RAG</span><span>LangGraph</span><span>Langfuse</span></div>
-      <span class="go">View profile <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></span>
-    </a>
-    <a class="card" href="software-engineer/">
-      <span class="c-n">03 / Full-stack</span>
-      <h2>Software Engineer</h2>
-      <p>Full-stack web apps — React and Next.js on the front, Node and FastAPI behind, real databases underneath. Meta Front-End Engineer certified.</p>
-      <div class="meta"><span>React · Next</span><span>Node · FastAPI</span><span>Postgres</span></div>
-      <span class="go">View profile <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></span>
-    </a>
-    <a class="card" href="shopify-expert/">
-      <span class="c-n">04 / Commerce</span>
-      <h2>Shopify Expert</h2>
-      <p>Custom Liquid themes and storefronts built to convert. Seven-plus live stores shipped on Online Store 2.0, in Arabic and English.</p>
-      <div class="meta"><span>Liquid</span><span>OS 2.0</span><span>CRO</span><span>AR / EN</span></div>
-      <span class="go">View profile <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></span>
-    </a>
+<!-- ── AGENTS ── -->
+<section id="agents">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[02] Live demos</span>
+      <h2>Don't read about it.<br/><em>Talk to one.</em></h2>
+      <p>Seven agents, one per trade, each wired to its own operator dashboard. Yours or your client's, the build is the same. Open one and start talking.</p>
+    </div>
+
+    <div class="agents">
+      <a class="agent" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">
+        <span class="pic"><img src="assets/site/v-trades.png" alt="Recovery pipeline board moving missed calls through texted, called and booked" loading="lazy" /></span>
+        <span>
+          <span class="vert">Plumbing · HVAC · Roofing</span>
+          <h3>Revenue Recovery</h3>
+          <p>Missed call texted back in 8 seconds, AI callback at 52, job booked before they try the next number. Then it chases unsold estimates and reactivates dormant customers.</p>
+        </span>
+        <span class="act">Talk to it <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="agent" href="https://voicedesk-h31g.onrender.com/agent/dental" target="_blank" rel="noopener">
+        <span class="pic"><img src="assets/site/v-dental.png" alt="Dental week schedule with a cancelled slot automatically refilled" loading="lazy" /></span>
+        <span>
+          <span class="vert">Dental · Med spa</span>
+          <h3>Front Desk</h3>
+          <p>Books new patients while the desk is chairside, runs the reminder calls, and refills the slot when someone cancels rather than leaving the hour empty.</p>
+        </span>
+        <span class="act">Talk to it <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="agent" href="https://voicedesk-h31g.onrender.com/agent/realty" target="_blank" rel="noopener">
+        <span class="pic"><img src="assets/site/v-realty.png" alt="Real estate listings board with qualified buyers and booked showings" loading="lazy" /></span>
+        <span>
+          <span class="vert">Real estate</span>
+          <h3>Listing Line</h3>
+          <p>Qualifies the caller on budget, timeline and finance, then books the showing straight into the agent's calendar — including the ones that come in at ten at night.</p>
+        </span>
+        <span class="act">Talk to it <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="agent" href="https://voicedesk-h31g.onrender.com/agent/voicemail" target="_blank" rel="noopener">
+        <span class="pic"><img src="assets/site/v-legal.png" alt="Transcribed and summarised voicemails shown on a law firm desk phone" loading="lazy" /></span>
+        <span>
+          <span class="vert">Legal · Professional services</span>
+          <h3>Visual Voicemail</h3>
+          <p>Every message transcribed, summarised and sorted by urgency on the desk phone's own screen, so an intake call doesn't sit unheard until tomorrow.</p>
+        </span>
+        <span class="act">Talk to it <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="agent" href="https://voicedesk-h31g.onrender.com/agent/restaurant" target="_blank" rel="noopener">
+        <span class="pic"><img src="assets/site/v-restaurant.png" alt="Restaurant service board with live orders arriving from the phone host" loading="lazy" /></span>
+        <span>
+          <span class="vert">Restaurants</span>
+          <h3>Phone Host</h3>
+          <p>Takes the takeaway order through to the kitchen and holds the table, during service when there is nobody free to reach the phone.</p>
+        </span>
+        <span class="act">Talk to it <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="agent" href="https://voicedesk-h31g.onrender.com/agent/receptionist" target="_blank" rel="noopener">
+        <span class="pic"><img src="assets/site/v-receptionist.png" alt="A completed call written into the CRM with the reservation and payment attached" loading="lazy" /></span>
+        <span>
+          <span class="vert">Self-storage · Property</span>
+          <h3>Receptionist</h3>
+          <p>Quotes from live inventory, reserves the unit, takes the payment and resets gate codes — with a tenant check before anything sensitive happens.</p>
+        </span>
+        <span class="act">Talk to it <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="agent" href="voice-agent-engineer/">
+        <span class="pic"><img src="assets/site/v-support.png" alt="Support agent escalating a frustrated caller with a warm transfer to a human" loading="lazy" /></span>
+        <span>
+          <span class="vert">All seven, plus the support line</span>
+          <h3>The full breakdown</h3>
+          <p>Architecture, transcripts, every operator dashboard, and exactly what each agent hands off to a human rather than attempting itself.</p>
+        </span>
+        <span class="act">See the build <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROOF ── -->
+<section id="proof">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[03] One call</span>
+      <h2>Ring to <em>booked job</em><br/>in under a minute.</h2>
+      <p class="lede">A plumbing customer's call goes unanswered. Scroll, and watch it come back.</p>
+    </div>
+
+    <div class="story">
+      <div class="story-fig">
+        <div class="board">
+          <div class="bd-top">
+            <span class="bd-name">Blue Ridge Plumbing</span>
+            <span class="bd-sub">Revenue Recovery Desk</span>
+            <span class="bd-cash" id="bdCash">$5,538</span>
+          </div>
+          <div class="bd-cols"><div class="bcol" data-c="0"><span class="bcol-h">Missed</span></div><div class="bcol" data-c="1"><span class="bcol-h">Texted back</span></div><div class="bcol" data-c="2"><span class="bcol-h">Called by AI</span></div><div class="bcol" data-c="3"><span class="bcol-h">Booked</span></div>
+            <div class="bd-card" id="bdCard">
+              <span class="bd-c-top"><b>Maria Lopez</b><i id="bdVal">$320</i></span>
+              <span class="bd-c-sub" id="bdState">Sink backed up &middot; missed 10:41</span>
+            </div>
+          </div>
+          <div class="bd-foot">
+            <span class="bd-clock" id="bdClock">00:00</span>
+            <span class="bd-line"><i id="bdFill"></i></span>
+            <span class="bd-note" id="bdNote">Waiting</span>
+          </div>
+        </div>
+        <a class="bd-vid" href="assets/site/reel.mp4" target="_blank" rel="noopener">Watch the real recording <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="story-steps">
+      <div class="sstep" data-s="0">
+        <span class="sstep-n">01 <b>0s</b></span>
+        <h3>The call is missed</h3>
+        <p>The crew is under a house. Nobody reaches the phone. This is the moment 85% of callers decide to try the next name on the list.</p>
+      </div>
+      <div class="sstep" data-s="1">
+        <span class="sstep-n">02 <b>8s</b></span>
+        <h3>Texted back in 8 seconds</h3>
+        <p>Before they have dialled anyone else a text lands — we saw you called, we can help today. The opportunity is already open in the CRM.</p>
+      </div>
+      <div class="sstep" data-s="2">
+        <span class="sstep-n">03 <b>52s</b></span>
+        <h3>The agent calls back</h3>
+        <p>It asks what the job is, whether they're in the service area, and how urgent it is. It quotes only what it has been given, and never invents a price.</p>
+      </div>
+      <div class="sstep" data-s="3">
+        <span class="sstep-n">04 <b>94s</b></span>
+        <h3>Booked, written, notified</h3>
+        <p>On the schedule, contact and opportunity written, owner texted the details. Every automated follow-up stops the moment they reply.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW ── -->
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[04] How it runs</span>
+      <h2>Live in a week.<br/><em>The next one in an hour.</em></h2>
+      <p>The first build is the slow one. After that the snapshot carries everything — which is why the second business costs a fraction of the first.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="k"><i class="flow-dot" aria-hidden="true"></i>01</span>
+        <h3>Tell us the three calls</h3>
+        <p>The three calls you miss most — your own, or your clients'. We come back with what an agent should handle, what it must hand to a human, and what it costs to run each month.</p>
+        <span class="when">30 minutes</span>
+      </div>
+      <div class="step">
+        <span class="k"><i class="flow-dot" aria-hidden="true"></i>02</span>
+        <h3>Build, then pilot</h3>
+        <p>Scripted to the real business — its services, prices and objections — and wired into your CRM. It runs on live calls with the baseline measured first, so the result is a number, not an impression.</p>
+        <span class="when">5–7 days, then 30 on the line</span>
+      </div>
+      <div class="step">
+        <span class="k"><i class="flow-dot" aria-hidden="true"></i>03</span>
+        <h3>Clone it</h3>
+        <p>The second business is configuration, not construction. Running an agency? It deploys inside your account under your brand, and we never contact your client.</p>
+        <span class="when">Under an hour</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BUILD ── -->
+<section id="build">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[05] What we build</span>
+      <h2>They sell configuration.<br/><em>We write the layer under it.</em></h2>
+      <p>FastAPI webhooks, handlers for both Vapi and Retell payload shapes, and the code that runs when no-code stops being enough.</p>
+    </div>
+    <div class="caps">
+      <div class="cap first big">
+        <h3>AI voice agents</h3>
+        <p>Vapi and Retell on your number. Qualification, service-area gating, booking as a tool call, transfer rules, and real handling for spam, vendors and job seekers.</p><p class="cap-more">Seven live agents across seven trades. Each one knows its service area, its prices, and when to stop talking and fetch a human.</p>
+      </div>
+      <div class="cap">
+        <h3>Missed-call recovery</h3>
+        <p>Text back in seconds, callback under a minute, opportunity opened, owner notified — and every automated message stops the moment the caller replies.</p><p class="cap-more">Text at 8 seconds, call at 52. The two numbers that decide whether the job is yours or the next name on the list.</p>
+      </div>
+      <div class="cap">
+        <h3>GoHighLevel builds</h3>
+        <p>Pipelines, custom fields, calendars, speed-to-lead, appointment automation and review requests, with stop conditions that actually stop.</p><p class="cap-more">Two years, 30+ sub-accounts, one unified CRM. We know where GoHighLevel breaks before you hit it.</p>
+      </div>
+      <div class="cap">
+        <h3>Snapshots and SaaS mode</h3>
+        <p>White-label deployment and a reusable snapshot, so a new sub-account is clone-and-configure rather than a rebuild every time you sign a client.</p><p class="cap-more">Build once, deploy in under an hour. This is the part that turns a service into something you can resell.</p>
+      </div>
+      <div class="cap">
+        <h3>API and webhook work</h3>
+        <p>n8n and custom Python where no-code runs out. Authenticated requests, pagination, sub-workflows, retries, and error paths that route instead of failing silently.</p><p class="cap-more">Where no-code ends. Authenticated requests, pagination, retries, and errors that route instead of vanishing.</p>
+      </div>
+      <div class="cap">
+        <h3>LLM systems and RAG</h3>
+        <p>LangGraph agents, retrieval that cites its sources and refuses when it can't, Langfuse tracing and eval harnesses. Measurable, not just impressive.</p><p class="cap-more">Retrieval that cites its sources and refuses when it can't. Traced end to end, so you can prove what it did.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[06] Pricing</span>
+      <h2>A number, not a<br/><em>discovery call.</em></h2>
+      <p>Automation from $400 a workflow. A voice agent for $900 to build and $450 a month with 500 minutes included. A human receptionist is $2,800 to $4,500 a month.</p>
+    </div>
+    <div class="pswitch" role="tablist" aria-label="Choose a plan view">
+      <button class="ps-b is-on" data-p="0" role="tab" aria-selected="true">I run an agency</button>
+      <button class="ps-b" data-p="1" role="tab" aria-selected="false">I run the business</button>
+    </div>
+    <div class="plans three">
+      <div class="plan">
+        <span class="kind">Automation — GoHighLevel &amp; n8n</span>
+        <span class="amt">$400 <small>a workflow</small></span>
+        <span class="per">$1,200 for a 3–5 workflow system &middot; $200 a month care plan, optional</span>
+        <span class="why">Follow-ups, document chasers, stalled-lead alerts, booking flows, integrations. No AI usage fees — rules and timers inside the account you already pay for.</span>
+        <ul>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Your wording, your timing; nothing sends you haven't read</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Live inside a week, documented so you can change it</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Care plan: fixes and two hours of changes a month, cancel anytime</span></li>
+        </ul>
+        <a class="btn btn-line" href="automation/">See the automation work</a>
+      </div>
+      <div class="plan">
+        <span class="kind">Voice agent <em class="badge alt">Founding &middot; first 3</em></span>
+        <span class="amt"><s>$900</s> $600 <small>build</small></span>
+        <span class="per">plus $450 a month &middot; 500 minutes included</span>
+        <span class="why">First three direct clients get the build at $600 in exchange for the before-and-after call numbers. Then it's $900. Voice + automation together: $1,500 + $600 a month.</span>
+        <ul>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>One agent, scripted to your business and its real objections</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Books, writes every call to your CRM, texts the caller back</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Missed-call recovery and after-hours coverage</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>500 call minutes included, then 15 cents a minute</span></li>
+        </ul>
+        <a class="btn btn-line" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a 30-minute fit call</a>
+      </div>
+      <div class="plan main">
+        <span class="kind">Agency — white-label <em class="badge">First account free</em></span>
+        <span class="amt">$400 <small>per account</small></span>
+        <span class="per">plus $250 a month per account &middot; you bill the client</span>
+        <span class="why">Agencies resell this at $500–800 a month. The first account is free in exchange for the before-and-after numbers.</span>
+        <ul>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Deployed inside your GoHighLevel agency account, under your brand</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Reusable snapshot — account two onboards in under an hour</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>We never contact your clients. The relationship stays yours</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>500 minutes per account included, then 15 cents a minute</span></li>
+        </ul>
+        <a class="btn btn-solid" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book the free first account</a>
+      </div>
+    </div>
+
+    <div class="worth">
+      <span class="worth-k">Put it against one hire</span>
+      <p>A human receptionist is <b>$2,800 to $4,500 a month</b> and goes home at five. This is $450, answers at 2am, and pays for itself on <b>one recovered job</b>. The follow-ups behind it are $400, once.</p>
+    </div>
+
+
+    <div class="mcalc">
+      <div class="mcalc-l">
+        <span class="label">[07] Agency maths</span>
+        <h3>What it pays you.</h3>
+        <label class="calc-f">
+          <span class="calc-l">Client accounts <b id="mvN">5</b></span>
+          <input type="range" id="mN" min="1" max="40" step="1" value="5" />
+        </label>
+        <label class="calc-f">
+          <span class="calc-l">You charge each <b id="mvP">$600</b> / month</span>
+          <input type="range" id="mP" min="250" max="1500" step="25" value="600" />
+        </label>
+      </div>
+      <div class="mcalc-r">
+        <div class="mrow"><span>You bill</span><b id="mBill">$3,000</b></div>
+        <div class="mrow"><span>You pay us</span><b id="mCost">$1,250</b></div>
+        <div class="mrow big"><span>Your margin</span><b id="mNet">$1,750</b></div>
+        <p class="mnote">Per month, recurring. Build fees excluded — those are one-off and you mark those up too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[08] Straight answers</span>
+      <h2>Including the ones that<br/>are <em>fair objections.</em></h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Will it sound like a robot? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">Open any agent above and judge for yourself — that's why they're the first thing on this page. The models are good enough now that most callers don't ask. What matters more is that it doesn't pretend: it says it's an assistant, and it hands over the moment the conversation needs a person.</p>
+      </details>
+      <details>
+        <summary>What happens when it can't answer something? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">It escalates. Every agent has explicit transfer rules — anything outside the service area, anything about a price it wasn't given, anything where the caller is upset. It takes the details, tells the caller a human will follow up, and notifies the owner immediately. It is never allowed to invent a price or promise a time.</p>
+      </details>
+      <details>
+        <summary>Does it work with our existing number and CRM? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">Yes. It sits on the number you already have, through LC Phone or your own Twilio account. GoHighLevel is the CRM we know deepest, but anything with an API works — the webhook layer is code, not a fixed integration.</p>
+      </details>
+      <details>
+        <summary>What does it cost to run each month? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">Usage runs roughly 8 to 16 cents per minute of conversation, billed to you at cost. A business taking 200 calls a month averaging two minutes lands around $30 to $65 in platform and telephony spend on top of the retainer. You'll have the real number for your call volume before you commit, not after.</p>
+      </details>
+      <details>
+        <summary>Can we put our own brand on it? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">That's the point of the agency tier. It deploys inside your GoHighLevel agency account, under your name, and We don't appear anywhere your client can see. We never contact your clients. The relationship is yours and so is the margin.</p>
+      </details>
+      <details>
+        <summary>How long before it's live? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">Five to seven days for the first agent, from the call where you tell us what it needs to handle. Every account after that is under an hour, because the snapshot carries the pipeline, calendars, fields and the agent with it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSING ── -->
+<div class="close" id="contact">
+  <div class="wrap close-in">
+    <div>
+      <span class="label">[09] Start here</span>
+      <h2>Tell us the three calls<br/>your clients <em>miss most.</em></h2>
+      <p>We'll come back with what an agent can handle, what it should hand to a human, what it costs to run each month — and a demo you can talk to within 48 hours. Running an agency? The first account is free, and you keep the before-and-after numbers either way.</p>
+      <div class="acts">
+        <a class="btn btn-solid" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a 30-minute fit call</a>
+        <a class="btn btn-line" href="mailto:adel@adelatya.com">adel@adelatya.com</a>
+      </div>
+      <p class="close-bio">Two years of GoHighLevel lead-capture and follow-up pipelines across 30+ businesses feeding one unified CRM, then seven production voice agents on Vapi and Retell. Small on purpose: you talk to the engineer who writes the code, not an account manager. <span class="who">Adel Atya · Cairo, Egypt</span></p>
+    </div>
+    <form class="lead-form" id="lead-form" novalidate>
+      <h3>Or send the details here</h3>
+      <p class="lf-note">It comes straight to my inbox and phone. I reply within one working day.</p>
+      <div class="lf-row">
+        <label for="lf-name">Name</label>
+        <input id="lf-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+      </div>
+      <div class="lf-row">
+        <label for="lf-email">Work email</label>
+        <input id="lf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+      </div>
+      <div class="lf-row">
+        <label for="lf-company">Company or website <span>(optional)</span></label>
+        <input id="lf-company" name="company" type="text" autocomplete="organization" maxlength="200">
+      </div>
+      <div class="lf-row">
+        <label for="lf-need">What do you need?</label>
+        <select id="lf-need" name="need">
+          <option>AI voice agent</option>
+          <option>GoHighLevel automation</option>
+          <option>Agency white-label</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="lf-row">
+        <label for="lf-message">Which calls or tasks are slipping through?</label>
+        <textarea id="lf-message" name="message" rows="4" maxlength="4000" required></textarea>
+      </div>
+      <div class="lf-hp" aria-hidden="true">
+        <label for="lf-website">Leave this empty</label>
+        <input id="lf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="btn btn-solid" type="submit" id="lf-submit">Send message</button>
+      <p class="lf-status" id="lf-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </div>
 
 <footer>
-  <div class="wrap f-in">
-    <span>© <span id="yr"></span> Adel Atya · Cairo, Egypt</span>
-    <span class="r">
-      <a href="mailto:adel@adelatya.com">adel@adelatya.com</a>
-      <a href="https://github.com/adelsherif8" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
-    </span>
+  <div class="wrap">
+    <div class="f-more">
+      <span class="label">More</span>
+      <a href="automation/">Automation</a>
+      <a href="plumbing/">Plumbing &amp; HVAC</a>
+      <a href="dental/">Dental</a>
+      <a href="restaurants/">Restaurants</a>
+      <a href="real-estate/">Real estate</a>
+      <a href="pricing/">Pricing</a>
+      <a href="white-label-ai-voice-agent/">For agencies</a>
+      <a href="voice-agent-engineer/">Voice agents</a>
+      <a href="ai-engineer/">AI and LLM systems</a>
+      <a href="software-engineer/">Software</a>
+      <a href="shopify-expert/">Shopify</a>
+      <a href="blog/">Blog</a>
+    </div>
+    <div class="f-end">
+      <span>&copy; <span id="yr"></span> Adel Atya · Cairo, Egypt</span>
+      <span class="r">
+        <a href="mailto:adel@adelatya.com">adel@adelatya.com</a>
+        <a href="https://github.com/adelsherif8" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </div>
   </div>
 </footer>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+(function(){
+  var log=document.getElementById('cpLog'),stamp=document.getElementById('cpStamp'),
+      tmr=document.getElementById('cpTimer'),who=document.getElementById('cpWho'),
+      sk=document.getElementById('cpStampK'),sv=document.getElementById('cpStampV'),
+      tabs=[].slice.call(document.querySelectorAll('.cp-tab'));
+  if(!log) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var V=[
+   {who:'Blue Ridge Plumbing',k:'Job booked by the agent',v:'$320 \u00b7 today 2\u20134pm \u00b7 written to GoHighLevel',
+    lines:[['ai','Ava \u00b7 AI agent','Blue Ridge Plumbing, this is Ava. How can I help?'],
+           ['cus','Maria \u00b7 missed call 52s ago','My kitchen sink is completely backed up, nothing\u2019s draining.'],
+           ['ai','Ava \u00b7 AI agent','We can be there today, two to four. The $89 dispatch fee goes toward the repair.'],
+           ['cus','Maria','That works.'],
+           ['ai','Ava \u00b7 AI agent','Booked. You\u2019ll get a text with the plumber\u2019s name and a tracking link.']]},
+   {who:'Brightside Dental',k:'New patient booked',v:'Thursday 9:40am \u00b7 insurance verified \u00b7 reminder scheduled',
+    lines:[['ai','Nora \u00b7 AI front desk','Brightside Dental, this is Nora. How can I help?'],
+           ['cus','James \u00b7 new patient','I chipped a tooth over the weekend. Are you taking new patients?'],
+           ['ai','Nora \u00b7 AI front desk','We are. I can see Thursday at 9:40. Which insurance are you on?'],
+           ['cus','James','Delta Dental.'],
+           ['ai','Nora \u00b7 AI front desk','Verified and booked. You\u2019ll get a reminder the day before.']]},
+   {who:'Harbor & Vine Realty',k:'Showing booked',v:'Saturday 11am \u00b7 pre-approved \u00b7 agent notified',
+    lines:[['ai','Iris \u00b7 AI listing line','Harbor and Vine, this is Iris. Which listing are you calling about?'],
+           ['cus','Dan \u00b7 caller','The one on Ashfield Road. Is it still available?'],
+           ['ai','Iris \u00b7 AI listing line','It is. Are you pre-approved, and what\u2019s your timeline?'],
+           ['cus','Dan','Pre-approved, looking to move in about two months.'],
+           ['ai','Iris \u00b7 AI listing line','Saturday at eleven works. I\u2019ve put it in and told the agent.']]},
+   {who:'Luca\u2019s Trattoria',k:'Order sent to the kitchen',v:'$58.40 \u00b7 pickup 7:15pm \u00b7 confirmation texted',
+    lines:[['ai','Leo \u00b7 AI phone host','Luca\u2019s Trattoria, this is Leo. Pickup or a table?'],
+           ['cus','Sam \u00b7 caller','Pickup. Two lasagne and a garlic bread.'],
+           ['ai','Leo \u00b7 AI phone host','Got it. The lasagne runs twenty minutes \u2014 7:15 work?'],
+           ['cus','Sam','Perfect.'],
+           ['ai','Leo \u00b7 AI phone host','Through to the kitchen. Confirmation is on its way by text.']]},
+   {who:'StoreRight Self-Storage',k:'Unit reserved and paid',v:'10\u00d710 \u00b7 $110 collected \u00b7 gate code issued',
+    lines:[['ai','Alex \u00b7 AI receptionist','StoreRight Self-Storage, this is Alex. How can I help?'],
+           ['cus','Jenna \u00b7 new caller','I need to store a couch, a bed and about fifteen boxes.'],
+           ['ai','Alex \u00b7 AI receptionist','A ten-by-ten fits that \u2014 $110 a month, and I have one open.'],
+           ['cus','Jenna','Can I reserve it now?'],
+           ['ai','Alex \u00b7 AI receptionist','Reserved and paid. Your gate code is on the way.']]}
+  ];
+
+  var cur=0,T=[3,9,17,26,31],timers=[],typer=null;
+  function clock(x){tmr.textContent='00:'+(x<10?'0':'')+x;}
+  function node(i,full){
+    var L=V[cur].lines[i],li=document.createElement('li');
+    li.className=L[0];
+    var t=document.createElement('b'); t.textContent=L[1];
+    var x=document.createElement('span'); x.textContent=full?L[2]:'';
+    li.appendChild(t); li.appendChild(x); log.appendChild(li);
+    return {li:li,span:x,text:L[2]};
+  }
+  function stop(){timers.forEach(clearTimeout);timers=[];clearInterval(typer);}
+  function type(i,done){
+    var n=node(i,false),k=0;
+    n.li.classList.add('typing');
+    clock(T[i]);
+    typer=setInterval(function(){
+      k+=2;
+      n.span.textContent=n.text.slice(0,k);
+      if(k>=n.text.length){clearInterval(typer);n.li.classList.remove('typing');
+        timers.push(setTimeout(done,520));}
+    },17);
+  }
+  function chain(i){
+    if(i>=V[cur].lines.length){
+      stamp.classList.add('on'); clock(34);
+      timers.push(setTimeout(function(){cur=(cur+1)%V.length;sync();run();},4600));
+      return;
+    }
+    type(i,function(){chain(i+1);});
+  }
+  function run(){
+    stop(); log.innerHTML=''; stamp.classList.remove('on'); clock(0);
+    who.textContent=V[cur].who; sk.textContent=V[cur].k; sv.textContent=V[cur].v;
+    if(reduce){V[cur].lines.forEach(function(_,i){node(i,true);});stamp.classList.add('on');clock(34);return;}
+    timers.push(setTimeout(function(){chain(0);},650));
+  }
+  function sync(){tabs.forEach(function(b,i){var on=i===cur;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on?'true':'false');});}
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){cur=i;sync();run();});});
+  run();
+})();
+
+(function(){
+  var A=document.getElementById('cA'),B=document.getElementById('cB'),C=document.getElementById('cC');
+  if(!A) return;
+  var m=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function go(){
+    var calls=+A.value,miss=+B.value,tik=+C.value;
+    document.getElementById('cvA').textContent=calls;
+    document.getElementById('cvB').textContent=miss+'%';
+    document.getElementById('cvC').textContent=m(tik);
+    var lost=calls*(miss/100)*0.85*tik, won=lost*0.25;
+    document.getElementById('cLost').textContent=m(lost);
+    document.getElementById('cWon').textContent=m(won);
+    document.getElementById('cYr').textContent=m(won*12);
+  }
+  [A,B,C].forEach(function(el){el.addEventListener('input',go);});
+  go();
+})();
+
+(function(){
+  var N=document.getElementById('mN'),P=document.getElementById('mP');
+  if(!N) return;
+  var m=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function go(){
+    var n=+N.value,p=+P.value;
+    document.getElementById('mvN').textContent=n;
+    document.getElementById('mvP').textContent=m(p);
+    var bill=n*p,cost=n*250;
+    document.getElementById('mBill').textContent=m(bill);
+    document.getElementById('mCost').textContent=m(cost);
+    document.getElementById('mNet').textContent=m(bill-cost);
+  }
+  [N,P].forEach(function(el){el.addEventListener('input',go);});
+  go();
+})();
+</script>
+<div class="dock">
+  <a class="dock-a" href="#agents">Talk to an agent</a>
+  <a class="dock-b" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a call</a>
+</div>
+<script>
+(function(){
+  var d=document.querySelector('.dock'); if(!d) return;
+  var on=false;
+  addEventListener('scroll',function(){
+    var want=scrollY>640;
+    if(want!==on){on=want;d.classList.toggle('on',on);}
+  },{passive:true});
+})();
+</script>
+<script>
+/* scroll reveals + count-up + pipeline */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- reveals --- */
+  var sel='.head,.calc-in,.calc-box,.agent,.vidbox,.pipe,.step,.cap,.plan,.mcalc,.faq details,.close-in>*';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  els.forEach(function(el){el.classList.add('rv');});
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});}
+  else{
+    var io=new IntersectionObserver(function(rows){
+      rows.forEach(function(r){
+        if(!r.isIntersecting) return;
+        var sibs=[].slice.call(r.target.parentNode.children).filter(function(n){return n.classList.contains('rv');});
+        var i=Math.max(0,sibs.indexOf(r.target));
+        r.target.style.transitionDelay=Math.min(i,5)*70+'ms';
+        r.target.classList.add('in'); io.unobserve(r.target);
+      });
+    },{rootMargin:'0px 0px -12% 0px',threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  }
+
+  /* --- numbers count up the first time they appear --- */
+  function countUp(el){
+    var raw=el.textContent.replace(/[^0-9]/g,''); if(!raw) return;
+    var target=+raw, t0=null, dur=900;
+    function frame(t){
+      if(!t0) t0=t;
+      var k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3);
+      el.textContent='$'+Math.round(target*e).toLocaleString('en-US');
+      if(k<1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var nums=[].slice.call(document.querySelectorAll('#cLost,#cWon,#mBill,#mCost,#mNet'));
+  if(!reduce&&'IntersectionObserver' in window){
+    var io2=new IntersectionObserver(function(rows){
+      rows.forEach(function(r){ if(r.isIntersecting){countUp(r.target);io2.unobserve(r.target);} });
+    },{threshold:.6});
+    nums.forEach(function(n){io2.observe(n);});
+  }
+
+  /* --- interactive pipeline --- */
+  var steps=[].slice.call(document.querySelectorAll('.pstep')),
+      fill=document.getElementById('pipeFill'),
+      ph=document.getElementById('pipeH'), pp=document.getElementById('pipeP');
+  if(!steps.length) return;
+  var COPY=[
+   ['The call is missed','The crew is under a house. Nobody reaches the phone. This is the moment 85% of callers decide to try the next name on the list.'],
+   ['Texted back in 8 seconds','Before they have dialled anyone else, a text lands: we saw you called, we can help today. The opportunity is already open in the CRM.'],
+   ['The agent calls back at 52','It asks what the job is, whether they are in the service area, and how urgent it is. It quotes only what it has been given.'],
+   ['Booked, written, notified','On the schedule, contact and opportunity written, owner texted with the details. Every follow-up message stops the moment they reply.']
+  ];
+  var at=0,auto;
+  function show(i,manual){
+    at=i;
+    steps.forEach(function(b,k){var on=k===i;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on?'true':'false');});
+    fill.style.width=(12+i*(88/3))+'%';
+    ph.textContent=COPY[i][0]; pp.textContent=COPY[i][1];
+    if(manual){clearInterval(auto);auto=null;}
+  }
+  steps.forEach(function(b,i){b.addEventListener('click',function(){show(i,true);});});
+  if(!reduce){
+    var started=false;
+    var io3=new IntersectionObserver(function(rows){
+      rows.forEach(function(r){
+        if(r.isIntersecting&&!started){started=true;auto=setInterval(function(){show((at+1)%4);},2600);}
+      });
+    },{threshold:.4});
+    io3.observe(document.querySelector('.pipe'));
+  }
+  show(0);
+})();
+</script>
+<script>
+(function(){
+  var bs=[].slice.call(document.querySelectorAll('.aud-b')),
+      sub=document.getElementById('audSub'),
+      f=[document.getElementById('f1'),document.getElementById('f2'),document.getElementById('f3')];
+  if(!bs.length) return;
+  var D=[
+   {s:'An AI phone agent that answers in one second, qualifies the caller, books the job and writes it into your CRM. Nights, weekends, and while your crew is under a house.',
+    f:['Home services, dental, legal, real estate','$600 + $450/mo · first 3','5\u20137 days']},
+   {s:'The same agent, white-labelled under your brand and deployed across your client accounts. You keep the relationship and the margin \u2014 we never contact your clients.',
+    f:['GoHighLevel agencies and resellers','$400 + $250/mo · first account free','5\u20137 days, then under an hour']}
+  ];
+  bs.forEach(function(b,i){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x,k){var on=k===i;x.classList.toggle('is-on',on);x.setAttribute('aria-selected',on?'true':'false');});
+      sub.textContent=D[i].s;
+      f.forEach(function(el,k){if(el) el.textContent=D[i].f[k];});
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var line=document.getElementById('stLine'), band=document.querySelector('.statement'),
+      lab=document.getElementById('rLabel');
+  if(!line||!band) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* wrap every word so it can rise on its own */
+  (function split(node){
+    [].slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(t){
+          if(!t.trim()){frag.appendChild(document.createTextNode(t));return;}
+          var w=document.createElement('span'); w.className='w'; w.textContent=t; frag.appendChild(w);
+        });
+        node.replaceChild(frag,n);
+      } else if(n.nodeType===1){ split(n); }
+    });
+  })(line);
+
+  var ws=[].slice.call(line.querySelectorAll('.w'));
+  ws.forEach(function(w,i){w.style.transitionDelay=(i*52)+'ms';});
+
+  function fire(){
+    line.classList.add('go'); band.classList.add('go');
+    if(reduce){lab.textContent='Nobody answered';lab.classList.add('dead');return;}
+    setTimeout(function(){
+      band.classList.remove('go');
+      lab.textContent='Nobody answered';
+      lab.classList.add('dead');
+      setTimeout(function(){
+        lab.classList.remove('dead'); lab.textContent='Ringing\u2026'; band.classList.add('go');
+      },3400);
+    },8200);
+  }
+  if(reduce||!('IntersectionObserver' in window)){fire();return;}
+  var io=new IntersectionObserver(function(rows){
+    rows.forEach(function(r){if(r.isIntersecting){fire();io.disconnect();}});
+  },{threshold:.35});
+  io.observe(band);
+})();
+</script>
+<script>
+(function(){
+  var card=document.getElementById('bdCard'); if(!card) return;
+  var cols=[].slice.call(document.querySelectorAll('.bcol')),
+      steps=[].slice.call(document.querySelectorAll('.sstep')),
+      clock=document.getElementById('bdClock'), fill=document.getElementById('bdFill'),
+      note=document.getElementById('bdNote'), state=document.getElementById('bdState'),
+      cash=document.getElementById('bdCash');
+  var S=[
+   {t:'00:00',w:'2%',n:'Waiting',s:'Sink backed up · missed 10:41',c:'$5,538'},
+   {t:'00:08',w:'12%',n:'Text sent',s:'“We saw you called — we can help today.”',c:'$5,538'},
+   {t:'00:52',w:'58%',n:'On the phone',s:'Qualifying · in area · urgent',c:'$5,538'},
+   {t:'01:34',w:'100%',n:'Booked',s:'Today 2–4pm · $89 dispatch credited',c:'$5,858'}
+  ];
+  function go(i){
+    card.style.transform='translateX(calc('+i+' * (100% + 8px)))';
+    cols.forEach(function(c,k){c.classList.toggle('lit',k===i);});
+    steps.forEach(function(st,k){st.classList.toggle('on',k===i);});
+    clock.textContent=S[i].t; fill.style.width=S[i].w;
+    note.textContent=S[i].n; note.classList.toggle('won',i===3);
+    state.textContent=S[i].s; cash.textContent=S[i].c;
+  }
+  if(!('IntersectionObserver' in window)){go(3);return;}
+  var io=new IntersectionObserver(function(rows){
+    rows.forEach(function(r){ if(r.isIntersecting) go(+r.target.dataset.s); });
+  },{rootMargin:'-46% 0px -46% 0px'});
+  steps.forEach(function(st){io.observe(st);});
+  go(0);
+})();
+</script>
+<script>
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.chip')),note=document.getElementById('stackNote');
+  if(!chips.length) return;
+  var T=['Voice platform for the agents that need the lowest latency and custom voices.','Voice platform where reliability and call transfers matter more than fine-tuning.','The CRM most of our clients already run \u2014 pipelines, calendars, follow-up.','The phone numbers themselves, when a client wants to own their own telephony.','Our webhook layer. Every tool call the agent makes lands here first.','Workflow automation for everything that happens after the call ends.','Multi-step agents that have to reason, check themselves and escalate.','Where call records, transcripts and outcomes live when a client needs their own.'];
+  chips.forEach(function(c,i){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x,k){x.classList.toggle('is-on',k===i);});
+      note.textContent=T[i];
+    });
+    c.addEventListener('mouseenter',function(){note.textContent=T[i];});
+  });
+})();
+</script>
+<script>
+(function(){
+  var bs=[].slice.call(document.querySelectorAll('.ps-b')),
+      plans=document.querySelector('#pricing .plans');
+  if(!bs.length||!plans) return;
+  plans.classList.add('focus-agency');
+  bs.forEach(function(b,i){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x,k){var on=k===i;x.classList.toggle('is-on',on);x.setAttribute('aria-selected',on?'true':'false');});
+      plans.classList.toggle('focus-agency',i===0);
+      plans.classList.toggle('focus-direct',i===1);
+    });
+  });
+})();
+</script>
+<script>
+(function () {
+  var f = document.getElementById("lead-form");
+  if (!f) return;
+  var startedAt = Date.now();
+  var status = document.getElementById("lf-status");
+  var btn = document.getElementById("lf-submit");
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var d = new FormData(f);
+    if (!d.get("name") || !d.get("email") || !d.get("message")) {
+      status.textContent = "Please fill in your name, email and a short message.";
+      status.className = "lf-status err"; return;
+    }
+    btn.disabled = true; btn.textContent = "Sending...";
+    status.textContent = ""; status.className = "lf-status";
+    var body = { startedAt: startedAt, page: location.href };
+    d.forEach(function (v, k) { body[k] = v; });
+    fetch("/api/contact/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (j) {
+        if (j.ok) {
+          f.reset();
+          status.textContent = "Sent. I'll reply within one working day.";
+          status.className = "lf-status ok";
+          btn.textContent = "Sent";
+        } else {
+          status.textContent = j.error || "Sending failed. Please email adel@adelatya.com instead.";
+          status.className = "lf-status err";
+          btn.disabled = false; btn.textContent = "Send message";
+        }
+      })
+      .catch(function () {
+        status.textContent = "Sending failed. Please email adel@adelatya.com instead.";
+        status.className = "lf-status err";
+        btn.disabled = false; btn.textContent = "Send message";
+      });
+  });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GoHighLevel and n8n Automation by an Engineer | Adel Atya</title>
+<meta name="description" content="GoHighLevel and n8n automation built by an engineer: follow-ups, document chasers, stalled-lead alerts. $400 a workflow, $1,200 a full system." />
+<meta name="theme-color" content="#0F0D0B" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+<link rel="stylesheet" href="../assets/site.css" />
+<style>
+.subhero{background:var(--ink);color:var(--paper);padding:168px 0 78px;position:relative;overflow:hidden}
+.subhero::before{content:"";position:absolute;left:-6%;top:-40%;width:58%;height:150%;background:radial-gradient(52% 52% at 42% 45%,rgba(198,60,34,.2),transparent 70%);pointer-events:none}
+.subhero .wrap{position:relative}
+.subhero .label{color:var(--red-lift)}
+.subhero .label::before{background:var(--red-lift)}
+.subhero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-top:20px}
+.subhero h1 em{color:var(--red-lift)}
+.subhero p{color:#E4DDD1;font-size:1.12rem;max-width:56ch;margin-top:22px}
+.subhero .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.jobs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.job{border:var(--edge);border-radius:var(--r);padding:26px 26px 28px;background:var(--paper);box-shadow:var(--hard)}
+.job i{color:var(--red);font-size:1.1rem}
+.job h3{font-size:1.15rem;margin-top:14px;letter-spacing:-.01em}
+.job p{color:var(--ink-2);font-size:.95rem;margin-top:10px;line-height:1.5}
+.job .t{display:inline-block;margin-top:14px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+@media(max-width:900px){.jobs{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.jobs{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:18px}
+.step b{display:block;font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.step p{color:var(--ink-2);font-size:.95rem;line-height:1.5}
+@media(max-width:760px){.steps{grid-template-columns:1fr 1fr}}
+.pl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.pl .p{border:var(--edge);border-radius:var(--r);padding:26px;background:var(--paper);box-shadow:var(--hard)}
+.pl .p.hot{background:var(--ink);color:var(--paper);border-color:transparent}
+.pl .k{font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:block}
+.pl .p.hot .k{color:var(--red-lift)}
+.pl .n{display:block;font-weight:700;font-size:2.4rem;letter-spacing:-.05em;margin-top:10px;font-variant-numeric:tabular-nums}
+.pl .n small{font-size:.95rem;font-weight:600;color:var(--grey);letter-spacing:0}
+.pl .p.hot .n small{color:var(--paper-3)}
+.pl p{margin-top:12px;font-size:.93rem;line-height:1.5;color:var(--ink-2)}
+.pl .p.hot p{color:var(--paper-3)}
+@media(max-width:760px){.pl{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://adelatya.com/automation/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="GoHighLevel &amp; n8n Automation — Follow-ups That Send Themselves | Adel Atya" />
+<meta property="og:description" content="Follow-up sequences, document chasers, stalled-lead alerts, booking flows and integrations, built inside GoHighLevel and n8n. $400 a workflow, $1,200 for a system, $200 a month care plan." />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://adelatya.com/automation/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GoHighLevel &amp; n8n Automation | Adel Atya" />
+<meta name="twitter:description" content="Follow-ups that send themselves. $400 a workflow, $1,200 for a system, $200 a month care plan." />
+<meta name="twitter:image" content="https://adelatya.com/og.png" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"GoHighLevel and n8n automation","description":"Follow-up sequences, document chasers, stalled-lead alerts, booking flows and integrations built inside GoHighLevel and n8n. $400 per workflow, $1,200 for a 3–5 workflow system, optional $200 a month care plan.","serviceType":"CRM automation / GoHighLevel setup","url":"https://adelatya.com/automation/","provider":{"@id":"https://adelatya.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Service businesses, brokers, clinics and agencies on GoHighLevel"},"offers":[{"@type":"Offer","name":"One workflow","priceCurrency":"USD","price":"400","availability":"https://schema.org/InStock","url":"https://adelatya.com/pricing/"},{"@type":"Offer","name":"System (3–5 workflows + one integration)","priceCurrency":"USD","price":"1200","availability":"https://schema.org/InStock","url":"https://adelatya.com/pricing/"},{"@type":"Offer","name":"Care plan","priceCurrency":"USD","price":"200","availability":"https://schema.org/InStock","url":"https://adelatya.com/pricing/","priceSpecification":{"@type":"UnitPriceSpecification","price":"200","priceCurrency":"USD","billingIncrement":1,"unitCode":"MON"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to pay for AI usage?","acceptedAnswer":{"@type":"Answer","text":"No. Automation workflows are rules and timers inside GoHighLevel and n8n. Your GoHighLevel subscription and SMS are billed to you by GoHighLevel as they are today. If a workflow reads documents with AI, that runs on our key and costs cents."}},{"@type":"Question","name":"What is the care plan?","acceptedAnswer":{"@type":"Answer","text":"$200 a month, cancel any month: monitoring, fixes when GoHighLevel or a connected tool changes something, and up to two hours of changes a month — wording, day counts, new stages. You text, it's done."}},{"@type":"Question","name":"How fast is one workflow live?","acceptedAnswer":{"@type":"Answer","text":"Inside a week from getting access: a day to map it with you, two to build and test against your real scenarios, then you approve every message before it goes live."}},{"@type":"Question","name":"Can it write to Asana, Sheets or QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Yes, through n8n. One outside integration is included in the $1,200 system; extra integrations are $400 each."}}]}</script>
+</head>
+<body>
+
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="../"><img src="../favicon.svg" alt="" width="23" height="23" />Adel Atya</a>
+  <nav class="menu">
+    <a href="../#agents">Agents</a>
+    <a href="./">Automation</a>
+    <a href="../#build">What we build</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="../#faq">FAQ</a>
+  </nav>
+  <a class="go" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a call</a>
+</div></div>
+
+<header class="subhero">
+  <div class="wrap">
+    <span class="label">GoHighLevel &amp; n8n automation</span>
+    <h1>The follow-up nobody sent,<br/><em>sent every time.</em></h1>
+    <p>Missing documents chased. Stalled leads flagged. Bookings confirmed and reminded. Every call, form and reply written to the right place — inside the GoHighLevel you already pay for. Built by the engineer, priced per workflow, documented so you can change it.</p>
+    <div class="acts">
+      <a class="btn btn-solid" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a 30-minute fit call</a>
+      <a class="btn btn-line" href="../pricing/">See pricing</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[01] What we build</span>
+      <h2>Nine workflows we've built<br/><em>more than once.</em></h2>
+      <p class="lede">Each one is a $400 build on its own, or part of a $1,200 system. Your wording, your timing; nothing sends you haven't read.</p>
+    </div>
+    <div class="jobs">
+      <div class="job"><i class="fa-solid fa-file-circle-exclamation" aria-hidden="true"></i><h3>Missing-document chaser</h3><p>Client owes paperwork → reminder on day 2, 4 and 7 listing exactly what's missing → escalates to your team → stops the second it arrives.</p><span class="t">Brokers · clinics · law</span></div>
+      <div class="job"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i><h3>Stalled-lead alert</h3><p>Any file or lead with no activity for X days lands on a morning list with the stage, the last touch and who owns it.</p><span class="t">Every pipeline</span></div>
+      <div class="job"><i class="fa-solid fa-bolt" aria-hidden="true"></i><h3>Speed-to-lead</h3><p>New lead from a form, ad or call → instant text and email in your voice → task for the right person → follow-up sequence until they reply.</p><span class="t">Home services · real estate</span></div>
+      <div class="job"><i class="fa-solid fa-phone-slash" aria-hidden="true"></i><h3>Missed-call text-back</h3><p>Ring goes unanswered → text within seconds → booking link → the lead is in the pipeline before they've dialled the next name.</p><span class="t">Trades · dental</span></div>
+      <div class="job"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><h3>Booking, reminders, no-shows</h3><p>Confirmation, day-before and hour-before reminders, reschedule link, and a no-show sequence that refills the slot.</p><span class="t">Clinics · consultants</span></div>
+      <div class="job"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><h3>Estimate &amp; invoice follow-up</h3><p>Quote sent and not accepted → three nudges over ten days with the one objection handled → owner notified on silence.</p><span class="t">Trades · agencies</span></div>
+      <div class="job"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><h3>Pipeline &amp; stage automations</h3><p>Stages, custom fields, tags and the rules between them, so the pipeline moves itself and the reports mean something.</p><span class="t">System build</span></div>
+      <div class="job"><i class="fa-solid fa-plug" aria-hidden="true"></i><h3>Integrations via n8n</h3><p>Asana tasks, Google Sheets, QuickBooks, Slack alerts, a lender or client portal — GoHighLevel talking to the tools around it.</p><span class="t">+ $400 each</span></div>
+      <div class="job"><i class="fa-solid fa-sun" aria-hidden="true"></i><h3>Morning brief</h3><p>One message at 8am: what's stalled, what's due, what came in overnight, what needs a human today.</p><span class="t">Owners · managers</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[02] How it goes</span>
+      <h2>Access on Monday,<br/><em>live by Friday.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>Day 1 — Map</b><p>A 30-minute call. Your stages, your messages, who gets escalations, what "stalled" means in days. You keep your wording; we keep the logic.</p></div>
+      <div class="step"><b>Day 2–3 — Build</b><p>Workflows, fields and templates inside your account. Nothing goes live yet.</p></div>
+      <div class="step"><b>Day 4 — Test</b><p>We run your real scenarios — the client who never replies, the file that stalls at the lender — and you approve every message.</p></div>
+      <div class="step"><b>Day 5 — Live + doc</b><p>Switched on, with a one-page doc: what fires when, how to change the wording and the day counts, how to pause a file.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[03] Pricing</span>
+      <h2>Per workflow,<br/><em>not per hour.</em></h2>
+      <p class="lede">Hourly punishes you for hiring someone fast. Fixed prices, published, about $100 under what agencies charge for the same build.</p>
+    </div>
+    <div class="pl">
+      <div class="p"><span class="k">Workflow</span><span class="n">$400 <small>one-off</small></span><p>One automation, built, tested, documented. Live inside a week.</p></div>
+      <div class="p hot"><span class="k">System</span><span class="n">$1,200 <small>one-off</small></span><p>3–5 workflows plus one outside integration. Pipeline, follow-ups, reminders, escalation, morning brief. Two weeks.</p></div>
+      <div class="p"><span class="k">Care plan</span><span class="n">$200 <small>/ month</small></span><p>Optional, cancel any month. Monitoring, fixes, and up to two hours of changes a month.</p></div>
+    </div>
+    <div class="worth">
+      <span class="worth-k">Against one hire</span>
+      <p>A coordinator to chase follow-ups is <b>$3,000+ a month</b> and does it when they remember. The chaser is <b>$400 once</b> and never forgets. When the phone is the problem too, the <a href="../pricing/">voice agent</a> plugs into the same pipeline.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[04] Questions</span>
+      <h2>Asked before<br/>every <em>first workflow.</em></h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Do I need to pay for AI usage? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">No. Automation workflows are rules and timers inside GoHighLevel and n8n. Your GoHighLevel subscription and SMS are billed to you by GoHighLevel as they are today. If a workflow reads documents with AI, that runs on our key and costs cents.</p>
+      </details>
+      <details>
+        <summary>What is the care plan? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">$200 a month, cancel any month: monitoring, fixes when GoHighLevel or a connected tool changes something, and up to two hours of changes a month — wording, day counts, new stages. You text, it's done. No re-quoting small things.</p>
+      </details>
+      <details>
+        <summary>How fast is one workflow live? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">Inside a week from getting access: a day to map it with you, two to build and test against your real scenarios, then you approve every message before it goes live.</p>
+      </details>
+      <details>
+        <summary>Can it write to Asana, Sheets or QuickBooks? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">Yes, through n8n. One outside integration is included in the $1,200 system; extra integrations are $400 each.</p>
+      </details>
+      <details>
+        <summary>What do you need from me to start? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">A user invite to your GoHighLevel sub-account, your stages in order, the messages you send today, who gets escalations, and what "stalled" means to you in days. That's the whole list.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="close">
+  <div class="wrap close-in">
+    <div>
+      <span class="label">Start here</span>
+      <h2 style="margin-top:14px">Tell us the one follow-up<br/>that <em>keeps slipping.</em></h2>
+      <p class="lede">We'll map it on a 30-minute call and tell you what it costs — usually $400 — before you decide anything.</p>
+      <div class="acts">
+        <a class="btn btn-solid" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a 30-minute fit call</a>
+        <a class="btn btn-line" href="../pricing/">Full pricing</a>
+      </div>
+    </div>
+    <div class="bio">
+      <p>Two years of GoHighLevel lead-capture and follow-up pipelines across 30+ businesses feeding one unified CRM, then seven production voice agents on Vapi and Retell. Small on purpose: you talk to the engineer who writes the code, not an account manager.</p>
+      <div class="who">Adel Atya · Cairo, Egypt</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-more">
+      <span class="label">More</span>
+      <a href="../">Home</a>
+      <a href="./">Automation</a>
+      <a href="../plumbing/">Plumbing &amp; HVAC</a>
+      <a href="../dental/">Dental</a>
+      <a href="../restaurants/">Restaurants</a>
+      <a href="../real-estate/">Real estate</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../white-label-ai-voice-agent/">For agencies</a>
+      <a href="../voice-agent-engineer/">Voice agents</a>
+      <a href="../ai-engineer/">AI &amp; LLM systems</a>
+      <a href="../software-engineer/">Software</a>
+      <a href="../shopify-expert/">Shopify</a>
+      <a href="../blog/">Blog</a>
+    </div>
+    <div class="f-end">
+      <span>&copy; <span id="yr"></span> Adel Atya · Cairo, Egypt</span>
+      <span class="r">
+        <a href="mailto:adel@adelatya.com">adel@adelatya.com</a>
+        <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="dock-a" href="../pricing/">See pricing</a>
+  <a class="dock-b" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a call</a>
+</div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){
+  var d=document.querySelector('.dock'),on=false;
+  addEventListener('scroll',function(){var w=scrollY>560;if(w!==on){on=w;d.classList.toggle('on',on);}},{passive:true});
+})();
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.head,.job,.step,.pl .p,.faq details,.close-in>*,.worth'));
+  els.forEach(function(e){e.classList.add('rv');});
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(rows){
+    rows.forEach(function(r){if(r.isIntersecting){r.target.classList.add('in');io.unobserve(r.target);}});
+  },{rootMargin:'0px 0px -12% 0px',threshold:.1});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>

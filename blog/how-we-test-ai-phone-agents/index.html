@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How we test AI phone agents before they take real calls | Adel Atya</title>
+<meta name="description" content="We run every AI phone agent against 38 simulated callers before launch. Here is what we measure, the mistakes it catches, and why &quot;it sounded fine&quot; is not a test." />
+<meta name="theme-color" content="#0F0D0B" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="stylesheet" href="../../assets/site.css" />
+<link rel="canonical" href="https://adelatya.com/blog/how-we-test-ai-phone-agents/" />
+<link rel="alternate" type="application/rss+xml" title="Adel Atya blog" href="https://adelatya.com/blog/feed.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="How we test AI phone agents before they take real calls | Adel Atya" />
+<meta property="og:description" content="We run every AI phone agent against 38 simulated callers before launch. Here is what we measure, the mistakes it catches, and why &quot;it sounded fine&quot; is not a test." />
+<meta property="og:url" content="https://adelatya.com/blog/how-we-test-ai-phone-agents/" />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How we test AI phone agents before they take real calls", "description": "We run every AI phone agent against 38 simulated callers before launch. Here is what we measure, the mistakes it catches, and why \"it sounded fine\" is not a test.", "datePublished": "2026-10-24", "dateModified": "2026-10-24", "mainEntityOfPage": "https://adelatya.com/blog/how-we-test-ai-phone-agents/", "author": {"@type": "Person", "name": "Adel Atya", "url": "https://adelatya.com"}, "publisher": {"@type": "Organization", "name": "Adel Atya", "url": "https://adelatya.com", "logo": {"@type": "ImageObject", "url": "https://adelatya.com/favicon.svg"}}, "image": "https://adelatya.com/og.png", "keywords": "testing, ai voice agents, quality"}</script>
+<style>
+.bhero{padding:150px 0 40px;border-bottom:var(--edge)}
+.bhero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-top:16px;max-width:22ch;text-wrap:balance}
+.bhero .meta{margin-top:16px;color:var(--ink-2);font-size:.92rem}
+.post{max-width:68ch;margin:0 auto;padding:44px 0 20px;font-size:1.08rem;line-height:1.7}
+.post h2{font-size:1.75rem;margin:42px 0 12px;line-height:1.15}
+.post h3{font-size:1.25rem;margin:28px 0 8px}
+.post p,.post ul,.post ol,.post blockquote{margin:0 0 18px}
+.post ul,.post ol{padding-left:1.2em}
+.post li{margin-bottom:6px}
+.post blockquote{border-left:3px solid var(--red);padding:4px 0 4px 16px;color:var(--ink-2);font-style:italic}
+.post code{font-size:.9em;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:5px}
+.post a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.cta-box{max-width:68ch;margin:10px auto 60px;border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:26px;background:var(--paper)}
+.cta-box h3{font-size:1.3rem;margin-bottom:8px}
+.cta-box .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.plist{display:grid;gap:14px;padding:36px 0 70px;max-width:760px}
+.pitem{display:block;border:var(--edge);border-radius:var(--r);background:var(--paper);box-shadow:var(--hard);padding:22px 24px;color:inherit;text-decoration:none}
+.pitem h2{font-size:1.35rem;margin:6px 0 8px}
+.pitem p{color:var(--ink-2);font-size:.96rem}
+.pitem .d{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="../../"><img src="../../favicon.svg" alt="" width="23" height="23" />Adel Atya</a>
+  <nav class="menu">
+    <a href="../../#agents">Agents</a>
+    <a href="../../pricing/">Pricing</a>
+    <a href="../../white-label-ai-voice-agent/">For agencies</a>
+    <a href="../../blog/">Blog</a>
+  </nav>
+  <a class="go" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">Talk to the demo</a>
+</div></div>
+<header class="bhero"><div class="wrap"><span class="label">Blog · Testing</span><h1>How we test AI phone agents before they take real calls</h1><p class="meta">Adel Atya · 24 October 2026</p></div></header><main class="wrap"><article class="post"><p>An AI phone agent that sounds great in a demo can still fail on the one call that matters: the angry customer, the emergency, the caller who asks something it was never told. You only find out which kind you have by testing it on purpose, before your customers do it for you.</p>
+<p>This is how we test every agent before it goes live. The results are public: you can see the latest run on our <a href="https://voicedesk-h31g.onrender.com/evals" target="_blank" rel="noopener">agent QA console</a>.</p>
+<h2>Why a few test calls are not enough</h2>
+<p>Language models are not deterministic. The same question can get a slightly different answer each time. So an agent that handled your three test calls perfectly can still mishandle the fourth. And the calls people test with are usually the easy ones: "I'd like to book an appointment."</p>
+<p>Real callers interrupt, change their mind halfway through, refuse to give a phone number, ask if they are talking to a robot, or call at 2am with water coming through the ceiling. Those are the calls worth testing.</p>
+<h2>Simulated callers</h2>
+<p>Instead of making test calls by hand, we have a second AI play the caller. Each simulated caller gets:</p>
+<ul><li><strong>A persona and a goal</strong>, for example "a stressed homeowner with a burst pipe who wants someone today".</li><li><strong>Facts it only reveals when asked</strong>, such as the address or the unit number, so we can check the agent actually asks.</li><li><strong>Behaviours that make it harder</strong>: rushing, getting angry, interrupting, speaking in short broken sentences, refusing details.</li><li><strong>The outcome that counts as success</strong>, for example "an emergency booking, or a transfer to the on-call number".</li></ul>
+<p>Our current suite has <strong>38 of these scenarios across three agents</strong>: a dental front desk, a plumbing dispatch line and a self-storage receptionist. Every scenario runs three times, because one lucky pass proves little. That is 114 calls per run, and a full run costs about 25 cents.</p>
+<h2>What we check</h2>
+<p>Wherever possible, a simple program checks the result, not another AI. Did the agent call the booking tool? Did it save the right name, phone number and time? Did every price it quoted actually exist in the price list? Did it hand over to a human when it should have, and only then?</p>
+<p>An AI judge is used only for what code cannot check, such as whether the tone fit the situation or whether a free-text answer was actually true. It gets a written rubric and has to give a one-line reason for every verdict.</p>
+<h2>The numbers that matter</h2>
+<ul><li><strong>Containment</strong>: the share of calls the agent resolved completely on its own. A caller hanging up early never counts as contained. That is the most common way this number gets inflated.</li><li><strong>Correct versus unnecessary transfers</strong>: handing over to a person is good when it is needed, and costly when it is not.</li><li><strong>Missed handoffs</strong>: the scenario needed a human, for example an emergency, and the agent kept going alone. We treat this as a critical failure.</li><li><strong>Hallucination rate</strong>: calls where the agent stated a price, time or fact that is not in its data.</li><li><strong>Consistency</strong>: a scenario only passes if it passes all three runs.</li></ul>
+<h2>What it caught</h2>
+<p>The first full run caught something no demo would have shown: on the cheaper language model, our plumbing agent <strong>missed the required emergency handoff in 5 of 41 calls</strong>, including a caller reporting a gas smell. It sounded calm and helpful the whole time. It just did the wrong thing.</p>
+<p>That is the point of testing. A gas leak is exactly the call where "it sounded fine" is not good enough.</p>
+<h2>Testing every change</h2>
+<p>Every time we change an agent's script or switch the model, the suite runs again and compares the results with the previous baseline. If a scenario that used to pass starts failing, or containment drops, the change is blocked until it is fixed. It works like the automated tests a software team runs before every release.</p>
+<h2>What this means if you are buying one</h2>
+<p>Ask whoever builds your agent how they test it. If the answer is "we called it a few times", you are the test. Ask to see the emergency scenarios specifically, and ask what happens when the agent does not know the answer.</p>
+<p>You can <a href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">talk to our plumbing agent</a> and try to break it yourself, or read <a href="/blog/ai-receptionist-cost-2026/">what an AI receptionist costs</a> before you decide.</p></article><aside class="cta-box"><h3>Hear an AI phone agent handle a real call</h3><p>Every agent we build answers on the first ring, books the job and texts back the calls it misses. Try one now, or see what it costs.</p><div class="acts"><a class="btn btn-solid" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">Talk to the demo</a><a class="btn btn-line" href="../../voice-agent-engineer/">How we build voice agents</a></div><h3 style="margin-top:22px;font-size:1.05rem">More from the blog</h3><ul style="margin-top:8px;padding-left:1.1em"><li><a href="../../blog/ai-receptionist-cost-2026/">How much does an AI receptionist cost for a small business in 2026?</a></li></ul></aside></main>
+<footer>
+  <div class="wrap">
+    <div class="f-more">
+      <span class="label">More</span>
+      <a href="../../">Home</a>
+      <a href="../../pricing/">Pricing</a>
+      <a href="../../plumbing/">Plumbing &amp; HVAC</a>
+      <a href="../../dental/">Dental</a>
+      <a href="../../restaurants/">Restaurants</a>
+      <a href="../../real-estate/">Real estate</a>
+      <a href="../../white-label-ai-voice-agent/">For agencies</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+    <div class="f-end">
+      <span>&copy; 2026 Adel Atya · Cairo, Egypt</span>
+      <span class="r"><a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
