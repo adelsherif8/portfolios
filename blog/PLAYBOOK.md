@@ -23,7 +23,9 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
 5. Body rules:
    - 900–1,500 words. Open with the direct answer in the first two sentences. No throat-clearing intro.
    - Short paragraphs, `##` section headings that are themselves questions or plain statements, lists where they help.
-   - Concrete numbers with their source linked inline the first time they appear. If a number can't be sourced, leave it out.
+   - Concrete numbers with their source linked inline the first time they appear. Only use a number from a page you
+     opened yourself with WebFetch and saw the number on; a search-result summary is NOT a source. State the study's year
+     when it is older than 2025. If a number can't be verified this way, leave it out.
    - Plain, direct English, the way an experienced engineer explains it to a business owner. No hype words
      ("revolutionize", "game-changer", "seamless", "unlock", "leverage"), no em-dash asides, no "in today's fast-paced world".
    - Be honest about when an AI phone agent is NOT worth it, or what it can't do. That honesty is the brand.

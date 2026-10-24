@@ -35,9 +35,9 @@ A tracker that counts all four will show a scary rate. One that filters out shor
 
 ## What does voicemail actually catch?
 
-Less than owners hope. Moneypenny's [small business call report](https://moneypenny.com/us/resources/news/small-business-call-report/) found that 69% of callers who reached voicemail hung up without leaving a message. Moneypenny sells answering services, so treat the exact figure with care, but the direction matches what most owners see in their own inbox: a handful of messages, and a lot of missed rings with no trace.
+Less than owners hope. Moneypenny's 2016 [small business call report](https://moneypenny.com/us/resources/news/small-business-call-report/) found that 69% of callers who reached voicemail hung up without leaving a message. Moneypenny sells answering services, so treat the exact figure with care, but the direction matches what most owners see in their own inbox: a handful of messages, and a lot of missed rings with no trace.
 
-CallRail's 2025 consumer survey found only 42% of people say they leave a voicemail when a business does not answer. Either way, voicemail is a net with large holes in it. The caller you never hear from has usually already dialled the next plumber on the list.
+Even if today's figure is lower than that 2016 number, voicemail is a net with large holes in it. The caller you never hear from has usually already dialled the next plumber on the list.
 
 ## What is one missed call worth?
 
