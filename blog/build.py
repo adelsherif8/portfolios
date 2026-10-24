@@ -223,6 +223,11 @@ def main():
     (BLOG / "index.html").write_text(index(posts))
     (BLOG / "feed.xml").write_text(feed(posts))
     sitemap(posts)
+    # machine-readable index for syndication (LinkedIn / dev.to / Hashnode cross-posting)
+    (BLOG / "posts.json").write_text(__import__("json").dumps([
+        {"slug": p["slug"], "title": p["title"], "description": p["description"], "date": p["date"],
+         "tags": p.get("tags", ""), "url": f"{SITE}/blog/{p['slug']}/",
+         "source": f"blog/posts/{f.name}"} for p, f in [(p, next(x for x in (BLOG / "posts").glob("*.md") if parse(x)["slug"] == p["slug"])) for p in posts]], indent=1))
     print(f"blog: {len(posts)} post(s) built")
 
 
