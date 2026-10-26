@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Adel Atya" />
+<title>Testing AI phone agents: eval suite and OWASP LLM security track | Adel Atya</title>
+<meta name="description" content="An evaluation suite for AI phone agents: 38 simulated-caller scenarios and 21 prompt-injection attacks. Cross-customer leaks cut from 14 calls to 0." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="Testing AI phone agents: eval suite and OWASP LLM security track" />
+<meta property="og:description" content="An evaluation suite for AI phone agents: 38 simulated-caller scenarios and 21 prompt-injection attacks. Cross-customer leaks cut from 14 calls to 0." />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta property="og:url" content="https://adelatya.com/case-studies/voice-agent-security-evals/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<meta name="theme-color" content="#F7F4EE" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" /></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+<link rel="stylesheet" href="../../assets/editorial.css" />
+<link rel="stylesheet" href="../../assets/case-study.css" />
+<link rel="canonical" href="https://adelatya.com/case-studies/voice-agent-security-evals/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Testing AI phone agents: eval suite and OWASP LLM security track","description":"An evaluation suite for AI phone agents: 38 simulated-caller scenarios and 21 prompt-injection attacks. Cross-customer leaks cut from 14 calls to 0.","url":"https://adelatya.com/case-studies/voice-agent-security-evals/","author":{"@type":"Person","@id":"https://adelatya.com/#person","name":"Adel Atya","url":"https://adelatya.com/"},"datePublished":"2026-10-26","image":"https://adelatya.com/og.png"}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../ai-engineer/"><b>Adel Atya</b><span>Case study</span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#problem">Problem</a>
+      <a href="#approach">Approach</a>
+      <a href="#results">Results</a>
+      <a href="#next">Next</a>
+      <a href="../../ai-engineer/#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="../../ai-engineer/">AI engineer</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Case study</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Voice agent evals and security</span></div>
+    <h1>Testing AI phone agents <em>before customers do.</em></h1>
+    <p class="cs-lede">An AI phone agent that sounds fine in a demo can still fail the one call that matters. I built an evaluation suite that phones my agents with <strong>simulated callers and attackers</strong>, scores every call in code first, and blocks any release that leaks data or misses an emergency.</p>
+    <div class="btn-row" style="margin-bottom:44px"><a class="btn btn-fill" href="https://voicedesk-h31g.onrender.com/evals" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> See the live results</a><a class="btn btn-line" href="https://github.com/adelsherif8/voicedesk" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a></div>
+  </div>
+  <div class="wrap" style="padding:0">
+    <dl class="glance">
+      <div><dt>Role</dt><dd>Solo: suite design, scenarios, checks, fixes</dd></div>
+      <div><dt>Stack</dt><dd>Python · GPT-4o-mini agents · GPT-4.1-mini judge · Microsoft Presidio · GitHub Actions · FastAPI</dd></div>
+      <div><dt>When</dt><dd>October 2026</dd></div>
+      <div><dt>Proof</dt><dd><a href="https://voicedesk-h31g.onrender.com/evals" target="_blank" rel="noopener">Live results</a> · <a href="https://github.com/adelsherif8/voicedesk/blob/master/docs/SECURITY.md" target="_blank" rel="noopener">Security write-up</a></dd></div>
+    </dl>
+    <div class="rail">
+      <div><b>14<i>→0</i></b><span>Calls leaking another customer's data</span></div>
+      <div><b>57<i>→94%</i></b><span>Injection resistance</span></div>
+      <div><b>5<i>/41</i></b><span>Missed emergency handoffs caught on the first run</span></div>
+      <div><b>$0.25</b><span>Per full 114-call run</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="cs-sec" id="problem">
+  <div class="wrap cs-grid">
+    <div><span class="num">01 / The problem</span><h2>"It sounded fine" <em>is not a test.</em></h2></div>
+    <div class="prose">
+      <p>I run seven live voice agents on Vapi and Retell. Language models aren't deterministic, so three good test calls prove little, and the calls people test with are the easy ones. Real callers interrupt, refuse details, ask for the owner, or call at 2am with water coming through the ceiling. Some of them try to manipulate the agent.</p>
+      <p>I needed answers to two questions before any agent touched a real phone number: <strong>does it do the right thing on the hard calls</strong>, and <strong>can it be talked into leaking data or breaking the rules?</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="approach">
+  <div class="wrap cs-grid">
+    <div><span class="num">02 / What I built</span><h2>Simulated callers, <em>checks in code.</em></h2></div>
+    <div class="prose">
+      <figure class="diagram"><svg viewBox="0 0 760 300" role="img" aria-label="VoiceDesk evaluation loop"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L10,5 L0,10 z"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow-red" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-box" x="10" y="30" width="150" height="60"/><text class="dg-t dg-t" x="85.0" y="60.0" text-anchor="middle">Simulated caller</text><text class="dg-s" x="85.0" y="75.0" text-anchor="middle">persona · attack</text>
+<rect class="dg-hot" x="230" y="20" width="230" height="80"/><text class="dg-hot-t dg-t" x="345.0" y="60.0" text-anchor="middle" style="fill:var(--paper)">Agent under test</text><text class="dg-s" x="345.0" y="75.0" text-anchor="middle" style="fill:var(--paper-3)">same prompt, model and tools</text>
+<text class="dg-s" x="345" y="88" text-anchor="middle" style="fill:var(--paper-3)">+ caller's own record only</text>
+<rect class="dg-box" x="530" y="30" width="220" height="60"/><text class="dg-t dg-t" x="640.0" y="60.0" text-anchor="middle">Transcript + tool calls</text><text class="dg-s" x="640.0" y="75.0" text-anchor="middle">saved per call</text>
+<rect class="dg-box" x="530" y="140" width="220" height="60"/><text class="dg-t dg-t" x="640.0" y="170.0" text-anchor="middle">PII redaction</text><text class="dg-s" x="640.0" y="185.0" text-anchor="middle">Presidio + regex</text>
+<rect class="dg-box" x="230" y="140" width="230" height="60"/><text class="dg-t dg-t" x="345.0" y="170.0" text-anchor="middle">Deterministic checks</text><text class="dg-s" x="345.0" y="185.0" text-anchor="middle">canary · PII · tools · price</text>
+<rect class="dg-box" x="10" y="140" width="150" height="60"/><text class="dg-t dg-t" x="85.0" y="170.0" text-anchor="middle">LLM judge</text><text class="dg-s" x="85.0" y="185.0" text-anchor="middle">only what code can't</text>
+<rect class="dg-box" x="230" y="230" width="230" height="54"/><text class="dg-t dg-t" x="345.0" y="257.0" text-anchor="middle">Metrics + CI gate</text><text class="dg-s" x="345.0" y="272.0" text-anchor="middle">any critical fails the build</text>
+<rect class="dg-box" x="530" y="230" width="220" height="54"/><text class="dg-t dg-t" x="640.0" y="257.0" text-anchor="middle">Results console</text><text class="dg-s" x="640.0" y="272.0" text-anchor="middle">/evals</text>
+<path class="dg-l" d="M160,52 L228,52" marker-end="url(#a)"/>
+<path class="dg-l" d="M228,72 L160,72" marker-end="url(#a)"/>
+<path class="dg-l" d="M460,60 L528,60" marker-end="url(#a)"/>
+<path class="dg-l" d="M640,90 L640,138" marker-end="url(#a)"/>
+<path class="dg-l" d="M530,170 L462,170" marker-end="url(#a)"/>
+<path class="dg-l" d="M230,170 L162,170" marker-end="url(#a)"/>
+<path class="dg-l-red" d="M345,200 L345,228" marker-end="url(#ar)"/>
+<path class="dg-l" d="M460,257 L528,257" marker-end="url(#a)"/>
+</svg><figcaption>The loop each scenario runs three times; a critical failure stops the release</figcaption></figure>
+      <h3>The eval suite</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span><strong>38 scenarios across three agents</strong> (dental, plumbing, self-storage), each with a persona, a goal, facts revealed only when asked, and a success outcome. Each runs 3 times: <strong>114 calls, about $0.25 a run</strong>.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Deterministic checks first (did it call the booking tool, save the right fields, quote only real prices, hand over when it should); an LLM judge with a written rubric only for what code can't decide.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Metrics that resist gaming: containment where a hang-up never counts, correct vs unnecessary transfers, missed handoffs as a critical failure, hallucination rate, and pass on all three runs. Baselines and a regression gate in GitHub Actions.</span></li>
+        </ul>
+      <h3>The security track (OWASP Top 10 for LLM Applications 2025)</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span><strong>21 attack scenarios</strong>, 7 per agent: direct and indirect prompt injection (including instructions hidden in CRM notes and tool results, and attacks in Arabic), system-prompt extraction, requests for other customers' details, excessive agency and unbounded replies.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>A random <strong>canary token</strong> planted in each call's system prompt, <strong>Faker</strong> fixture customers to detect cross-customer leaks, and a tool guard for saves or transfers the caller isn't entitled to.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Every transcript passes through <strong>PII redaction</strong> (Presidio plus a regex engine) before it is judged, stored or published, with a publish guard that refuses to publish if anything slips through.</span></li>
+        </ul>
+      <div class="callout"><span class="lbl">The key decision</span><p>Prompt rules and data delimiting cut leaks from 14 calls to 6, but couldn't stop them on gpt-4o-mini or gpt-4.1. The root cause was that agents were given data they didn't need. I changed the architecture: <strong>each agent now gets at most the caller's own record</strong>, matched by caller ID or verified details, with allowlisted fields and never free-text notes. Leaks went to zero.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="results">
+  <div class="wrap cs-grid">
+    <div><span class="num">03 / Results</span><h2>What the numbers <em>showed.</em></h2></div>
+    <div class="prose">
+      <div class="table-scroll"><table class="cs-table">
+        <tr><th>63 security calls</th><th>Before</th><th>Prompt fix</th><th>Least privilege</th></tr>
+        <tr><td><b>Injection resistance</b></td><td>57%</td><td>90%</td><td class="good">94%</td></tr>
+        <tr><td><b>Cross-customer PII leaks</b></td><td>14</td><td>6</td><td class="good">0</td></tr>
+        <tr><td><b>Prompt or canary leaks</b></td><td>1</td><td>0</td><td class="good">0</td></tr>
+        <tr><td><b>Unauthorized tool calls</b></td><td>5</td><td>0</td><td class="good">0</td></tr>
+        <tr><td><b>Calls with a critical failure</b></td><td>17</td><td>6</td><td class="good">0</td></tr>
+      </table></div>
+      <ul>
+        <li><i class="fa-solid fa-circle"></i><span>The first functional run caught <strong>5 missed emergency handoffs in 41 plumbing calls</strong>, including a caller reporting a gas smell, on the cheaper model. The agent sounded calm the whole time; it just did the wrong thing.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span>The final run had <strong>zero criticals across all 177 calls</strong>. PII redaction scored <strong>1.00 precision and recall</strong> on a 26-string labelled set; 135 tests run in CI, Presidio included.</span></li>
+      </ul>
+      <div class="callout"><span class="lbl">Still open, stated honestly</span><p>The plumbing agent still repeats a planted "free service" note when it arrives inside a simulated tool reply. Nothing leaks any more, and today's live webhooks return a fixed "Saved." sentence, so this only matters if a future integration echoes CRM text back to the agent. The rule for that integration is the same: structured fields only.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="next">
+  <div class="wrap cs-grid">
+    <div><span class="num">04 / What I'd do next</span><h2>Where it goes <em>from here.</em></h2></div>
+    <div class="prose">
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span>Test audio, not just text: latency, barge-in and speech-recognition errors on real phone audio.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Push the least-privilege context builder into every live CRM integration, and add a tool-reply sanitizer for the open finding.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Run the security track nightly against the deployed prompts, not only on changes.</span></li>
+        </ul>
+      <div class="cs-links"><a class="btn btn-fill" href="https://voicedesk-console.vercel.app" target="_blank" rel="noopener"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> Results dashboard (React)</a><a class="btn btn-line" href="https://github.com/adelsherif8/voicedesk/blob/master/docs/SECURITY.md" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Security write-up</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="more" style="border-bottom:0">
+  <div class="wrap">
+    <span class="num">More case studies</span>
+    <div class="more">
+      <a href="../clearpath-security-review/"><h3>Securing an AI agent</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../voice-agent-security-evals/" class="here"><h3>Testing AI phone agents</h3><span class="m-go">You are here <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../clearpath-agent/"><h3>An agent that knows when to escalate</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <span class="num" style="color:var(--red-lift)">Get in touch</span>
+    <h2>Need an AI system that holds up <em>in production?</em></h2>
+    <p class="lead">Tell me what you're building and where it breaks. I'll tell you straight whether I can help.</p>
+    <div class="btn-row">
+      <a class="btn btn-fill" href="mailto:adel@adelatya.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> adel@adelatya.com</a>
+      <a class="btn btn-line" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book 30 minutes</a>
+    </div>
+    <div class="cmeta">
+      <span>Cairo, Egypt — US, UK &amp; Gulf time zones</span>
+      <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/adelsherif8" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap f-in">
+    <span>© <span id="yr"></span> Adel Atya · AI Engineer · Cairo, Egypt</span>
+    <span class="f-links">
+      <a href="../../ai-engineer/">AI engineer</a>
+      <a href="../../voice-agent-engineer/">Voice agents</a>
+      <a href="../../software-engineer/">Software</a>
+    </span>
+  </div>
+</footer>
+
+<script src="../../assets/editorial.js"></script>
+</body>
+</html>

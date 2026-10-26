@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Adel Atya" />
+<title>Securing an AI agent: ClearPath OWASP security review | Adel Atya</title>
+<meta name="description" content="An OWASP Top 10 and LLM Top 10 review of a live LangGraph agent: 25 findings, two critical access-control flaws fixed, 250 tests, 0 ZAP alerts." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="Securing an AI agent: ClearPath OWASP security review" />
+<meta property="og:description" content="An OWASP Top 10 and LLM Top 10 review of a live LangGraph agent: 25 findings, two critical access-control flaws fixed, 250 tests, 0 ZAP alerts." />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta property="og:url" content="https://adelatya.com/case-studies/clearpath-security-review/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<meta name="theme-color" content="#F7F4EE" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" /></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+<link rel="stylesheet" href="../../assets/editorial.css" />
+<link rel="stylesheet" href="../../assets/case-study.css" />
+<link rel="canonical" href="https://adelatya.com/case-studies/clearpath-security-review/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Securing an AI agent: ClearPath OWASP security review","description":"An OWASP Top 10 and LLM Top 10 review of a live LangGraph agent: 25 findings, two critical access-control flaws fixed, 250 tests, 0 ZAP alerts.","url":"https://adelatya.com/case-studies/clearpath-security-review/","author":{"@type":"Person","@id":"https://adelatya.com/#person","name":"Adel Atya","url":"https://adelatya.com/"},"datePublished":"2026-10-26","image":"https://adelatya.com/og.png"}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../ai-engineer/"><b>Adel Atya</b><span>Case study</span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#problem">Problem</a>
+      <a href="#approach">Approach</a>
+      <a href="#results">Results</a>
+      <a href="#next">Next</a>
+      <a href="../../ai-engineer/#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="../../ai-engineer/">AI engineer</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Case study</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>ClearPath security review</span></div>
+    <h1>Securing an AI agent that <em>approves medical requests.</em></h1>
+    <p class="cs-lede">ClearPath is my LangGraph prior-authorization agent, live on Google Cloud Run. I ran a full <strong>OWASP Top 10:2025</strong> and <strong>OWASP Top 10 for LLM Applications</strong> review of it, reproduced the worst findings on the live site, and fixed all of them with tests that prove each fix.</p>
+    <div class="btn-row" style="margin-bottom:44px"><a class="btn btn-fill" href="https://clearpath-798991357908.us-central1.run.app" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open the live app</a><a class="btn btn-line" href="https://github.com/adelsherif8/clearpath-ai" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code and review</a></div>
+  </div>
+  <div class="wrap" style="padding:0">
+    <dl class="glance">
+      <div><dt>Role</dt><dd>Solo: threat model, review, fixes, deploy</dd></div>
+      <div><dt>Stack</dt><dd>FastAPI · LangGraph · Supabase Auth + Postgres RLS · Google Cloud Run · Secret Manager · GitHub Actions</dd></div>
+      <div><dt>When</dt><dd>October 2026; fixes verified on the live service</dd></div>
+      <div><dt>Proof</dt><dd><a href="https://github.com/adelsherif8/clearpath-ai/blob/master/docs/SECURITY_REVIEW.md" target="_blank" rel="noopener">Full review (25 findings)</a> · <a href="https://clearpath-798991357908.us-central1.run.app" target="_blank" rel="noopener">Live app</a></dd></div>
+    </dl>
+    <div class="rail">
+      <div><b>25</b><span>Findings, each with file:line evidence</span></div>
+      <div><b>2<i>→0</i></b><span>Critical flaws, fixed and verified live</span></div>
+      <div><b>117</b><span>Authorization-matrix tests</span></div>
+      <div><b>8<i>/8</i></b><span>Injection attacks resisted by GPT-4o</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="cs-sec" id="problem">
+  <div class="wrap cs-grid">
+    <div><span class="num">01 / The problem</span><h2>A demo that anyone <em>could steer.</em></h2></div>
+    <div class="prose">
+      <p>ClearPath reviews prior-authorization requests: it auto-resolves clear approvals and sends every denial and uncertain case to a human reviewer. The whole point is that a <strong>human signs off on the hard decisions</strong>. The original build had no security layer at all, so before calling it production-ready I reviewed it the way an attacker would.</p>
+      <p>I started with a threat model: what is worth protecting, who can reach it, and where trust changes hands.</p>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Assets:</strong> case data (PHI in a real deployment), reviewer decisions and the audit trail, API keys and database credentials, the LLM budget, and the public MCP server.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Actors:</strong> anonymous visitor, submitter, reviewer, admin, and an attacker trying injection, token forgery, IDOR, header spoofing and cost exhaustion.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Trust boundaries:</strong> internet to app, app to the LLM (its output is untrusted), app to database, case text to prompt, and CI to cloud.</span></li>
+        </ul>
+      <div class="callout"><span class="lbl">Reproduced on the live site</span><p><strong>Anyone could approve or deny any case "as human reviewer"</strong>: an anonymous request returned <code>{"finalized":"approve","by":"human reviewer"}</code>. There was no login anywhere. And adding one field, <code>"expected":"approve"</code>, to a request got any case auto-approved through the offline planner.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="approach">
+  <div class="wrap cs-grid">
+    <div><span class="num">02 / What I changed</span><h2>Defence in depth, <em>proven by tests.</em></h2></div>
+    <div class="prose">
+      <figure class="diagram"><svg viewBox="0 0 760 330" role="img" aria-label="ClearPath request path with security controls"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L10,5 L0,10 z"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow-red" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-box" x="10" y="40" width="130" height="54"/><text class="dg-t dg-t" x="75.0" y="67.0" text-anchor="middle">Browser / MCP</text><text class="dg-s" x="75.0" y="82.0" text-anchor="middle">untrusted</text>
+<rect class="dg-box" x="190" y="20" width="230" height="150"/><text class="dg-t dg-t" x="305.0" y="99.0" text-anchor="middle"></text>
+<text class="dg-s" x="305" y="38" text-anchor="middle">CLOUD RUN · FASTAPI</text>
+<text class="dg-t" x="205" y="64">JWT verify (Supabase Auth)</text>
+<text class="dg-t" x="205" y="86">Role check on every route</text>
+<text class="dg-t" x="205" y="108">Pydantic validation, 64 KiB cap</text>
+<text class="dg-t" x="205" y="130">Rate limit, daily LLM cap</text>
+<text class="dg-t" x="205" y="152">Security headers, CSP</text>
+<rect class="dg-box" x="470" y="20" width="130" height="54"/><text class="dg-t dg-t" x="535.0" y="47.0" text-anchor="middle">LangGraph</text><text class="dg-s" x="535.0" y="62.0" text-anchor="middle">fenced case text</text>
+<rect class="dg-box" x="640" y="20" width="110" height="54"/><text class="dg-t dg-t" x="695.0" y="47.0" text-anchor="middle">OpenAI</text><text class="dg-s" x="695.0" y="62.0" text-anchor="middle">output untrusted</text>
+<rect class="dg-hot" x="470" y="110" width="280" height="60"/><text class="dg-hot-t dg-t" x="610.0" y="140.0" text-anchor="middle" style="fill:var(--paper)">Postgres (Supabase)</text><text class="dg-s" x="610.0" y="155.0" text-anchor="middle" style="fill:var(--paper-3)">RLS · least privilege · audit log</text>
+<rect class="dg-box" x="190" y="220" width="230" height="54"/><text class="dg-t dg-t" x="305.0" y="247.0" text-anchor="middle">Secret Manager</text><text class="dg-s" x="305.0" y="262.0" text-anchor="middle">runtime account, no project roles</text>
+<rect class="dg-box" x="470" y="220" width="280" height="54"/><text class="dg-t dg-t" x="610.0" y="247.0" text-anchor="middle">Private GCS bucket</text><text class="dg-s" x="610.0" y="262.0" text-anchor="middle">daily pg_dump · restore tested</text>
+<path class="dg-l" d="M140,67 L188,67" marker-end="url(#a)"/>
+<path class="dg-l" d="M420,47 L468,47" marker-end="url(#a)"/>
+<path class="dg-l" d="M600,47 L638,47" marker-end="url(#a)"/>
+<path class="dg-l" d="M420,140 L468,140" marker-end="url(#a)"/>
+<path class="dg-l-red" d="M305,220 L305,172" marker-end="url(#ar)"/>
+<text class="dg-s" x="190" y="300">CI on every push: Bandit · Semgrep · pip-audit · gitleaks · Trivy · OWASP ZAP</text>
+<path class="dg-l-red" d="M610,172 L610,218" marker-end="url(#ar)"/>
+<text class="dg-s" x="618" y="200">backup</text>
+</svg><figcaption>Request path after the review: every layer can refuse on its own</figcaption></figure>
+      <h3>Identity and access</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Supabase Auth</strong> with every JWT verified locally (signature, expiry, audience, issuer; algorithm fixed by config, never taken from the token). Roles come from the database, never from token claims.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Roles enforced on every endpoint and MCP tool</strong>: only the reviewer assigned to a case can approve or deny it. Admins can assign but cannot decide.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Postgres row-level security</strong> under the API, with a least-privilege app role and an append-only audit log, so the database itself refuses cross-user reads, forged decisions and edits to the log.</span></li>
+        </ul>
+      <h3>Inputs, AI and cost</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span>Pydantic schemas with enums and length limits, unknown fields dropped (which closed the <code>expected</code> hole), a 64 KiB body cap and send-backs capped at 3.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Prompt injection:</strong> untrusted case text fenced off from instructions, a deterministic tripwire that forces human review on instruction-like text, and schema-validated output. Denials can never be auto-finalized; the route is decided in Python, not by the model.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Per-IP rate limits and a daily LLM call cap that <strong>fails closed</strong>, with the spend counter in Postgres.</span></li>
+        </ul>
+      <h3>Secrets, supply chain and recovery</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span>Keys moved to <strong>Google Secret Manager</strong>; the service runs as an account with no project roles.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Hash-pinned dependencies, Dependabot, an SBOM, and seven scanners in CI on every push.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Daily <code>pg_dump</code> to a private bucket by a create-only identity, with an automated restore test on every run.</span></li>
+        </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="results">
+  <div class="wrap cs-grid">
+    <div><span class="num">03 / Results</span><h2>Before and <em>after.</em></h2></div>
+    <div class="prose">
+      <div class="table-scroll"><table class="cs-table">
+        <tr><th>Severity</th><th>Before</th><th>Open after</th><th>Fixed and verified live</th></tr>
+        <tr><td><b>Critical</b></td><td>2</td><td class="good">0</td><td>2</td></tr>
+        <tr><td><b>High</b></td><td>6</td><td class="good">0</td><td>5 (+1 mitigated, accepted)</td></tr>
+        <tr><td><b>Medium</b></td><td>10</td><td class="good">0</td><td>10</td></tr>
+        <tr><td><b>Low</b></td><td>7</td><td class="good">0</td><td>7</td></tr>
+      </table></div>
+      <div class="table-scroll"><table class="cs-table">
+        <tr><th>Check</th><th>Before</th><th>After</th></tr>
+        <tr><td><b>pytest</b></td><td>no tests</td><td class="good">250 passed (117 authorization, 31 database-level)</td></tr>
+        <tr><td><b>pip-audit</b></td><td>21 known vulnerabilities in 6 packages</td><td class="good">0</td></tr>
+        <tr><td><b>OWASP ZAP baseline</b></td><td>not run</td><td class="good">0 High · 0 Medium · 0 Low</td></tr>
+        <tr><td><b>Trivy image scan</b></td><td>not run</td><td class="good">0 fixable High/Critical</td></tr>
+        <tr><td><b>Injection eval, live GPT-4o</b></td><td>not tested</td><td class="good">8/8 resisted, 8/8 flagged by the model</td></tr>
+      </table></div>
+      <div class="callout"><span class="lbl">Accepted risk, stated honestly</span><p>Prompt injection can't be fully prevented: a subtle injection without tripwire phrases could still bias the model. The only thing it could win here is an auto-approval, which is capped by the fenced prompt, the tripwire and the schema. A real PHI deployment would also add MFA for reviewers and column-level encryption.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="next">
+  <div class="wrap cs-grid">
+    <div><span class="num">04 / What I'd do next</span><h2>Where it goes <em>from here.</em></h2></div>
+    <div class="prose">
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span>TOTP MFA for reviewers and admins (Supabase supports it; it needs an enrolment screen).</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Verify JWTs inside Postgres so the database stops trusting the app for identity.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Self-host Langfuse or strip model rationales from traces before handling real PHI.</span></li>
+        </ul>
+      <div class="cs-links"><a class="btn btn-fill" href="https://github.com/adelsherif8/clearpath-ai/blob/master/docs/SECURITY_REVIEW.md" target="_blank" rel="noopener"><i class="fa-solid fa-file-shield" aria-hidden="true"></i> Read the full review</a><a class="btn btn-line" href="https://github.com/adelsherif8/clearpath-ai" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Browse the code</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="more" style="border-bottom:0">
+  <div class="wrap">
+    <span class="num">More case studies</span>
+    <div class="more">
+      <a href="../clearpath-security-review/" class="here"><h3>Securing an AI agent</h3><span class="m-go">You are here <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../voice-agent-security-evals/"><h3>Testing AI phone agents</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../clearpath-agent/"><h3>An agent that knows when to escalate</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <span class="num" style="color:var(--red-lift)">Get in touch</span>
+    <h2>Need an AI system that holds up <em>in production?</em></h2>
+    <p class="lead">Tell me what you're building and where it breaks. I'll tell you straight whether I can help.</p>
+    <div class="btn-row">
+      <a class="btn btn-fill" href="mailto:adel@adelatya.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> adel@adelatya.com</a>
+      <a class="btn btn-line" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book 30 minutes</a>
+    </div>
+    <div class="cmeta">
+      <span>Cairo, Egypt — US, UK &amp; Gulf time zones</span>
+      <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/adelsherif8" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap f-in">
+    <span>© <span id="yr"></span> Adel Atya · AI Engineer · Cairo, Egypt</span>
+    <span class="f-links">
+      <a href="../../ai-engineer/">AI engineer</a>
+      <a href="../../voice-agent-engineer/">Voice agents</a>
+      <a href="../../software-engineer/">Software</a>
+    </span>
+  </div>
+</footer>
+
+<script src="../../assets/editorial.js"></script>
+</body>
+</html>

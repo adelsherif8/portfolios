@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Adel Atya" />
+<title>ClearPath: a LangGraph agent that knows when to escalate | Adel Atya</title>
+<meta name="description" content="A LangGraph prior-authorization agent: retrieve, propose, criticize, route. 55% auto-resolved, every denial sent to a human, about $0.005 per decision." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="ClearPath: a LangGraph agent that knows when to escalate" />
+<meta property="og:description" content="A LangGraph prior-authorization agent: retrieve, propose, criticize, route. 55% auto-resolved, every denial sent to a human, about $0.005 per decision." />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta property="og:url" content="https://adelatya.com/case-studies/clearpath-agent/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<meta name="theme-color" content="#F7F4EE" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" /></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+<link rel="stylesheet" href="../../assets/editorial.css" />
+<link rel="stylesheet" href="../../assets/case-study.css" />
+<link rel="canonical" href="https://adelatya.com/case-studies/clearpath-agent/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ClearPath: a LangGraph agent that knows when to escalate","description":"A LangGraph prior-authorization agent: retrieve, propose, criticize, route. 55% auto-resolved, every denial sent to a human, about $0.005 per decision.","url":"https://adelatya.com/case-studies/clearpath-agent/","author":{"@type":"Person","@id":"https://adelatya.com/#person","name":"Adel Atya","url":"https://adelatya.com/"},"datePublished":"2026-10-26","image":"https://adelatya.com/og.png"}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../ai-engineer/"><b>Adel Atya</b><span>Case study</span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#problem">Problem</a>
+      <a href="#approach">Approach</a>
+      <a href="#results">Results</a>
+      <a href="#next">Next</a>
+      <a href="../../ai-engineer/#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="../../ai-engineer/">AI engineer</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Case study</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>ClearPath agent</span></div>
+    <h1>An agent that knows <em>when to escalate.</em></h1>
+    <p class="cs-lede">Prior authorization is slow paperwork with real consequences. ClearPath is a <strong>LangGraph agent</strong> that resolves the clear cases on its own and sends <strong>every denial and every uncertain case to a human</strong> with its reasoning attached. It runs on Google Cloud Run and is also exposed as an MCP server.</p>
+    <div class="btn-row" style="margin-bottom:44px"><a class="btn btn-fill" href="https://clearpath-798991357908.us-central1.run.app" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Try the live agent</a><a class="btn btn-line" href="https://github.com/adelsherif8/clearpath-ai" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a></div>
+  </div>
+  <div class="wrap" style="padding:0">
+    <dl class="glance">
+      <div><dt>Role</dt><dd>Solo: design, build, evaluation, deploy</dd></div>
+      <div><dt>Stack</dt><dd>Python · LangGraph · GPT-4o · RAG · Langfuse · FastAPI · Docker · Google Cloud Run · MCP Python SDK</dd></div>
+      <div><dt>When</dt><dd>Deployed to Cloud Run with MCP in October 2026</dd></div>
+      <div><dt>Proof</dt><dd><a href="https://clearpath-798991357908.us-central1.run.app" target="_blank" rel="noopener">Live app</a> · <a href="https://github.com/adelsherif8/clearpath-ai" target="_blank" rel="noopener">GitHub</a></dd></div>
+    </dl>
+    <div class="rail">
+      <div><b>55<i>%</i></b><span>Auto-resolved on 20 synthetic cases</span></div>
+      <div><b>100<i>%</i></b><span>Denials routed to a human</span></div>
+      <div><b>$0.005</b><span>Average cost per decision</span></div>
+      <div><b>4</b><span>MCP tools for any MCP client</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="cs-sec" id="problem">
+  <div class="wrap cs-grid">
+    <div><span class="num">01 / The problem</span><h2>Automate the easy part, <em>never the risky one.</em></h2></div>
+    <div class="prose">
+      <p>Most prior-authorization requests are routine: the documentation either meets the written clinical criteria or it doesn't. Reviewers spend their time on the routine ones. But a wrong automated <strong>denial</strong> harms a patient, and a decision nobody can explain can't be defended later.</p>
+      <p>So the design goal wasn't "maximum automation". It was: <strong>resolve what is clearly safe, escalate everything else, and leave an audit trail for every decision.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="approach">
+  <div class="wrap cs-grid">
+    <div><span class="num">02 / How it works</span><h2>Propose, criticize, <em>then route.</em></h2></div>
+    <div class="prose">
+      <figure class="diagram"><svg viewBox="0 0 760 290" role="img" aria-label="ClearPath LangGraph pipeline"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L10,5 L0,10 z"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow-red" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="dg-box" x="10" y="40" width="110" height="56"/><text class="dg-t dg-t" x="65.0" y="68.0" text-anchor="middle">Request</text><text class="dg-s" x="65.0" y="83.0" text-anchor="middle">case data</text>
+<rect class="dg-box" x="160" y="40" width="120" height="56"/><text class="dg-t dg-t" x="220.0" y="68.0" text-anchor="middle">Retrieve</text><text class="dg-s" x="220.0" y="83.0" text-anchor="middle">RAG: criteria</text>
+<rect class="dg-box" x="320" y="40" width="120" height="56"/><text class="dg-t dg-t" x="380.0" y="68.0" text-anchor="middle">Proposer</text><text class="dg-s" x="380.0" y="83.0" text-anchor="middle">draft decision</text>
+<rect class="dg-box" x="480" y="40" width="120" height="56"/><text class="dg-t dg-t" x="540.0" y="68.0" text-anchor="middle">Critic</text><text class="dg-s" x="540.0" y="83.0" text-anchor="middle">challenges it</text>
+<rect class="dg-hot" x="640" y="40" width="110" height="56"/><text class="dg-hot-t dg-t" x="695.0" y="68.0" text-anchor="middle" style="fill:var(--paper)">Route</text><text class="dg-s" x="695.0" y="83.0" text-anchor="middle" style="fill:var(--paper-3)">in Python</text>
+<rect class="dg-box" x="560" y="170" width="190" height="56"/><text class="dg-t dg-t" x="655.0" y="198.0" text-anchor="middle">Auto-resolved</text><text class="dg-s" x="655.0" y="213.0" text-anchor="middle">confident approvals</text>
+<rect class="dg-box" x="260" y="170" width="230" height="56"/><text class="dg-t dg-t" x="375.0" y="198.0" text-anchor="middle">Human review queue</text><text class="dg-s" x="375.0" y="213.0" text-anchor="middle">every denial · low confidence</text>
+<rect class="dg-box" x="10" y="170" width="190" height="56"/><text class="dg-t dg-t" x="105.0" y="198.0" text-anchor="middle">Approve / Deny</text><text class="dg-s" x="105.0" y="213.0" text-anchor="middle">audited decision</text>
+<path class="dg-l" d="M120,68 L158,68" marker-end="url(#a)"/>
+<path class="dg-l" d="M280,68 L318,68" marker-end="url(#a)"/>
+<path class="dg-l" d="M440,68 L478,68" marker-end="url(#a)"/>
+<path class="dg-l" d="M600,68 L638,68" marker-end="url(#a)"/>
+<path class="dg-l" d="M695,96 L695,168" marker-end="url(#a)"/>
+<path class="dg-l-red" d="M660,96 L492,175" marker-end="url(#ar)"/>
+<path class="dg-l" d="M260,198 L202,198" marker-end="url(#a)"/>
+<path class="dg-l-red" d="M330,170 L370,98" marker-end="url(#ar)"/>
+<text class="dg-s" x="268" y="250">send back: re-runs with the reviewer's notes (max 3)</text>
+</svg><figcaption>The LangGraph pipeline; the routing decision is code, not the model</figcaption></figure>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Retrieve:</strong> RAG over the written clinical criteria for the requested procedure, so every decision is grounded in a cited rule.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Proposer and critic:</strong> one step drafts a decision with a rationale; a second step challenges it against the criteria before anything is final.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Route in Python:</strong> only confident approvals are auto-resolved. Every denial and every low-confidence case goes to the human review queue. The model can't change that rule.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Human in the loop:</strong> a reviewer can approve, deny or <strong>send back</strong>; a send-back re-runs the graph with the reviewer's notes (capped at 3 rounds).</span></li>
+          <li><i class="fa-solid fa-circle"></i><span><strong>Traced:</strong> every node is traced in Langfuse (inputs, outputs, cost, latency) and shown as an in-app audit trail.</span></li>
+        </ul>
+      <h3>Shipping it</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span>Containerized with Docker and deployed on <strong>Google Cloud Run</strong> with scale-to-zero, an Artifact Registry cleanup policy and a budget alert.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Exposed as an <strong>MCP server</strong> (official MCP Python SDK, stateless streamable HTTP, DNS-rebinding protection) with four tools: list sample cases, search criteria, review a case, and read the eval metrics.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Later hardened with a full OWASP security review: see <a href="../clearpath-security-review/">the security case study</a>.</span></li>
+        </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="results">
+  <div class="wrap cs-grid">
+    <div><span class="num">03 / Results</span><h2>Measured, <em>not estimated.</em></h2></div>
+    <div class="prose">
+      <div class="table-scroll"><table class="cs-table">
+        <tr><th>20 synthetic cases, GPT-4o</th><th>Result</th></tr>
+        <tr><td><b>Auto-resolved</b></td><td class="good">11 of 20 (55%)</td></tr>
+        <tr><td><b>Escalated to a human</b></td><td>9 of 20 (45%): every denial</td></tr>
+        <tr><td><b>Average cost per decision</b></td><td>about $0.005</td></tr>
+        <tr><td><b>Average decision time</b></td><td>about 3.6 seconds</td></tr>
+      </table></div>
+      <div class="callout"><span class="lbl">The trade-off</span><p>The critic step costs most of the per-decision spend, and it would be cheaper to skip it. I kept it because a second, adversarial pass is what makes the auto-approvals trustworthy, and at half a cent per decision the cost is small next to a reviewer's time. The data is synthetic; a real deployment would need a clinical evaluation set.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="next">
+  <div class="wrap cs-grid">
+    <div><span class="num">04 / What I'd do next</span><h2>Where it goes <em>from here.</em></h2></div>
+    <div class="prose">
+        <ul>
+          <li><i class="fa-solid fa-circle"></i><span>Evaluate on a larger, clinician-labelled case set and report precision on auto-approvals specifically.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Calibrate the confidence threshold against reviewer outcomes instead of a fixed cut-off.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Track reviewer send-back reasons to find which criteria the agent misreads most.</span></li>
+        </ul>
+      <div class="cs-links"><a class="btn btn-fill" href="https://clearpath-798991357908.us-central1.run.app" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Try it</a><a class="btn btn-line" href="https://github.com/adelsherif8/clearpath-ai" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Browse the code</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="more" style="border-bottom:0">
+  <div class="wrap">
+    <span class="num">More case studies</span>
+    <div class="more">
+      <a href="../clearpath-security-review/"><h3>Securing an AI agent</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../voice-agent-security-evals/"><h3>Testing AI phone agents</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../clearpath-agent/" class="here"><h3>An agent that knows when to escalate</h3><span class="m-go">You are here <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <span class="num" style="color:var(--red-lift)">Get in touch</span>
+    <h2>Need an AI system that holds up <em>in production?</em></h2>
+    <p class="lead">Tell me what you're building and where it breaks. I'll tell you straight whether I can help.</p>
+    <div class="btn-row">
+      <a class="btn btn-fill" href="mailto:adel@adelatya.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> adel@adelatya.com</a>
+      <a class="btn btn-line" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book 30 minutes</a>
+    </div>
+    <div class="cmeta">
+      <span>Cairo, Egypt — US, UK &amp; Gulf time zones</span>
+      <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/adelsherif8" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap f-in">
+    <span>© <span id="yr"></span> Adel Atya · AI Engineer · Cairo, Egypt</span>
+    <span class="f-links">
+      <a href="../../ai-engineer/">AI engineer</a>
+      <a href="../../voice-agent-engineer/">Voice agents</a>
+      <a href="../../software-engineer/">Software</a>
+    </span>
+  </div>
+</footer>
+
+<script src="../../assets/editorial.js"></script>
+</body>
+</html>
