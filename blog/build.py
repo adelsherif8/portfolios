@@ -150,7 +150,8 @@ FOOT = """
     </div>
     <div class="f-end">
       <span>&copy; {year} Adel Atya · Cairo, Egypt</span>
-      <span class="r"><a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a></span>
+      <span class="r"><a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/aa.voiceagents/" target="_blank" rel="noopener">Instagram</a></span>
     </div>
   </div>
 </footer>
