@@ -4,7 +4,7 @@ Take the first `[ ]`. Mark `[x] YYYY-MM-DD` when published, `[skip]` with a reas
 [x] 2026-10-24 How much does an AI receptionist cost for a small business in 2026?
 [x] 2026-10-24 How we test AI phone agents before they take real calls
 [x] 2026-10-24 How many calls does a plumbing business miss, and what does each one cost?
-[ ] AI receptionist vs answering service: which one actually books the job?
+[x] 2026-10-28 AI receptionist vs answering service: which one actually books the job?
 [ ] Can an AI phone agent book appointments straight into GoHighLevel?
 [ ] What happens when an AI receptionist doesn't know the answer?
 [ ] Is it legal to use an AI voice agent to call customers back? (US TCPA basics)

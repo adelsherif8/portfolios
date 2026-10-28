@@ -1,12 +1,12 @@
 [
  {
-  "slug": "plumbing-missed-calls-cost",
-  "title": "How many calls does a plumber miss, and what does each cost?",
-  "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
-  "date": "2026-10-24",
-  "tags": "missed calls, plumbing, revenue",
-  "url": "https://adelatya.com/blog/plumbing-missed-calls-cost/",
-  "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
+  "slug": "ai-receptionist-vs-answering-service",
+  "title": "AI receptionist vs answering service: which one books the job?",
+  "description": "A live answering service takes messages. An AI receptionist can book the job on the call. Here is where each one wins, and where neither is enough.",
+  "date": "2026-10-28",
+  "tags": "ai receptionist, answering service, booking",
+  "url": "https://adelatya.com/blog/ai-receptionist-vs-answering-service/",
+  "source": "blog/posts/2026-10-28-ai-receptionist-vs-answering-service.md"
  },
  {
   "slug": "how-we-test-ai-phone-agents",
@@ -16,6 +16,15 @@
   "tags": "testing, ai voice agents, quality",
   "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
   "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
+ },
+ {
+  "slug": "plumbing-missed-calls-cost",
+  "title": "How many calls does a plumber miss, and what does each cost?",
+  "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
+  "date": "2026-10-24",
+  "tags": "missed calls, plumbing, revenue",
+  "url": "https://adelatya.com/blog/plumbing-missed-calls-cost/",
+  "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
  },
  {
   "slug": "ai-receptionist-cost-2026",
