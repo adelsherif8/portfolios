@@ -125,7 +125,7 @@
           <span class="calc-l">Average job <b id="cvC">$450</b></span>
           <input type="range" id="cC" min="80" max="4000" step="10" value="450" />
         </label>
-        <p class="calc-note">Drag them to your real numbers — your business, or a client's. The maths assumes 85% of missed callers never ring back, and that the agent recovers a conservative quarter of them.</p>
+        <p class="calc-note">Drag them to your real numbers — your business, or a client's. The maths assumes 69% of missed callers never ring back (<a href="https://moneypenny.com/us/resources/news/small-business-call-report/" rel="nofollow noopener" target="_blank">Moneypenny</a>: 69% of callers who reach voicemail hang up without a message), and that the agent recovers a conservative quarter of them.</p>
       </div>
       <div class="calc-out">
         <div class="calc-box">
@@ -273,7 +273,7 @@
       <div class="sstep" data-s="0">
         <span class="sstep-n">01 <b>0s</b></span>
         <h3>The call is missed</h3>
-        <p>The crew is under a house. Nobody reaches the phone. This is the moment 85% of callers decide to try the next name on the list.</p>
+        <p>The crew is under a house. Nobody reaches the phone. Most callers who reach voicemail hang up without leaving a message and try the next name on the list.</p>
       </div>
       <div class="sstep" data-s="1">
         <span class="sstep-n">02 <b>8s</b></span>
@@ -655,7 +655,7 @@
     document.getElementById('cvA').textContent=calls;
     document.getElementById('cvB').textContent=miss+'%';
     document.getElementById('cvC').textContent=m(tik);
-    var lost=calls*(miss/100)*0.85*tik, won=lost*0.25;
+    var lost=calls*(miss/100)*0.69*tik, won=lost*0.25;
     document.getElementById('cLost').textContent=m(lost);
     document.getElementById('cWon').textContent=m(won);
     document.getElementById('cYr').textContent=m(won*12);
@@ -744,7 +744,7 @@
       ph=document.getElementById('pipeH'), pp=document.getElementById('pipeP');
   if(!steps.length) return;
   var COPY=[
-   ['The call is missed','The crew is under a house. Nobody reaches the phone. This is the moment 85% of callers decide to try the next name on the list.'],
+   ['The call is missed','The crew is under a house. Nobody reaches the phone. Most callers who reach voicemail hang up without leaving a message and try the next name on the list.'],
    ['Texted back in 8 seconds','Before they have dialled anyone else, a text lands: we saw you called, we can help today. The opportunity is already open in the CRM.'],
    ['The agent calls back at 52','It asks what the job is, whether they are in the service area, and how urgent it is. It quotes only what it has been given.'],
    ['Booked, written, notified','On the schedule, contact and opportunity written, owner texted with the details. Every follow-up message stops the moment they reply.']
