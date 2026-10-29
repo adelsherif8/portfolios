@@ -19,7 +19,7 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
    voicedesk-h31g.onrender.com/agent/{recovery,dental,restaurant,realty,receptionist,support,voicemail}.
 4. Write `blog/posts/YYYY-MM-DD-<slug>.md` (today's date) with the front matter used by the existing posts:
    title (the question or a plain promise; if longer than 60 characters, also add seo_title: a version of 60 or fewer that Google shows in full), description (under 158 characters), date, slug
-   (lowercase-hyphens), service (the matching page path), service_label, tags (3 comma-separated).
+   (lowercase-hyphens), service (the matching page path), service_label, tags (3 comma-separated), and target (the topic's target phrase, if it has one).
 5. Body rules:
    - 900–1,500 words. Open with the direct answer in the first two sentences. No throat-clearing intro.
    - Short paragraphs, `##` section headings that are themselves questions or plain statements, lists where they help.
@@ -31,12 +31,21 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
    - Be honest about when an AI phone agent is NOT worth it, or what it can't do. That honesty is the brand.
    - 3–5 internal links: the service page, /pricing/, one or two related posts, and one live demo link.
    - End with a short practical checklist or next step, not a sales pitch.
+5b. **Quality gate (required, see `blog/RUBRIC.md`).** Publish only if the score is above 90 of 100.
+   - Run `python3 blog/score.py blog/posts/<your file>.md` (automatic half, 50 points). Fix every line marked FIX that you can.
+   - Then launch ONE fresh reviewer with the Agent tool. Give it: the full text of `blog/RUBRIC.md`, the full post, and the
+     list of Adel's real facts from step 3. Ask it to score the post strictly using the review table and return the
+     required output format. You never score your own post; the reviewer's number is the one that counts.
+   - Total = automatic + review. If it is 90 or below, or any review category is 0, apply the reviewer's TOP 3 FIXES and
+     the automatic FIX lines, then re-run score.py and a NEW reviewer. Up to 3 rounds.
+   - After 3 rounds still at 90 or below: do not publish. Delete the draft, mark the topic `[skip] score NN` in topics.md,
+     commit only topics.md, and report the scores.
 6. Run `python3 blog/build.py`. It must print the new post count with no errors.
 7. Mark the topic `[x]` in `blog/topics.md` with today's date. If fewer than 10 `[ ]` topics remain, append 10 new
    buyer-intent questions in the same style (different verticals and stages of buying, no near-duplicates).
 8. Commit only `blog/` and `sitemap.xml`: `git add blog sitemap.xml && git commit -m "Blog: <title>" && git push`.
    Pushing deploys the site automatically.
-9. Final message: the title, URL (https://adelatya.com/blog/<slug>/), word count, and the sources used.
+9. Final message: the title, URL (https://adelatya.com/blog/<slug>/), word count, the sources used, and the final score (automatic + review = total, plus how many rounds it took).
 
 ## Hard stops
 - Never edit any file outside `blog/` and `sitemap.xml`.

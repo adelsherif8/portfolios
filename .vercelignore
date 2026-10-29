@@ -1,3 +1,4 @@
-_archive/
-_og/
-DEPLOY.md
+# Internal blog tooling: stays in git for the daily writer, never served on the site
+blog/*.md
+blog/*.py
+blog/posts/
