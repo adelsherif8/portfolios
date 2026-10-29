@@ -6,7 +6,7 @@ Readers are business owners (plumbing/HVAC, dental, restaurants, real estate, ho
 Goal: a genuinely useful answer to a question a buyer types into Google, that links to the matching service page.
 
 ## Steps
-1. `git pull`. Read `blog/topics.md`. Take the FIRST line still marked `[ ]`. Read every existing post in `blog/posts/`
+1. `git pull`. Read `blog/topics.md`. Take the FIRST line still marked `[ ]`. If it ends with `(target: <phrase> -> <page>)`, the title is the text before it; use the exact target phrase in the title or seo_title, the first paragraph and one H2, set `service:` to that page and link to it twice. Read every existing post in `blog/posts/`
    so you never repeat an angle, a title pattern, or an example.
 2. Research (WebSearch/WebFetch, 4–8 calls): current, checkable facts for this topic (2026 prices, rules, platform
    features). Prefer official sources (regulators, vendor docs, government statistics). Note each source URL.

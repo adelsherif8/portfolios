@@ -6,17 +6,27 @@ Take the first `[ ]`. Mark `[x] YYYY-MM-DD` when published, `[skip]` with a reas
 [x] 2026-10-24 How many calls does a plumbing business miss, and what does each one cost?
 [x] 2026-10-28 AI receptionist vs answering service: which one actually books the job?
 [x] 2026-10-29 Can an AI phone agent book appointments straight into GoHighLevel?
+[x] 2026-10-29 How to build a missed-call AI callback with GoHighLevel and Retell
+
+## Priority: top-3 targets (research 2026-10-29). Take these first, in order.
+Each post must use its target phrase in the title, the first paragraph and one H2, and link to its page.
+[ ] How to test an AI voice agent for prompt injection: a phone-call runbook   (target: voice agent prompt injection testing -> /case-studies/voice-agent-security-evals/)
+[ ] AI receptionist for self-storage: reservations, payments and gate-code resets   (target: ai receptionist for self storage -> /self-storage/)
+[ ] Retell vs Vapi for business phone agents: what actually differs   (target: retell vs vapi -> /voice-agent-engineer/)
+[ ] White-label AI voice agents for GoHighLevel agencies: how the reselling works   (target: white label ai voice agent gohighlevel -> /white-label-ai-voice-agent/)
+[ ] GoHighLevel missed-call text-back vs AI callback: which recovers more jobs?   (target: gohighlevel missed call ai -> /plumbing/)
+[ ] How to hire a Vapi or Retell developer: what to check before you pay   (target: hire vapi developer -> /voice-agent-engineer/)
+[ ] Self-storage after-hours calls: what facilities lose when nobody answers   (target: self storage after hours calls -> /self-storage/)
+
+## General queue
 [ ] What happens when an AI receptionist doesn't know the answer?
 [ ] Is it legal to use an AI voice agent to call customers back? (US TCPA basics)
 [ ] AI receptionist for dental practices: what it should and shouldn't handle
-[ ] Missed-call text-back: does it actually recover jobs?
 [ ] How restaurants can take phone orders with AI during the Friday rush
-[ ] White-label AI voice agents: how marketing agencies resell them
 [ ] Should customers be told they're talking to an AI?
 [ ] How long does it take to set up an AI phone agent?
 [ ] After-hours calls: what home-service businesses lose overnight
 [ ] AI receptionist for real estate agents: qualifying buyers at 9pm
-[ ] Retell vs Vapi for business phone agents: what actually differs
 [ ] How an AI phone agent handles emergency calls safely
 [ ] Can an AI receptionist work with my existing business number?
 [ ] What to put in an AI receptionist's script (with examples)
@@ -30,6 +40,5 @@ Take the first `[ ]`. Mark `[x] YYYY-MM-DD` when published, `[skip]` with a reas
 [ ] How much does GoHighLevel automation cost to set up properly?
 [ ] AI receptionist for law firms: taking messages that lawyers can act on
 [ ] What an AI phone agent can't do (and when you still need a person)
-[ ] AI phone agents for self-storage: reservations and gate-code calls
 [ ] How to choose an AI receptionist provider: 10 questions to ask
 [ ] n8n vs Zapier vs Make for small-business automation in 2026

@@ -57,8 +57,14 @@ def md(body):
         nonlocal para, lst, kind
         if para: out.append("<p>" + inline(" ".join(para)) + "</p>"); para = []
         if lst: out.append(f"<{kind}>" + "".join(f"<li>{inline(x)}</li>" for x in lst) + f"</{kind}>"); lst = []; kind = None
+    code = None                                   # lines of an open ``` fenced block
     for line in body.splitlines():
         s = line.rstrip()
+        if s.startswith("```"):
+            if code is None: flush(); code = []
+            else: out.append("<pre><code>" + html.escape("\n".join(code), quote=False) + "</code></pre>"); code = None
+            continue
+        if code is not None: code.append(line); continue
         if not s.strip(): flush(); continue
         h = re.match(r"^(#{2,3})\s+(.*)", s)
         if h: flush(); lvl = len(h.group(1)); out.append(f"<h{lvl}>{inline(h.group(2))}</h{lvl}>"); continue
@@ -110,6 +116,8 @@ HEAD = """<!DOCTYPE html>
 .post li{{margin-bottom:6px}}
 .post blockquote{{border-left:3px solid var(--red);padding:4px 0 4px 16px;color:var(--ink-2);font-style:italic}}
 .post code{{font-size:.9em;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:5px}}
+.post pre{{margin:0 0 18px;padding:14px 16px;background:rgba(0,0,0,.05);border-radius:8px;overflow-x:auto;font-size:.88rem;line-height:1.5}}
+.post pre code{{background:none;padding:0;font-size:inherit}}
 .post a{{color:var(--red);text-decoration:underline;text-underline-offset:3px}}
 .cta-box{{max-width:68ch;margin:10px auto 60px;border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:26px;background:var(--paper)}}
 .cta-box h3{{font-size:1.3rem;margin-bottom:8px}}
@@ -145,6 +153,7 @@ FOOT = """
       <a href="{up}dental/">Dental</a>
       <a href="{up}restaurants/">Restaurants</a>
       <a href="{up}real-estate/">Real estate</a>
+      <a href="{up}self-storage/">Self storage</a>
       <a href="{up}white-label-ai-voice-agent/">For agencies</a>
       <a href="{up}blog/">Blog</a>
     </div>

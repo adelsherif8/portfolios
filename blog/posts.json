@@ -9,6 +9,15 @@
   "source": "blog/posts/2026-10-29-ai-phone-agent-gohighlevel-booking.md"
  },
  {
+  "slug": "retell-gohighlevel-missed-call-ai-callback",
+  "title": "How to build a missed-call AI callback with GoHighLevel and Retell",
+  "description": "A GoHighLevel workflow catches the missed call, texts the caller, and has a Retell agent call back within a minute to book the job. Here is the full build.",
+  "date": "2026-10-29",
+  "tags": "gohighlevel, retell ai, missed call text back",
+  "url": "https://adelatya.com/blog/retell-gohighlevel-missed-call-ai-callback/",
+  "source": "blog/posts/2026-10-29-retell-gohighlevel-missed-call-ai-callback.md"
+ },
+ {
   "slug": "ai-receptionist-vs-answering-service",
   "title": "AI receptionist vs answering service: which one books the job?",
   "description": "A live answering service takes messages. An AI receptionist can book the job on the call. Here is where each one wins, and where neither is enough.",

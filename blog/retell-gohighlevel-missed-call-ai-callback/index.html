@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Retell AI GoHighLevel missed call callback: step by step</title>
+<meta name="description" content="A GoHighLevel workflow catches the missed call, texts the caller, and has a Retell agent call back within a minute to book the job. Here is the full build." />
+<meta name="theme-color" content="#0F0D0B" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="stylesheet" href="../../assets/site.css" />
+<link rel="canonical" href="https://adelatya.com/blog/retell-gohighlevel-missed-call-ai-callback/" />
+<link rel="alternate" type="application/rss+xml" title="Adel Atya blog" href="https://adelatya.com/blog/feed.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="Retell AI GoHighLevel missed call callback: step by step" />
+<meta property="og:description" content="A GoHighLevel workflow catches the missed call, texts the caller, and has a Retell agent call back within a minute to book the job. Here is the full build." />
+<meta property="og:url" content="https://adelatya.com/blog/retell-gohighlevel-missed-call-ai-callback/" />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How to build a missed-call AI callback with GoHighLevel and Retell", "description": "A GoHighLevel workflow catches the missed call, texts the caller, and has a Retell agent call back within a minute to book the job. Here is the full build.", "datePublished": "2026-10-29", "dateModified": "2026-10-29", "mainEntityOfPage": "https://adelatya.com/blog/retell-gohighlevel-missed-call-ai-callback/", "author": {"@type": "Person", "name": "Adel Atya", "url": "https://adelatya.com"}, "publisher": {"@type": "Organization", "name": "Adel Atya", "url": "https://adelatya.com", "logo": {"@type": "ImageObject", "url": "https://adelatya.com/favicon.svg"}}, "image": "https://adelatya.com/og.png", "keywords": "gohighlevel, retell ai, missed call text back"}</script>
+<style>
+.bhero{padding:150px 0 40px;border-bottom:var(--edge)}
+.bhero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-top:16px;max-width:22ch;text-wrap:balance}
+.bhero .meta{margin-top:16px;color:var(--ink-2);font-size:.92rem}
+.post{max-width:68ch;margin:0 auto;padding:44px 0 20px;font-size:1.08rem;line-height:1.7}
+.post h2{font-size:1.75rem;margin:42px 0 12px;line-height:1.15}
+.post h3{font-size:1.25rem;margin:28px 0 8px}
+.post p,.post ul,.post ol,.post blockquote{margin:0 0 18px}
+.post ul,.post ol{padding-left:1.2em}
+.post li{margin-bottom:6px}
+.post blockquote{border-left:3px solid var(--red);padding:4px 0 4px 16px;color:var(--ink-2);font-style:italic}
+.post code{font-size:.9em;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:5px}
+.post pre{margin:0 0 18px;padding:14px 16px;background:rgba(0,0,0,.05);border-radius:8px;overflow-x:auto;font-size:.88rem;line-height:1.5}
+.post pre code{background:none;padding:0;font-size:inherit}
+.post a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.cta-box{max-width:68ch;margin:10px auto 60px;border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:26px;background:var(--paper)}
+.cta-box h3{font-size:1.3rem;margin-bottom:8px}
+.cta-box .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.plist{display:grid;gap:14px;padding:36px 0 70px;max-width:760px}
+.pitem{display:block;border:var(--edge);border-radius:var(--r);background:var(--paper);box-shadow:var(--hard);padding:22px 24px;color:inherit;text-decoration:none}
+.pitem h2{font-size:1.35rem;margin:6px 0 8px}
+.pitem p{color:var(--ink-2);font-size:.96rem}
+.pitem .d{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="../../"><img src="../../favicon.svg" alt="" width="23" height="23" />Adel Atya</a>
+  <nav class="menu">
+    <a href="../../#agents">Agents</a>
+    <a href="../../pricing/">Pricing</a>
+    <a href="../../white-label-ai-voice-agent/">For agencies</a>
+    <a href="../../blog/">Blog</a>
+  </nav>
+  <a class="go" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">Talk to the demo</a>
+</div></div>
+<header class="bhero"><div class="wrap"><span class="label">Blog · Gohighlevel</span><h1>How to build a missed-call AI callback with GoHighLevel and Retell</h1><p class="meta">Adel Atya · 29 October 2026</p></div></header><main class="wrap"><article class="post"><p>A GoHighLevel workflow notices the missed call, sends a text, and then fires a webhook that asks Retell to place an outbound call with an AI agent that already knows who it is calling and why. In our Blue Ridge Plumbing demo, the text goes out 8 seconds after the missed call and the AI callback starts 52 seconds after it, and the agent books the job on that call.</p>
+<p>Most guides stop at the text-back. This one covers the whole chain, from the trigger to the booking written back. Blue Ridge is a demo business we built to show the flow, not a client. You can see its dispatch desk live on the <a href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">recovery demo</a>.</p>
+<h2>Why call back in under a minute?</h2>
+<p>Many people who just called a plumber want to talk, not type. The best-known data on response speed is old and comes from web leads rather than phone calls: a <a href="https://www.mortech.com/hs-fs/hub/25649/file-13535879-pdf/docs/mit_study.pdf" target="_blank" rel="noopener">2007 InsideSales.com study</a> presented with James Oldroyd, covering more than fifteen thousand leads at six companies, found that the odds of reaching a lead dropped 100 times when the first call came at 30 minutes instead of 5. It is vendor data about web leads, so treat it as a direction, not a forecast. If you want to size your own missed-call problem first, we covered that in <a href="/blog/plumbing-missed-calls-cost/">how many calls a plumber misses</a>.</p>
+<h2>What the flow looks like</h2>
+<p>In the Blue Ridge demo, every missed call moves through four pipeline stages: Missed, Texted, Called, Booked.</p>
+<ol><li>A call to the business number goes unanswered.</li><li>GoHighLevel's workflow trigger fires on that call outcome.</li><li>The workflow sends an SMS: sorry we missed you, reply here or we will call you back in about a minute.</li><li>The workflow waits, then sends a webhook.</li><li>The webhook asks Retell to call the customer with the recovery agent.</li><li>The agent finds out the problem, how urgent it is and the address, offers two time windows, and books one.</li><li>Before the goodbye, the agent sends the outcome (booked, callback requested, declined, and so on) to your server, which writes it back.</li></ol>
+<p>The same agent also follows up unaccepted estimates and calls past customers about an annual maintenance check. Only the trigger and the variables change.</p>
+<h2>Step 1: the GoHighLevel workflow</h2>
+<p>GoHighLevel's call trigger is now called <a href="https://help.gohighlevel.com/support/solutions/articles/48001212511-workflow-trigger-call-details" target="_blank" rel="noopener">Call Details</a> (older guides call it Call Status). Set it up like this:</p>
+<ul><li><strong>Trigger:</strong> Call Details, with Call Direction set to incoming and Call Status set to the outcomes that mean "nobody picked up", such as no-answer, busy and voicemail. Use the In Phone Number filter so only your main line counts.</li><li><strong>Action: Send SMS.</strong> Keep it short and honest. Say a callback is coming so the AI call is expected, not a surprise.</li><li><strong>Action: Wait.</strong> The <a href="https://help.gohighlevel.com/support/solutions/articles/155000002470-workflow-action-wait" target="_blank" rel="noopener">Wait action</a> accepts seconds, so a 30 to 45 second pause is possible. It gives the caller a moment to reply by text first.</li><li><strong>Action: Custom Webhook.</strong> The <a href="https://help.gohighlevel.com/support/solutions/articles/155000003305-workflow-action-custom-webhook" target="_blank" rel="noopener">Custom Webhook action</a> can send a POST with a raw JSON body, a bearer token, and merge fields like <code>{{contact.phone}}</code>. You can point it straight at Retell or, better, at your own small server that adds checks before calling Retell.</li></ul>
+<p>Two settings people miss. A draft workflow does not run on live calls, so publish it after testing. And think about re-entry: someone who calls three times in ten minutes should not get three AI callbacks.</p>
+<h2>Step 2: the Retell agent</h2>
+<p>The Blue Ridge agent is a single-prompt Retell agent on GPT-4.1. The prompt tells it this is an outbound call, that the person was missed within the last minute, and to apologise once and get to the problem fast, because plumbing callers often have water on the floor. A few rules from the real prompt do most of the work:</p>
+<ul><li>Emergencies (burst pipe, no water, sewage, flooding) get today's first slot. Everything else gets the next window.</li><li>Offer two time windows, never a list.</li><li>Never quote a price for unquoted work. Give the diagnostic call-out fee and say the technician quotes on site.</li><li>Confirm the street name back.</li><li>If they ask for a real person, don't argue. Log it as "callback requested".</li><li>Two sentences per turn at most.</li></ul>
+<p>Retell lets you put <a href="https://docs.retellai.com/build/dynamic-variables" target="_blank" rel="noopener">dynamic variables</a> in the prompt with double curly braces, like <code>{{customer_name}}</code>, and fill them per call. That is how one agent can open with "I saw we missed your call" for a missed call and "about the estimate we sent last week" for an estimate follow-up.</p>
+<h2>Step 3: placing the outbound call</h2>
+<p>The call is one request to Retell's <a href="https://docs.retellai.com/api-references/create-phone-call" target="_blank" rel="noopener">create phone call endpoint</a>, <code>POST https://api.retellai.com/v2/create-phone-call</code>. The <code>from_number</code> must be a number bought from Retell or imported into it. The <code>retell_llm_dynamic_variables</code> values must all be strings.</p>
+<pre><code>{
+  "from_number": "+1YOURRETELLNUMBER",
+  "to_number": "{{contact.phone}}",
+  "override_agent_id": "agent_YOUR_RECOVERY_AGENT",
+  "retell_llm_dynamic_variables": {
+    "customer_name": "{{contact.first_name}}",
+    "flow": "missed_call"
+  }
+}</code></pre>
+<p>Retell's docs note that with a Retell-purchased number, only US destinations are supported. If the business is outside the US, check your telephony setup first.</p>
+<h2>Step 4: writing the result back</h2>
+<p>The agent has one custom function, <code>log_outcome</code>, and the prompt requires it on every call, before the goodbye line, because once the caller hangs up the call may be gone. These are the real fields: name, phone, intent, address, urgency, appointment, objection, outcome and summary, with outcome limited to booked, callback requested, objection - financing offered, declined, or no answer.</p>
+<p>Retell <a href="https://docs.retellai.com/build/single-multi-prompt/custom-function" target="_blank" rel="noopener">sends a custom function</a> as a POST with <code>name</code>, <code>call</code> and <code>args</code>, and whatever you return is read by the agent. This is the shape of the handler behind the demo, trimmed:</p>
+<pre><code>@app.post("/retell/{agent}")
+async def retell_webhook(agent: str, request: Request):
+    body = await request.json()
+    if "name" in body and "args" in body:      # custom function call
+        args = body.get("args") or {}
+        call = body.get("call") or {}
+        args.setdefault("phone", call.get("from_number", ""))
+        store(agent, args)
+        # this text goes back to the agent, so keep it sayable
+        return {"result": "Saved. The details are recorded in the system."}
+    return {"ok": True}</code></pre>
+<p>In the demo the record lands on the dispatch desk. In a real GoHighLevel account, the same handler upserts the contact, creates the appointment on the right calendar and moves the opportunity to Booked. We covered the GoHighLevel calls and the double-booking traps in <a href="/blog/ai-phone-agent-gohighlevel-booking/">booking appointments into GoHighLevel</a>, so we won't repeat them here. For production, also verify the <code>X-Retell-Signature</code> header Retell sends, so nobody else can post fake bookings to your endpoint.</p>
+<h2>What about consent and the TCPA?</h2>
+<p>This part needs a lawyer, not a blog post, but here are the facts. In February 2024 the FCC <a href="https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf" target="_blank" rel="noopener">ruled</a> that AI-generated voices count as "artificial" voices under the TCPA, so those calls need the prior express consent of the called party unless an emergency purpose or exemption applies. Calls that include an ad or telemarketing need prior express written consent.</p>
+<p>Calling back someone who rang you a minute ago is a different situation from cold-calling a list, but don't assume that makes it automatically fine. Keep the callback strictly about their call, have the agent say who it is calling from in the first sentence, respect a "don't call me" immediately, and get advice on your consent wording. The estimate and reactivation calls are closer to marketing, so they deserve the most care.</p>
+<h2>Test it before a customer hears it</h2>
+<p>Miss a call from your own phone, check the text timing, let the callback ring through and book a slot. Then repeat with voicemail, a wrong number, a caller who wants a human, and someone who calls twice. We run simulated callers against every agent before launch; the method is in <a href="/blog/how-we-test-ai-phone-agents/">how we test AI phone agents</a>.</p>
+<h2>What it costs to run</h2>
+<p>Retell's <a href="https://www.retellai.com/pricing" target="_blank" rel="noopener">published pay-as-you-go rates</a> are $0.055 a minute for its voice infrastructure, $0.045 a minute for GPT-4.1, $0.015 a minute for telephony, and $2 a month for a Retell phone number. That is about 11.5 cents a minute before any optional voice add-on. A two-minute callback costs roughly a quarter. SMS from GoHighLevel is billed by GoHighLevel at your account's rate.</p>
+<p>If you would rather have it built: a voice agent from us is $900 to build plus $450 a month with 500 minutes included, then 15 cents a minute. Agencies reselling it under their own brand pay $400 setup and $250 a month per account. Details are on <a href="/pricing/">pricing</a>.</p>
+<h2>When it isn't worth it</h2>
+<p>If you miss only a few calls a week and someone checks texts quickly, a text-back alone may be enough. If your calendar is a mess, the agent will book into the mess. Fix that first.</p>
+<h2>Checklist</h2>
+<ol><li>Confirm your main number's missed calls show up in GoHighLevel call logs.</li><li>Build the Call Details trigger, the SMS, the Wait and the webhook, and leave it in draft.</li><li>Create the Retell agent with a <code>log_outcome</code> function and test it in the browser.</li><li>Buy or import the number Retell will call from.</li><li>Get your consent wording reviewed.</li><li>Run the failure cases above, then publish.</li></ol>
+<p>For a plumbing business, see how this fits on the <a href="/plumbing/">plumbing page</a>. If you are an agency that wants to offer it to your GoHighLevel clients, see the <a href="/white-label-ai-voice-agent/">white-label voice agent</a>.</p></article><aside class="cta-box"><h3>Hear an AI phone agent handle a real call</h3><p>Every agent we build answers on the first ring, books the job and texts back the calls it misses. Try one now, or see what it costs.</p><div class="acts"><a class="btn btn-solid" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">Talk to the demo</a><a class="btn btn-line" href="../../white-label-ai-voice-agent/">White-label AI voice agent for GoHighLevel agencies</a></div><h3 style="margin-top:22px;font-size:1.05rem">More from the blog</h3><ul style="margin-top:8px;padding-left:1.1em"><li><a href="../../blog/ai-phone-agent-gohighlevel-booking/">Can an AI phone agent book appointments into GoHighLevel?</a></li><li><a href="../../blog/ai-receptionist-vs-answering-service/">AI receptionist vs answering service: which one books the job?</a></li><li><a href="../../blog/plumbing-missed-calls-cost/">How many calls does a plumber miss, and what does each cost?</a></li></ul></aside></main>
+<footer>
+  <div class="wrap">
+    <div class="f-more">
+      <span class="label">More</span>
+      <a href="../../">Home</a>
+      <a href="../../pricing/">Pricing</a>
+      <a href="../../plumbing/">Plumbing &amp; HVAC</a>
+      <a href="../../dental/">Dental</a>
+      <a href="../../restaurants/">Restaurants</a>
+      <a href="../../real-estate/">Real estate</a>
+      <a href="../../self-storage/">Self storage</a>
+      <a href="../../white-label-ai-voice-agent/">For agencies</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+    <div class="f-end">
+      <span>&copy; 2026 Adel Atya · Cairo, Egypt</span>
+      <span class="r"><a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/aa.voiceagents/" target="_blank" rel="noopener">Instagram</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

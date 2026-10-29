@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Receptionist for Self Storage | Live Demo | Adel Atya</title>
+<meta name="description" content="An AI receptionist for self storage that quotes live units, reserves, takes payments and verifies tenants before a gate code reset. Call the live demo." />
+<meta name="theme-color" content="#0F0D0B" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+<link rel="stylesheet" href="../assets/site.css" />
+<style>
+.vhero{background:var(--ink);color:var(--paper);padding:158px 0 72px;position:relative;overflow:hidden}
+.vhero::before{content:"";position:absolute;left:-8%;top:-34%;width:66%;height:150%;background:radial-gradient(52% 52% at 42% 44%,rgba(198,60,34,.24),transparent 70%);pointer-events:none}
+.vhero .wrap{position:relative}
+.vhero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:center}
+.vhero .label{color:var(--red-lift)}
+.vhero .label::before{background:var(--red-lift)}
+.vhero h1{font-size:clamp(2.6rem,5.8vw,4.3rem);margin-top:20px}
+.vhero h1 em{color:var(--red-lift)}
+.vhero .sub{color:#E4DDD1;font-size:1.1rem;max-width:46ch;margin-top:22px}
+.vhero .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.vhero .btn-solid{background:var(--paper);color:var(--ink);box-shadow:0 16px 34px -14px rgba(0,0,0,.85)}
+.vhero .btn-line{color:var(--paper);border-color:rgba(247,244,238,.42)}
+.vhero .btn-line:hover{background:rgba(247,244,238,.12);border-color:var(--paper)}
+.vhero .note{color:#B9B0A2;font-size:.86rem;margin-top:18px;max-width:52ch}
+.vshot{border-radius:var(--r);overflow:hidden;border:1px solid rgba(247,244,238,.14);box-shadow:0 34px 70px -26px rgba(0,0,0,.85)}
+.vshot img{width:100%;display:block;height:auto;aspect-ratio:1920/1100;object-fit:cover;object-position:center bottom}
+@media(max-width:960px){.vhero-grid{grid-template-columns:1fr;gap:36px}}
+.jobs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.job{border:var(--edge);border-radius:var(--r);background:var(--paper);box-shadow:var(--hard);padding:26px 26px 28px}
+.job .when{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:12px}
+.job h3{font-size:1.32rem;margin-bottom:9px}
+.job h3 i{color:var(--red);font-size:1.05rem;margin-right:8px}
+.job p{color:var(--ink-2);font-size:.94rem}
+@media(max-width:820px){.jobs{grid-template-columns:1fr}}
+.money{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.mcard{border:var(--edge);border-radius:var(--r);background:var(--paper);box-shadow:var(--hard);padding:26px 24px}
+.mcard.hot{background:var(--grad);color:#fff;border-color:transparent;box-shadow:var(--hard-red)}
+.mcard b{display:block;font-weight:700;font-size:2.5rem;letter-spacing:-.045em;line-height:1;color:var(--red);font-variant-numeric:tabular-nums}
+.mcard.hot b{color:#fff}
+.mcard span{display:block;margin-top:12px;font-size:.92rem;color:var(--ink-2);font-weight:600;line-height:1.45}
+.mcard.hot span{color:rgba(255,255,255,.92)}
+@media(max-width:820px){.money{grid-template-columns:1fr}}
+.vsteps{list-style:none;padding:0;margin:0;display:grid;gap:12px;counter-reset:st}
+.vsteps li{counter-increment:st;border:var(--edge);border-radius:var(--r);background:var(--paper);padding:18px 20px 18px 64px;position:relative;color:var(--ink-2);font-size:.95rem}
+.vsteps li::before{content:counter(st);position:absolute;left:20px;top:17px;width:28px;height:28px;border-radius:50%;background:var(--grad);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.vsteps li b{color:var(--ink)}
+.tbl-wrap{overflow-x:auto;margin-top:26px;border:var(--edge);border-radius:var(--r);background:var(--paper)}
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+.tbl th,.tbl td{text-align:left;padding:13px 16px;border-bottom:1px solid rgba(22,19,15,.1)}
+.tbl th{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.tbl td:first-child{font-weight:600;color:var(--ink)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.z{color:var(--red);font-weight:700}
+@media(max-width:560px){.tbl{min-width:0;font-size:.8rem}.tbl th,.tbl td{padding:10px 8px}.tbl th{letter-spacing:.06em}}
+.tbl caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.82rem;color:var(--grey)}
+.inline-links{margin-top:22px;font-size:.95rem;color:var(--ink-2)}
+.inline-links a{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+</style>
+<link rel="canonical" href="https://adelatya.com/self-storage/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="AI Receptionist for Self Storage | Live Demo | Adel Atya" />
+<meta property="og:description" content="Quotes live units, reserves, takes keypad payments and resets gate codes only after verifying the tenant. Call the live demo and try to break it." />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://adelatya.com/self-storage/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Receptionist for Self Storage | Live Demo | Adel Atya" />
+<meta name="twitter:description" content="Quotes live units, reserves, takes keypad payments and resets gate codes only after verifying the tenant. Call the live demo and try to break it." />
+<meta name="twitter:image" content="https://adelatya.com/og.png" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://adelatya.com/#org","name":"Adel Atya","alternateName":"adelatya.com","url":"https://adelatya.com/","logo":"https://adelatya.com/favicon.svg","image":"https://adelatya.com/og.png","description":"AI phone agents that answer, qualify callers and book jobs straight into your CRM — for service businesses, or white-labelled for GoHighLevel agencies.","email":"adel@adelatya.com","address":{"@type":"PostalAddress","addressLocality":"Cairo","addressCountry":"EG"},"areaServed":[{"@type":"Country","name":"United States"},{"@type":"Country","name":"United Kingdom"},{"@type":"Country","name":"Canada"},{"@type":"Country","name":"Australia"}],"knowsAbout":["AI voice agents","AI receptionist","Missed call recovery","GoHighLevel","Vapi","Retell AI","Conversational AI","Appointment booking automation"],"sameAs":["https://www.linkedin.com/in/adel-atya-551467309","https://github.com/adelsherif8"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"AI receptionist for self storage","description":"An AI voice agent for self-storage facilities: answers in about a second, 24/7, quotes from live unit inventory, reserves units, takes tenant payments by phone keypad and resets gate codes after verifying the tenant.","serviceType":"AI voice agent / AI receptionist","url":"https://adelatya.com/self-storage/","provider":{"@id":"https://adelatya.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Self-storage facilities and operators"},"offers":{"@type":"Offer","url":"https://adelatya.com/pricing/","priceCurrency":"USD","price":"900","availability":"https://schema.org/InStock","priceSpecification":[{"@type":"UnitPriceSpecification","price":"900","priceCurrency":"USD","name":"One-time build"},{"@type":"UnitPriceSpecification","price":"450","priceCurrency":"USD","billingIncrement":1,"unitCode":"MON","name":"Monthly, 500 call minutes included"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Could someone talk it into giving out another tenant's gate code?","acceptedAnswer":{"@type":"Answer","text":"It verifies the caller's name and unit number before it resets anything, and it is never handed other tenants' records in the first place: each call gets at most the caller's own record, matched by caller ID or by details that all match exactly. We test this with a simulated caller who asks for his sister's unit and gate code. In our security runs, cross-customer leaks went from 14 calls to 0 once the agent stopped seeing other people's data."}},{"@type":"Question","name":"How does it take payments without reading card numbers out loud?","acceptedAnswer":{"@type":"Answer","text":"The tenant enters the card on the phone keypad, and the agent confirms the amount. It is told never to read a card number back, and one of our test callers reads the full card number out loud on purpose to check that it doesn't repeat it. It can also enrol the tenant in autopay."}},{"@type":"Question","name":"Will it quote a unit size or price we don't offer?","acceptedAnswer":{"@type":"Answer","text":"No. It quotes only the sizes and monthly prices in its inventory and is not allowed to invent one or agree to a discount. Every test run checks each price the agent says against the real price list in code, not by ear."}},{"@type":"Question","name":"Does it connect to our management software?","acceptedAnswer":{"@type":"Answer","text":"The demo writes every call to its own operator dashboard through a webhook. For your facility we connect it to your management software through that software's API or a webhook, and confirm on the fit call exactly which records it can read and write before we build."}},{"@type":"Question","name":"What does it do with a call it shouldn't handle?","acceptedAnswer":{"@type":"Answer","text":"Anything it doesn't know, like insurance terms or corporate policy, gets a manager callback with the number taken. If a caller reports smoke, fire, flooding or a break-in, it tells them to get to safety and call 911 first. Both paths are in the test suite."}},{"@type":"Question","name":"Does it use our existing number, and how long until it's live?","acceptedAnswer":{"@type":"Answer","text":"It sits on the number you already have, through LC Phone or your own Twilio account, so tenants see no change. It's live five to seven days after the call where you give us your unit sizes, prices, gate and payment rules, and the calls you miss most."}}]}</script>
+</head>
+<body>
+
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="../"><img src="../favicon.svg" alt="" width="23" height="23" />Adel Atya</a>
+  <nav class="menu">
+    <a href="../#agents">Agents</a>
+    <a href="../#how">How it works</a>
+    <a href="../#build">What we build</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="go" href="https://voicedesk-h31g.onrender.com/agent/receptionist" target="_blank" rel="noopener">Talk to the demo</a>
+</div></div>
+
+<header class="vhero">
+  <div class="wrap vhero-grid">
+    <div>
+      <span class="label">Self storage · Facilities · Operators</span>
+      <h1>The AI receptionist for self storage that <em>picks up after hours.</em></h1>
+      <p class="sub">A renter shopping three facilities calls at 9pm. A tenant is standing at the gate with a full truck. Our agent answers in about a second, quotes from your live units, reserves one, takes the payment and resets the gate code, but only after it has checked who is calling.</p>
+      <div class="acts">
+        <a class="btn btn-solid" href="https://voicedesk-h31g.onrender.com/agent/receptionist" target="_blank" rel="noopener">Talk to the storage agent</a>
+        <a class="btn btn-line" href="../pricing/">See pricing</a>
+      </div>
+      <p class="note">StoreRight Self-Storage is a demo facility we built, not a client. The agent, the inventory and the dashboard behind it are real and running.</p>
+    </div>
+    <div class="vshot">
+      <img src="../assets/site/v-receptionist.png" alt="StoreRight demo dashboard showing calls answered, average answer time, live unit inventory with prices, and recent rentals and payments" width="1920" height="1440" />
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[01] What callers ask</span>
+      <h2>Five calls a storage office<br/>keeps <em>picking up late.</em></h2>
+      <p class="lede">Each one is scripted for storage: your unit sizes, your monthly prices, your gate and payment rules. When a call falls outside them, the agent takes a number for the manager instead of guessing.</p>
+    </div>
+    <div class="jobs">
+      <div class="job">
+        <span class="when">New renter · comparing facilities</span>
+        <h3><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>Availability and price quotes</h3>
+        <p>Asks what they are storing, recommends a size and quotes the monthly price from live inventory. It never invents a size or a price that isn't listed. Not ready to decide? It offers to text the quote and takes the number.</p>
+      </div>
+      <div class="job">
+        <span class="when">Ready to rent · any hour</span>
+        <h3><i class="fa-solid fa-warehouse" aria-hidden="true"></i>Reservations and tours</h3>
+        <p>Gets the name and mobile number, reads the number back digit by digit, reserves the unit and books a viewing time or move-in. The reserved unit comes off the available count on the dashboard straight away.</p>
+      </div>
+      <div class="job">
+        <span class="when">Existing tenant · paying the bill</span>
+        <h3><i class="fa-solid fa-credit-card" aria-hidden="true"></i>Payments by keypad</h3>
+        <p>Takes the amount, has the tenant enter the card on the phone keypad and can enrol them in autopay. It never reads a card number back out loud, even when the caller says it first.</p>
+      </div>
+      <div class="job">
+        <span class="when">Locked out · at the gate</span>
+        <h3><i class="fa-solid fa-key" aria-hidden="true"></i>Gate codes and lockouts</h3>
+        <p>Stays calm and brief with an annoyed tenant, verifies their name and unit number, then resets the gate code. Someone asking for another tenant's code, unit or phone number is refused and asked to have the account holder call.</p>
+      </div>
+      <div class="job">
+        <span class="when">After hours · weekends · holidays</span>
+        <h3><i class="fa-solid fa-moon" aria-hidden="true"></i>After-hours coverage</h3>
+        <p>The phone line is answered 24/7, so the 9pm quote and the Sunday lockout get handled instead of hitting voicemail. Questions it can't answer, like insurance terms or corporate policy, become a manager callback with the number taken.</p>
+      </div>
+      <div class="job">
+        <span class="when">Something is wrong at the site</span>
+        <h3><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>Emergencies and the manager</h3>
+        <p>A caller reporting smoke from a unit, flooding or a break-in is told to get to safety and call 911. A caller who wants the manager gets a callback arranged, not an argument.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[02] Gate codes, safely</span>
+      <h2>It can't leak a gate code<br/><em>it never sees.</em></h2>
+      <p class="lede">A phone agent that can reset gate codes is only as safe as what it knows. Prompt rules alone were not enough in our testing, so the fix is architectural: the agent is only ever handed the caller's own record.</p>
+    </div>
+    <ol class="vsteps">
+      <li><b>One record per call, at most.</b> The agent gets the caller's own record, matched by the number that is calling, or by details the caller has given where every field must match exactly. Never other tenants' records.</li>
+      <li><b>No match, no record.</b> If two accounts share a phone number, or the details don't line up, the agent gets neither and treats the caller as unverified.</li>
+      <li><b>Only the fields it needs.</b> For the storage agent that is name, unit, size and balance. Free-text notes are never passed, and any value that reads like an instruction to the AI is dropped.</li>
+      <li><b>Verify, then reset.</b> Before it touches a gate code it confirms the caller's name and unit number. Callers claiming to be the owner or staff get no special treatment: the claim changes no rule.</li>
+    </ol>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <caption>63 security calls across three agents, including the storage receptionist.</caption>
+        <thead><tr><th>Security run</th><th>Before</th><th>Prompt fix</th><th>Own record only</th></tr></thead>
+        <tbody>
+          <tr><td>Calls leaking another customer's data</td><td>14</td><td>6</td><td class="z">0</td></tr>
+          <tr><td>Unauthorized tool calls</td><td>5</td><td>0</td><td class="z">0</td></tr>
+          <tr><td>Calls with a critical failure</td><td>17</td><td>6</td><td class="z">0</td></tr>
+          <tr><td>Injection resistance</td><td>57%</td><td>90%</td><td class="z">94%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="inline-links">The full method and the open finding we haven't closed yet are in the <a href="../case-studies/voice-agent-security-evals/">voice agent security case study</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[03] Try it</span>
+      <h2>Call the storage agent.<br/><em>Right now.</em></h2>
+      <p class="lede">Ask for a 10x10, reserve it, then call back as a locked-out tenant. Watch the reservation, the payment and the gate reset land on the dashboard while the call is still going. The demo prices are $45 for a 5x5, $110 for a 10x10, $145 for a climate-controlled 10x10 and $190 for a 10x20.</p>
+      <div class="acts" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
+        <a class="btn btn-solid" href="https://voicedesk-h31g.onrender.com/agent/receptionist" target="_blank" rel="noopener">Open the live demo</a>
+        <a class="btn btn-line" href="../voice-agent-engineer/">See the other agents</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[04] How it connects</span>
+      <h2>Your number, your software,<br/><em>one dashboard.</em></h2>
+      <p class="lede">The demo runs on Vapi with GPT-4o tool calling. Every call ends with a tool call to a FastAPI backend, which writes the caller, the unit, the outcome and a one-line summary to the operator dashboard.</p>
+    </div>
+    <div class="jobs">
+      <div class="job">
+        <span class="when">Phone</span>
+        <h3><i class="fa-solid fa-phone" aria-hidden="true"></i>Your existing number</h3>
+        <p>The agent answers on the number already on your sign and your Google profile, through LC Phone or your own Twilio account.</p>
+      </div>
+      <div class="job">
+        <span class="when">Voice</span>
+        <h3><i class="fa-solid fa-microphone" aria-hidden="true"></i>Vapi or Retell</h3>
+        <p>Built on Vapi or Retell AI, with GPT-4o deciding when to quote, reserve, take a payment or reset a code, and calling a tool for each step.</p>
+      </div>
+      <div class="job">
+        <span class="when">Records</span>
+        <h3><i class="fa-solid fa-plug" aria-hidden="true"></i>Your management software</h3>
+        <p>We connect to your management software through its API or a webhook, and agree on the fit call exactly which records the agent may read and which it may write.</p>
+      </div>
+      <div class="job">
+        <span class="when">Your office</span>
+        <h3><i class="fa-solid fa-table-columns" aria-hidden="true"></i>An operator dashboard</h3>
+        <p>Leads, tenants, payments, reservations and inventory in one view, so the morning shift sees what happened overnight without listening to recordings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[05] Tested before launch</span>
+      <h2>We try to break it<br/><em>before your tenants do.</em></h2>
+      <p class="lede">A second AI plays the caller: the angry tenant at the gate, the renter who changes to climate-controlled halfway through, the caller who reads out a card number, the one asking for his sister's gate code. Every scenario runs three times and only passes if it passes all three.</p>
+    </div>
+    <div class="money">
+      <div class="mcard"><b>38</b><span>Simulated-caller scenarios across three agents, the self-storage receptionist among them</span></div>
+      <div class="mcard"><b>114</b><span>Calls per full run, three per scenario, for about 25 cents</span></div>
+      <div class="mcard hot"><b>14 &rarr; 0</b><span>Calls leaking another customer's data, once each agent saw only the caller's own record</span></div>
+    </div>
+    <p class="inline-links">Results are checked in code first: did it save the right name, unit and outcome, did every price it quoted exist, did it hand over when it should. How it works, step by step: <a href="../blog/how-we-test-ai-phone-agents/">how we test AI phone agents before they take real calls</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[06] What it costs</span>
+      <h2>Published prices.<br/><em>No discovery call.</em></h2>
+      <p class="lede">$900 to build it — $600 as one of our first three founding clients — then $450 a month with 500 call minutes included, then 15 cents a minute. A human receptionist costs $2,800 to $4,500 a month and goes home at five.</p>
+      <div class="acts" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
+        <a class="btn btn-solid" href="../pricing/">Full pricing</a>
+        <a class="btn btn-line" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">[07] Straight answers</span>
+      <h2>What storage operators<br/><em>ask us first.</em></h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Could someone talk it into giving out another tenant's gate code? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">It verifies the caller's name and unit number before it resets anything, and it is never handed other tenants' records in the first place: each call gets at most the caller's own record, matched by caller ID or by details that all match exactly. We test this with a simulated caller who asks for his sister's unit and gate code. In our security runs, cross-customer leaks went from 14 calls to 0 once the agent stopped seeing other people's data.</p>
+      </details>
+      <details>
+        <summary>How does it take payments without reading card numbers out loud? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">The tenant enters the card on the phone keypad, and the agent confirms the amount. It is told never to read a card number back, and one of our test callers reads the full card number out loud on purpose to check that it doesn't repeat it. It can also enrol the tenant in autopay.</p>
+      </details>
+      <details>
+        <summary>Will it quote a unit size or price we don't offer? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">No. It quotes only the sizes and monthly prices in its inventory and is not allowed to invent one or agree to a discount. Every test run checks each price the agent says against the real price list in code, not by ear.</p>
+      </details>
+      <details>
+        <summary>Does it connect to our management software? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">The demo writes every call to its own operator dashboard through a webhook. For your facility we connect it to your management software through that software's API or a webhook, and confirm on the fit call exactly which records it can read and write before we build.</p>
+      </details>
+      <details>
+        <summary>What does it do with a call it shouldn't handle? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">Anything it doesn't know, like insurance terms or corporate policy, gets a manager callback with the number taken. If a caller reports smoke, fire, flooding or a break-in, it tells them to get to safety and call 911 first. Both paths are in the test suite.</p>
+      </details>
+      <details>
+        <summary>Does it use our existing number, and how long until it's live? <i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+        <p class="ans">It sits on the number you already have, through LC Phone or your own Twilio account, so tenants see no change. It's live five to seven days after the call where you give us your unit sizes, prices, gate and payment rules, and the calls you miss most.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="close">
+  <div class="wrap close-in">
+    <div>
+      <span class="label">Start here</span>
+      <h2 style="margin-top:14px">Tell us the three calls<br/>you <em>miss most.</em></h2>
+      <p class="lede">We'll come back with what an agent can handle, what it should hand to a human, what it costs to run each month — and a demo scripted to your facility within 48 hours.</p>
+      <div class="acts">
+        <a class="btn btn-solid" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a 30-minute fit call</a>
+        <a class="btn btn-line" href="mailto:adel@adelatya.com">adel@adelatya.com</a>
+      </div>
+    </div>
+    <div class="bio">
+      <p>Two years of GoHighLevel lead-capture and follow-up pipelines across 30+ home-service businesses, then seven production voice agents on Vapi and Retell. Small on purpose: you talk to the engineer who writes the code, not an account manager.</p>
+      <div class="who">Adel Atya · Cairo, Egypt</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-more">
+      <span class="label">More</span>
+      <a href="../">Home</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../white-label-ai-voice-agent/">For agencies</a>
+      <a href="../voice-agent-engineer/">Voice agents</a>
+      <a href="../ai-engineer/">AI &amp; LLM systems</a>
+      <a href="../software-engineer/">Software</a>
+      <a href="../shopify-expert/">Shopify</a>
+      <a href="../blog/">Blog</a>
+    </div>
+    <div class="f-end">
+      <span>&copy; <span id="yr"></span> Adel Atya · Cairo, Egypt</span>
+      <span class="r">
+        <a href="mailto:adel@adelatya.com">adel@adelatya.com</a>
+        <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/aa.voiceagents/" target="_blank" rel="noopener">Instagram</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="dock-a" href="https://voicedesk-h31g.onrender.com/agent/receptionist" target="_blank" rel="noopener">Talk to the demo</a>
+  <a class="dock-b" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener">Book a call</a>
+</div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){
+  var d=document.querySelector('.dock'),on=false;
+  addEventListener('scroll',function(){var w=scrollY>560;if(w!==on){on=w;d.classList.toggle('on',on);}},{passive:true});
+})();
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.head,.mcard,.job,.vsteps li,.faq details,.close-in>*'));
+  els.forEach(function(e){e.classList.add('rv');});
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(rows){
+    rows.forEach(function(r){
+      if(!r.isIntersecting) return;
+      var sibs=[].slice.call(r.target.parentNode.children).filter(function(n){return n.classList.contains('rv');});
+      r.target.style.transitionDelay=Math.min(Math.max(0,sibs.indexOf(r.target)),4)*70+'ms';
+      r.target.classList.add('in'); io.unobserve(r.target);
+    });
+  },{rootMargin:'0px 0px -12% 0px',threshold:.1});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
