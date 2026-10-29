@@ -1,5 +1,14 @@
 [
  {
+  "slug": "ai-phone-agent-gohighlevel-booking",
+  "title": "Can an AI phone agent book appointments into GoHighLevel?",
+  "description": "Yes. GoHighLevel's API can list free slots and create appointments, so an AI phone agent can book on the call. Here is how it works and where it breaks.",
+  "date": "2026-10-29",
+  "tags": "gohighlevel, ai phone agent, booking",
+  "url": "https://adelatya.com/blog/ai-phone-agent-gohighlevel-booking/",
+  "source": "blog/posts/2026-10-29-ai-phone-agent-gohighlevel-booking.md"
+ },
+ {
   "slug": "ai-receptionist-vs-answering-service",
   "title": "AI receptionist vs answering service: which one books the job?",
   "description": "A live answering service takes messages. An AI receptionist can book the job on the call. Here is where each one wins, and where neither is enough.",
