@@ -1,5 +1,6 @@
 ---
 title: Can an AI phone agent book appointments into GoHighLevel?
+seo_title: Can an AI phone agent book into GoHighLevel?
 description: Yes. GoHighLevel's API can list free slots and create appointments, so an AI phone agent can book on the call. Here is how it works and where it breaks.
 date: 2026-10-29
 slug: ai-phone-agent-gohighlevel-booking

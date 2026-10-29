@@ -179,7 +179,7 @@ def page(meta, posts):
             f'<a class="btn btn-line" href="{up}{meta.get("service","pricing/").lstrip("/")}">{html.escape(meta.get("service_label","See pricing"))}</a></div>'
             + (f'<h3 style="margin-top:22px;font-size:1.05rem">More from the blog</h3><ul style="margin-top:8px;padding-left:1.1em">{more}</ul>' if more else "")
             + '</aside></main>')
-    return (HEAD.format(title=html.escape(meta["title"]) + " | Adel Atya", desc=html.escape(meta["description"]), up=up, canonical=url,
+    return (HEAD.format(title=html.escape(meta.get("seo_title") or (meta["title"] + (" | Adel Atya" if len(meta["title"]) <= 48 else ""))), desc=html.escape(meta["description"]), up=up, canonical=url,
                         site=SITE, ogtype="article", schema=schema, demo=DEMO)
             + body + FOOT.format(up=up, year=dt.date.today().year))
 

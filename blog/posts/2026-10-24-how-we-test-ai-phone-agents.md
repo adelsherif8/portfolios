@@ -1,6 +1,7 @@
 ---
 title: How we test AI phone agents before they take real calls
-description: We run every AI phone agent against 38 simulated callers before launch. Here is what we measure, the mistakes it catches, and why "it sounded fine" is not a test.
+seo_title: How we test AI phone agents before real calls
+description: We run every AI phone agent against 38 simulated callers before launch. What we measure, the mistakes it catches, and why "it sounded fine" is not a test.
 date: 2026-10-24
 slug: how-we-test-ai-phone-agents
 service: /voice-agent-engineer/

@@ -1,5 +1,6 @@
 ---
 title: AI receptionist vs answering service: which one books the job?
+seo_title: AI receptionist vs answering service: which books jobs?
 description: A live answering service takes messages. An AI receptionist can book the job on the call. Here is where each one wins, and where neither is enough.
 date: 2026-10-28
 slug: ai-receptionist-vs-answering-service

@@ -1,5 +1,6 @@
 ---
 title: How much does an AI receptionist cost for a small business in 2026?
+seo_title: AI receptionist cost for small businesses in 2026
 description: Real prices for an AI phone agent in 2026: setup, monthly fees, per-minute costs, and how it compares with a part-time receptionist or an answering service.
 date: 2026-10-24
 slug: ai-receptionist-cost-2026

@@ -1,5 +1,6 @@
 ---
 title: How many calls does a plumber miss, and what does each cost?
+seo_title: How many calls do plumbers miss, and what it costs
 description: Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.
 date: 2026-10-24
 slug: plumbing-missed-calls-cost

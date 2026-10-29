@@ -18,7 +18,7 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
    first run caught 5 missed emergency handoffs in 41 plumbing calls on a cheaper model. Demos are live at
    voicedesk-h31g.onrender.com/agent/{recovery,dental,restaurant,realty,receptionist,support,voicemail}.
 4. Write `blog/posts/YYYY-MM-DD-<slug>.md` (today's date) with the front matter used by the existing posts:
-   title (the question or a plain promise, under 65 characters), description (under 158 characters), date, slug
+   title (the question or a plain promise; if longer than 60 characters, also add seo_title: a version of 60 or fewer that Google shows in full), description (under 158 characters), date, slug
    (lowercase-hyphens), service (the matching page path), service_label, tags (3 comma-separated).
 5. Body rules:
    - 900–1,500 words. Open with the direct answer in the first two sentences. No throat-clearing intro.
