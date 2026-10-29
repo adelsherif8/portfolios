@@ -17,6 +17,11 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
    $1,200 system, $200/month care; his test suite: 38 simulated callers, 114 calls per run, about $0.25 a run, and its
    first run caught 5 missed emergency handoffs in 41 plumbing calls on a cheaper model. Demos are live at
    voicedesk-h31g.onrender.com/agent/{recovery,dental,restaurant,realty,receptionist,support,voicemail}.
+   Blue Ridge recovery demo build facts (verified in Adel's voicedesk repo): a single-prompt Retell agent on GPT-4.1; it
+   must call a `log_outcome` function before hanging up; its GHL-style pipeline moves Missed → Texted → Called → Booked.
+   The eval suite agents run on GPT-4o-mini with a GPT-4.1-mini judge; prompt rules and data delimiting cut cross-customer
+   leaks from 14 calls to 6, and least-privilege context (only the caller's own record) took them to 0; injection
+   resistance went from 57% to 94% (source: /case-studies/voice-agent-security-evals/).
 4. Write `blog/posts/YYYY-MM-DD-<slug>.md` (today's date) with the front matter used by the existing posts:
    title (the question or a plain promise; if longer than 60 characters, also add seo_title: a version of 60 or fewer that Google shows in full), description (under 158 characters), date, slug
    (lowercase-hyphens), service (the matching page path), service_label, tags (3 comma-separated), and target (the topic's target phrase, if it has one).
