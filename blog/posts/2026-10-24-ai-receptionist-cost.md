@@ -1,65 +1,101 @@
 ---
 title: How much does an AI receptionist cost for a small business in 2026?
 seo_title: AI receptionist cost for small businesses in 2026
-description: Real prices for an AI phone agent in 2026: setup, monthly fees, per-minute costs, and how it compares with a part-time receptionist or an answering service.
+description: Published 2026 AI receptionist prices: $29 to $299 a month in our sample, about 13 cents a minute underneath, and what a custom build adds.
 date: 2026-10-24
 slug: ai-receptionist-cost-2026
 service: /pricing/
 service_label: See our published pricing
 tags: pricing, ai receptionist, small business
 ---
-Most pages about AI receptionist pricing end with "contact us for a quote". This one doesn't. Here is what an AI phone agent actually costs in 2026, what drives the price up or down, and how to tell whether it pays for itself in your business.
+A self-serve AI receptionist costs about $29 to $299 a month on the three price lists we checked, and the voice platform underneath costs roughly 9 to 14 cents a minute. A custom build adds a one-off fee and a monthly fee that pays mostly for work, not minutes.
 
-## The short answer
+Below: the three ways to buy one, what each price really covers, and how to check whether it pays for itself.
 
-For a small business with one location, expect to pay:
+## What are the three ways to buy one?
 
-- **A one-off build of roughly $600 to $1,500.** This covers writing the agent's script for your business, connecting it to your calendar and CRM, and testing it on real call scenarios.
-- **A monthly fee of roughly $300 to $600.** This usually includes a block of call minutes, the phone number, and someone keeping the agent working when your prices or hours change.
-- **Overage of about 10 to 20 cents per minute** once you go past the included minutes.
+1. **A self-serve app.** You sign up, fill in your hours and services, and forward your number. You write and update the script yourself.
+2. **A platform you build on.** Retell or Vapi, paid by the minute. You or a developer write the prompt and connect the tools.
+3. **A done-for-you build.** Someone builds the agent on one of those platforms, wires it to your calendar and CRM, tests it and keeps it current. You pay a build fee and a monthly fee.
 
-Our own published pricing sits inside that range: a **$900 build plus $450 a month with 500 minutes included**, then 15 cents a minute. The first three direct clients get the build at $600 in exchange for sharing their before-and-after call numbers. You can see every line on our [pricing page](/pricing/).
+## What does a self-serve AI receptionist cost?
 
-## What you are actually paying for
+Three published price lists show the spread. This is a small sample, not a market survey, so check any other vendor you are weighing.
 
-An AI receptionist is not one product. It is several services stitched together, and each one has a real cost:
+- **Rosie** [lists three plans](https://heyrosie.com/pricing): $49 a month for 250 minutes, $149 for 1,000 minutes and $299 for 2,000 minutes.
+- **Goodcall** [prices by unique caller](https://www.goodcall.com/pricing), not by minute: $79 a month for 100 customers, $129 for 500 and $299 for 2,000.
+- **Dialzara** [starts lower](https://www.dialzara.com/pricing): $29 a month for 60 minutes, then 48 cents a minute. Its next plan is $99 for 220 minutes.
 
-1. **The voice platform.** Services such as Retell and Vapi handle the phone line, turn the caller's speech into text and the reply back into a natural voice. They charge per minute of conversation.
-2. **The language model.** The part that decides what to say, using your script and your rules. It is billed per conversation, folded into that per-minute price.
-3. **The phone number.** A local number costs a few dollars a month. Most businesses keep their existing number and forward it.
-4. **The integrations.** Booking into your calendar, writing the call into your CRM, texting the caller a confirmation. This is where most of the build time goes.
-5. **The upkeep.** Prices change, a new service is added, a holiday schedule needs handling. Someone has to update the agent, or it starts giving outdated answers.
+Rosie and Goodcall alone would suggest a $49 floor, but Dialzara shows that floor does not hold. Compare the cost at your own minutes, because 60 minutes is about 30 two-minute calls.
 
-When a provider quotes a suspiciously low monthly price, one of these is usually missing: a tiny minute allowance, no integrations, or no one to call when it says something wrong.
+On Rosie's $49 plan, the agent texts the caller a booking link. Booking straight into your calendar starts on the $149 plan. Rosie connects to other tools through Zapier, so a CRM link is something you set up.
 
-## How it compares with the alternatives
+Before you sign up, ask who writes your emergency rules, who tests them, and who changes the agent when your prices move. Plans differ here. Dialzara says white-glove setup comes with every paid plan, so read each vendor's list instead of assuming.
 
-**A full-time receptionist** in the US typically costs $35,000 to $45,000 a year before benefits, covers about 40 hours a week, and cannot answer two calls at once.
+## What does the voice platform underneath cost?
 
-**A part-time receptionist** costs less but leaves the evenings and weekends, when many urgent calls arrive, uncovered.
+I build on Retell and Vapi, so here is what the minutes cost at list price.
 
-**A traditional answering service** takes messages. It rarely books the job, and the caller still has to wait for someone to call back. By then many have called the next business on the list.
+**Retell** [publishes its rates](https://www.retellai.com/pricing) per minute:
 
-**An AI receptionist** answers every call in about a second, day or night, books into your calendar while the caller is still on the line, and texts back anyone who hangs up. It does not replace a great front-desk person. It covers the calls they physically cannot take.
+- Voice infrastructure: $0.055
+- Default text-to-speech voice: $0.015
+- GPT-4.1 as the model: $0.045
+- US telephony: $0.015
+
+That adds up to about **13 cents a minute**. A Retell phone number is $2 a month. An ElevenLabs voice costs $0.04 to $0.10 a minute in place of the $0.015 default.
+
+**Vapi** [charges $0.05 a minute](https://vapi.ai/pricing) for hosting, then passes the speech, model, voice and phone costs through at cost. Its own examples put those at about 1 cent for speech-to-text, 0.8 to 4.5 cents for the model, 1.5 to 2.4 cents for the voice, and 0.8 to 1.4 cents for Twilio. All in, that is roughly **9 to 14 cents a minute**.
+
+## What do 500 minutes mean in real calls?
+
+Our pricing page assumes about two minutes a call, so 500 minutes covers around 250 calls a month. That is a planning figure. Check your own call logs.
+
+At 13 cents a minute, those 500 minutes cost about **$65** on Retell. That covers the phone line, the voice and the model, before the $2 number.
+
+So when a done-for-you plan charges a few hundred dollars a month, the minutes are a small part of it. The rest pays for the build, the calendar and CRM wiring, the testing and the changes you ask for later. Judge a quote on those, not on the minute count.
+
+## What are you paying for in a custom build?
+
+1. **The script.** Your services, prices, service area and the rules for urgent calls.
+2. **The integrations.** Booking into your calendar, writing the call into your CRM, texting the caller.
+3. **The testing.** Running the agent against hard calls before a customer hears it. Our main suite runs 38 simulated caller scenarios across 3 agents, 114 calls per run, for about 25 cents a run.
+4. **The upkeep.** A new service, a holiday schedule, a price change. If nobody updates the agent, it gives old answers.
+
+When a monthly price looks very low, ask which of these it leaves to you.
+
+## How does it compare with a human receptionist?
+
+The US Bureau of Labor Statistics puts the [median receptionist wage at $38,010 a year](https://www.bls.gov/ooh/office-and-administrative-support/receptionists.htm), or $18.27 an hour, as of May 2025. That is before payroll taxes and benefits.
+
+A person working a 40-hour week takes one call at a time. An AI agent can answer at 2am as well as 2pm, and can take more than one call at once. It does not replace a good front-desk person. It covers the calls they cannot take: lunch, evenings, weekends and the third call during a rush.
+
+A live answering service sits in between. We compared the two in [AI receptionist vs answering service](/blog/ai-receptionist-vs-answering-service/).
 
 ## Does it pay for itself?
 
-Do this calculation with your own numbers:
+Run this with your own numbers:
 
-1. How many calls a week go unanswered? Your phone system or carrier can usually tell you.
-2. What share of those callers would have booked? For urgent trades, it is often high.
+1. How many calls a week go unanswered? Your phone system or carrier can tell you.
+2. What share of those callers would have booked?
 3. What is one booked job worth to you?
 
-If you miss ten calls a week, three of those would have booked, and an average job is worth $300, that is $900 a week walking to a competitor. A $450 monthly fee is recovered by the second booked job.
+Say you miss ten calls a week, three would have booked, and a job is worth $300. That is $900 a week going to a competitor. At $300 a job, two recovered jobs a month cover the monthly fee of any plan above. A build fee takes longer to pay back.
 
-For plumbers and HVAC firms, where one emergency call can be worth several hundred dollars, the maths usually works within the first month. For businesses where a missed call is rarely urgent, the case is weaker, and you should say so to anyone selling you one.
+Now flip it. If you miss two calls a week and few are urgent, the case is weak. A clear voicemail greeting and a fast callback may be enough, and nobody should talk you out of that.
 
-## What to ask before you buy
+## When is an AI receptionist not worth it?
 
-- **How many minutes are included, and what does each extra minute cost?** Ask for a real number.
-- **What happens when it doesn't know the answer?** A good agent says it will check, or transfers the call. A bad one guesses.
-- **Can I hear it handle a real call first?** You can [talk to one of ours right now](https://voicedesk-h31g.onrender.com/agent/recovery).
-- **Who updates it when my prices change?** If the answer is "you, in a settings panel", budget your own time for it.
-- **How do you test it before it goes live?** We run every agent against dozens of simulated callers before it takes a real call. We wrote up [exactly how that testing works](/blog/how-we-test-ai-phone-agents/).
+- **Very low call volume.** A handful of calls a week rarely justifies any monthly fee.
+- **Calls that need judgement.** Upset, grieving or complex callers need a person. The agent should hand those off.
+- **A messy calendar.** The agent books into whatever you have. Fix the calendar first.
 
-If you run a [plumbing or HVAC business](/plumbing/), a [dental practice](/dental/) or a [restaurant](/restaurants/), each of those pages shows the specific calls the agent handles in your trade.
+## Questions to ask before you buy
+
+- How many minutes are included, and what does each extra minute cost?
+- What happens when it does not know the answer? A good agent transfers or promises a callback. A bad one guesses.
+- Can I call a test line and hear it handle a hard call first?
+- How do you test it before launch? Here is [how we test AI phone agents](/blog/how-we-test-ai-phone-agents/).
+- Who updates it when my prices change?
+
+For reference, our own published price is a $900 build plus $450 a month with 500 minutes, then 15 cents a minute. The next step, if you want to compare line by line, is our [pricing page](/pricing/).
