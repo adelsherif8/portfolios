@@ -101,7 +101,7 @@
         <ul>
           <li><i class="fa-solid fa-circle"></i><span><strong>38 scenarios across three agents</strong> (dental, plumbing, self-storage), each with a persona, a goal, facts revealed only when asked, and a success outcome. Each runs 3 times: <strong>114 calls, about $0.25 a run</strong>.</span></li>
           <li><i class="fa-solid fa-circle"></i><span>Deterministic checks first (did it call the booking tool, save the right fields, quote only real prices, hand over when it should); an LLM judge with a written rubric only for what code can't decide.</span></li>
-          <li><i class="fa-solid fa-circle"></i><span>Metrics that resist gaming: containment where a hang-up never counts, correct vs unnecessary transfers, missed handoffs as a critical failure, hallucination rate, and pass on all three runs. Baselines and a regression gate in GitHub Actions.</span></li>
+          <li><i class="fa-solid fa-circle"></i><span>Metrics that resist gaming: containment where a hang-up never counts, correct vs unnecessary transfers, missed handoffs as a critical failure, hallucination rate, and pass on all three runs. Baselines and a regression gate in GitHub Actions on smoke-tagged scenarios.</span></li>
         </ul>
       <h3>The security track (OWASP Top 10 for LLM Applications 2025)</h3>
         <ul>
