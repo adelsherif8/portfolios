@@ -11,7 +11,7 @@
  {
   "slug": "ai-phone-agent-gohighlevel-booking",
   "title": "Can an AI phone agent book appointments into GoHighLevel?",
-  "description": "Yes. GoHighLevel's API can list free slots and create appointments, so an AI phone agent can book on the call. Here is how it works and where it breaks.",
+  "description": "Yes. Compare GoHighLevel's Voice AI, Vapi's built-in tools and custom API calls for booking during a call, plus where each one breaks.",
   "date": "2026-10-29",
   "tags": "gohighlevel, ai phone agent, booking",
   "url": "https://adelatya.com/blog/ai-phone-agent-gohighlevel-booking/",
@@ -20,7 +20,7 @@
  {
   "slug": "retell-gohighlevel-missed-call-ai-callback",
   "title": "How to build a missed-call AI callback with GoHighLevel and Retell",
-  "description": "A GoHighLevel workflow catches the missed call, texts the caller, and has a Retell agent call back within a minute to book the job. Here is the full build.",
+  "description": "How you would build a missed-call AI callback: a GoHighLevel workflow, a text, a Retell call. What our demo covers and which steps it did not run.",
   "date": "2026-10-29",
   "tags": "gohighlevel, retell ai, missed call text back",
   "url": "https://adelatya.com/blog/retell-gohighlevel-missed-call-ai-callback/",
@@ -29,20 +29,11 @@
  {
   "slug": "ai-receptionist-vs-answering-service",
   "title": "AI receptionist vs answering service: which one books the job?",
-  "description": "A live answering service takes messages. An AI receptionist can book the job on the call. Here is where each one wins, and where neither is enough.",
+  "description": "A live answering service takes messages. An AI receptionist can book the job on the call. Published prices, a 300-call month, and where each one wins.",
   "date": "2026-10-28",
   "tags": "ai receptionist, answering service, booking",
   "url": "https://adelatya.com/blog/ai-receptionist-vs-answering-service/",
   "source": "blog/posts/2026-10-28-ai-receptionist-vs-answering-service.md"
- },
- {
-  "slug": "how-we-test-ai-phone-agents",
-  "title": "How we test AI phone agents before they take real calls",
-  "description": "We run every AI phone agent against 38 simulated callers before launch. What we measure, the mistakes it catches, and why \"it sounded fine\" is not a test.",
-  "date": "2026-10-24",
-  "tags": "testing, ai voice agents, quality",
-  "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
-  "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
  },
  {
   "slug": "plumbing-missed-calls-cost",
@@ -54,9 +45,18 @@
   "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
  },
  {
+  "slug": "how-we-test-ai-phone-agents",
+  "title": "How we test AI phone agents before they take real calls",
+  "description": "How to test an AI phone agent before launch: hard scenarios, repeat runs and code checks. Our 38-scenario numbers, what CI runs, and what text misses.",
+  "date": "2026-10-24",
+  "tags": "testing, ai voice agents, quality",
+  "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
+  "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
+ },
+ {
   "slug": "ai-receptionist-cost-2026",
   "title": "How much does an AI receptionist cost for a small business in 2026?",
-  "description": "Real prices for an AI phone agent in 2026: setup, monthly fees, per-minute costs, and how it compares with a part-time receptionist or an answering service.",
+  "description": "Published 2026 AI receptionist prices: $29 to $299 a month in our sample, about 13 cents a minute underneath, and what a custom build adds.",
   "date": "2026-10-24",
   "tags": "pricing, ai receptionist, small business",
   "url": "https://adelatya.com/blog/ai-receptionist-cost-2026/",
