@@ -11,7 +11,7 @@ Take the first `[ ]`. Mark `[x] YYYY-MM-DD` when published, `[skip]` with a reas
 ## Priority: top-3 targets (research 2026-10-29). Take these first, in order.
 Each post must use its target phrase in the title, the first paragraph and one H2, and link to its page.
 [x] 2026-10-30 How to test an AI voice agent for prompt injection: a phone-call runbook   (target: voice agent prompt injection testing -> /case-studies/voice-agent-security-evals/)
-[ ] AI receptionist for self-storage: reservations, payments and gate-code resets   (target: ai receptionist for self storage -> /self-storage/)
+[x] 2026-10-31 AI receptionist for self-storage: reservations, payments and gate-code resets   (target: ai receptionist for self storage -> /self-storage/)
 [ ] Retell vs Vapi for business phone agents: what actually differs   (target: retell vs vapi -> /voice-agent-engineer/)
 [ ] White-label AI voice agents for GoHighLevel agencies: how the reselling works   (target: white label ai voice agent gohighlevel -> /white-label-ai-voice-agent/)
 [ ] GoHighLevel missed-call text-back vs AI callback: which recovers more jobs?   (target: gohighlevel missed call ai -> /plumbing/)
