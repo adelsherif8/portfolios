@@ -35,6 +35,7 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
      ("revolutionize", "game-changer", "seamless", "unlock", "leverage"), no em-dash asides, no "in today's fast-paced world".
    - Be honest about when an AI phone agent is NOT worth it, or what it can't do. That honesty is the brand.
    - 3–5 internal links: the service page, /pricing/, one or two related posts, and one live demo link.
+   - When the post's target page exists, the post must link to it. Add the new post to that page's Related reading block only if that stays within "only change blog/ and sitemap.xml"; otherwise leave it.
    - End with a short practical checklist or next step, not a sales pitch.
 5b. **Quality gate (required, see `blog/RUBRIC.md`).** Publish only if the score is above 90 of 100.
    - Run `python3 blog/score.py blog/posts/<your file>.md` (automatic half, 50 points). Fix every line marked FIX that you can.

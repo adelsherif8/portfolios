@@ -169,6 +169,22 @@ FOOT = """
 """
 
 
+TAG_STOP = {"ai", "agent", "and", "for", "the", "of", "to", "in", "a"}      # too common to mean two posts are related
+
+
+def tag_words(p):
+    return {w.rstrip("s") for w in re.findall(r"[a-z0-9]+", p.get("tags", "").lower())} - TAG_STOP
+
+
+def related(meta, posts, n=3):
+    """Up to n posts sharing tag words or the same service, best match first, then newest. Tops up to 2 with the newest."""
+    others = [p for p in posts if p["slug"] != meta["slug"]]
+    def strength(p): return len(tag_words(p) & tag_words(meta)) + (2 if p.get("service") == meta.get("service") else 0)
+    newest = sorted(others, key=lambda p: (-p["date_obj"].toordinal(), p["slug"]))
+    picks = sorted((p for p in newest if strength(p)), key=strength, reverse=True)[:n]
+    return picks + [p for p in newest if p not in picks][:max(0, 2 - len(picks))]
+
+
 def page(meta, posts):
     url = f"{SITE}/blog/{meta['slug']}/"
     schema = ('<script type="application/ld+json">' + __import__("json").dumps({
@@ -178,11 +194,14 @@ def page(meta, posts):
         "publisher": {"@type": "Organization", "name": "Adel Atya", "url": SITE, "logo": {"@type": "ImageObject", "url": f"{SITE}/favicon.svg"}},
         "image": f"{SITE}/og.png", "keywords": meta.get("tags", "")}) + "</script>")
     up = "../../"
-    others = [p for p in posts if p["slug"] != meta["slug"]][:3]
+    rel = related(meta, posts)
+    others = [p for p in posts if p["slug"] != meta["slug"] and p not in rel][:3]
+    rel_links = "".join(f'<li><a href="{up}blog/{p["slug"]}/">{html.escape(p["title"])}</a></li>' for p in rel)
     more = "".join(f'<li><a href="{up}blog/{p["slug"]}/">{html.escape(p["title"])}</a></li>' for p in others)
     body = (f'<header class="bhero"><div class="wrap"><span class="label">Blog · {html.escape(meta.get("tags","").split(",")[0].strip().title())}</span>'
             f'<h1>{html.escape(meta["title"])}</h1><p class="meta">Adel Atya · {meta["date_obj"].strftime("%d %B %Y")}</p></div></header>'
             f'<main class="wrap"><article class="post">{md(meta["body"])}</article>'
+            + (f'<aside class="post" style="padding:0 0 30px"><h2 style="margin-top:0">Related posts</h2><ul>{rel_links}</ul></aside>' if rel else "") +
             f'<aside class="cta-box"><h3>Hear an AI phone agent handle a real call</h3><p>Every agent we build answers on the first ring, books the job and texts back the calls it misses. Try one now, or see what it costs.</p>'
             f'<div class="acts"><a class="btn btn-solid" href="{DEMO}" target="_blank" rel="noopener">Talk to the demo</a>'
             f'<a class="btn btn-line" href="{up}{meta.get("service","pricing/").lstrip("/")}">{html.escape(meta.get("service_label","See pricing"))}</a></div>'
