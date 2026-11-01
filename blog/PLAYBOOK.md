@@ -43,8 +43,9 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
      required output format. You never score your own post; the reviewer's number is the one that counts.
    - Total = automatic + review. If it is 90 or below, or any review category is 0, apply the reviewer's TOP 3 FIXES and
      the automatic FIX lines, then re-run score.py and a NEW reviewer. Up to 3 rounds.
-   - After 3 rounds still at 90 or below: do not publish. Delete the draft, mark the topic `[skip] score NN` in topics.md,
-     commit only topics.md, and report the scores.
+   - After 3 rounds still at 90 or below: do not publish it. Delete the draft and mark the topic `[skip] score NN` in topics.md.
+     Then take the next `[ ]` topic and start again from step 2. Try at most 3 topics per run, and stop when the time or tool
+     budget runs out. If none passes, commit only topics.md and report the scores. The 90+ rule never bends.
 6. Run `python3 blog/build.py`. It must print the new post count with no errors.
 7. Mark the topic `[x]` in `blog/topics.md` with today's date. If fewer than 10 `[ ]` topics remain, append 10 new
    buyer-intent questions in the same style (different verticals and stages of buying, no near-duplicates).
