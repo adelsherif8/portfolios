@@ -14,7 +14,7 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-10-31 AI receptionist for self-storage: reservations, payments and gate-code resets   (target: ai receptionist for self storage -> /self-storage/)
 [skip] score 84 (2026-11-01, 3 rounds: 87, 88, 84) Retell vs Vapi for business phone agents: what actually differs   (target: retell vs vapi -> /voice-agent-engineer/)
 [x] 2026-11-02 White-label AI voice agents for GoHighLevel agencies: how the reselling works   (target: white label ai voice agent gohighlevel -> /white-label-ai-voice-agent/)
-[ ] GoHighLevel missed-call text-back vs AI callback: which recovers more jobs?   (target: gohighlevel missed call ai -> /plumbing/)
+[skip] score 88 (2026-11-03, 3 rounds: 81, 87, 88) GoHighLevel missed-call text-back vs AI callback: which recovers more jobs?   (target: gohighlevel missed call ai -> /plumbing/)
 [ ] How to hire a Vapi or Retell developer: what to check before you pay   (target: hire vapi developer -> /voice-agent-engineer/)
 [ ] Self-storage after-hours calls: what facilities lose when nobody answers   (target: self storage after hours calls -> /self-storage/)
 
