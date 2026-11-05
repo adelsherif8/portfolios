@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Adel Atya" />
+<title>Shopify retention and CRO, tested: a demo store case study</title>
+<meta name="description" content="A Shopify demo store with Klaviyo flows that stop on purchase, an A/B test with a sample-size plan, a 301 redirect map checked 60/60, a coded Mailchimp email and GA4 purchase tracking." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="Shopify retention and CRO, tested: Harbor Lane demo store" />
+<meta property="og:description" content="Klaviyo flows that stop on purchase, an A/B test with a sample-size plan, 60/60 redirects and GA4 purchase tracking, each checked by a script. Demo store, no real results claimed." />
+<meta property="og:image" content="https://adelatya.com/case-studies/harbor-lane-shopify/img/og.jpg" />
+<meta property="og:url" content="https://adelatya.com/case-studies/harbor-lane-shopify/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://adelatya.com/case-studies/harbor-lane-shopify/img/og.jpg" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<meta name="theme-color" content="#F7F4EE" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" /></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+<link rel="stylesheet" href="../../assets/editorial.css" />
+<link rel="stylesheet" href="../../assets/case-study.css" />
+<style>
+.shot{margin:22px 0 28px;border:1px solid var(--ink);background:#fff}
+.shot .bar{display:flex;align-items:center;gap:7px;padding:9px 12px;border-bottom:1px solid var(--ink);background:var(--paper-2)}
+.shot .bar i{width:8px;height:8px;border:1px solid var(--ink);border-radius:50%;display:block}
+.shot .bar span{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.08em;color:var(--grey);margin-left:6px}
+.shot img{width:100%;height:auto}
+.shot figcaption{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);padding:10px 12px;border-top:1px solid var(--rule);background:var(--paper)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.shots .shot{margin:0}
+.shots.three{grid-template-columns:1.2fr 1fr 1fr}
+.term{background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.7;padding:20px 22px;margin:20px 0 26px;overflow-x:auto;white-space:pre}
+.term .c{color:var(--grey)}.term .ok{color:var(--red-lift)}
+.demo-note{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--ink);padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}
+.demo-note i{color:var(--red)}
+.cs-grid>*{min-width:0}
+@media(max-width:760px){.shots,.shots.three{grid-template-columns:1fr}.term{font-size:.66rem}}
+</style>
+<link rel="canonical" href="https://adelatya.com/case-studies/harbor-lane-shopify/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shopify retention and CRO, tested: Harbor Lane demo store","description":"A Shopify demo store with Klaviyo flows that stop on purchase, an A/B test with a sample-size plan, a 301 redirect map checked 60/60, a coded Mailchimp email and GA4 purchase tracking.","url":"https://adelatya.com/case-studies/harbor-lane-shopify/","author":{"@type":"Person","@id":"https://adelatya.com/#person","name":"Adel Atya","url":"https://adelatya.com/"},"datePublished":"2026-11-05","image":"https://adelatya.com/case-studies/harbor-lane-shopify/img/og.jpg"}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../shopify-expert/"><b>Adel Atya</b><span>Case study</span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#problem">Problem</a>
+      <a href="#approach">What I built</a>
+      <a href="#results">Results</a>
+      <a href="#next">Next</a>
+      <a href="../../shopify-expert/#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<div class="cs-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="../../shopify-expert/">Shopify</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Case study</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Harbor Lane (demo store)</span></div>
+    <h1>Shopify retention and CRO, <em>tested.</em></h1>
+    <p class="cs-lede">Harbor Lane Coffee is an <strong>invented brand on a Shopify development store</strong>. I built the retention and conversion work that Shopify brands keep hiring for, then checked each piece with a script or a real test order: <strong>Klaviyo flows, an A/B test with a sample-size plan, a 301 redirect map, a coded Mailchimp email and GA4 purchase tracking</strong>.</p>
+    <div class="demo-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Demo store: no real customers, orders or revenue. Everything here is verified behaviour, not business results.</div>
+  </div>
+  <div class="wrap" style="padding:0">
+    <dl class="glance">
+      <div><dt>Role</dt><dd>Solo: theme, Klaviyo, tracking, scripts, write-up</dd></div>
+      <div><dt>Stack</dt><dd>Shopify (Liquid, OS 2.0, Horizon) · Shopify CLI · Admin GraphQL API · Klaviyo · Mailchimp · GA4 Customer Events · Python · Puppeteer</dd></div>
+      <div><dt>When</dt><dd>November 2026</dd></div>
+      <div><dt>Proof</dt><dd>Screenshots and script output below. Code and store walkthrough on request.</dd></div>
+    </dl>
+    <div class="rail">
+      <div><b>3</b><span>Live Klaviyo flows, tested with a real checkout</span></div>
+      <div><b>60<i>/60</i></b><span>Redirect checks passed, one hop each</span></div>
+      <div><b>78<i>/78</i></b><span>Simulated A/B sessions saw the right variant</span></div>
+      <div><b>5<i>/5</i></b><span>GA4 ecommerce events seen in Realtime</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="cs-sec" id="problem">
+  <div class="wrap cs-grid">
+    <div><span class="num">01 / The problem</span><h2>What Shopify brands <em>actually hire for.</em></h2></div>
+    <div class="prose">
+      <p>My Shopify proof was custom Liquid themes. When I read the Shopify job posts I was screening, the same gaps kept coming up: <strong>Klaviyo, A/B testing, Shopify CLI, CRO and the Admin GraphQL API</strong>. Upwork posts add three paid problems on top:</p>
+      <ul>
+        <li><i class="fa-solid fa-circle"></i><span><strong>Klaviyo flows that misfire:</strong> generic cart reminders, or "you forgot something" emails sent to people who already paid.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span><strong>Re-platforms that lose Google traffic:</strong> WooCommerce uses <code>/product/</code>, Shopify uses <code>/products/</code>, and every old URL needs a 301.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span><strong>GA4 that sees traffic but no purchases:</strong> since Shopify moved checkout to extensibility, old checkout scripts no longer fire.</span></li>
+      </ul>
+      <p>So I built a coffee store with a real catalogue and solved each of these on it. The rule for the project was that nothing counts until a script or a test order proves it.</p>
+      <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>harbor-lane-coffee · demo store</span></div><img src="img/store-home.jpg" alt="Harbor Lane Coffee home page: custom hero, fresh-roast badge and marquee" width="1400" height="972" loading="lazy" /><figcaption>Custom Online Store 2.0 sections on Horizon. The client's brand stays the client's.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="approach">
+  <div class="wrap cs-grid">
+    <div><span class="num">02 / What I built</span><h2>Six pieces, <em>each with a check.</em></h2></div>
+    <div class="prose">
+      <h3>1. Klaviyo: three flows that know who already bought</h3>
+      <ul>
+        <li><i class="fa-solid fa-circle"></i><span><strong>Abandoned checkout:</strong> emails at 1 hour and 24 hours with the real cart (image, variant, price) and a return link. A flow filter removes anyone who places an order after starting the flow.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span><strong>Welcome:</strong> a split sends existing customers a thank-you and new subscribers a unique 10% code (prefix WELCOME-, expires after 7 days). After 3 days a second split re-checks for an order before any reminder goes out.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span><strong>Post-purchase:</strong> a brewing guide straight after the order, and a review ask on day 10, once the coffee has arrived.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span>A popup and a footer form, two segments ("Engaged 30 days", "Bought once") and 8 coded templates. The flows are defined in code through Klaviyo's API.</span></li>
+      </ul>
+      <div class="shots three">
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>welcome</span></div><img src="img/flow-welcome.jpg" alt="Klaviyo welcome flow with two conditional splits" width="600" height="660" loading="lazy" /></figure>
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>abandoned checkout</span></div><img src="img/flow-abandoned.jpg" alt="Klaviyo abandoned checkout flow: wait 1 hour, email, wait 23 hours, email" width="440" height="560" loading="lazy" /></figure>
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>post-purchase</span></div><img src="img/flow-post-purchase.jpg" alt="Klaviyo post-purchase flow: thank-you, wait 10 days, review ask" width="440" height="520" loading="lazy" /></figure>
+      </div>
+      <div class="callout"><span class="lbl">Tested with a real checkout</span><p>A test shopper started checkout and paid with Shopify's test gateway inside the hour. Klaviyo recorded every step from product view to order. The <strong>post-purchase email arrived 1 minute after the order</strong>, and the <strong>abandoned flow sent nothing</strong>, which is exactly what it should do.</p></div>
+      <figure class="shot" style="max-width:420px"><div class="bar"><i></i><i></i><i></i><span>email 1 · rendered from the real checkout</span></div><img src="img/email-abandoned.jpg" alt="Abandoned cart email showing Ethiopia Guji 250g, $17, and a Return to checkout button" width="640" height="530" loading="lazy" /></figure>
+
+      <h3>2. A/B test, set up properly</h3>
+      <p>Shopify Rollouts isn't available on development stores, so the split runs in the theme. Variant B shows a <strong>quick add button</strong> on product cards.</p>
+      <ul>
+        <li><i class="fa-solid fa-circle"></i><span>A hypothesis, one primary metric (sessions with an add to cart), and a 50/50 cookie split that sticks across visits.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span>A QA override, exposure events, and the variant saved on the cart and sent to GA4, so it follows the customer into checkout.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span><strong>Sample size before launch:</strong> at a 7% baseline and a +10% lift, the test needs <strong>21,815 sessions per variant</strong>. At 1,000 visits a day and a 7% baseline, a fair test of a +10% lift takes 7 weeks.</span></li>
+      </ul>
+      <div class="table-scroll"><table class="cs-table">
+        <tr><th>Check (78 simulated sessions)</th><th>Result</th></tr>
+        <tr><td>Errors</td><td class="good">0</td></tr>
+        <tr><td>Split A / B</td><td class="good">39 / 39</td></tr>
+        <tr><td>Correct page for the variant</td><td class="good">78 / 78</td></tr>
+        <tr><td>Same variant after reload</td><td class="good">78 / 78</td></tr>
+        <tr><td>Cart attribute matches variant</td><td class="good">78 / 78</td></tr>
+      </table></div>
+
+      <h3>3. Redirect map for a re-platform</h3>
+      <p>I mapped 30 old WooCommerce-style URLs (products, categories, tags and pages) to their new Shopify addresses. The redirects were created through the Admin GraphQL API and also exported as Shopify's CSV import file. A checker requests every old URL with and without the trailing slash, then confirms <strong>one 301 hop</strong> to the right page, which answers 200.</p>
+      <div class="term"><span class="c">$ python3 redirects/check_redirects.py</span>
+/product/ethiopia-guji-single-origin
+  301 -> /products/ethiopia-guji     <span class="ok">ok</span>
+/product/ethiopia-guji-single-origin/
+  301 -> /products/ethiopia-guji     <span class="ok">ok</span>
+/product-category/coffee/single-origin
+  301 -> /collections/single-origin  <span class="ok">ok</span>
+/about-us
+  301 -> /pages/about                <span class="ok">ok</span>
+<span class="c">...</span>
+60/60 passed</div>
+      <p><strong>Finding:</strong> Shopify serves <code>/shop</code> itself, and URL redirects only fire on a 404, so <code>/shop</code> can't be redirected. Old links to it have to be fixed at the source.</p>
+
+      <h3>4. GA4 purchase tracking through Customer Events</h3>
+      <p>A custom pixel sends <code>view_item</code>, <code>add_to_cart</code>, <code>begin_checkout</code> and <code>purchase</code>. Each event carries its items and the A/B variant. I verified it in GA4 Realtime with a real browser and the test order, and the purchase counted as a key event.</p>
+      <div class="shots">
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>GA4 realtime</span></div><img src="img/ga4-realtime.jpg" alt="GA4 Realtime overview with purchase as a key event" width="1100" height="601" loading="lazy" /></figure>
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>GA4 debugview</span></div><img src="img/ga4-debugview.jpg" alt="GA4 DebugView showing add_to_cart, page_view and view_item" width="1100" height="601" loading="lazy" /></figure>
+      </div>
+      <p>Three findings worth knowing if you set this up:</p>
+      <ul>
+        <li><i class="fa-solid fa-circle"></i><span>GA4 Enhanced measurement sends extra page views from inside Shopify's pixel sandbox, using the frame's URL. Turn it off and let the pixel send <code>page_view</code>.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span>Inside the sandbox, <code>debug_mode</code> on the config doesn't reach the events, so DebugView stays empty. Set it on each event.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span>GA4 drops headless-browser traffic. Scripts can prove what the pixel sends, but only a real browser proves what GA4 receives.</span></li>
+      </ul>
+
+      <h3>5. Theme sections that help people buy</h3>
+      <p>Seven custom sections and three blocks on Horizon, all editable in the theme editor: quick add, sticky add to cart on mobile, a roast picker (accessible tabs), a roast meter, a brew calculator, and trust badges next to the button. Mobile Lighthouse medians on the live theme: <strong>home 89, product 88, collection 84</strong>. These are lab numbers from a shared dev-store host.</p>
+
+      <h3>6. A hand-coded Mailchimp email</h3>
+      <p>A 600 px table layout with inlined CSS and merge tags, imported as a custom-coded template, test-sent, and checked on desktop and phone. On the free plan you can import, preview and test-send it. Sending a campaign with it needs the Standard plan.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="results">
+  <div class="wrap cs-grid">
+    <div><span class="num">03 / Results</span><h2>What was proven, <em>and what wasn't.</em></h2></div>
+    <div class="prose">
+      <div class="table-scroll"><table class="cs-table">
+        <tr><th>Piece</th><th>How it was checked</th><th>Result</th></tr>
+        <tr><td><b>Klaviyo flows</b></td><td>Test profiles and a test-gateway order</td><td class="good">Events received · post-purchase sent in 1 min · abandoned flow correctly silent</td></tr>
+        <tr><td><b>Email templates</b></td><td>Klaviyo's renderer and a real send</td><td class="good">7 / 7 render with every tag filled; the coupon email (unique codes only exist on a real send) was delivered to a test inbox</td></tr>
+        <tr><td><b>A/B mechanics</b></td><td>78 simulated sessions</td><td class="good">78 / 78 correct variant, sticky cookie, cart attribute</td></tr>
+        <tr><td><b>Redirects</b></td><td>Checker script</td><td class="good">60 / 60, one hop each</td></tr>
+        <tr><td><b>GA4</b></td><td>Network capture, Realtime, DebugView</td><td class="good">All 5 ecommerce events, purchase as key event</td></tr>
+        <tr><td><b>Theme speed</b></td><td>Lighthouse mobile, median of 3</td><td class="good">89 / 88 / 84</td></tr>
+      </table></div>
+      <div class="callout"><span class="lbl">Stated honestly</span><p>A development store has no real visitors, so there are <strong>no conversion or revenue results</strong> here. The A/B test is built and checked with simulated sessions; a real result needs a store with enough traffic, and the sample-size table says how much. Emails went to my own test inboxes only.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="next">
+  <div class="wrap cs-grid">
+    <div><span class="num">04 / What I'd do next</span><h2>Where it goes <em>from here.</em></h2></div>
+    <div class="prose">
+      <ul>
+        <li><i class="fa-solid fa-circle"></i><span>A checkout UI extension on the same store, to cover checkout extensibility.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span>Browse-abandonment and winback flows, plus SMS when there's a sending number.</span></li>
+        <li><i class="fa-solid fa-circle"></i><span>Server-side tracking on top of the Customer Events pixel, with event IDs to remove duplicates.</span></li>
+      </ul>
+      <p>On your store, the same work becomes fixed-scope jobs: a <strong>Klaviyo flow audit and fix</strong>, a <strong>redirect map with a checker</strong> for a re-platform, a <strong>purchase-tracking fix</strong>, or an <strong>A/B test setup with a sample-size plan</strong>.</p>
+      <div class="cs-links"><a class="btn btn-fill" href="mailto:adel@adelatya.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Ask for a walkthrough</a><a class="btn btn-line" href="../../shopify-expert/"><i class="fa-solid fa-store" aria-hidden="true"></i> See the live stores</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec" id="more" style="border-bottom:0">
+  <div class="wrap">
+    <span class="num">More case studies</span>
+    <div class="more">
+      <a href="../harbor-lane-shopify/" class="here"><h3>Shopify retention and CRO, tested</h3><span class="m-go">You are here <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../clearpath-security-review/"><h3>Securing an AI agent</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+      <a href="../voice-agent-security-evals/"><h3>Testing AI phone agents</h3><span class="m-go">Read the case study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <span class="num" style="color:var(--red-lift)">Get in touch</span>
+    <h2>Need your Shopify store to <em>keep the customers it gets?</em></h2>
+    <p class="lead">Tell me what's leaking: emails, tracking, redirects or the product page. I'll tell you straight whether I can help.</p>
+    <div class="btn-row">
+      <a class="btn btn-fill" href="mailto:adel@adelatya.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> adel@adelatya.com</a>
+      <a class="btn btn-line" href="https://cal.com/adelatya/30min" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book 30 minutes</a>
+    </div>
+    <div class="cmeta">
+      <span>Cairo, Egypt — US, UK &amp; Gulf time zones</span>
+      <a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/adelsherif8" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap f-in">
+    <span>© <span id="yr"></span> Adel Atya · Shopify Expert · Cairo, Egypt</span>
+    <span class="f-links">
+      <a href="../../shopify-expert/">Shopify</a>
+      <a href="../../ai-engineer/">AI engineer</a>
+      <a href="../../software-engineer/">Software</a>
+    </span>
+  </div>
+</footer>
+
+<script src="../../assets/editorial.js"></script>
+</body>
+</html>
