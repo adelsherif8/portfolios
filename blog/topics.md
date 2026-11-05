@@ -1,6 +1,12 @@
 # Blog topic queue
 Take the first `[ ]`. Mark `[x] YYYY-MM-DD` when published, `[skip]` with a reason if research fails.
 
+## Reserved: drafts already written (2026-11-05), waiting for Adel's OK to publish
+Do not write these, or close variants of them, and don't add new topics that target these phrases.
+[skip] reserved 2026-11-05, draft in ~/Desktop/GHAI/phone-agent/docs/ship/blog/ How a Pipecat Twilio phone agent fits together, from ring to booking   (target: pipecat twilio phone agent -> /voice-agent-engineer/)
+[skip] reserved 2026-11-05, draft in ~/Desktop/GHAI/phone-agent/docs/ship/blog/ Voice agent latency, measured: where 1.74 seconds of reply time goes   (target: voice agent latency -> /voice-agent-engineer/)
+[skip] reserved 2026-11-05, draft in ~/Desktop/GHAI/phone-agent/docs/ship/blog/ AI receptionist live transfer: how the hand-off to a person should work   (target: ai receptionist live transfer -> /plumbing/)
+
 [x] 2026-10-24 How much does an AI receptionist cost for a small business in 2026?
 [x] 2026-10-24 How we test AI phone agents before they take real calls
 [x] 2026-10-24 How many calls does a plumbing business miss, and what does each one cost?
