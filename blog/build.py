@@ -176,9 +176,17 @@ def tag_words(p):
     return {w.rstrip("s") for w in re.findall(r"[a-z0-9]+", p.get("tags", "").lower())} - TAG_STOP
 
 
+SHOPIFY_PAGES = ("/shopify-expert", "/case-studies/harbor-lane")   # Shopify-track posts; everything else is the voice/automation track
+
+
+def track(p):
+    """Keep the two businesses apart: Shopify posts never sit next to voice-agent posts or their call to action."""
+    return "shopify" if p.get("service", "").startswith(SHOPIFY_PAGES) else "voice"
+
+
 def related(meta, posts, n=3):
-    """Up to n posts sharing tag words or the same service, best match first, then newest. Tops up to 2 with the newest."""
-    others = [p for p in posts if p["slug"] != meta["slug"]]
+    """Up to n same-track posts sharing tag words or the same service, best match first, then newest. Tops up to 2 with the newest."""
+    others = [p for p in posts if p["slug"] != meta["slug"] and track(p) == track(meta)]
     def strength(p): return len(tag_words(p) & tag_words(meta)) + (2 if p.get("service") == meta.get("service") else 0)
     newest = sorted(others, key=lambda p: (-p["date_obj"].toordinal(), p["slug"]))
     picks = sorted((p for p in newest if strength(p)), key=strength, reverse=True)[:n]
@@ -195,15 +203,18 @@ def page(meta, posts):
         "image": f"{SITE}/og.png", "keywords": meta.get("tags", "")}) + "</script>")
     up = "../../"
     rel = related(meta, posts)
-    others = [p for p in posts if p["slug"] != meta["slug"] and p not in rel][:3]
+    others = [p for p in posts if p["slug"] != meta["slug"] and p not in rel and track(p) == track(meta)][:3]
     rel_links = "".join(f'<li><a href="{up}blog/{p["slug"]}/">{html.escape(p["title"])}</a></li>' for p in rel)
     more = "".join(f'<li><a href="{up}blog/{p["slug"]}/">{html.escape(p["title"])}</a></li>' for p in others)
     body = (f'<header class="bhero"><div class="wrap"><span class="label">Blog · {html.escape(meta.get("tags","").split(",")[0].strip().title())}</span>'
             f'<h1>{html.escape(meta["title"])}</h1><p class="meta">Adel Atya · {meta["date_obj"].strftime("%d %B %Y")}</p></div></header>'
             f'<main class="wrap"><article class="post">{md(meta["body"])}</article>'
             + (f'<aside class="post" style="padding:0 0 30px"><h2 style="margin-top:0">Related posts</h2><ul>{rel_links}</ul></aside>' if rel else "") +
-            f'<aside class="cta-box"><h3>Hear an AI phone agent handle a real call</h3><p>Every agent we build answers on the first ring, books the job and texts back the calls it misses. Try one now, or see what it costs.</p>'
-            f'<div class="acts"><a class="btn btn-solid" href="{DEMO}" target="_blank" rel="noopener">Talk to the demo</a>'
+            (f'<aside class="cta-box"><h3>See the tested Shopify setup</h3><p>Klaviyo flows, GA4 purchase tracking and a redirect map, each checked on a demo store with a real test order.</p>'
+               f'<div class="acts"><a class="btn btn-solid" href="{up}case-studies/harbor-lane-shopify/">Read the case study</a>'
+               if track(meta) == "shopify" else
+               f'<aside class="cta-box"><h3>Hear an AI phone agent handle a real call</h3><p>Every agent we build answers on the first ring, books the job and texts back the calls it misses. Try one now, or see what it costs.</p>'
+               f'<div class="acts"><a class="btn btn-solid" href="{DEMO}" target="_blank" rel="noopener">Talk to the demo</a>') +
             f'<a class="btn btn-line" href="{up}{meta.get("service","pricing/").lstrip("/")}">{html.escape(meta.get("service_label","See pricing"))}</a></div>'
             + (f'<h3 style="margin-top:22px;font-size:1.05rem">More from the blog</h3><ul style="margin-top:8px;padding-left:1.1em">{more}</ul>' if more else "")
             + '</aside></main>')

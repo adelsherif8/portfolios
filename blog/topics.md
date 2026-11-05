@@ -24,6 +24,7 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-04 How to hire a Vapi or Retell developer: what to check before you pay   (target: hire vapi developer -> /voice-agent-engineer/)
 [skip] score 90 (2026-11-05, 3 rounds: 80, 87, 90) Self-storage after-hours calls: what facilities lose when nobody answers   (target: self storage after hours calls -> /self-storage/)
 
+[x] 2026-11-06 Klaviyo abandoned cart flow filter: stop emailing people who already paid   (target: klaviyo abandoned cart flow filter -> /shopify-expert/) [Shopify track, written by hand, not by the daily routine]
 ## General queue
 [ ] What happens when an AI receptionist doesn't know the answer?
 [ ] Is it legal to use an AI voice agent to call customers back? (US TCPA basics)

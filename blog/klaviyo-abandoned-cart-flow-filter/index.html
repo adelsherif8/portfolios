@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Klaviyo abandoned cart flow filter: stop emailing buyers</title>
+<meta name="description" content="Why a Klaviyo abandoned cart flow emails customers who already paid, the one flow filter that stops it, and how to test it with a real checkout." />
+<meta name="theme-color" content="#0F0D0B" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="stylesheet" href="../../assets/site.css" />
+<link rel="canonical" href="https://adelatya.com/blog/klaviyo-abandoned-cart-flow-filter/" />
+<link rel="alternate" type="application/rss+xml" title="Adel Atya blog" href="https://adelatya.com/blog/feed.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="Klaviyo abandoned cart flow filter: stop emailing buyers" />
+<meta property="og:description" content="Why a Klaviyo abandoned cart flow emails customers who already paid, the one flow filter that stops it, and how to test it with a real checkout." />
+<meta property="og:url" content="https://adelatya.com/blog/klaviyo-abandoned-cart-flow-filter/" />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Klaviyo abandoned cart flow filter: stop emailing people who already paid", "description": "Why a Klaviyo abandoned cart flow emails customers who already paid, the one flow filter that stops it, and how to test it with a real checkout.", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "mainEntityOfPage": "https://adelatya.com/blog/klaviyo-abandoned-cart-flow-filter/", "author": {"@type": "Person", "name": "Adel Atya", "url": "https://adelatya.com"}, "publisher": {"@type": "Organization", "name": "Adel Atya", "url": "https://adelatya.com", "logo": {"@type": "ImageObject", "url": "https://adelatya.com/favicon.svg"}}, "image": "https://adelatya.com/og.png", "keywords": "klaviyo, abandoned cart, shopify"}</script>
+<style>
+.bhero{padding:150px 0 40px;border-bottom:var(--edge)}
+.bhero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-top:16px;max-width:22ch;text-wrap:balance}
+.bhero .meta{margin-top:16px;color:var(--ink-2);font-size:.92rem}
+.post{max-width:68ch;margin:0 auto;padding:44px 0 20px;font-size:1.08rem;line-height:1.7}
+.post h2{font-size:1.75rem;margin:42px 0 12px;line-height:1.15}
+.post h3{font-size:1.25rem;margin:28px 0 8px}
+.post p,.post ul,.post ol,.post blockquote{margin:0 0 18px}
+.post ul,.post ol{padding-left:1.2em}
+.post li{margin-bottom:6px}
+.post blockquote{border-left:3px solid var(--red);padding:4px 0 4px 16px;color:var(--ink-2);font-style:italic}
+.post code{font-size:.9em;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:5px}
+.post pre{margin:0 0 18px;padding:14px 16px;background:rgba(0,0,0,.05);border-radius:8px;overflow-x:auto;font-size:.88rem;line-height:1.5}
+.post pre code{background:none;padding:0;font-size:inherit}
+.post a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.cta-box{max-width:68ch;margin:10px auto 60px;border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:26px;background:var(--paper)}
+.cta-box h3{font-size:1.3rem;margin-bottom:8px}
+.cta-box .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.plist{display:grid;gap:14px;padding:36px 0 70px;max-width:760px}
+.pitem{display:block;border:var(--edge);border-radius:var(--r);background:var(--paper);box-shadow:var(--hard);padding:22px 24px;color:inherit;text-decoration:none}
+.pitem h2{font-size:1.35rem;margin:6px 0 8px}
+.pitem p{color:var(--ink-2);font-size:.96rem}
+.pitem .d{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="../../"><img src="../../favicon.svg" alt="" width="23" height="23" />Adel Atya</a>
+  <nav class="menu">
+    <a href="../../#agents">Agents</a>
+    <a href="../../pricing/">Pricing</a>
+    <a href="../../white-label-ai-voice-agent/">For agencies</a>
+    <a href="../../blog/">Blog</a>
+  </nav>
+  <a class="go" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">Talk to the demo</a>
+</div></div>
+<header class="bhero"><div class="wrap"><span class="label">Blog · Klaviyo</span><h1>Klaviyo abandoned cart flow filter: stop emailing people who already paid</h1><p class="meta">Adel Atya · 06 November 2026</p></div></header><main class="wrap"><article class="post"><p>A Klaviyo abandoned cart flow filter decides who keeps getting the emails. Without the filter "Placed Order zero times since starting this flow", a customer who pays during the wait still gets "You left something in your cart". Add that filter, then prove it works with one real test checkout.</p>
+<p>I built and tested this on a Shopify demo store. Below is the setup, the test, what it does and doesn't prove, and when you can leave things alone.</p>
+<h2>Why does the abandoned cart email reach people who already paid?</h2>
+<p>The flow starts when someone begins checkout. Then it waits. Klaviyo's pre-built abandoned cart flows <a href="https://help.klaviyo.com/hc/en-us/articles/115002779411" target="_blank" rel="noopener">wait 4 hours before the first message</a>.</p>
+<p>Anyone who completes the purchase during that wait is still in the flow. Unless something checks for an order, the timer runs out and the email goes. For example, with the 4-hour default, that customer could see:</p>
+<ul><li>10:42 · "Order #1001 confirmed"</li><li>14:42 · "You left something in your cart"</li></ul>
+<p>The second email tells a paying customer your store doesn't know they paid.</p>
+<h2>What is the Klaviyo abandoned cart flow filter?</h2>
+<p>It's a profile filter on the flow: a rule about what the person has done. Klaviyo's help page tells you to <a href="https://help.klaviyo.com/hc/en-us/articles/115002779411" target="_blank" rel="noopener">check for "Person has Placed Order zero times since starting this flow"</a>.</p>
+<p>The key words are "since starting this flow". They mean "bought after this checkout began", not "has ever bought". A loyal customer who abandons a second cart still gets the reminder. Someone who abandons and then pays does not.</p>
+<h2>Why a profile filter and not a trigger filter?</h2>
+<p>Klaviyo has two kinds of filter, and they're checked at different times.</p>
+<ul><li><strong>Trigger filters</strong> look at the event that started the flow, such as the checkout's value. Klaviyo says <a href="https://help.klaviyo.com/hc/en-us/articles/115002779051" target="_blank" rel="noopener">metric-based trigger filters are only checked when someone first enters the flow</a>. A purchase that happens later can't affect them.</li><li><strong>Profile filters</strong> look at the person. Klaviyo <a href="https://help.klaviyo.com/hc/en-us/articles/115002779051" target="_blank" rel="noopener">checks them when people enter the flow and again before flow actions</a>. If the check fails, that action is skipped.</li></ul>
+<p>So the purchase check has to be a profile filter. A trigger filter can't stop an email for someone who paid during the wait.</p>
+<h2>How do you add it?</h2>
+<p>In Klaviyo:</p>
+<ol><li>Open the abandoned cart flow and click the trigger at the top.</li><li>Add it under <strong>Profile filters</strong>, not Trigger filters. In my account, the trigger card then shows a "Profile filters" tag.</li><li>Set the condition to <strong>Placed Order</strong> · <strong>zero times</strong> · <strong>since starting this flow</strong>.</li><li>Save, then check that the flow and every email in it are set to live.</li></ol>
+<p>Klaviyo says pre-built flows are "populated automatically", but it doesn't promise this filter is included. Open yours and check.</p>
+<h2>How I tested it with a real checkout</h2>
+<p>I set this up on Harbor Lane Coffee, a demo Shopify store with an invented brand and test payments. My flow waits 1 hour, sends the first email, waits 23 hours, then sends the second. The profile filter is the one above.</p>
+<p>Then I ran a real test checkout: not a preview, an actual order. Shopify lets you <a href="https://help.shopify.com/en/manual/checkout-settings/test-orders" target="_blank" rel="noopener">place a test order by simulating a transaction</a> with its test payment gateway, so no real card is charged.</p>
+<ul><li><strong>Minute 0:</strong> checkout started.</li><li><strong>Minute 3:</strong> paid through Shopify's test payment gateway.</li><li><strong>Minute 4:</strong> the post-purchase thank-you email arrived.</li><li><strong>A day later:</strong> still no cart reminder.</li></ul>
+<p>Klaviyo's profile timeline showed Viewed Product, Added to Cart, Checkout Started, Placed Order and the post-purchase email. Nothing from the abandoned cart flow.</p>
+<p>What this proves, and what it doesn't: the order landed inside the 1-hour wait, and the purchase filter is the only rule in that flow that looks at orders. That's where the profile stopped. I didn't run a second checkout with the filter turned off, so I haven't shown the reminder going out without it. If you want that proof on your own store, run the same test once with the filter and once without.</p>
+<p>A preview shows the email looks right. Only a real checkout shows the flow behaves right. The full write-up, with screenshots of the flows and the email, is in the <a href="/case-studies/harbor-lane-shopify/">Harbor Lane case study</a>.</p>
+<h2>Is the abandoned cart flow worth this much care?</h2>
+<p>Yes. It's the flow closest to a sale. Klaviyo's benchmark report says <a href="https://www.klaviyo.com/blog/abandoned-cart-benchmarks" target="_blank" rel="noopener">abandoned cart flows drive the highest average revenue per recipient of all flows</a>: $6.77 per email recipient, with an average click rate of 6%.</p>
+<p>Those are Klaviyo's averages across its customers in its 2026 report, not numbers from my demo store, which has no real shoppers. The same report puts the welcome series just ahead on clicks. Those two flows are where I would start on any store.</p>
+<h2>What else should the abandoned cart email do?</h2>
+<p>The filter stops the wrong email. These make the right one work:</p>
+<ul><li><strong>Show the actual cart.</strong> Product image, variant, quantity and price, pulled from the checkout event. "You forgot something" with no product gives them nothing to click on.</li><li><strong>Link back to their checkout, not your home page.</strong> In my test, the Checkout Started event carried the customer's own checkout link, so the button reopens their cart as they left it.</li><li><strong>Make the second email different.</strong> Answer the doubt that may have stopped them, such as shipping cost or returns, instead of repeating email one.</li></ul>
+<h2>When is the default setup fine?</h2>
+<p>If your flow already has the purchase filter as a profile filter, you're done. Don't rebuild a working flow.</p>
+<p>You also don't need a developer for the filter itself. It's one rule in the flow settings.</p>
+<p>Where help pays off is the work around it: product blocks that pull the right image and variant, a welcome flow that splits new and existing customers, with unique coupons, and GA4 purchase tracking that works with Shopify's checkout. Those are the pieces I set up in the <a href="/case-studies/harbor-lane-shopify/">demo store case study</a> and offer on my <a href="/shopify-expert/">Shopify page</a>.</p>
+<h2>Checklist: is your abandoned cart flow safe?</h2>
+<ol><li>Open the flow. Is there a profile filter for <strong>Placed Order zero times since starting this flow</strong>?</li><li>Is it a <strong>profile</strong> filter, not only a trigger filter?</li><li>Are the flow and every email in it set to <strong>live</strong>?</li><li>Does email one show the <strong>real cart</strong> and link back to the <strong>customer's checkout</strong>?</li><li>Run one <strong>real test checkout</strong>: start checkout, pay within the delay, and confirm no reminder arrives.</li></ol>
+<p>If step 5 sends you a reminder after you paid, the filter is missing or set up wrong. Fix it before your next customer gets one.</p></article><aside class="cta-box"><h3>See the tested Shopify setup</h3><p>Klaviyo flows, GA4 purchase tracking and a redirect map, each checked on a demo store with a real test order.</p><div class="acts"><a class="btn btn-solid" href="../../case-studies/harbor-lane-shopify/">Read the case study</a><a class="btn btn-line" href="../../shopify-expert/">Shopify developer, Klaviyo and tracking</a></div></aside></main>
+<footer>
+  <div class="wrap">
+    <div class="f-more">
+      <span class="label">More</span>
+      <a href="../../">Home</a>
+      <a href="../../pricing/">Pricing</a>
+      <a href="../../plumbing/">Plumbing &amp; HVAC</a>
+      <a href="../../dental/">Dental</a>
+      <a href="../../restaurants/">Restaurants</a>
+      <a href="../../real-estate/">Real estate</a>
+      <a href="../../self-storage/">Self storage</a>
+      <a href="../../white-label-ai-voice-agent/">For agencies</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+    <div class="f-end">
+      <span>&copy; 2026 Adel Atya · Cairo, Egypt</span>
+      <span class="r"><a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/aa.voiceagents/" target="_blank" rel="noopener">Instagram</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

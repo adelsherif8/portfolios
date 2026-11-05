@@ -1,5 +1,14 @@
 [
  {
+  "slug": "klaviyo-abandoned-cart-flow-filter",
+  "title": "Klaviyo abandoned cart flow filter: stop emailing people who already paid",
+  "description": "Why a Klaviyo abandoned cart flow emails customers who already paid, the one flow filter that stops it, and how to test it with a real checkout.",
+  "date": "2026-11-06",
+  "tags": "klaviyo, abandoned cart, shopify",
+  "url": "https://adelatya.com/blog/klaviyo-abandoned-cart-flow-filter/",
+  "source": "blog/posts/2026-11-06-klaviyo-abandoned-cart-flow-filter.md"
+ },
+ {
   "slug": "hire-vapi-retell-developer",
   "title": "How to hire a Vapi or Retell developer: what to check before you pay",
   "description": "How to hire a Vapi developer or Retell builder: seven checks on accounts, webhooks, testing and cost, plus when a template is enough and you can skip them.",
@@ -63,15 +72,6 @@
   "source": "blog/posts/2026-10-28-ai-receptionist-vs-answering-service.md"
  },
  {
-  "slug": "how-we-test-ai-phone-agents",
-  "title": "How we test AI phone agents before they take real calls",
-  "description": "How to test an AI phone agent before launch: hard scenarios, repeat runs and code checks. Our 38-scenario numbers, what CI runs, and what text misses.",
-  "date": "2026-10-24",
-  "tags": "testing, ai voice agents, quality",
-  "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
-  "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
- },
- {
   "slug": "plumbing-missed-calls-cost",
   "title": "How many calls does a plumber miss, and what does each cost?",
   "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
@@ -79,6 +79,15 @@
   "tags": "missed calls, plumbing, revenue",
   "url": "https://adelatya.com/blog/plumbing-missed-calls-cost/",
   "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
+ },
+ {
+  "slug": "how-we-test-ai-phone-agents",
+  "title": "How we test AI phone agents before they take real calls",
+  "description": "How to test an AI phone agent before launch: hard scenarios, repeat runs and code checks. Our 38-scenario numbers, what CI runs, and what text misses.",
+  "date": "2026-10-24",
+  "tags": "testing, ai voice agents, quality",
+  "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
+  "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
  },
  {
   "slug": "ai-receptionist-cost-2026",
