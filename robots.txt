@@ -3,6 +3,7 @@ Allow: /
 Disallow: /_archive/
 Disallow: /_og/
 Disallow: /_s/
+Disallow: /v/
 
 # AI search crawlers — explicitly welcome
 User-agent: GPTBot
