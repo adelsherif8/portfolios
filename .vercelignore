@@ -5,3 +5,4 @@ DEPLOY.md
 blog/*.md
 blog/*.py
 blog/posts/
+blog/drafts/

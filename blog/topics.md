@@ -22,11 +22,11 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-02 White-label AI voice agents for GoHighLevel agencies: how the reselling works   (target: white label ai voice agent gohighlevel -> /white-label-ai-voice-agent/)
 [skip] score 88 (2026-11-03, 3 rounds: 81, 87, 88) GoHighLevel missed-call text-back vs AI callback: which recovers more jobs?   (target: gohighlevel missed call ai -> /plumbing/)
 [x] 2026-11-04 How to hire a Vapi or Retell developer: what to check before you pay   (target: hire vapi developer -> /voice-agent-engineer/)
-[skip] score 90 (2026-11-05, 3 rounds: 80, 87, 90) Self-storage after-hours calls: what facilities lose when nobody answers   (target: self storage after hours calls -> /self-storage/)
+[ ] Self-storage after-hours calls: what facilities lose when nobody answers   (target: self storage after hours calls -> /self-storage/)
 
 [x] 2026-11-06 Klaviyo abandoned cart flow filter: stop emailing people who already paid   (target: klaviyo abandoned cart flow filter -> /shopify-expert/) [Shopify track, written by hand, not by the daily routine]
 ## General queue
-[skip] score 90 (2026-11-06, 3 rounds: 40+50=90, 33, 40+50) What happens when an AI receptionist doesn't know the answer?
+[ ] What happens when an AI receptionist doesn't know the answer?
 [skip] score 85 (2026-11-07, 3 rounds: 85, 81, 85) Is it legal to use an AI voice agent to call customers back? (US TCPA basics)
 [ ] AI receptionist for dental practices: what it should and shouldn't handle
 [ ] How restaurants can take phone orders with AI during the Friday rush

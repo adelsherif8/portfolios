@@ -1,5 +1,5 @@
 """Automatic half of the blog quality score (50 of 100 points). The other 50 come from an independent
-reviewer using blog/RUBRIC.md. A post publishes only when both halves add up to more than 90.
+reviewer using blog/RUBRIC.md. A post publishes only when both halves add up to 90 or more.
 
 Usage: python3 blog/score.py blog/posts/2026-10-29-some-post.md   (or several files, or no args = all posts)
 Prints each check with its points and the fixes needed; exits 1 if the automatic half is under 45 of 50.

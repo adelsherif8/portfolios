@@ -1,4 +1,4 @@
-# Blog quality rubric (100 points, publish only above 90)
+# Blog quality rubric (100 points, publish at 90 or higher)
 
 Two halves:
 - **Automatic, 50 points:** `python3 blog/score.py <post>`. Measurable rules: search title and description length,
@@ -8,8 +8,9 @@ Two halves:
   In the routine this is a fresh subagent (Agent tool) given only this file, the post, and `blog/PLAYBOOK.md`'s
   list of Adel's real facts. The writer never scores its own post.
 
-**Gate:** automatic + review **> 90**, and no review category at 0. Otherwise revise and score again (up to 3 rounds).
-After 3 rounds still at 90 or below: do not publish; mark the topic `[skip] score NN` in topics.md.
+**Gate:** automatic + review **>= 90**, and no review category at 0. Otherwise revise and score again (up to 3 rounds),
+always keeping the highest-scoring version. After 3 rounds still below 90: best 85-89 goes to `blog/drafts/` for the next
+run to finish; below 85 is skipped (`[skip] score NN` in topics.md). Nothing below 90 is ever published.
 
 ## Where the rules come from
 - Google, *Creating helpful, reliable, people-first content* (developers.google.com/search/docs/fundamentals/creating-helpful-content):

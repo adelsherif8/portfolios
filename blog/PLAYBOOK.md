@@ -37,20 +37,39 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
    - 3–5 internal links: the service page, /pricing/, one or two related posts, and one live demo link.
    - When the post's target page exists, the post must link to it. Add the new post to that page's Related reading block only if that stays within "only change blog/ and sitemap.xml"; otherwise leave it.
    - End with a short practical checklist or next step, not a sales pitch.
-5b. **Quality gate (required, see `blog/RUBRIC.md`).** Publish only if the score is above 90 of 100.
+5a. **Self-check before scoring (required).** Score your own draft against the 7 review categories in `blog/RUBRIC.md`
+   and fix every gap BEFORE the first real scoring. It must have all of these, or it is not ready:
+   - the direct answer to the target question in the first two sentences;
+   - at least two first-hand facts from Adel's facts list in step 3 (his tested numbers, demo behaviour, build details);
+   - a link on every outside number, to the page it came from (no link = cut the number);
+   - a short section on when an AI agent is NOT the right choice;
+   - concrete examples (a call, a number, a scene) instead of "saves time" or "improves efficiency";
+   - headings that say what the section contains, and one soft next step at the end only.
+5b. **Quality gate (required, see `blog/RUBRIC.md`).** Publish only if the score is 90 or higher out of 100.
    - Run `python3 blog/score.py blog/posts/<your file>.md` (automatic half, 50 points). Fix every line marked FIX that you can.
    - Then launch ONE fresh reviewer with the Agent tool. Give it: the full text of `blog/RUBRIC.md`, the full post, and the
      list of Adel's real facts from step 3. Ask it to score the post strictly using the review table and return the
      required output format. You never score your own post; the reviewer's number is the one that counts.
-   - Total = automatic + review. If it is 90 or below, or any review category is 0, apply the reviewer's TOP 3 FIXES and
+   - Total = automatic + review. If it is below 90, or any review category is 0, apply the reviewer's TOP 3 FIXES and
      the automatic FIX lines, then re-run score.py and a NEW reviewer. Up to 3 rounds.
-   - After 3 rounds still at 90 or below: do not publish it. Delete the draft and mark the topic `[skip] score NN` in topics.md.
+   - **Keep the best version.** Save a copy after each round. If a round scores LOWER than the best so far, go back to the
+     best copy and apply only the fixes you have not tried yet. The draft you finish with is always the highest-scoring one.
+   - After 3 rounds still below 90:
+     - best total 85-89: move the best copy to `blog/drafts/<slug>.md` with its scores and the last TOP 3 FIXES in an HTML
+       comment at the top, and mark the topic `[draft] score NN` in topics.md. Drafts are never built or published.
+     - best total below 85: delete the draft and mark the topic `[skip] score NN` in topics.md.
      Then take the next `[ ]` topic and start again from step 2. Try at most 3 topics per run, and stop when the time or tool
-     budget runs out. If none passes, commit only topics.md and report the scores. The 90+ rule never bends.
+     budget runs out. If none passes, commit only topics.md and blog/drafts/ and report the scores. Nothing below 90 is ever published.
+   - **Start each run with a near-miss.** Before taking a new topic, if `blog/drafts/` has a file, take the highest-scoring
+     one first: apply its saved fixes, move it back to `blog/posts/` with today's date, and run the gate again (up to 2 rounds).
+     If it passes, publish it and mark the topic `[x]`. If not, put it back in drafts with the new scores, then go on to a new topic.
+   - **Pick topics you can win.** Skip legal or regulatory topics (TCPA, HIPAA, recording-consent law) unless an official
+     source (FCC, FTC, a state statute) covers the exact question; mark them `[skip] needs legal source`. Prefer topics where
+     Adel's facts list gives first-hand material, because the reviewer scores "Original value" on that.
 6. Run `python3 blog/build.py`. It must print the new post count with no errors.
 7. Mark the topic `[x]` in `blog/topics.md` with today's date. If fewer than 10 `[ ]` topics remain, append 10 new
    buyer-intent questions in the same style (different verticals and stages of buying, no near-duplicates).
-8. Commit only `blog/` and `sitemap.xml`: `git add blog sitemap.xml && git commit -m "Blog: <title>" && git push`.
+8. Commit only `blog/` (including `blog/drafts/`) and `sitemap.xml`: `git add blog sitemap.xml && git commit -m "Blog: <title>" && git push`.
    Pushing deploys the site automatically.
 9. Final message: the title, URL (https://adelatya.com/blog/<slug>/), word count, the sources used, and the final score (automatic + review = total, plus how many rounds it took).
 
