@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What happens when an AI receptionist can&#x27;t answer?</title>
+<meta name="description" content="A well-built AI receptionist says it doesn&#x27;t know, takes a message and logs the call. How to test that, and what a bad one does instead." />
+<meta name="theme-color" content="#0F0D0B" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="stylesheet" href="../../assets/site.css" />
+<link rel="canonical" href="https://adelatya.com/blog/ai-receptionist-doesnt-know-the-answer/" />
+<link rel="alternate" type="application/rss+xml" title="Adel Atya blog" href="https://adelatya.com/blog/feed.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Adel Atya" />
+<meta property="og:title" content="What happens when an AI receptionist can&#x27;t answer?" />
+<meta property="og:description" content="A well-built AI receptionist says it doesn&#x27;t know, takes a message and logs the call. How to test that, and what a bad one does instead." />
+<meta property="og:url" content="https://adelatya.com/blog/ai-receptionist-doesnt-know-the-answer/" />
+<meta property="og:image" content="https://adelatya.com/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "What happens when an AI receptionist doesn't know the answer?", "description": "A well-built AI receptionist says it doesn't know, takes a message and logs the call. How to test that, and what a bad one does instead.", "datePublished": "2026-11-10", "dateModified": "2026-11-10", "mainEntityOfPage": "https://adelatya.com/blog/ai-receptionist-doesnt-know-the-answer/", "author": {"@type": "Person", "name": "Adel Atya", "url": "https://adelatya.com"}, "publisher": {"@type": "Organization", "name": "Adel Atya", "url": "https://adelatya.com", "logo": {"@type": "ImageObject", "url": "https://adelatya.com/favicon.svg"}}, "image": "https://adelatya.com/og.png", "keywords": "ai receptionist, escalation, testing"}</script>
+<style>
+.bhero{padding:150px 0 40px;border-bottom:var(--edge)}
+.bhero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-top:16px;max-width:22ch;text-wrap:balance}
+.bhero .meta{margin-top:16px;color:var(--ink-2);font-size:.92rem}
+.post{max-width:68ch;margin:0 auto;padding:44px 0 20px;font-size:1.08rem;line-height:1.7}
+.post h2{font-size:1.75rem;margin:42px 0 12px;line-height:1.15}
+.post h3{font-size:1.25rem;margin:28px 0 8px}
+.post p,.post ul,.post ol,.post blockquote{margin:0 0 18px}
+.post ul,.post ol{padding-left:1.2em}
+.post li{margin-bottom:6px}
+.post blockquote{border-left:3px solid var(--red);padding:4px 0 4px 16px;color:var(--ink-2);font-style:italic}
+.post code{font-size:.9em;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:5px}
+.post pre{margin:0 0 18px;padding:14px 16px;background:rgba(0,0,0,.05);border-radius:8px;overflow-x:auto;font-size:.88rem;line-height:1.5}
+.post pre code{background:none;padding:0;font-size:inherit}
+.post a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.cta-box{max-width:68ch;margin:10px auto 60px;border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:26px;background:var(--paper)}
+.cta-box h3{font-size:1.3rem;margin-bottom:8px}
+.cta-box .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.plist{display:grid;gap:14px;padding:36px 0 70px;max-width:760px}
+.pitem{display:block;border:var(--edge);border-radius:var(--r);background:var(--paper);box-shadow:var(--hard);padding:22px 24px;color:inherit;text-decoration:none}
+.pitem h2{font-size:1.35rem;margin:6px 0 8px}
+.pitem p{color:var(--ink-2);font-size:.96rem}
+.pitem .d{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="../../"><img src="../../favicon.svg" alt="" width="23" height="23" />Adel Atya</a>
+  <nav class="menu">
+    <a href="../../#agents">Agents</a>
+    <a href="../../pricing/">Pricing</a>
+    <a href="../../white-label-ai-voice-agent/">For agencies</a>
+    <a href="../../blog/">Blog</a>
+  </nav>
+  <a class="go" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">Talk to the demo</a>
+</div></div>
+<header class="bhero"><div class="wrap"><span class="label">Blog · Ai Receptionist</span><h1>What happens when an AI receptionist doesn&#x27;t know the answer?</h1><p class="meta">Adel Atya · 10 November 2026</p></div></header><main class="wrap"><article class="post"><p>A well-built AI receptionist says it doesn't know, takes the caller's name and number, and logs the call for a person to follow up. A badly built one guesses, and a confident guess about a price or an opening time is worse than silence.</p>
+<p>Which of the two you get depends on how the agent is set up, not on which brand of AI sits underneath. Here is what to check before it answers a real call.</p>
+<h2>What should the agent do with a question it can't answer?</h2>
+<p>Three things, in order:</p>
+<ol><li><strong>Say so plainly.</strong> "I don't have that information" is a fine sentence on a phone call.</li><li><strong>Offer the next step that exists.</strong> A callback, a message to the owner, or a booking for someone who can answer.</li><li><strong>Record the question.</strong> The business learns what callers ask that the agent could not answer, and can fix the gap.</li></ol>
+<p>Take a plumbing caller who asks, "Do you fix tankless water heaters from that brand?" If the agent was never told, the right reply is: "I'm not sure we service that model. I can have the office call you back this afternoon. What's the best number?" The wrong reply is a cheerful "Yes, absolutely."</p>
+<h2>Why do AI agents guess instead?</h2>
+<p>A language model produces plausible text, and OWASP, the security project, <a href="https://genai.owasp.org/llmrisk/llm092025-misinformation/" target="_blank" rel="noopener">defines misinformation</a> as "false or misleading information that appears credible".</p>
+<p>Two setups make this worse:</p>
+<ul><li><strong>Too much freedom.</strong> The prompt says "be helpful" and never says "only quote prices from the list below".</li><li><strong>A knowledge base with no rule for empty results.</strong> Retell's <a href="https://docs.retellai.com/build/knowledge-base" target="_blank" rel="noopener">knowledge base</a> retrieves 3 chunks by default, with a similarity threshold of 0.6. Its docs don't state what the agent does when retrieval finds nothing relevant. The docs suggest a prompt rule to answer only from the retrieved text. If nobody writes a rule like that, the model decides for itself.</li></ul>
+<h2>What does a good setup look like?</h2>
+<p>The <a href="/plumbing/">plumbing agent page</a> describes an agent that quotes the dispatch fee and nothing it wasn't given. Anything outside its rules, urgent, or from an angry caller goes to a person, and the agent says so out loud.</p>
+<p>My Blue Ridge recovery demo is a single-prompt Retell agent on GPT-4.1. It must call a <code>log_outcome</code> function before it hangs up, so every call is meant to end with a recorded outcome. In the GoHighLevel-style pipeline a card moves Missed, Texted, Called, Booked.</p>
+<p>The useful design rule: the agent's way out must be as easy as guessing. Give it a one-step way to take a message, and the easy path is the honest one.</p>
+<h2>How do you test what it does when it doesn't know?</h2>
+<p>Ask it things it cannot know, and count the guesses. My test suite uses simulated callers. It has 38 simulated callers and runs 114 calls per run for about $0.25 a run (<a href="/blog/how-we-test-ai-phone-agents/">how I test AI phone agents</a>).</p>
+<p>One check is a plain code check, not an opinion: was every dollar amount the agent said found in its data? A price that is not in its data gets flagged.</p>
+<p>The checks that matter most for this question:</p>
+<ul><li><strong>Invented facts:</strong> the agent states a price, hour or service that is not in its data.</li><li><strong>Missed handoffs:</strong> the call needed a person and the agent kept going.</li></ul>
+<p>On a cheaper model, my plumbing agent missed the required emergency handoff in 5 of 41 calls. The agent kept going when a person was needed (<a href="/case-studies/voice-agent-security-evals/">case study</a>).</p>
+<p>You can do a smaller version with a phone. Call your own agent ten times and ask: a price for a job you don't offer, whether you work Sundays when the hours say otherwise, whether the owner can call back in five minutes, and for another customer's address. Write down every answer that was not in the data.</p>
+<h2>How does the hand-off to a person work?</h2>
+<p>It depends on the platform. Retell, for example, documents a <a href="https://docs.retellai.com/build/single-multi-prompt/transfer-call" target="_blank" rel="noopener">cold transfer</a>, where the agent hangs up on the transfer, and a warm transfer, where the agent stays on the line. A warm-transfer wait setting defaults to 30 seconds. The page does not say what the main agent does after an unanswered transfer, so test that yourself.</p>
+<p>Vapi has the same trap. On its <a href="https://docs.vapi.ai/call-forwarding" target="_blank" rel="noopener">call forwarding docs</a>, a blind transfer to a busy or unanswered number on Twilio, Telnyx or Vonage ends the call. On other setups, the caller returns to the assistant only if a fallback plan is configured.</p>
+<p>So "it transfers to a person" is half an answer. Ask what happens when nobody picks up.</p>
+<p>One limit of my own tests: those agents have no live transfer tool yet. A "handoff" in my suite means an escalation outcome, not a live transfer. If you need the call to ring a human mid-conversation, ask any builder to demonstrate it on a phone, not in a screenshot.</p>
+<h2>When is an AI receptionist the wrong choice?</h2>
+<ul><li><strong>Most of your calls are unusual.</strong> If every caller has a custom question, such as a contractor quoting commercial jobs, an agent will escalate nearly every call. You have bought an expensive message taker.</li><li><strong>Nobody will read the callback list.</strong> An agent that says "someone will call you back" creates a promise. If the promise is not kept, you are worse off than with voicemail.</li><li><strong>Your information changes daily.</strong> Prices, stock or availability that live only in your head cannot be read by an agent. Someone has to keep its data current.</li><li><strong>The call needs judgment and trust,</strong> such as a complaint about a bad repair. Send it to a person.</li></ul>
+<p>An agent pays off when most calls are routine and a person handles the rest.</p>
+<h2>What should you ask a builder before you sign?</h2>
+<ul><li>What does the agent say when a question is not in its data? Ask to hear it.</li><li>Is there one step to take a message, and where does the message go?</li><li>Does every call end with a saved outcome, even when the agent could not help?</li><li>Does the builder test for invented prices, and can they show the results?</li><li>Who updates the agent's data when your prices change?</li><li>What does it cost? Mine is $900 to build and $450 a month with 500 minutes, then 15¢ a minute (<a href="/pricing/">pricing</a>).</li></ul>
+<p>If you want to hear a live agent first, <a href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">call the Blue Ridge recovery demo</a>.</p></article><aside class="post" style="padding:0 0 30px"><h2 style="margin-top:0">Related posts</h2><ul><li><a href="../../blog/plumbing-missed-calls-cost/">How many calls does a plumber miss, and what does each cost?</a></li><li><a href="../../blog/ai-receptionist-self-storage/">AI receptionist for self storage: reservations, payments and gate codes</a></li><li><a href="../../blog/voice-agent-prompt-injection-testing/">Voice agent prompt injection testing: a phone-call runbook</a></li></ul></aside><aside class="cta-box"><h3>Hear an AI phone agent handle a real call</h3><p>Every agent we build answers on the first ring, books the job and texts back the calls it misses. Try one now, or see what it costs.</p><div class="acts"><a class="btn btn-solid" href="https://voicedesk-h31g.onrender.com/agent/recovery" target="_blank" rel="noopener">Talk to the demo</a><a class="btn btn-line" href="../../plumbing/">AI phone agent for plumbing and HVAC</a></div><h3 style="margin-top:22px;font-size:1.05rem">More from the blog</h3><ul style="margin-top:8px;padding-left:1.1em"><li><a href="../../blog/self-storage-after-hours-calls/">Self storage after hours calls: what a facility loses when nobody answers</a></li><li><a href="../../blog/hire-vapi-retell-developer/">How to hire a Vapi or Retell developer: what to check before you pay</a></li><li><a href="../../blog/white-label-ai-voice-agent-gohighlevel/">White-label AI voice agent for GoHighLevel: how the reselling works</a></li></ul></aside></main>
+<footer>
+  <div class="wrap">
+    <div class="f-more">
+      <span class="label">More</span>
+      <a href="../../">Home</a>
+      <a href="../../pricing/">Pricing</a>
+      <a href="../../plumbing/">Plumbing &amp; HVAC</a>
+      <a href="../../dental/">Dental</a>
+      <a href="../../restaurants/">Restaurants</a>
+      <a href="../../real-estate/">Real estate</a>
+      <a href="../../self-storage/">Self storage</a>
+      <a href="../../white-label-ai-voice-agent/">For agencies</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+    <div class="f-end">
+      <span>&copy; 2026 Adel Atya · Cairo, Egypt</span>
+      <span class="r"><a href="https://www.linkedin.com/in/adel-atya-551467309" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/aa.voiceagents/" target="_blank" rel="noopener">Instagram</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

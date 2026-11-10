@@ -1,5 +1,14 @@
 [
  {
+  "slug": "ai-receptionist-doesnt-know-the-answer",
+  "title": "What happens when an AI receptionist doesn't know the answer?",
+  "description": "A well-built AI receptionist says it doesn't know, takes a message and logs the call. How to test that, and what a bad one does instead.",
+  "date": "2026-11-10",
+  "tags": "ai receptionist, escalation, testing",
+  "url": "https://adelatya.com/blog/ai-receptionist-doesnt-know-the-answer/",
+  "source": "blog/posts/2026-11-10-ai-receptionist-doesnt-know-the-answer.md"
+ },
+ {
   "slug": "self-storage-after-hours-calls",
   "title": "Self storage after hours calls: what a facility loses when nobody answers",
   "description": "Self storage after hours calls go to voicemail, and most callers hang up. How to count what that costs your facility, and when an AI agent is not worth it.",
