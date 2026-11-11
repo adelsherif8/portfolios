@@ -1,5 +1,14 @@
 [
  {
+  "slug": "ai-receptionist-dental-practices",
+  "title": "AI receptionist for dental practices: what it should and shouldn't handle",
+  "description": "An AI receptionist for a dental practice should book, reschedule and answer set questions. Clinical advice and insurance quotes must go to your team.",
+  "date": "2026-11-11",
+  "tags": "ai receptionist, dental, front desk",
+  "url": "https://adelatya.com/blog/ai-receptionist-dental-practices/",
+  "source": "blog/posts/2026-11-11-ai-receptionist-dental-practices.md"
+ },
+ {
   "slug": "ai-receptionist-doesnt-know-the-answer",
   "title": "What happens when an AI receptionist doesn't know the answer?",
   "description": "A well-built AI receptionist says it doesn't know, takes a message and logs the call. How to test that, and what a bad one does instead.",
