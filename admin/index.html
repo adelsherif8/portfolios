@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin — Adel Atya</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="/assets/site.css" />
+<style>
+body{min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.box{width:100%;max-width:440px;background:var(--paper);border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:34px 30px}
+h1{font-size:1.9rem;margin:10px 0 12px}
+p{color:var(--ink-2);font-size:.95rem;margin-bottom:10px}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{cursor:pointer}
+#state{font-weight:600;display:flex;gap:8px;align-items:center}
+</style>
+</head>
+<body>
+<div class="box">
+  <a class="brand" href="/"><img src="/favicon.svg" alt="" width="23" height="23" />Adel Atya</a>
+  <h1 style="margin-top:22px">Admin</h1>
+  <p id="state"><i class="fa-solid fa-eye-slash"></i> This browser is excluded from site analytics.</p>
+  <p>Visiting this page marks this browser as yours, so your own visits never show up in the numbers. Do it once on every device and browser you use.</p>
+  <div class="acts">
+    <a class="btn btn-solid" href="/admin/analytics/"><i class="fa-solid fa-chart-column"></i> Open analytics</a>
+    <button class="btn btn-line" id="toggle" type="button"><i class="fa-solid fa-eye"></i> Count this browser again</button>
+  </div>
+</div>
+<script>
+(function () {
+  var st = document.getElementById("state"), tg = document.getElementById("toggle");
+  function show() {
+    var off = false; try { off = localStorage.getItem("aa_optout") === "1"; } catch (e) {}
+    st.innerHTML = off ? '<i class="fa-solid fa-eye-slash"></i> This browser is excluded from site analytics.' : '<i class="fa-solid fa-eye"></i> This browser is counted in site analytics.';
+    tg.innerHTML = off ? '<i class="fa-solid fa-eye"></i> Count this browser again' : '<i class="fa-solid fa-eye-slash"></i> Exclude this browser';
+  }
+  try { localStorage.setItem("aa_optout", "1"); } catch (e) {}
+  tg.addEventListener("click", function () {
+    try { if (localStorage.getItem("aa_optout") === "1") localStorage.removeItem("aa_optout"); else localStorage.setItem("aa_optout", "1"); } catch (e) {}
+    show();
+  });
+  show();
+})();
+</script>
+</body>
+</html>

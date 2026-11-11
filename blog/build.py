@@ -129,6 +129,7 @@ HEAD = """<!DOCTYPE html>
 .pitem .d{{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/assets/p.js"></script>
 </head>
 <body>
 <div class="top"><div class="wrap top-in">

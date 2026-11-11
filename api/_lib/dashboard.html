@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Site Analytics</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="/assets/site.css" />
+<style>
+body{padding-bottom:60px}
+main section.kpis,main section.grid{padding:0;border:0}
+.card{overflow-x:auto}
+.bar-top{position:sticky;top:0;z-index:20;background:rgba(247,244,238,.94);backdrop-filter:blur(12px);border-bottom:var(--edge)}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 0}
+.bar-in .brand span{color:var(--grey);font-weight:500;margin-left:6px}
+.ctrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.seg{display:inline-flex;border:var(--edge);border-radius:999px;padding:3px;background:var(--paper-2)}
+.seg button{font:inherit;font-size:.84rem;font-weight:600;border:0;background:transparent;padding:7px 14px;border-radius:999px;cursor:pointer;color:var(--ink-2)}
+.seg button.on{background:var(--ink);color:var(--paper)}
+.ib{font:inherit;font-size:.84rem;font-weight:600;border:var(--edge);background:var(--paper);border-radius:999px;padding:8px 14px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
+.ib:hover{background:var(--ink);color:var(--paper)}
+h1.t{font-size:clamp(1.9rem,4vw,2.6rem);margin:30px 0 6px}
+.lede{color:var(--ink-2);max-width:70ch;font-size:.95rem}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}
+.kpi{background:var(--paper);border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:18px 20px}
+.kpi h3{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);font-weight:700;display:flex;gap:8px;align-items:center}
+.kpi h3 i{color:var(--red)}
+.kpi .big{font-size:2.3rem;font-weight:700;letter-spacing:-.04em;line-height:1;margin:12px 0 10px}
+.kpi .row{display:flex;gap:16px;font-size:.84rem;color:var(--ink-2)}
+.kpi .row b{color:var(--ink)}
+.live-dot{width:9px;height:9px;border-radius:50%;background:var(--red);display:inline-block;box-shadow:0 0 0 0 rgba(198,60,34,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(198,60,34,0)}100%{box-shadow:0 0 0 0 rgba(198,60,34,0)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--paper);border:var(--edge);border-radius:var(--r);box-shadow:var(--hard);padding:20px 20px 16px;min-width:0}
+.card.wide{grid-column:1/-1}
+.card h2{font-size:1.15rem;letter-spacing:-.02em;display:flex;gap:10px;align-items:center}
+.card h2 i{color:var(--red);font-size:.95rem}
+.card .help{color:var(--grey);font-size:.82rem;margin:6px 0 12px;line-height:1.45}
+table{width:100%;border-collapse:collapse;font-size:.87rem}
+th{text-align:left;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);font-weight:700;padding:6px 8px;border-bottom:var(--edge)}
+th.n,td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid rgba(22,19,15,.06);vertical-align:top}
+td.k{position:relative;word-break:break-all}
+td.k .mag{position:absolute;left:0;top:3px;bottom:3px;background:rgba(198,60,34,.10);border-radius:4px;z-index:0}
+td.k span{position:relative;z-index:1}
+.empty{color:var(--grey);font-size:.86rem;padding:10px 0;display:flex;gap:8px;align-items:center}
+.chart{position:relative;height:220px;margin-top:6px}
+.chart svg{width:100%;height:100%;display:block;overflow:visible}
+.chart .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-size:.8rem;padding:8px 10px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-110%);display:none;box-shadow:var(--hard)}
+.chart .tip b{display:block;font-size:.74rem;opacity:.75;font-weight:600}
+.pill{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--paper-2);color:var(--ink-2);white-space:nowrap}
+.pill.c{background:rgba(198,60,34,.12);color:var(--red)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.mini div{background:var(--paper-2);border-radius:var(--r-sm);padding:12px 14px}
+.mini b{display:block;font-size:1.5rem;letter-spacing:-.03em}
+.mini span{font-size:.75rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.status{font-size:.82rem;color:var(--grey);display:flex;gap:8px;align-items:center}
+.err{color:var(--red);font-weight:600}
+.scroll{max-height:420px;overflow:auto}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grid,.split{grid-template-columns:minmax(0,1fr)}.mini{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.wrap{padding:0 16px}.kpis{grid-template-columns:minmax(0,1fr)}.ib span{display:none}}
+</style>
+<script>try{localStorage.setItem("aa_optout","1")}catch(e){}</script>
+</head>
+<body>
+<div class="bar-top"><div class="wrap bar-in">
+  <a class="brand" href="/"><img src="/favicon.svg" alt="" width="23" height="23" />Adel Atya<span>Analytics</span></a>
+  <div class="ctrl">
+    <div class="seg" role="tablist" aria-label="Date range">
+      <button data-d="1">Today</button><button data-d="7">7 days</button><button data-d="28" class="on">28 days</button><button data-d="90">90 days</button>
+    </div>
+    <button class="ib" id="refresh" title="Refresh"><i class="fa-solid fa-rotate"></i><span>Refresh</span></button>
+    <form method="post" action="/api/admin/?action=logout" style="display:inline"><button class="ib" type="submit"><i class="fa-solid fa-right-from-bracket"></i><span>Sign out</span></button></form>
+  </div>
+</div></div>
+
+<main class="wrap">
+  <h1 class="t">How the site is <em>doing</em></h1>
+  <p class="lede">Your own first-party numbers: no cookies, no Google Analytics, bots and your own browser filtered out. Days are Cairo time. <span class="status" id="status"><i class="fa-solid fa-circle-notch fa-spin"></i> Loading</span></p>
+
+  <section class="kpis">
+    <div class="kpi"><h3><i class="fa-solid fa-user-group"></i>Visitors</h3><div class="big" id="k-vis">-</div><div class="row" id="k-vis-row"></div></div>
+    <div class="kpi"><h3><i class="fa-solid fa-file-lines"></i>Page views</h3><div class="big" id="k-pv">-</div><div class="row" id="k-pv-row"></div></div>
+    <div class="kpi"><h3><i class="fa-solid fa-bullseye"></i>Conversion rate</h3><div class="big" id="k-cr">-</div><div class="row" id="k-cr-row"></div></div>
+    <div class="kpi"><h3><span class="live-dot"></span>Live, last 30 min</h3><div class="big" id="k-live">-</div><div class="row" id="k-live-row"></div></div>
+  </section>
+
+  <section class="grid">
+    <div class="card wide">
+      <h2><i class="fa-solid fa-chart-column"></i><span id="chart-title">Visitors per day</span></h2>
+      <p class="help">Each bar is the number of different people who visited in that period. Hover a bar for page views too.</p>
+      <div class="chart" id="chart"><div class="tip" id="tip"></div></div>
+    </div>
+
+    <div class="card"><h2><i class="fa-solid fa-file"></i>Top pages</h2><p class="help">Which pages get looked at most. Views count every load; visitors counts each person once.</p><div class="scroll" id="t-pages"></div></div>
+    <div class="card"><h2><i class="fa-solid fa-pen-nib"></i>Top blog posts</h2><p class="help">Same as top pages, but only blog articles.</p><div class="scroll" id="t-posts"></div></div>
+    <div class="card"><h2><i class="fa-solid fa-arrow-right-to-bracket"></i>Referrers</h2><p class="help">The website people clicked from to reach you (google.com, linkedin.com...). "Direct / none" means typed in, bookmarked, an email app, or the source hid itself.</p><div class="scroll" id="t-refs"></div></div>
+    <div class="card"><h2><i class="fa-solid fa-tags"></i>UTM campaigns</h2><p class="help">Visits from links you tagged yourself, e.g. adelatya.com/?utm_source=linkedin&amp;utm_campaign=post1. Use these on every link you share to see what works.</p><div class="scroll" id="t-utms"></div></div>
+    <div class="card"><h2><i class="fa-solid fa-earth-americas"></i>Countries</h2><p class="help">Where visitors are, from Vercel's IP lookup (the IP itself is never stored).</p><div class="scroll" id="t-countries"></div></div>
+    <div class="card"><h2><i class="fa-solid fa-mobile-screen"></i>Devices</h2><p class="help">Phone, tablet or computer.</p><div id="t-devices"></div></div>
+    <div class="card"><h2><i class="fa-solid fa-door-open"></i>Entry pages</h2><p class="help">The first page each visitor landed on. This is your real front door, often a blog post rather than the home page.</p><div class="scroll" id="t-entries"></div></div>
+    <div class="card"><h2><i class="fa-solid fa-hand-pointer"></i>Conversions and clicks</h2><p class="help">Actions that matter. <span class="pill c">conversion</span> = sent the contact form, clicked the booking link, email or phone. Conversion rate = visitors who did at least one of those, divided by all visitors.</p><div id="t-events"></div></div>
+    <div class="card wide"><h2><i class="fa-solid fa-list-check"></i>What exactly was clicked</h2><p class="help">Each click event with the button text or link it went to, and the page it happened on.</p><div class="scroll" id="t-labels"></div></div>
+    <div class="card wide"><h2><span class="live-dot"></span>Live: last 30 minutes</h2><p class="help">Every page view and click in the last half hour, newest first. Refreshes every minute.</p><div class="split"><div class="scroll" id="t-live"></div><div id="t-livepages"></div></div></div>
+
+    <div class="card wide">
+      <h2><i class="fa-brands fa-google"></i>Google Search Console, 28 days</h2>
+      <p class="help">How the site shows up in Google search. <b>Impressions</b> = times a result from your site was shown. <b>Clicks</b> = times someone clicked it. <b>CTR</b> = clicks divided by impressions. <b>Position</b> = average rank in the results (1 is the top; 10 is the bottom of page one). Google reports with about a 2-day delay. <span id="gsc-range"></span></p>
+      <div id="gsc"><p class="empty"><i class="fa-solid fa-circle-notch fa-spin"></i> Loading Search Console</p></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var days = 28;
+  try { var s = Number(localStorage.getItem("aa_range")); if ([1, 7, 28, 90].indexOf(s) >= 0) days = s; } catch (e) {}
+  var nf = new Intl.NumberFormat("en-US");
+  var regions = null; try { regions = new Intl.DisplayNames(["en"], { type: "region" }); } catch (e) {}
+  var CONV = { contact_submit: 1, booking_click: 1, email_click: 1, phone_click: 1 };
+  var NAMES = { contact_submit: "Contact form sent", booking_click: "Booking link (cal.com)", email_click: "Email link", phone_click: "Phone link", demo_click: "Opened a demo / outbound project", outbound_click: "Other outbound link", cta_click: "Button / CTA on site" };
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, attrs, kids) {
+    var e = document.createElement(tag);
+    if (attrs) for (var k in attrs) { if (k === "text") e.textContent = attrs[k]; else if (k === "cls") e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }
+    (kids || []).forEach(function (c) { if (c != null) e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return e;
+  }
+  function n(v) { return nf.format(Number(v || 0)); }
+  function pct(a, b) { return b ? (100 * a / b).toFixed(1) + "%" : "0%"; }
+  function country(c) { if (!c || c === "??") return "Unknown"; try { return (regions && regions.of(c)) || c; } catch (e) { return c; } }
+  function emptyMsg(t) { return el("p", { cls: "empty" }, [el("i", { cls: "fa-regular fa-circle" }), " " + (t || "No data in this range yet.")]); }
+
+  // cols: [{h, key, num, fmt}] ; first col gets a magnitude bar scaled by magKey
+  function table(target, rows, cols, magKey) {
+    var box = $(target); box.innerHTML = "";
+    if (!rows || !rows.length) { box.appendChild(emptyMsg()); return; }
+    var max = 0; rows.forEach(function (r) { max = Math.max(max, Number(r[magKey] || 0)); });
+    var thead = el("tr", null, cols.map(function (c) { return el("th", { cls: c.num ? "n" : "", text: c.h }); }));
+    var body = rows.map(function (r) {
+      return el("tr", null, cols.map(function (c, i) {
+        var v = c.fmt ? c.fmt(r) : r[c.key];
+        var content = (v && v.nodeType) ? v : document.createTextNode(c.num ? n(v) : String(v == null ? "" : v));
+        if (i === 0 && magKey) {
+          var w = max ? Math.max(2, 100 * Number(r[magKey] || 0) / max) : 0;
+          return el("td", { cls: "k" }, [el("i", { cls: "mag", style: "width:" + w + "%" }), el("span", null, [content])]);
+        }
+        return el("td", { cls: c.num ? "n" : "" }, [content]);
+      }));
+    });
+    box.appendChild(el("table", null, [el("thead", null, [thead]), el("tbody", null, body)]));
+  }
+
+  function kpi(id, big, row) {
+    $(id).textContent = big;
+    var r = $(id + "-row"); r.innerHTML = "";
+    row.forEach(function (p) { r.appendChild(el("span", null, [p[0] + " ", el("b", { text: p[1] })])); });
+  }
+
+  function chart(series, bucket) {
+    var box = $("chart"), tip = $("tip");
+    var old = box.querySelector("svg"); if (old) old.remove();
+    $("chart-title").textContent = bucket === "hour" ? "Visitors per hour, today" : "Visitors per day";
+    // fill gaps so empty days show as zero
+    var map = {}; series.forEach(function (s) { map[s.t] = s; });
+    var pts = [];
+    if (bucket === "hour") {
+      var now = new Date(); var hNow = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Cairo", hour: "2-digit", hourCycle: "h23" }).format(now));
+      var dayStr = new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Cairo" }).format(now);
+      for (var h = 0; h <= hNow; h++) { var key = dayStr + "T" + (h < 10 ? "0" : "") + h + ":00"; pts.push(map[key] || { t: key, visitors: 0, pageviews: 0 }); }
+    } else {
+      var today = new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Cairo" }).format(new Date());
+      var base = new Date(today + "T00:00:00Z");
+      for (var i = days - 1; i >= 0; i--) { var d = new Date(base.getTime() - i * 86400000).toISOString().slice(0, 10) + "T00:00"; pts.push(map[d] || { t: d, visitors: 0, pageviews: 0 }); }
+    }
+    var W = box.clientWidth || 800, H = 220, padL = 34, padB = 24, padT = 8;
+    var max = 1; pts.forEach(function (p) { max = Math.max(max, p.visitors); });
+    var step = Math.pow(10, Math.floor(Math.log10(max))); var top = Math.ceil(max / step) * step; if (top < 4) top = 4;
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(NS, "svg"); svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "Visitors chart");
+    function sv(tag, a) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); return e; }
+    var plotH = H - padB - padT, plotW = W - padL;
+    [0, 0.5, 1].forEach(function (f) {
+      var y = padT + plotH * (1 - f);
+      svg.appendChild(sv("line", { x1: padL, x2: W, y1: y, y2: y, stroke: "rgba(22,19,15,.10)", "stroke-width": 1 }));
+      var tx = sv("text", { x: padL - 8, y: y + 4, "text-anchor": "end", "font-size": 11, fill: "#6B655B" }); tx.textContent = n(Math.round(top * f)); svg.appendChild(tx);
+    });
+    var bw = plotW / pts.length, gap = Math.min(6, bw * 0.25);
+    var every = Math.ceil(pts.length / 8);
+    pts.forEach(function (p, i) {
+      var x = padL + i * bw + gap / 2, w = Math.max(1, bw - gap), hgt = plotH * p.visitors / top, y = padT + plotH - hgt;
+      if (p.visitors > 0) {
+        var r = Math.min(4, w / 2, hgt);
+        svg.appendChild(sv("path", { d: "M" + x + "," + (padT + plotH) + "V" + (y + r) + "Q" + x + "," + y + " " + (x + r) + "," + y + "H" + (x + w - r) + "Q" + (x + w) + "," + y + " " + (x + w) + "," + (y + r) + "V" + (padT + plotH) + "Z", fill: "#C63C22" }));
+      }
+      var label = bucket === "hour" ? p.t.slice(11, 16) : new Date(p.t.slice(0, 10) + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+      if (i % every === 0) { var tl = sv("text", { x: x + w / 2, y: H - 6, "text-anchor": "middle", "font-size": 11, fill: "#6B655B" }); tl.textContent = label; svg.appendChild(tl); }
+      var hit = sv("rect", { x: padL + i * bw, y: padT, width: bw, height: plotH, fill: "transparent" });
+      hit.addEventListener("mouseenter", function () {
+        tip.innerHTML = ""; tip.appendChild(el("b", { text: label })); tip.appendChild(document.createTextNode(n(p.visitors) + " visitors, " + n(p.pageviews) + " views"));
+        tip.style.left = ((x + w / 2) / W * 100) + "%"; tip.style.top = (y / H * 100) + "%"; tip.style.display = "block";
+      });
+      hit.addEventListener("mouseleave", function () { tip.style.display = "none"; });
+      svg.appendChild(hit);
+    });
+    box.insertBefore(svg, tip);
+  }
+
+  function rangeName() { return days === 1 ? "today" : days + " days"; }
+
+  function render(d) {
+    var w = d.windows;
+    kpi("k-vis", n(w["28d"].visitors), [["today", n(w.today.visitors)], ["7d", n(w["7d"].visitors)], ["28d", n(w["28d"].visitors)]]);
+    $("k-vis").textContent = n(d.conversion.visitors);
+    kpi("k-pv", "", [["today", n(w.today.pageviews)], ["7d", n(w["7d"].pageviews)], ["28d", n(w["28d"].pageviews)]]);
+    var pvRange = 0; d.series.forEach(function (s) { pvRange += s.pageviews; }); $("k-pv").textContent = n(pvRange);
+    kpi("k-cr", pct(d.conversion.converters, d.conversion.visitors), [["converted", n(d.conversion.converters)], ["forms sent", n(d.conversion.contacts)]]);
+    kpi("k-live", n(d.realtime.visitors), [["visitors, views", n(d.realtime.pageviews)]]);
+    document.querySelectorAll(".kpi .big").forEach(function (b, i) { if (i < 3) b.title = "Selected range: " + rangeName(); });
+
+    chart(d.series, d.bucket);
+    var pv = [{ h: "Page", key: "key" }, { h: "Views", key: "pageviews", num: 1 }, { h: "Visitors", key: "visitors", num: 1 }];
+    table("t-pages", d.pages, pv, "pageviews");
+    table("t-posts", d.posts, pv, "pageviews");
+    table("t-refs", d.refs, [{ h: "Source", key: "key" }, { h: "Visitors", key: "visitors", num: 1 }, { h: "Views", key: "pageviews", num: 1 }], "visitors");
+    table("t-utms", d.utms, [{ h: "Source", key: "source" }, { h: "Medium", key: "medium" }, { h: "Campaign", key: "campaign" }, { h: "Visitors", key: "visitors", num: 1 }], "visitors");
+    table("t-countries", d.countries, [{ h: "Country", fmt: function (r) { return country(r.key); } }, { h: "Visitors", key: "visitors", num: 1 }], "visitors");
+    var devTotal = 0; d.devices.forEach(function (r) { devTotal += Number(r.visitors); });
+    var icons = { desktop: "fa-desktop", mobile: "fa-mobile-screen", tablet: "fa-tablet-screen-button" };
+    table("t-devices", d.devices, [{ h: "Device", fmt: function (r) { return el("span", null, [el("i", { cls: "fa-solid " + (icons[r.key] || "fa-question") }), " " + r.key]); } }, { h: "Visitors", key: "visitors", num: 1 }, { h: "Share", fmt: function (r) { return pct(r.visitors, devTotal); } }], "visitors");
+    table("t-entries", d.entries, [{ h: "First page seen", key: "key" }, { h: "Visitors", key: "visitors", num: 1 }], "visitors");
+    table("t-events", d.events, [
+      { h: "Action", fmt: function (r) { return el("span", null, [(NAMES[r.key] || r.key) + " ", CONV[r.key] ? el("span", { cls: "pill c", text: "conversion" }) : null]); } },
+      { h: "Times", key: "events", num: 1 }, { h: "Visitors", key: "visitors", num: 1 },
+      { h: "Rate", fmt: function (r) { return pct(r.visitors, d.conversion.visitors); } },
+    ], "events");
+    table("t-labels", d.eventLabels, [
+      { h: "Clicked", fmt: function (r) { return r.label || "(no label)"; } },
+      { h: "Type", fmt: function (r) { return el("span", { cls: "pill" + (CONV[r.type] ? " c" : ""), text: NAMES[r.type] || r.type }); } },
+      { h: "On page", key: "path" }, { h: "Times", key: "events", num: 1 },
+    ], "events");
+    table("t-live", d.realtime.recent, [
+      { h: "When", fmt: function (r) { var m = Math.round((Date.now() - new Date(r.ts).getTime()) / 60000); return m <= 0 ? "now" : m + " min ago"; } },
+      { h: "What", fmt: function (r) { return r.type === "pageview" ? r.path : (NAMES[r.type] || r.type) + ": " + (r.label || ""); } },
+      { h: "From", fmt: function (r) { return [country(r.country), r.device, r.ref_host].filter(Boolean).join(", "); } },
+    ]);
+    table("t-livepages", d.realtime.pages, [{ h: "Page, live", key: "key" }, { h: "Visitors", key: "visitors", num: 1 }], "visitors");
+
+    var t = new Date(d.generatedAt);
+    $("status").innerHTML = ""; $("status").appendChild(el("i", { cls: "fa-solid fa-check" })); $("status").appendChild(document.createTextNode(" Updated " + t.toLocaleTimeString() + ", range: " + rangeName()));
+  }
+
+  function fail(target, msg) {
+    var s = $(target); s.innerHTML = "";
+    s.appendChild(el("span", { cls: "err" }, [el("i", { cls: "fa-solid fa-triangle-exclamation" }), " " + msg]));
+  }
+
+  function load() {
+    $("status").innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading';
+    fetch("/api/admin/?view=data&days=" + days, { credentials: "same-origin" })
+      .then(function (r) { if (r.status === 401) { location.reload(); throw new Error("signed out"); } return r.json(); })
+      .then(function (d) { if (!d.ok) throw new Error(d.error || "failed"); render(d); })
+      .catch(function (e) { fail("status", "Could not load analytics: " + e.message); });
+  }
+
+  function loadGsc() {
+    fetch("/api/admin/?view=gsc", { credentials: "same-origin" }).then(function (r) { return r.json(); }).then(function (g) {
+      var box = $("gsc"); box.innerHTML = "";
+      if (!g.ok) { fail("gsc", "Search Console: " + (g.error || "failed")); return; }
+      $("gsc-range").textContent = "Showing " + g.startDate + " to " + g.endDate + ".";
+      var t = g.totals;
+      var mini = el("div", { cls: "mini" }, [
+        el("div", null, [el("span", { text: "Impressions" }), el("b", { text: n(t.impressions) })]),
+        el("div", null, [el("span", { text: "Clicks" }), el("b", { text: n(t.clicks) })]),
+        el("div", null, [el("span", { text: "CTR" }), el("b", { text: ((t.ctr || 0) * 100).toFixed(1) + "%" })]),
+        el("div", null, [el("span", { text: "Avg position" }), el("b", { text: t.position ? t.position.toFixed(1) : "-" })]),
+      ]);
+      box.appendChild(mini);
+      var split = el("div", { cls: "split" }, [el("div", { cls: "scroll", id: "g-pages" }), el("div", { cls: "scroll", id: "g-queries" })]);
+      box.appendChild(split);
+      var cols = function (h, f) { return [{ h: h, fmt: f }, { h: "Impr.", key: "impressions", num: 1 }, { h: "Clicks", key: "clicks", num: 1 }, { h: "CTR", fmt: function (r) { return (r.ctr * 100).toFixed(1) + "%"; } }, { h: "Pos.", fmt: function (r) { return r.position.toFixed(1); } }]; };
+      table("g-pages", g.pages, cols("Page", function (r) { return r.key.replace(/^https?:\/\/(www\.)?adelatya\.com/, "") || "/"; }), "impressions");
+      table("g-queries", g.queries, cols("Search query", function (r) { return r.key; }), "impressions");
+    }).catch(function (e) { fail("gsc", "Search Console: " + e.message); });
+  }
+
+  document.querySelectorAll(".seg button").forEach(function (b) {
+    b.classList.toggle("on", Number(b.dataset.d) === days);
+    b.addEventListener("click", function () {
+      days = Number(b.dataset.d);
+      try { localStorage.setItem("aa_range", String(days)); } catch (e) {}
+      document.querySelectorAll(".seg button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      load();
+    });
+  });
+  $("refresh").addEventListener("click", function () { load(); });
+  var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(load, 400); });
+  load(); loadGsc();
+  setInterval(function () { if (!document.hidden) load(); }, 60000);
+})();
+</script>
+</body>
+</html>
