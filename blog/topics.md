@@ -29,7 +29,7 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-10 What happens when an AI receptionist doesn't know the answer?
 [skip] score 85 (2026-11-07, 3 rounds: 85, 81, 85) Is it legal to use an AI voice agent to call customers back? (US TCPA basics)
 [x] 2026-11-11 AI receptionist for dental practices: what it should and shouldn't handle
-[ ] How restaurants can take phone orders with AI during the Friday rush
+[x] 2026-11-12 How restaurants can take phone orders with AI during the Friday rush
 [ ] Should customers be told they're talking to an AI?
 [ ] How long does it take to set up an AI phone agent?
 [ ] After-hours calls: what home-service businesses lose overnight

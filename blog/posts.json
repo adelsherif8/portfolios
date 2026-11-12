@@ -1,5 +1,14 @@
 [
  {
+  "slug": "restaurant-phone-orders-ai-friday-rush",
+  "title": "How restaurants can take phone orders with AI during the Friday rush",
+  "description": "An AI phone agent can take pickup orders while your staff cook, because it answers many calls at once. Here is what it handles, what it can't, and the cost.",
+  "date": "2026-11-12",
+  "tags": "ai receptionist, restaurants, phone orders",
+  "url": "https://adelatya.com/blog/restaurant-phone-orders-ai-friday-rush/",
+  "source": "blog/posts/2026-11-12-restaurant-phone-orders-ai-friday-rush.md"
+ },
+ {
   "slug": "ai-receptionist-dental-practices",
   "title": "AI receptionist for dental practices: what it should and shouldn't handle",
   "description": "An AI receptionist for a dental practice should book, reschedule and answer set questions. Clinical advice and insurance quotes must go to your team.",
@@ -99,15 +108,6 @@
   "source": "blog/posts/2026-10-28-ai-receptionist-vs-answering-service.md"
  },
  {
-  "slug": "plumbing-missed-calls-cost",
-  "title": "How many calls does a plumber miss, and what does each cost?",
-  "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
-  "date": "2026-10-24",
-  "tags": "missed calls, plumbing, revenue",
-  "url": "https://adelatya.com/blog/plumbing-missed-calls-cost/",
-  "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
- },
- {
   "slug": "how-we-test-ai-phone-agents",
   "title": "How we test AI phone agents before they take real calls",
   "description": "How to test an AI phone agent before launch: hard scenarios, repeat runs and code checks. Our 38-scenario numbers, what CI runs, and what text misses.",
@@ -115,6 +115,15 @@
   "tags": "testing, ai voice agents, quality",
   "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
   "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
+ },
+ {
+  "slug": "plumbing-missed-calls-cost",
+  "title": "How many calls does a plumber miss, and what does each cost?",
+  "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
+  "date": "2026-10-24",
+  "tags": "missed calls, plumbing, revenue",
+  "url": "https://adelatya.com/blog/plumbing-missed-calls-cost/",
+  "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
  },
  {
   "slug": "ai-receptionist-cost-2026",
