@@ -152,8 +152,28 @@
         <a class="btn btn-line" href="../#agents">See the other six trades</a>
       </div>
     </div>
+    <figure class="bb-embed">
+      <iframe src="../black-box/embed.html" title="Black Box player: two recorded calls with the Blue Ridge Plumbing demo agent" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+      <figcaption>No time to call? Here are two recorded calls with the demo agent, in <a href="../black-box/">Black Box</a>, the call-recording player we built on Video.js&nbsp;v10. Hover or drag the tape to read any line.</figcaption>
+    </figure>
   </div>
 </section>
+<style>
+  .bb-embed { margin: 40px 0 0; }
+  .bb-embed iframe { display: block; width: 100%; height: 56vw; max-height: 900px; border: 0; border-radius: 26px; background: transparent; }
+  .bb-embed figcaption { margin-top: 14px; font-size: 14px; opacity: .75; }
+</style>
+<script>
+  // the embed reports its height; size the frame to fit it exactly
+  (() => {
+    const f = document.querySelector('.bb-embed iframe'); if (!f) return;
+    addEventListener('message', (e) => {
+      if (e.origin !== location.origin || e.source !== f.contentWindow || e.data?.type !== 'blackbox:height') return;
+      f.style.height = e.data.height + 'px';
+    });
+    f.addEventListener('load', () => f.contentWindow.postMessage({ type: 'blackbox:ping' }, location.origin));
+  })();
+</script>
 
 <section>
   <div class="wrap">
