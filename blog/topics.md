@@ -31,7 +31,7 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-11 AI receptionist for dental practices: what it should and shouldn't handle
 [x] 2026-11-12 How restaurants can take phone orders with AI during the Friday rush
 [skip] needs legal source (2026-11-13) Should customers be told they're talking to an AI?
-[draft] score 85 (2026-11-13, 3 rounds: 83, 84, 85; draft in blog/drafts/) How long does it take to set up an AI phone agent?
+[draft] score 88 (2026-11-14, rounds: 83, 84, 85, 87, 88; draft in blog/drafts/) How long does it take to set up an AI phone agent?
 [ ] After-hours calls: what home-service businesses lose overnight
 [ ] AI receptionist for real estate agents: qualifying buyers at 9pm
 [ ] How an AI phone agent handles emergency calls safely
