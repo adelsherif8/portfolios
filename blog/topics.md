@@ -32,7 +32,7 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-12 How restaurants can take phone orders with AI during the Friday rush
 [skip] needs legal source (2026-11-13) Should customers be told they're talking to an AI?
 [x] 2026-11-15 How long does it take to set up an AI phone agent?
-[ ] After-hours calls: what home-service businesses lose overnight
+[x] 2026-11-16 After-hours calls: what home-service businesses lose overnight
 [ ] AI receptionist for real estate agents: qualifying buyers at 9pm
 [ ] How an AI phone agent handles emergency calls safely
 [ ] Can an AI receptionist work with my existing business number?
