@@ -34,7 +34,7 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-15 How long does it take to set up an AI phone agent?
 [x] 2026-11-16 After-hours calls: what home-service businesses lose overnight
 [x] 2026-11-17 AI receptionist for real estate agents: qualifying buyers at 9pm
-[ ] How an AI phone agent handles emergency calls safely
+[x] 2026-11-18 How an AI phone agent handles emergency calls safely
 [ ] Can an AI receptionist work with my existing business number?
 [ ] What to put in an AI receptionist's script (with examples)
 [ ] AI phone agents for HVAC: handling the first heat wave or cold snap

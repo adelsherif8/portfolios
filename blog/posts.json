@@ -1,5 +1,14 @@
 [
  {
+  "slug": "ai-phone-agent-emergency-calls",
+  "title": "How an AI phone agent handles emergency calls safely",
+  "description": "How an AI phone agent should handle emergency calls: tell the caller to leave, transfer to a person, never improvise. Tested numbers and when not to use one.",
+  "date": "2026-11-18",
+  "tags": "emergency calls, ai phone agents, call transfer",
+  "url": "https://adelatya.com/blog/ai-phone-agent-emergency-calls/",
+  "source": "blog/posts/2026-11-18-ai-phone-agent-emergency-calls.md"
+ },
+ {
   "slug": "ai-receptionist-real-estate-agents",
   "title": "AI receptionist for real estate agents: qualifying buyers at 9pm",
   "description": "What an AI receptionist can do for a real estate agent at 9pm: ask the qualifying questions and book the viewing. And what it should never say.",
