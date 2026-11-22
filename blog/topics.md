@@ -38,7 +38,7 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-19 Can an AI receptionist work with my existing business number?
 [x] 2026-11-20 What to put in an AI receptionist's script (with examples)
 [x] 2026-11-21 AI phone agents for HVAC: handling the first heat wave or cold snap
-[ ] How to measure whether your AI receptionist is working
+[x] 2026-11-22 How to measure whether your AI receptionist is working
 [ ] Speed to lead: why calling back in under a minute changes conversion
 [ ] AI voice agents and HIPAA: what a dental office needs to know
 [ ] Reviving old leads with an AI calling agent: what's realistic
