@@ -97,4 +97,4 @@ If your agent only answers opening hours from a fixed script and cannot see cust
 - Run each scenario three times and again after every prompt or model change.
 - Keep logs of what the agent saw and did, as the NCSC advises.
 
-You can [try to break a live agent yourself](https://voicedesk-h31g.onrender.com/agent/receptionist). For how this fits into a wider test suite, see [how I test AI phone agents](/blog/how-we-test-ai-phone-agents/), and for build prices see [pricing](/pricing/). The method and numbers are in the [case study](/case-studies/voice-agent-security-evals/).
+You can [request a private demo and try to break the agent yourself](https://voicedesk-h31g.onrender.com/agent/receptionist). For how this fits into a wider test suite, see [how I test AI phone agents](/blog/how-we-test-ai-phone-agents/), and for build prices see [pricing](/pricing/). The method and numbers are in the [case study](/case-studies/voice-agent-security-evals/).

@@ -90,4 +90,4 @@ Compare that against your own missed-call count, not a vendor's.
 - Set a fallback number for overflow calls.
 - Call the agent ten times with awkward orders before it goes live.
 
-To hear one first, [call the restaurant demo](https://voicedesk-h31g.onrender.com/agent/restaurant) and try to confuse it.
+To hear one first, [request a private restaurant demo](https://voicedesk-h31g.onrender.com/agent/restaurant) and try to confuse it.

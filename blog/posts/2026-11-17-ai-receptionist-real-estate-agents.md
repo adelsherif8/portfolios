@@ -77,7 +77,9 @@ Be honest about these cases:
 
 ## What does it cost, and how long does it take?
 
-Our Missed-Call Recovery is $0 to set up and $397 a month with 500 call minutes included, and 15 cents a minute after that. If it doesn't catch at least 10 missed calls in the first 30 days, you don't pay. In year one that is 12 × $397 = $4,764. Setup takes five to seven days, including your listings, your qualifying questions and your calendar rules. See the [pricing page](/pricing/).
+Our Missed-Call Recovery is $0 to set up and $397 a month with 500 call minutes included, and 15 cents a minute after that. If it doesn't catch at least 10 missed calls in the first 30 days, you don't pay. In year one that is 12 × $397 = $4,764.
+
+It goes live within 48 hours on the number you already have, with your listings, your qualifying questions and your calendar rules loaded. See the [pricing page](/pricing/).
 
 Whether that pays depends on your own numbers: your commission, and how many stranger calls you miss. Count those first.
 
@@ -87,4 +89,4 @@ Whether that pays depends on your own numbers: your commission, and how many str
 - Write down the five questions you ask every new buyer, in order.
 - List the three things the agent must never say.
 - Decide what counts as "hand to a human right now", such as an agent from another office with an offer.
-- Call the [realty demo](https://voicedesk-h31g.onrender.com/agent/realty) at night, as a buyer would, and check the booking lands where you expect.
+- [Request a private realty demo](https://voicedesk-h31g.onrender.com/agent/realty), then call it at night, as a buyer would, and check the booking lands where you expect.

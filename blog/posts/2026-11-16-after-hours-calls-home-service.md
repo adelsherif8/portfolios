@@ -87,4 +87,4 @@ Run the arithmetic honestly. In the example above, $6,300 against a $16,000 year
 - Sort the real customer calls into the four tiers above.
 - Count how many you answered, and how many got a callback within an hour.
 - Price tiers 1 and 2 with your own close rate and ticket, then halve the result.
-- If the figure beats the [cost of an AI receptionist](/blog/ai-receptionist-cost-2026/), [call the demo agent](https://voicedesk-h31g.onrender.com/agent/recovery) and say your sink is backed up.
+- If the figure beats the [cost of an AI receptionist](/blog/ai-receptionist-cost-2026/), [request a private demo](https://voicedesk-h31g.onrender.com/agent/recovery) and say your sink is backed up.

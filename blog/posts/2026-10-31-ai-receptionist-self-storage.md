@@ -120,4 +120,4 @@ For comparison, the pricing page puts a human receptionist at $2,800 to $4,500 a
 - Run the angry tenant and the "my sister's gate code" call before launch.
 - Count unanswered after-hours calls for a month, so you have a baseline.
 
-The test method is in [how I test AI phone agents](/blog/how-we-test-ai-phone-agents/) and [voice agent prompt injection testing](/blog/voice-agent-prompt-injection-testing/). The agent setup is on the [self-storage page](/self-storage/). To see it work, [call the live demo](https://voicedesk-h31g.onrender.com/agent/receptionist): ask for a 10x10, reserve it, then call back as a locked-out tenant.
+The test method is in [how I test AI phone agents](/blog/how-we-test-ai-phone-agents/) and [voice agent prompt injection testing](/blog/voice-agent-prompt-injection-testing/). The agent setup is on the [self-storage page](/self-storage/). To see it work, [request a private demo](https://voicedesk-h31g.onrender.com/agent/receptionist): ask for a 10x10, reserve it, then call back as a locked-out tenant.

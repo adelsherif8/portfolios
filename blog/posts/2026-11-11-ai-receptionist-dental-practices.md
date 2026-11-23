@@ -82,4 +82,4 @@ An agent pays off when most calls are routine and a person handles the rest.
 - Ask how the agent confirms it is not guessing about prices and plans.
 - Ask who updates the data when your hours or accepted plans change.
 
-The cost is on the [pricing page](/pricing/). To hear an agent first, [call the dental demo](https://voicedesk-h31g.onrender.com/agent/dental) and ask it the questions above.
+The cost is on the [pricing page](/pricing/). To hear an agent first, [request a private dental demo](https://voicedesk-h31g.onrender.com/agent/dental) and ask it the questions above.

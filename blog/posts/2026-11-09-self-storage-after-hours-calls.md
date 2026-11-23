@@ -87,4 +87,4 @@ I run a second AI as the caller. My suite has 38 scenarios and 114 calls per run
 - Work out your real close rate on answered calls.
 - Run the formula, halve the result and compare it with $6,300.
 - Check whether your management software has an API or webhook.
-- If the number is worth chasing, [call the live storage demo](https://voicedesk-h31g.onrender.com/agent/receptionist) and ask for a 10x10.
+- If the number is worth chasing, [request a private storage demo](https://voicedesk-h31g.onrender.com/agent/receptionist) and ask for a 10x10.

@@ -140,7 +140,7 @@ HEAD = """<!DOCTYPE html>
     <a href="{up}white-label-ai-voice-agent/">For agencies</a>
     <a href="{up}blog/">Blog</a>
   </nav>
-  <a class="go" href="{demo}" target="_blank" rel="noopener">Talk to the demo</a>
+  <a class="go" href="{demo}" target="_blank" rel="noopener">Get a private demo</a>
 </div></div>
 """
 
@@ -216,7 +216,7 @@ def page(meta, posts):
                f'<div class="acts"><a class="btn btn-solid" href="{up}case-studies/harbor-lane-shopify/">Read the case study</a>'
                if track(meta) == "shopify" else
                f'<aside class="cta-box"><h3>Hear an AI phone agent handle a real call</h3><p>Every agent we build answers on the first ring, books the job and texts back the calls it misses. Try one now, or see what it costs.</p>'
-               f'<div class="acts"><a class="btn btn-solid" href="{DEMO}" target="_blank" rel="noopener">Talk to the demo</a>') +
+               f'<div class="acts"><a class="btn btn-solid" href="{DEMO}" target="_blank" rel="noopener">Get a private demo</a>') +
             f'<a class="btn btn-line" href="{up}{meta.get("service","pricing/").lstrip("/")}">{html.escape(meta.get("service_label","See pricing"))}</a></div>'
             + (f'<h3 style="margin-top:22px;font-size:1.05rem">More from the blog</h3><ul style="margin-top:8px;padding-left:1.1em">{more}</ul>' if more else "")
             + '</aside></main>')

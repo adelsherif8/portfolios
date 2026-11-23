@@ -7,7 +7,9 @@ service: /voice-agent-engineer/
 service_label: AI voice agent build
 tags: ai phone agent, setup, voice agents
 ---
-A demo number you can call comes within about 48 hours. Going live on your real line is a separate date, set mostly by your phone number. A simple port can take one business day under the FCC rule. A complicated one takes longer. You can skip the port entirely: keep your number and forward the calls nobody picks up to the agent. That is how our Missed-Call Recovery goes live in 48 hours.
+A demo number you can call comes within about 48 hours. Going live on your real line is a separate date, set mostly by your phone number. A simple port can take one business day under the FCC rule. A complicated one takes longer.
+
+You can skip the port entirely: keep your number and forward the calls nobody picks up to the agent. That is how our Missed-Call Recovery goes live in 48 hours.
 
 Treat "demo" and "live" as two milestones, and ask any builder for a date on each.
 
@@ -92,4 +94,4 @@ Then the steps to take:
 - Ask your builder to start text registration early if you want text-back.
 - Block an hour to call the demo and write down every change you want.
 
-When you are ready, [call the Blue Ridge recovery demo](https://voicedesk-h31g.onrender.com/agent/recovery). It answers in about 1 second.
+When you are ready, [request a private demo of the Blue Ridge recovery agent](https://voicedesk-h31g.onrender.com/agent/recovery). It answers in about 1 second.

@@ -105,4 +105,4 @@ For you, a free first account is a way to test the whole chain: build, client on
 6. Agree the baseline numbers you will measure for 30 days.
 7. Read the [pricing page](/pricing/) so your cost per account is clear.
 
-When that list is done, call the [live demo agent](https://voicedesk-h31g.onrender.com/agent/recovery) and decide if you would put your brand on it.
+When that list is done, request a [private demo](https://voicedesk-h31g.onrender.com/agent/recovery) and decide if you would put your brand on it.

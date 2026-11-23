@@ -82,4 +82,4 @@ An agent pays off when most calls are routine and a person handles the rest.
 - Who updates the agent's data when your prices change?
 - What does it cost? Mine is $0 to set up and $397 a month with 500 minutes, then 15¢ a minute, and you don't pay if it catches fewer than 10 missed calls in the first 30 days ([pricing](/pricing/)).
 
-If you want to hear a live agent first, [call the Blue Ridge recovery demo](https://voicedesk-h31g.onrender.com/agent/recovery).
+If you want to hear a live agent first, [request a private demo of the Blue Ridge recovery agent](https://voicedesk-h31g.onrender.com/agent/recovery).

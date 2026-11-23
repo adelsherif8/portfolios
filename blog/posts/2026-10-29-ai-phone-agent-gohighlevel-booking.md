@@ -72,7 +72,7 @@ An emergency, a request for a price quote on an unusual job, or someone who refu
 
 The calendar link is a small part of the work. Most of the effort goes into the script, the edge cases and the testing.
 
-On time, our [plumbing page](/plumbing/) puts a plumbing voice agent live five to seven days after the first call about your services and prices. A single GoHighLevel workflow on its own goes live inside a week.
+On time, our [plumbing page](/plumbing/) puts a plumbing voice agent live within 48 hours of the first call about your services and prices. A single GoHighLevel workflow on its own goes live inside a week.
 
 On cost, our Missed-Call Recovery is $0 setup and $397 a month with 500 minutes, then 15 cents a minute, guaranteed to catch at least 10 missed calls in the first 30 days or you don't pay. A GoHighLevel workflow is $400. Your GoHighLevel subscription stays billed to you by GoHighLevel. Every line is on the [pricing page](/pricing/).
 
