@@ -77,7 +77,7 @@ Be honest about these cases:
 
 ## What does it cost, and how long does it take?
 
-A voice agent is $900 to build, or $600 for a founding client, then $450 a month with 500 call minutes included, and 15 cents a minute after that. In year one that is $900 + 12 × $450 = $6,300 at full price. Setup takes five to seven days, including your listings, your qualifying questions and your calendar rules. See the [pricing page](/pricing/).
+Our Missed-Call Recovery is $0 to set up and $397 a month with 500 call minutes included, and 15 cents a minute after that. If it doesn't catch at least 10 missed calls in the first 30 days, you don't pay. In year one that is 12 × $397 = $4,764. Setup takes five to seven days, including your listings, your qualifying questions and your calendar rules. See the [pricing page](/pricing/).
 
 Whether that pays depends on your own numbers: your commission, and how many stranger calls you miss. Count those first.
 

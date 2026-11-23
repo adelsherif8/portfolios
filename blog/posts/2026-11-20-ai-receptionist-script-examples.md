@@ -97,7 +97,7 @@ That is a prompt rule, not a guarantee. It still turns "did the call go well?" i
 
 A script cannot fix a messy business. If your prices change by the job, your calendar is not kept up to date, or half your calls need a judgment call, the agent will hand off most calls and add little. A human answering service may suit you better, and my post comparing the two shows [where each wins](/blog/ai-receptionist-vs-answering-service/).
 
-Check the cost too. My [voice agent build](/voice-agent-engineer/) is $900, then $450 a month with 500 minutes ([pricing](/pricing/)). If few calls go unanswered, a script is not worth that yet.
+Check the cost too. Our Missed-Call Recovery is $0 to set up, then $397 a month with 500 minutes, with a 10-missed-calls-in-30-days guarantee ([pricing](/pricing/)). If few calls go unanswered, a script is not worth that yet.
 
 ## Checklist before you go live
 

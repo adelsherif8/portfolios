@@ -68,7 +68,7 @@ The spring and fall tune-up call is also a safer first project than the emergenc
 
 ## When is an AI phone agent not worth it for HVAC?
 
-- **You are a one-truck shop and answer your own phone.** Voicemail plus a fast callback may be enough. The $900 build and $450 a month won't pay back at a few calls a week.
+- **You are a one-truck shop and answer your own phone.** Voicemail plus a fast callback may be enough. $397 a month won't pay back at a few calls a week.
 - **Nobody owns the on-call phone.** The transfer target has to answer. If it doesn't, the caller is worse off than with voicemail.
 - **Your dispatch rules aren't written down.** The agent follows rules. If your team argues about who counts as urgent, settle that first.
 - **Most of your calls are commercial or contract work.** Those customers have a named contact. Route them to that person.

@@ -76,7 +76,7 @@ An AI receptionist is working if it beats what you had before. So measure the ol
 
 Before you switch it on, count for one week how many calls go unanswered and how many of those callers ever call back. That is your before number. Without it, a 14-booking week means nothing.
 
-Then compare cost. My voice agent build is $900, then $450 a month with 500 minutes, and 15 cents a minute after that ([pricing](/pricing/)). Made-up break-even: if each extra job earns you $225 in profit, two extra jobs a month cover the $450 fee, and the $900 build takes a few more months to repay. If it books none, you have your answer.
+Then compare cost. Our Missed-Call Recovery is $0 to set up, then $397 a month with 500 minutes, and 15 cents a minute after that ([pricing](/pricing/)). Made-up break-even: if each extra job earns you $225 in profit, two extra jobs a month cover the $397 fee, and there's no setup fee to repay. If it books none, you have your answer.
 
 ## When is measuring not worth the effort?
 

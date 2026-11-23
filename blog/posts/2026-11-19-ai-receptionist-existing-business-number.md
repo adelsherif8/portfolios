@@ -68,7 +68,7 @@ The agents on my [voice agent page](/voice-agent-engineer/) answer in about 1 se
 
 ## When should you not connect an AI agent to your main number?
 
-- **You answer nearly every call yourself.** If few rings out, count last month's missed calls first. The [pricing page](/pricing/) shows a voice agent at $900 to build, then $450 a month with 500 minutes, so a few missed calls a month may not cover it.
+- **You answer nearly every call yourself.** If few rings out, count last month's missed calls first. The [pricing page](/pricing/) shows Missed-Call Recovery at $0 setup and $397 a month with 500 minutes, so a few missed calls a month may not cover it.
 - **Your number sits on a complex phone system.** A multi-line office, a group of phones that ring together or old landline hardware can make forwarding harder to predict. Try a spare line first.
 - **You cannot test.** If nobody will place the five test calls above, wait.
 - **Calls need a person within seconds.** If most calls are urgent, the agent should transfer them to a human. My post on [emergency calls](/blog/ai-phone-agent-emergency-calls/) covers that.

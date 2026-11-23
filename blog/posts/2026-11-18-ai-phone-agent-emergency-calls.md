@@ -74,7 +74,7 @@ One honest limit: those agents have no live transfer tool in the suite yet, so "
 - **No one owns the on-call phone.** A transfer to a number nobody answers is worse than voicemail with a clear message.
 - **Your emergencies are hard to define.** If your team argues about what counts, the prompt will too. Settle it first.
 - **You already run a staffed on-call line that people answer.** Your emergency tier is covered. Use the agent for the routine calls, as in [after-hours calls home-service businesses lose](/blog/after-hours-calls-home-service/).
-- **Call volume is tiny.** If emergencies are a handful a year, a good voicemail greeting plus a forwarded number costs less than the [$900 build and $450 a month](/pricing/) for a voice agent (500 minutes included, then 15¢ a minute).
+- **Call volume is tiny.** If emergencies are a handful a year, a good voicemail greeting plus a forwarded number costs less than [$397 a month](/pricing/) for Missed-Call Recovery (500 minutes included, then 15¢ a minute).
 
 ## What happens when the agent doesn't know?
 
