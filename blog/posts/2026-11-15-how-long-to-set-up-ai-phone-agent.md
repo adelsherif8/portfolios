@@ -7,7 +7,7 @@ service: /voice-agent-engineer/
 service_label: AI voice agent build
 tags: ai phone agent, setup, voice agents
 ---
-A demo number you can call comes within about 48 hours. Going live on your real line is a separate date, set mostly by your phone number. A simple port can take one business day under the FCC rule. A complicated one takes longer.
+A demo number you can call comes within about 48 hours. Going live on your real line is a separate date, set mostly by your phone number. A simple port can take one business day under the FCC rule. A complicated one takes longer. You can skip the port entirely: keep your number and forward the calls nobody picks up to the agent. That is how our Missed-Call Recovery goes live in 48 hours.
 
 Treat "demo" and "live" as two milestones, and ask any builder for a date on each.
 
@@ -70,7 +70,7 @@ Before launch, run your own check. Call the agent ten times, ask for something i
 
 - **You have not decided what the agent may do.** If you cannot say which calls it books and which go to a person, a fast build only makes the gaps arrive sooner.
 - **Your prices or menu change often and nobody will update them.** The agent only knows what it was given.
-- **You miss very few calls.** Count the calls that rang out last month first. If the number is tiny, a build may not pay for itself. My [pricing page](/pricing/) shows what a build costs, so you can compare. It is $900 to build, or $600 for the first three clients. Then it is $450 a month with 500 minutes, and 15¢ a minute after that.
+- **You miss very few calls.** Count the calls that rang out last month first. If the number is tiny, a build may not pay for itself. My [pricing page](/pricing/) shows what a build costs, so you can compare. Ours is $0 to set up and $397 a month with 500 minutes, and 15¢ a minute after that. If it doesn't catch at least 10 missed calls in the first 30 days, you don't pay.
 - **Nobody will read the first live calls.** Someone has to check them in week one.
 
 ## Checklist before you start the clock

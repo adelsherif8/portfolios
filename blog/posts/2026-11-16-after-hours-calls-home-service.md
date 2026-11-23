@@ -74,7 +74,7 @@ Emergency handling is the path I test hardest. My suite runs 38 simulated caller
 ## When is an AI agent not the right choice?
 
 - **Your log shows only a few real off-hours calls a month.** The worked example above shows when that stops paying. A text-back or a better voicemail greeting is enough.
-- **Your daytime answer rate is the real problem.** Fix the noon calls first. A voice agent costs $900 to build and $450 a month with 500 minutes ([pricing](/pricing/)), so $6,300 in year one.
+- **Your daytime answer rate is the real problem.** Fix the noon calls first. Our Missed-Call Recovery is $0 to set up and $397 a month with 500 minutes ([pricing](/pricing/)), so $4,764 in year one, and you don't pay the first month if it catches fewer than 10 missed calls.
 - **You already run a live on-call line that people answer.** Your emergency tier is covered.
 - **Your jobs need a person to price them on the phone.** The agent quotes only the fees you give it.
 - **You want a machine to handle a true emergency alone.** Transfer those to a person.

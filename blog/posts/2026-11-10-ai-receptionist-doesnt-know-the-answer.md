@@ -80,6 +80,6 @@ An agent pays off when most calls are routine and a person handles the rest.
 - Does every call end with a saved outcome, even when the agent could not help?
 - Does the builder test for invented prices, and can they show the results?
 - Who updates the agent's data when your prices change?
-- What does it cost? Mine is $900 to build and $450 a month with 500 minutes, then 15¢ a minute ([pricing](/pricing/)).
+- What does it cost? Mine is $0 to set up and $397 a month with 500 minutes, then 15¢ a minute, and you don't pay if it catches fewer than 10 missed calls in the first 30 days ([pricing](/pricing/)).
 
 If you want to hear a live agent first, [call the Blue Ridge recovery demo](https://voicedesk-h31g.onrender.com/agent/recovery).

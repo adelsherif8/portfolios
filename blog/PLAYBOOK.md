@@ -13,7 +13,7 @@ Goal: a genuinely useful answer to a question a buyer types into Google, that li
 3. Facts about Adel and his offer come ONLY from the site itself (read `pricing/index.html` and the relevant service
    page). Never invent clients, case studies, results, reviews, quotes, or statistics. Adel's own real numbers you may use:
    agent answers in about 1 second; missed-call text-back in 8 s and AI callback in 52 s (Blue Ridge demo); voice agent
-   $900 build + $450/month with 500 minutes, then 15¢/min (first three clients $600 build); automation $400/workflow,
+   Missed-Call Recovery: $0 setup + $397/month with 500 minutes, then 15¢/min; guarantee: ≥10 missed calls caught in the first 30 days or they don't pay; live in 48 h; founding price ends 15 Dec 2026 (locked 12 months). Lead with the outcome, not "AI voice agent"; automation $400/workflow,
    $1,200 system, $200/month care; his test suite: 38 simulated callers, 114 calls per run, about $0.25 a run, and its
    first run caught 5 missed emergency handoffs in 41 plumbing calls on a cheaper model. Demos are live at
    voicedesk-h31g.onrender.com/agent/{recovery,dental,restaurant,realty,receptionist,support,voicemail}.

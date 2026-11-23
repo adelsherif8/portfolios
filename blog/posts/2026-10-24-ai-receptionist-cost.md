@@ -98,4 +98,4 @@ Now flip it. If you miss two calls a week and few are urgent, the case is weak. 
 - How do you test it before launch? Here is [how we test AI phone agents](/blog/how-we-test-ai-phone-agents/).
 - Who updates it when my prices change?
 
-For reference, our own published price is a $900 build plus $450 a month with 500 minutes, then 15 cents a minute. The next step, if you want to compare line by line, is our [pricing page](/pricing/).
+For reference, our own published price is $0 setup and $397 a month with 500 minutes, then 15 cents a minute, and you don't pay if it catches fewer than 10 missed calls in the first 30 days. The next step, if you want to compare line by line, is our [pricing page](/pricing/).

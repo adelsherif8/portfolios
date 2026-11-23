@@ -106,7 +106,7 @@ Be honest about these cases:
 - **You want it to settle disputes, lien notices or auction questions.** Those need a person.
 - **You cannot confirm where card digits end up.** Skip phone payments until you can.
 
-On cost, a voice agent is $900 to build and $450 a month with 500 minutes included, then 15 cents a minute. The first three clients get the build at $600. All prices are on the [pricing page](/pricing/).
+On cost, our Missed-Call Recovery is $0 to set up and $397 a month with 500 minutes included, then 15 cents a minute. If it doesn't catch at least 10 missed calls in the first 30 days, you don't pay. All prices are on the [pricing page](/pricing/).
 
 For comparison, the pricing page puts a human receptionist at $2,800 to $4,500 a month. Whether the agent pays back depends on how many calls you currently miss.
 

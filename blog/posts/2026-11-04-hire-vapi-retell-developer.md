@@ -83,7 +83,7 @@ A build fee is one number. The monthly cost has several parts:
 
 Retell shows a [range of $0.07 to $0.31 a minute](https://www.retellai.com/pricing) depending on the model and voice you choose. Vapi [bills speech recognition, the model and the voice on top of its hosting fee](https://vapi.ai/pricing). A developer should tell you the per-minute total for your setup and what happens when you go over.
 
-Compare any quote to this shape: a build price, a monthly price, the minutes inside it and the rate after. Mine is $900 to build and $450 a month with 500 minutes, then 15 cents a minute ([pricing](/pricing/)).
+Compare any quote to this shape: a build price, a monthly price, the minutes inside it and the rate after. Mine is $0 to set up and $397 a month with 500 minutes, then 15 cents a minute, with a 10-missed-calls-in-30-days guarantee ([pricing](/pricing/)).
 
 ## What are the red flags?
 

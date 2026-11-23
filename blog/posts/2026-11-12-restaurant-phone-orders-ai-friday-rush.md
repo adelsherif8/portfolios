@@ -69,7 +69,7 @@ A wrong answer about the menu on a busy night costs more than a missed call. Tes
 
 ## What does it cost?
 
-The voice agent is a $900 build and $450 a month with 500 minutes included, then 15 cents a minute. The first three clients get the build at $600. On the [pricing page](/pricing/), 250 calls a month is about 500 minutes and stays at $450. At 500 calls a month you pass the included minutes and pay $525.
+Our Missed-Call Recovery is $0 to set up and $397 a month with 500 minutes included, then 15 cents a minute, and you don't pay if it catches fewer than 10 missed calls in the first 30 days. On the [pricing page](/pricing/), 250 calls a month is about 500 minutes and stays at $397. At 500 calls a month you pass the included minutes and pay $472.
 
 Compare that against your own missed-call count, not a vendor's.
 

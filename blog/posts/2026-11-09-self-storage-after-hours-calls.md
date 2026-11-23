@@ -73,7 +73,7 @@ The gate-code call is riskier, so the agent verifies name and unit first. [OWASP
 - **You already forward the line to an on-call manager who picks up.** Your miss rate is low.
 - **You want it to handle disputes, lien notices or auctions.** Those need a person.
 
-A voice agent costs $900 to build and $450 a month, so the first year is $6,300 ([pricing](/pricing/)).
+Our Missed-Call Recovery is $0 to set up and $397 a month, so the first year is $4,764 ([pricing](/pricing/)).
 
 The formula gives the rent from one month of missed calls over a full stay, and an agent will not catch every one of those callers. Halve it to be careful, and compare that with $6,300. If it comes out lower, the agent will not pay for itself on rentals alone.
 
