@@ -1,7 +1,7 @@
 ---
 title: AI receptionist for self storage: reservations, payments and gate codes
-seo_title: AI receptionist for self storage: what it can do
-description: An AI receptionist for self storage can quote units, reserve them and reset gate codes after hours. What to automate, what to keep human, and the risks.
+seo_title: AI Receptionist for Self Storage: Gate Codes & After Hours
+description: What an AI receptionist can safely do for a storage facility at 9pm: quote and reserve units, take payments, verify tenants before a gate code reset.
 date: 2026-10-31
 slug: ai-receptionist-self-storage
 service: /self-storage/

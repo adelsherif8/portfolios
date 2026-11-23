@@ -146,7 +146,7 @@
  {
   "slug": "ai-receptionist-self-storage",
   "title": "AI receptionist for self storage: reservations, payments and gate codes",
-  "description": "An AI receptionist for self storage can quote units, reserve them and reset gate codes after hours. What to automate, what to keep human, and the risks.",
+  "description": "What an AI receptionist can safely do for a storage facility at 9pm: quote and reserve units, take payments, verify tenants before a gate code reset.",
   "date": "2026-10-31",
   "tags": "self storage, ai receptionist, gate codes",
   "url": "https://adelatya.com/blog/ai-receptionist-self-storage/",
@@ -173,7 +173,7 @@
  {
   "slug": "retell-gohighlevel-missed-call-ai-callback",
   "title": "How to build a missed-call AI callback with GoHighLevel and Retell",
-  "description": "How you would build a missed-call AI callback: a GoHighLevel workflow, a text, a Retell call. What our demo covers and which steps it did not run.",
+  "description": "Call back every missed lead in under a minute: the GoHighLevel workflow, the text, the Retell call, the webhook and the TCPA consent check.",
   "date": "2026-10-29",
   "tags": "gohighlevel, retell ai, missed call text back",
   "url": "https://adelatya.com/blog/retell-gohighlevel-missed-call-ai-callback/",
@@ -189,15 +189,6 @@
   "source": "blog/posts/2026-10-28-ai-receptionist-vs-answering-service.md"
  },
  {
-  "slug": "how-we-test-ai-phone-agents",
-  "title": "How we test AI phone agents before they take real calls",
-  "description": "How to test an AI phone agent before launch: hard scenarios, repeat runs and code checks. Our 38-scenario numbers, what CI runs, and what text misses.",
-  "date": "2026-10-24",
-  "tags": "testing, ai voice agents, quality",
-  "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
-  "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
- },
- {
   "slug": "plumbing-missed-calls-cost",
   "title": "How many calls does a plumber miss, and what does each cost?",
   "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
@@ -207,9 +198,18 @@
   "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
  },
  {
+  "slug": "how-we-test-ai-phone-agents",
+  "title": "How we test AI phone agents before they take real calls",
+  "description": "How to test an AI phone agent before launch: hard scenarios, repeat runs and code checks. Our 38-scenario numbers, what CI runs, and what text misses.",
+  "date": "2026-10-24",
+  "tags": "testing, ai voice agents, quality",
+  "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
+  "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
+ },
+ {
   "slug": "ai-receptionist-cost-2026",
   "title": "How much does an AI receptionist cost for a small business in 2026?",
-  "description": "Published 2026 AI receptionist prices: $29 to $299 a month in our sample, about 13 cents a minute underneath, and what a custom build adds.",
+  "description": "Real 2026 AI receptionist prices: $29 to $299 a month in our sample, about 13 cents a minute underneath, and when it pays for itself.",
   "date": "2026-10-24",
   "tags": "pricing, ai receptionist, small business",
   "url": "https://adelatya.com/blog/ai-receptionist-cost-2026/",

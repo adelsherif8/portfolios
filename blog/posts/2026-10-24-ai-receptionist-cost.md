@@ -1,7 +1,7 @@
 ---
 title: How much does an AI receptionist cost for a small business in 2026?
-seo_title: AI receptionist cost for small businesses in 2026
-description: Published 2026 AI receptionist prices: $29 to $299 a month in our sample, about 13 cents a minute underneath, and what a custom build adds.
+seo_title: AI Receptionist Cost 2026: Real Prices, $29 to $299 a Month
+description: Real 2026 AI receptionist prices: $29 to $299 a month in our sample, about 13 cents a minute underneath, and when it pays for itself.
 date: 2026-10-24
 slug: ai-receptionist-cost-2026
 service: /pricing/

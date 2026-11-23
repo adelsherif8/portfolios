@@ -1,7 +1,7 @@
 ---
 title: How to build a missed-call AI callback with GoHighLevel and Retell
-seo_title: Retell AI GoHighLevel missed call callback: step by step
-description: How you would build a missed-call AI callback: a GoHighLevel workflow, a text, a Retell call. What our demo covers and which steps it did not run.
+seo_title: Missed-Call AI Callback: GoHighLevel + Retell, Step by Step
+description: Call back every missed lead in under a minute: the GoHighLevel workflow, the text, the Retell call, the webhook and the TCPA consent check.
 date: 2026-10-29
 slug: retell-gohighlevel-missed-call-ai-callback
 service: /white-label-ai-voice-agent/
