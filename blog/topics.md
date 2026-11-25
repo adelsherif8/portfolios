@@ -44,8 +44,18 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [ ] Reviving old leads with an AI calling agent: what's realistic
 [ ] Why AI receptionists sound robotic (and how to fix it)
 [ ] Voicemail is where leads go to die: the numbers for local businesses
-[ ] How much does GoHighLevel automation cost to set up properly?
+[x] 2026-11-25 How much does GoHighLevel automation cost to set up properly?
 [ ] AI receptionist for law firms: taking messages that lawyers can act on
 [ ] What an AI phone agent can't do (and when you still need a person)
 [ ] How to choose an AI receptionist provider: 10 questions to ask
 [ ] n8n vs Zapier vs Make for small-business automation in 2026
+[ ] Missed calls at a veterinary clinic: what an AI receptionist can take off the front desk
+[ ] Roofing leads go cold in hours: how to follow up after a storm call surge
+[ ] Salon and spa booking by phone: should an AI answer while you are mid-appointment?
+[ ] Auto repair shops: handling "how much to fix this?" calls without quoting wrong
+[ ] How to write a missed-call text-back message that gets a reply
+[ ] Should a small business keep a voicemail greeting once it has an AI receptionist?
+[ ] Property management maintenance calls: triage with an AI phone agent
+[ ] What to ask in a 30-minute fit call before buying GoHighLevel automation
+[ ] Chiropractor and physio clinics: cutting no-shows with reminders that work
+[ ] How to read an AI receptionist call log: what to check in the first week

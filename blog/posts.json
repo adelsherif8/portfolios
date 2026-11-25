@@ -1,5 +1,14 @@
 [
  {
+  "slug": "gohighlevel-automation-cost-setup",
+  "title": "How much does GoHighLevel automation cost to set up properly?",
+  "description": "A workflow costs $400 to build, a system $1,200, plus GoHighLevel's own $97 to $497 plan and small usage fees. Here is every line, and when not to pay.",
+  "date": "2026-11-25",
+  "tags": "gohighlevel, automation cost, pricing",
+  "url": "https://adelatya.com/blog/gohighlevel-automation-cost-setup/",
+  "source": "blog/posts/2026-11-25-gohighlevel-automation-cost-setup.md"
+ },
+ {
   "slug": "speed-to-lead-callback-under-a-minute",
   "title": "Speed to lead: why calling back in under a minute changes conversion",
   "description": "Speed to lead is how fast you reach a new lead. The research on 5-minute versus 30-minute callbacks, what it does not prove, and how to get under a minute.",
@@ -189,15 +198,6 @@
   "source": "blog/posts/2026-10-28-ai-receptionist-vs-answering-service.md"
  },
  {
-  "slug": "plumbing-missed-calls-cost",
-  "title": "How many calls does a plumber miss, and what does each cost?",
-  "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
-  "date": "2026-10-24",
-  "tags": "missed calls, plumbing, revenue",
-  "url": "https://adelatya.com/blog/plumbing-missed-calls-cost/",
-  "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
- },
- {
   "slug": "how-we-test-ai-phone-agents",
   "title": "How we test AI phone agents before they take real calls",
   "description": "How to test an AI phone agent before launch: hard scenarios, repeat runs and code checks. Our 38-scenario numbers, what CI runs, and what text misses.",
@@ -205,6 +205,15 @@
   "tags": "testing, ai voice agents, quality",
   "url": "https://adelatya.com/blog/how-we-test-ai-phone-agents/",
   "source": "blog/posts/2026-10-24-how-we-test-ai-phone-agents.md"
+ },
+ {
+  "slug": "plumbing-missed-calls-cost",
+  "title": "How many calls does a plumber miss, and what does each cost?",
+  "description": "Published data says home-service businesses miss between 14% and 48% of calls, depending on the definition. Here is how to find and price your own number.",
+  "date": "2026-10-24",
+  "tags": "missed calls, plumbing, revenue",
+  "url": "https://adelatya.com/blog/plumbing-missed-calls-cost/",
+  "source": "blog/posts/2026-10-24-plumbing-missed-calls-cost.md"
  },
  {
   "slug": "ai-receptionist-cost-2026",
