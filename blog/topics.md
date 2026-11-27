@@ -40,9 +40,9 @@ Each post must use its target phrase in the title, the first paragraph and one H
 [x] 2026-11-21 AI phone agents for HVAC: handling the first heat wave or cold snap
 [x] 2026-11-22 How to measure whether your AI receptionist is working
 [x] 2026-11-23 Speed to lead: why calling back in under a minute changes conversion
-[ ] AI voice agents and HIPAA: what a dental office needs to know
-[ ] Reviving old leads with an AI calling agent: what's realistic
-[ ] Why AI receptionists sound robotic (and how to fix it)
+[skip] needs legal source (2026-11-27) AI voice agents and HIPAA: what a dental office needs to know
+[skip] needs legal source (2026-11-27; outbound calling is TCPA territory) Reviving old leads with an AI calling agent: what's realistic
+[draft] score 88 (2026-11-27, 3 rounds; draft in blog/drafts/) Why AI receptionists sound robotic (and how to fix it)
 [ ] Voicemail is where leads go to die: the numbers for local businesses
 [x] 2026-11-25 How much does GoHighLevel automation cost to set up properly?
 [ ] AI receptionist for law firms: taking messages that lawyers can act on
